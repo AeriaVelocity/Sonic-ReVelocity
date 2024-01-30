@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=21 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Texture2D" uid="uid://b7xrood6a3usn" path="res://Scene1-FG Low.png" id="2_jekor"]
@@ -22,6 +22,18 @@ size = Vector2(200, 43.45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04ugb"]
 size = Vector2(95, 340)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcvj"]
+size = Vector2(107, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7svp1"]
+size = Vector2(204, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw1j8"]
+size = Vector2(73.3897, 20.8668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70dcw"]
+size = Vector2(127, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4ne"]
 size = Vector2(198, 78)
@@ -60,6 +72,7 @@ autoplay = true
 
 [node name="Sonic" type="CharacterBody2D" parent="."]
 position = Vector2(95, 377)
+floor_max_angle = 1.13446
 script = ExtResource("5_nnihb")
 
 [node name="SonicSprite" type="Sprite2D" parent="Sonic"]
@@ -70,7 +83,7 @@ position = Vector2(15, 22)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
-limit_right = 1152
+limit_right = 2304
 limit_bottom = 648
 position_smoothing_enabled = true
 drag_vertical_enabled = true
@@ -105,6 +118,48 @@ shape = SubResource("RectangleShape2D_x48gu")
 position = Vector2(1038.5, 104)
 shape = SubResource("RectangleShape2D_04ugb")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1335, 101.5)
+shape = SubResource("RectangleShape2D_xbcvj")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1491, -35)
+shape = SubResource("RectangleShape2D_7svp1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1631.46, -44.0245)
+rotation = 0.303564
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cw1j8")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1704.44, -13.6745)
+rotation = 0.45288
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cw1j8")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1777, 4)
+rotation = 0.0574496
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cw1j8")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1850, 0)
+rotation = -0.199385
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cw1j8")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1893, -32)
+rotation = -0.999092
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cw1j8")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1967.5, -58)
+shape = SubResource("RectangleShape2D_70dcw")
+
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2(1, 124)
 
@@ -120,7 +175,7 @@ position = Vector2(-30, 226)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1300, 360.5)
+position = Vector2(2052, 361)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="Platform" type="StaticBody2D" parent="."]
