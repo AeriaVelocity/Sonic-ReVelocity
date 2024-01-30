@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 1000.0
+var speed_cap = 1500.0
 var acceleration = 400.0
 var deceleration = 200.0
 var jump_speed = -500.0
@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 	if direction != 0:
 		current_velocity.x = current_velocity.x + direction * acceleration * delta
-		current_velocity.x = clamp(current_velocity.x, -speed, speed)
+		current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
 	else:
 		if current_velocity.x > 0 and is_on_floor():
 			current_velocity.x = max(0, current_velocity.x - deceleration * delta)
