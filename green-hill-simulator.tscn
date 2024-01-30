@@ -69,11 +69,13 @@ position = Vector2(296, 105)
 texture = ExtResource("6_shal3")
 
 [node name="BG" type="TextureRect" parent="."]
+texture_filter = 1
 offset_right = 8192.0
 offset_bottom = 650.0
 texture = ExtResource("1_2226m")
 
 [node name="FG" type="TextureRect" parent="."]
+texture_filter = 1
 offset_left = 1.0
 offset_top = -514.0
 offset_right = 16385.0
@@ -91,6 +93,7 @@ floor_max_angle = 1.13446
 script = ExtResource("5_nnihb")
 
 [node name="SonicSprite" type="Sprite2D" parent="Sonic"]
+texture_filter = 1
 texture = ExtResource("4_1omli")
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
