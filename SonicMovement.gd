@@ -28,15 +28,13 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	
-	# Apply acceleration and deceleration
 	if direction != 0:
 		current_velocity.x = current_velocity.x + direction * acceleration * delta
 		current_velocity.x = clamp(current_velocity.x, -speed, speed)
 	else:
-		# Decelerate when no input
-		if current_velocity.x > 0:
+		if current_velocity.x > 0 and is_on_floor():
 			current_velocity.x = max(0, current_velocity.x - deceleration * delta)
-		elif current_velocity.x < 0:
+		elif current_velocity.x < 0 and is_on_floor():
 			current_velocity.x = min(0, current_velocity.x + deceleration * delta)
 
 	velocity.x = current_velocity.x
@@ -48,6 +46,8 @@ func _physics_process(delta):
 		movement_sound.playing = false
 
 	move_and_slide()
+	
+	current_velocity = velocity
 
 func _on_death_area_body_entered(body):
 	death_sound.play()
