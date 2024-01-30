@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=3 uid="uid://dgtox7gro0x8a"]
+
+[ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
+[ext_resource type="Texture2D" uid="uid://b7xrood6a3usn" path="res://Scene1-FG Low.png" id="2_jekor"]
+[ext_resource type="AudioStream" uid="uid://c02uelv7h1koi" path="res://greenhill.mp3" id="3_yry7t"]
+[ext_resource type="Texture2D" uid="uid://bqrgs4m1vy0wo" path="res://sonic.png" id="4_1omli"]
+[ext_resource type="Script" path="res://SonicMovement.gd" id="5_nnihb"]
+[ext_resource type="AudioStream" uid="uid://dos0d3r7rqcun" path="res://movement-sfx.mp3" id="6_06xr4"]
+[ext_resource type="Texture2D" uid="uid://c1r7wu2ogq147" path="res://HUD.png" id="6_shal3"]
+[ext_resource type="AudioStream" uid="uid://ba3ic6w40b76l" path="res://woohoo.mp3" id="7_lvxvf"]
+[ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8wh"]
+radius = 26.0
+height = 78.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df8s7"]
+size = Vector2(879, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x48gu"]
+size = Vector2(200, 43.45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04ugb"]
+size = Vector2(95, 340)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4ne"]
+size = Vector2(198, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgywg"]
+size = Vector2(38, 719)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbt65"]
+size = Vector2(190, 24)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="HUD" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(296, 105)
+texture = ExtResource("6_shal3")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 8192.0
+offset_bottom = 650.0
+texture = ExtResource("1_2226m")
+
+[node name="FG" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = -514.0
+offset_right = 16385.0
+offset_bottom = 1534.0
+texture = ExtResource("2_jekor")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yry7t")
+volume_db = -10.306
+autoplay = true
+
+[node name="Sonic" type="CharacterBody2D" parent="."]
+position = Vector2(95, 377)
+script = ExtResource("5_nnihb")
+
+[node name="SonicSprite" type="Sprite2D" parent="Sonic"]
+texture = ExtResource("4_1omli")
+
+[node name="Camera2D" type="Camera2D" parent="Sonic"]
+position = Vector2(15, 22)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sonic"]
+position = Vector2(4, 7)
+shape = SubResource("CapsuleShape2D_um8wh")
+
+[node name="MovementSound" type="AudioStreamPlayer" parent="Sonic"]
+stream = ExtResource("6_06xr4")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sonic"]
+stream = ExtResource("7_lvxvf")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Sonic"]
+stream = ExtResource("8_ijmgq")
+
+[node name="Stage" type="StaticBody2D" parent="."]
+position = Vector2(0, 448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage"]
+position = Vector2(429.5, 24)
+shape = SubResource("RectangleShape2D_df8s7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stage"]
+position = Vector2(910.891, -3.19696)
+rotation = -0.504342
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_x48gu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Stage"]
+position = Vector2(1038.5, 104)
+shape = SubResource("RectangleShape2D_04ugb")
+
+[node name="DeathArea" type="Area2D" parent="."]
+position = Vector2(1, 124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(1185, 637)
+shape = SubResource("RectangleShape2D_ly4ne")
+debug_color = Color(0.980392, 0, 0.388235, 0.419608)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-30, 226)
+shape = SubResource("RectangleShape2D_qgywg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1300, 360.5)
+shape = SubResource("RectangleShape2D_qgywg")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(638, 357)
+shape = SubResource("RectangleShape2D_tbt65")
+one_way_collision = true
+
+[connection signal="body_entered" from="DeathArea" to="Sonic" method="_on_death_area_body_entered"]
