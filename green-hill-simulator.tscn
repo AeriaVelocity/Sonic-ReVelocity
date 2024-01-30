@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=26 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Texture2D" uid="uid://b7xrood6a3usn" path="res://Scene1-FG Low.png" id="2_jekor"]
@@ -33,7 +33,22 @@ size = Vector2(204, 62)
 size = Vector2(73.3897, 20.8668)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70dcw"]
-size = Vector2(127, 20)
+size = Vector2(160, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tflg"]
+size = Vector2(65, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elivy"]
+size = Vector2(48, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u41op"]
+size = Vector2(64, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv713"]
+size = Vector2(128, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpir4"]
+size = Vector2(256, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4ne"]
 size = Vector2(198, 78)
@@ -83,7 +98,7 @@ position = Vector2(15, 22)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
-limit_right = 2304
+limit_right = 2819
 limit_bottom = 648
 position_smoothing_enabled = true
 drag_vertical_enabled = true
@@ -157,8 +172,28 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cw1j8")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Stage"]
-position = Vector2(1967.5, -58)
+position = Vector2(1984, -58)
 shape = SubResource("RectangleShape2D_70dcw")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2096.5, -40)
+shape = SubResource("RectangleShape2D_0tflg")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2153, -58)
+shape = SubResource("RectangleShape2D_elivy")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2209, -84.5)
+shape = SubResource("RectangleShape2D_u41op")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2305, -116)
+shape = SubResource("RectangleShape2D_dv713")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2497, -156)
+shape = SubResource("RectangleShape2D_cpir4")
 
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2(1, 124)
@@ -175,7 +210,7 @@ position = Vector2(-30, 226)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(2052, 361)
+position = Vector2(2645, 359)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="Platform" type="StaticBody2D" parent="."]
