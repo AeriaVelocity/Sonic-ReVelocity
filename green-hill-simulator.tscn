@@ -55,7 +55,7 @@ size = Vector2(64, 33)
 size = Vector2(128, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpir4"]
-size = Vector2(256, 48)
+size = Vector2(256, 453)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4ne"]
 size = Vector2(198, 78)
@@ -214,7 +214,7 @@ position = Vector2(2305, -116)
 shape = SubResource("RectangleShape2D_dv713")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Stage"]
-position = Vector2(2497, -156)
+position = Vector2(2497, 46.5)
 shape = SubResource("RectangleShape2D_cpir4")
 
 [node name="DeathArea" type="Area2D" parent="."]
@@ -225,6 +225,11 @@ position = Vector2(1185, 637)
 shape = SubResource("RectangleShape2D_ly4ne")
 debug_color = Color(0.980392, 0, 0.388235, 0.419608)
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(2718, 637)
+shape = SubResource("RectangleShape2D_ly4ne")
+debug_color = Color(0.980392, 0, 0.388235, 0.419608)
+
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
@@ -232,7 +237,7 @@ position = Vector2(-30, 226)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(2645, 359)
+position = Vector2(2837, 359)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="Platform" type="StaticBody2D" parent="."]
