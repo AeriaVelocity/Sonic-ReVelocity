@@ -29,7 +29,7 @@ func update_speed_rank(speed):
 	elif speed >= 1000:
 		rank = "Now That's What I Call Speed™!"
 	elif speed >= 500:
-		rank = "Alright, now we're speeding up!"
+		rank = "That's speed, but it's not speed enough!"
 	elif speed >= 60:
 		rank = "Come on! Speed up already!"
 	else:
