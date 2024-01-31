@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=38 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Script" path="res://HUDPositioning.gd" id="2_j0wyh"]
@@ -59,11 +59,33 @@ size = Vector2(128, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpir4"]
 size = Vector2(256, 453)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4ne"]
-size = Vector2(198, 78)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccsrg"]
+size = Vector2(263, 454)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pygy"]
+size = Vector2(345, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlsnk"]
+size = Vector2(151.24, 23.9367)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n08m8"]
+size = Vector2(97, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nblbb"]
+size = Vector2(340, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yoyo"]
+size = Vector2(165.165, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_timcg"]
+size = Vector2(37, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_at3np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgywg"]
-size = Vector2(38, 719)
+size = Vector2(38, 1023.5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mh8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbt65"]
 size = Vector2(190, 24)
@@ -103,10 +125,17 @@ text = "Speed Rank "
 label_settings = SubResource("LabelSettings_mk1ad")
 vertical_alignment = 2
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="TextureRect" parent="ParallaxBackground"]
 texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -143.0
 offset_right = 8192.0
-offset_bottom = 650.0
+offset_bottom = 507.0
+grow_vertical = 2
 texture = ExtResource("1_2226m")
 
 [node name="FG" type="TextureRect" parent="."]
@@ -136,7 +165,7 @@ position = Vector2(15, 22)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
-limit_right = 2819
+limit_right = 4500
 limit_bottom = 648
 position_smoothing_enabled = true
 drag_vertical_enabled = true
@@ -229,28 +258,55 @@ shape = SubResource("RectangleShape2D_dv713")
 position = Vector2(2497, 46.5)
 shape = SubResource("RectangleShape2D_cpir4")
 
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Stage"]
+position = Vector2(2945.5, 46)
+shape = SubResource("RectangleShape2D_ccsrg")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3244, -239)
+shape = SubResource("RectangleShape2D_7pygy")
+one_way_collision = true
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3489.31, -279.338)
+rotation = -0.475574
+shape = SubResource("RectangleShape2D_rlsnk")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3598.5, -313.5)
+shape = SubResource("RectangleShape2D_n08m8")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3493, -59.9804)
+shape = SubResource("RectangleShape2D_nblbb")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3733.96, -26.4762)
+rotation = 0.428759
+shape = SubResource("RectangleShape2D_3yoyo")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Stage"]
+position = Vector2(3822.5, 7)
+shape = SubResource("RectangleShape2D_timcg")
+
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2(1, 124)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(1185, 637)
-shape = SubResource("RectangleShape2D_ly4ne")
-debug_color = Color(0.980392, 0, 0.388235, 0.419608)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(2718, 637)
-shape = SubResource("RectangleShape2D_ly4ne")
+position = Vector2(98, 826)
+shape = SubResource("WorldBoundaryShape2D_at3np")
 debug_color = Color(0.980392, 0, 0.388235, 0.419608)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-30, 226)
+position = Vector2(-30, 73.75)
 shape = SubResource("RectangleShape2D_qgywg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(2837, 359)
-shape = SubResource("RectangleShape2D_qgywg")
+position = Vector2(3842, 377)
+rotation = -1.57079
+shape = SubResource("WorldBoundaryShape2D_4mh8x")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 
@@ -440,5 +496,155 @@ position = Vector2(2397, -161)
 
 [node name="Ring60" parent="Rings" instance=ExtResource("10_qm8l1")]
 position = Vector2(2424, -161)
+
+[node name="Ring61" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2646, -158)
+
+[node name="Ring62" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2674, -158)
+
+[node name="Ring63" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2703, -158)
+
+[node name="Ring64" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2733, -159)
+
+[node name="Ring65" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2763, -160)
+
+[node name="Ring66" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2792, -161)
+
+[node name="Ring67" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2819, -161)
+
+[node name="Ring68" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2848, -161)
+
+[node name="Ring69" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2875, -161)
+
+[node name="Ring70" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2904, -235)
+
+[node name="Ring71" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2933, -235)
+
+[node name="Ring72" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2962, -235)
+
+[node name="Ring73" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(2991, -235)
+
+[node name="Ring74" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3017, -235)
+
+[node name="Ring75" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3044, -235)
+
+[node name="Ring76" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3070, -235)
+
+[node name="Ring77" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3099, -235)
+
+[node name="Ring78" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3131, -235)
+
+[node name="Ring79" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3166, -235)
+
+[node name="Ring80" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3199, -235)
+
+[node name="Ring81" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3235, -243)
+
+[node name="Ring82" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3264, -257)
+
+[node name="Ring83" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3292, -273)
+
+[node name="Ring84" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3320, -284)
+
+[node name="Ring85" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3353, -300)
+
+[node name="Ring86" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3379, -300)
+
+[node name="Ring87" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3404, -300)
+
+[node name="Ring88" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3430, -300)
+
+[node name="Ring89" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3458, -300)
+
+[node name="Ring90" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3150, -45)
+
+[node name="Ring91" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3174, -45)
+
+[node name="Ring92" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3199, -44)
+
+[node name="Ring93" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3223, -44)
+
+[node name="Ring94" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3250, -44)
+
+[node name="Ring95" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3274, -44)
+
+[node name="Ring96" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3300, -45)
+
+[node name="Ring97" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3324, -45)
+
+[node name="Ring98" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3353, -45)
+
+[node name="Ring99" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3377, -45)
+
+[node name="Ring100" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3404, -45)
+
+[node name="Ring101" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3428, -45)
+
+[node name="Ring102" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3458, -45)
+
+[node name="Ring103" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3490, -40)
+
+[node name="Ring104" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3512, -30)
+
+[node name="Ring105" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3555, -9)
+
+[node name="Ring107" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3576, 0)
+
+[node name="Ring108" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3597, 11)
+
+[node name="Ring109" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3619, 21)
+
+[node name="Ring110" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3641, 21)
+
+[node name="Ring106" parent="Rings" instance=ExtResource("10_qm8l1")]
+position = Vector2(3533, -18)
 
 [connection signal="body_entered" from="DeathArea" to="Sonic" method="_on_death_area_body_entered"]

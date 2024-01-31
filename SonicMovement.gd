@@ -155,9 +155,10 @@ func _physics_process(delta):
 	current_velocity = velocity
 
 func _on_death_area_body_entered(body):
-	dead = true
-	death_sound.play()
-	current_velocity.x = 0
-	await(death_sound.finished)
-	set_position(start_position)
-	dead = false
+	if body.is_in_group("Player"):
+		dead = true
+		death_sound.play()
+		velocity.x = 0
+		await(death_sound.finished)
+		set_position(start_position)
+		dead = false
