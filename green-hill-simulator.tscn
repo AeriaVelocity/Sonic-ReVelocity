@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=28 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Texture2D" uid="uid://b7xrood6a3usn" path="res://Scene1-FG Low.png" id="2_jekor"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://c1r7wu2ogq147" path="res://HUD.png" id="6_shal3"]
 [ext_resource type="AudioStream" uid="uid://ba3ic6w40b76l" path="res://woohoo.mp3" id="7_lvxvf"]
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
+
+[sub_resource type="SystemFont" id="SystemFont_lejx0"]
+font_weight = 900
+
+[sub_resource type="LabelSettings" id="LabelSettings_mk1ad"]
+font = SubResource("SystemFont_lejx0")
+font_size = 26
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8wh"]
 radius = 26.0
@@ -67,6 +74,24 @@ layer = 128
 [node name="HUD" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(296, 105)
 texture = ExtResource("6_shal3")
+
+[node name="Speedometer" type="Label" parent="CanvasLayer"]
+offset_left = 59.0
+offset_top = 543.0
+offset_right = 236.0
+offset_bottom = 579.0
+text = "Speedometer"
+label_settings = SubResource("LabelSettings_mk1ad")
+vertical_alignment = 2
+
+[node name="SpeedRank" type="Label" parent="CanvasLayer"]
+offset_left = 59.0
+offset_top = 578.0
+offset_right = 236.0
+offset_bottom = 614.0
+text = "Speed Rank "
+label_settings = SubResource("LabelSettings_mk1ad")
+vertical_alignment = 2
 
 [node name="BG" type="TextureRect" parent="."]
 texture_filter = 1

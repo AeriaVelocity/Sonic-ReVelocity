@@ -18,6 +18,25 @@ var current_velocity = Vector2()
 var camera_target
 var camera_speed = 150.0
 
+func update_speed_rank(speed):
+	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/Speedometer")
+	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/SpeedRank")
+	var rank: String
+	if speed < 0:
+		speed = -speed
+	if speed >= 1500:
+		rank = "SPEED FASTEST!!!"
+	elif speed >= 1000:
+		rank = "Now That's What I Call Speed™!"
+	elif speed >= 500:
+		rank = "Alright, now we're speeding up!"
+	elif speed >= 60:
+		rank = "Come on! Speed up already!"
+	else:
+		rank = "You're barely even moving!"
+	speedometer.set_text("Speedometer: %d fasts per speed" % speed)
+	rank_object.set_text("Speed Rank: " + rank)
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -46,6 +65,7 @@ func _physics_process(delta):
 		movement_sound.playing = false
 
 	move_and_slide()
+	update_speed_rank(velocity.x)
 	
 	current_velocity = velocity
 
