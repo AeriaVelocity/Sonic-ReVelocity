@@ -18,12 +18,11 @@ var current_velocity = Vector2()
 var camera_target
 var camera_speed = 150.0
 
-func update_speed_rank(speed):
+func update_speed_rank():
 	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/Speedometer")
 	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/SpeedRank")
 	var rank: String
-	if speed < 0:
-		speed = -speed
+	var speed = sqrt(velocity.x ** 2 + velocity.y ** 2)
 	if speed >= 1500:
 		rank = "SPEED FASTEST!!!"
 	elif speed >= 1000:
@@ -65,7 +64,7 @@ func _physics_process(delta):
 		movement_sound.playing = false
 
 	move_and_slide()
-	update_speed_rank(velocity.x)
+	update_speed_rank()
 	
 	current_velocity = velocity
 
