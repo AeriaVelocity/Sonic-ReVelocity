@@ -27,6 +27,7 @@ var speed_cap = 2000.0
 var acceleration = 400.0
 var deceleration = 200.0
 var jump_speed = -500.0
+var wall_jump_speed = 350.0
 
 var dead = false
 
@@ -71,19 +72,37 @@ func update_speed_rank():
 func handle_movement_sound():
 	movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
 	
+func handle_wall_jump():
+	if is_on_floor():
+		return
+	move_and_slide()
+	if get_last_slide_collision():
+		var collision_normal = get_last_slide_collision().get_normal()
+
+		if collision_normal.x < 0:
+			print("Jumping Left")
+			velocity.x = -wall_jump_speed
+		elif collision_normal.x > 0:
+			print("Jumping Right")
+			velocity.x = wall_jump_speed
+			
+		print(velocity.x)
+	
 func _ready():
 	was_on_floor = is_on_floor()
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	if Input.is_action_just_pressed("Jump") and is_on_wall():
-		velocity.y = jump_speed
-		jump_sound.play()
+		
+	update_speed_rank()
+	
+	if dead:
+		return
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_speed
+		velocity.x *= 1.3
 		jump_sound.play()
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
@@ -98,10 +117,15 @@ func _physics_process(delta):
 			current_velocity.x = min(0, current_velocity.x + deceleration * delta)
 
 	velocity.x = current_velocity.x
+
+	if Input.is_action_just_pressed("Jump") and is_on_wall():
+		handle_wall_jump()
+		velocity.y = jump_speed
+		jump_sound.play()
 	
 	if Input.is_action_just_pressed("MoveLeft") or Input.is_action_just_pressed("MoveRight"):
 		handle_movement_sound()
-		
+	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		movement_sound.stop()
 
@@ -114,7 +138,6 @@ func _physics_process(delta):
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
-	update_speed_rank()
 	
 	current_velocity = velocity
 
