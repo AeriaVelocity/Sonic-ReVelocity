@@ -45,6 +45,16 @@ var current_velocity = Vector2()
 var camera_target
 var camera_speed = 150.0
 
+func toggle_fullscreen():
+	var full_screen = DisplayServer.window_get_mode()
+
+	if full_screen:
+		DisplayServer.window_set_mode(0)
+	else:
+		DisplayServer.window_set_mode(4)
+		
+	print(full_screen)
+
 func update_speed_rank():
 	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/Speedometer")
 	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/SpeedRank")
@@ -128,6 +138,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		movement_sound.stop()
+	
+	if Input.is_action_just_pressed("FullScreen"):
+		toggle_fullscreen()
 
 	if velocity.x == 0:
 		handle_movement_sound()
