@@ -19,8 +19,8 @@ var camera_target
 var camera_speed = 150.0
 
 func update_speed_rank():
-	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/Speedometer")
-	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/SpeedRank")
+	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/Speedometer")
+	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/SpeedRank")
 	var rank: String
 	var speed = sqrt(velocity.x ** 2 + velocity.y ** 2)
 	if speed >= 1500:
