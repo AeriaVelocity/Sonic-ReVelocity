@@ -100,6 +100,8 @@ func handle_wall_jump():
 	
 func _ready():
 	was_on_floor = is_on_floor()
+	var bgm = get_node("/root/Node2D/Music")
+	bgm.playing = true
 
 func _physics_process(delta):
 	if not is_on_floor():

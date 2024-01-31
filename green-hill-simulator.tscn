@@ -149,7 +149,6 @@ texture = ExtResource("2_jekor")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yry7t")
 volume_db = -10.306
-autoplay = true
 
 [node name="Sonic" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(95, 377)
