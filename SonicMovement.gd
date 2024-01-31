@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed_cap = 1500.0
+var speed_cap = 2000.0
 var acceleration = 400.0
 var deceleration = 200.0
 var jump_speed = -500.0
