@@ -56,8 +56,8 @@ func toggle_fullscreen():
 	print(full_screen)
 
 func update_speed_rank():
-	var speedometer: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/Speedometer")
-	var rank_object: Label = get_node("/root/Node2D/CanvasLayer/BottomHUD/SpeedRank")
+	var speedometer: Label = get_node("/root/Game/CanvasLayer/BottomHUD/Speedometer")
+	var rank_object: Label = get_node("/root/Game/CanvasLayer/BottomHUD/SpeedRank")
 	var rank: String
 	var speed = sqrt(velocity.x ** 2 + velocity.y ** 2)
 	if dead:
@@ -100,8 +100,7 @@ func handle_wall_jump():
 	
 func _ready():
 	was_on_floor = is_on_floor()
-	var bgm = get_node("/root/Node2D/Music")
-	bgm.playing = true
+	get_node("/root/Game/Music").playing = true
 
 func _physics_process(delta):
 	if not is_on_floor():
