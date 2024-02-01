@@ -15,10 +15,6 @@ config/description="Green Hill Zone Simulator is a high momentum Sonic fan game 
 config/version="Yes"
 run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
-boot_splash/fullsize=false
-boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [input]

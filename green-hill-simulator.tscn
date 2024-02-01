@@ -12,11 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
 [ext_resource type="PackedScene" uid="uid://cmah3n5yk1251" path="res://ring.tscn" id="10_qm8l1"]
 
-[sub_resource type="SystemFont" id="SystemFont_lejx0"]
+[sub_resource type="SystemFont" id="SystemFont_megr3"]
 font_weight = 900
 
 [sub_resource type="LabelSettings" id="LabelSettings_mk1ad"]
-font = SubResource("SystemFont_lejx0")
+font = SubResource("SystemFont_megr3")
 font_size = 26
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8wh"]
