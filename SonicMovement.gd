@@ -100,7 +100,6 @@ func handle_wall_jump():
 	
 func _ready():
 	was_on_floor = is_on_floor()
-	get_node("/root/Game/Music").playing = true
 
 func _physics_process(delta):
 	if not is_on_floor():

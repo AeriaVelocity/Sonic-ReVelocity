@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=39 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Script" path="res://HUDPositioning.gd" id="2_j0wyh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bqrgs4m1vy0wo" path="res://sonic.png" id="4_1omli"]
 [ext_resource type="Script" path="res://SonicMovement.gd" id="5_nnihb"]
 [ext_resource type="AudioStream" uid="uid://dos0d3r7rqcun" path="res://movement-sfx.mp3" id="6_06xr4"]
+[ext_resource type="Script" path="res://BGMHandling.gd" id="6_gxnqw"]
 [ext_resource type="Texture2D" uid="uid://c1r7wu2ogq147" path="res://HUD.png" id="6_shal3"]
 [ext_resource type="AudioStream" uid="uid://ba3ic6w40b76l" path="res://woohoo.mp3" id="7_lvxvf"]
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
@@ -149,6 +150,7 @@ texture = ExtResource("2_jekor")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yry7t")
 volume_db = -10.306
+script = ExtResource("6_gxnqw")
 
 [node name="Sonic" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(95, 377)
@@ -641,4 +643,5 @@ position = Vector2(3641, 21)
 [node name="Ring106" parent="Rings" instance=ExtResource("10_qm8l1")]
 position = Vector2(3533, -18)
 
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="body_entered" from="DeathArea" to="Sonic" method="_on_death_area_body_entered"]
