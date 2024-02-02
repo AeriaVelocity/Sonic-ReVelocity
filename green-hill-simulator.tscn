@@ -64,7 +64,7 @@ size = Vector2(256, 453)
 size = Vector2(263, 454)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pygy"]
-size = Vector2(345, 33)
+size = Vector2(345, 19.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlsnk"]
 size = Vector2(151.24, 23.9367)
@@ -262,7 +262,7 @@ position = Vector2(2945.5, 46)
 shape = SubResource("RectangleShape2D_ccsrg")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Stage"]
-position = Vector2(3244, -239)
+position = Vector2(3244, -245.75)
 shape = SubResource("RectangleShape2D_7pygy")
 one_way_collision = true
 

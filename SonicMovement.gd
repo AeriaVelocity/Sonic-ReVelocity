@@ -90,14 +90,10 @@ func handle_wall_jump():
 		var collision_normal = get_last_slide_collision().get_normal()
 
 		if collision_normal.x < 0:
-			print("Jumping Left")
 			velocity.x = -wall_jump_speed
 		elif collision_normal.x > 0:
-			print("Jumping Right")
 			velocity.x = wall_jump_speed
-			
-		print(velocity.x)
-	
+
 func _ready():
 	was_on_floor = is_on_floor()
 
