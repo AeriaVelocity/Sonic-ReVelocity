@@ -100,14 +100,24 @@ func _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		
 	update_speed_rank()
 	
 	if dead:
 		return
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_speed
+		const level_floor_normal = -1 # because Godot said so
+		var last_collision = get_last_slide_collision()
+		var floor_normal = get_floor_normal()
+
+		var on_slope = floor_normal.y > level_floor_normal
+		if on_slope and abs(velocity.x) > 100:
+			var slope_bonus = (2.0 + floor_normal.y)
+			var speed_bonus = (abs(velocity.x) - 100) / 4
+			velocity.y += jump_speed * slope_bonus - speed_bonus
+		else:
+			velocity.y += jump_speed
+
 		velocity.x *= 1.3
 		jump_sound.play()
 
@@ -147,6 +157,12 @@ func _physics_process(delta):
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
+	
+	var last_collision = get_last_slide_collision()
+	if last_collision != null and is_on_floor():
+		$SonicSprite.set_rotation(last_collision.get_normal().x)
+	elif not is_on_floor():
+		$SonicSprite.set_rotation(0)
 	
 	current_velocity = velocity
 
