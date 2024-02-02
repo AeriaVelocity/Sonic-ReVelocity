@@ -24,12 +24,21 @@ _data = {
 "fade_in_out": SubResource("Animation_whbk8")
 }
 
-[node name="Intro" type="Node2D"]
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="IntroVideo" type="VideoStreamPlayer" parent="."]
-offset_left = -6.10352e-05
-offset_right = 1920.0
-offset_bottom = 1088.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("1_vunfo")
 autoplay = true
 expand = true
@@ -39,6 +48,7 @@ script = ExtResource("2_ftiyj")
 layer = 128
 
 [node name="SkipHint" type="RichTextLabel" parent="IntroVideo/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
