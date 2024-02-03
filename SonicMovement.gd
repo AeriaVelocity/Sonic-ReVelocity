@@ -123,13 +123,18 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	
-	if direction != 0:
+	var is_rolling = Input.is_action_pressed("Spin") and is_on_floor()
+
+	if is_rolling:
+		$SonicSprite.rotate(velocity.x if velocity.x != 0 else 0 / 100)
+
+	if direction != 0 and not is_rolling:
 		current_velocity.x = current_velocity.x + direction * acceleration * delta
 		current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
 	else:
-		if current_velocity.x > 0 and is_on_floor():
+		if current_velocity.x > 0 and is_on_floor() and not is_rolling:
 			current_velocity.x = max(0, current_velocity.x - deceleration * delta)
-		elif current_velocity.x < 0 and is_on_floor():
+		elif current_velocity.x < 0 and is_on_floor() and not is_rolling:
 			current_velocity.x = min(0, current_velocity.x + deceleration * delta)
 
 	velocity.x = current_velocity.x
@@ -157,13 +162,14 @@ func _physics_process(delta):
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
-	
-	var last_collision = get_last_slide_collision()
-	if last_collision != null and is_on_floor():
-		$SonicSprite.set_rotation(last_collision.get_normal().x)
-	elif not is_on_floor():
-		$SonicSprite.set_rotation(0)
-	
+
+	if not is_rolling:
+		var last_collision = get_last_slide_collision()
+		if last_collision != null:
+			$SonicSprite.set_rotation(last_collision.get_normal().x)
+		else:
+			$SonicSprite.rotate(50 * delta * (velocity.x / abs(velocity.x) if velocity.x != 0 else 1))
+
 	current_velocity = velocity
 
 func _on_death_area_body_entered(body):
