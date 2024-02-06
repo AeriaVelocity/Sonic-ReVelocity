@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bubs30frfyrb"]
+
+[sub_resource type="SystemFont" id="SystemFont_aq4ua"]
+font_names = PackedStringArray("Source Code Pro", "Consolas", "Monospace")
+
+[sub_resource type="LabelSettings" id="LabelSettings_n14xc"]
+font = SubResource("SystemFont_aq4ua")
+font_size = 18
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0, 0.4, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 647.0
+grow_horizontal = 2
+text = "A problem has been detected and Green Hill Zone Simulator has been shut down because the user is a FRICKING FRICK.
+
+USER_ERROR
+
+If this is the first time you've seen this Stop error screen, congratulations. You get to brag to all your friends that you found the hidden Easter egg in a random Sonic fan game which greets you with a Blue Screen of Death. Well done to you. If you see this screen again, follow these steps:
+
+1. Close Green Hill Zone Simulator. (Alt-F4, or Cmd-Q if you're a Mac user (but did anyone even build this game for Mac?))
+2. Start up the game again.
+3. Stop being a FRICKING FRICK!!!!!!!1!
+4. Play Sonic: Lock & Load instead.
+
+If problems continue, then you really suck at handling the physics, or maybe the physics just suck. I dunno I could go either or on this one.
+
+Technical information:
+
+*** STOP: 0xFR1CKY0U 
+
+*** yourSanity.dll - Deleted as a result of Sonic falling off the stage."
+label_settings = SubResource("LabelSettings_n14xc")
+autowrap_mode = 2

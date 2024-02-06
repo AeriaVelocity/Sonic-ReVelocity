@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=56 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Script" path="res://HUDPositioning.gd" id="2_j0wyh"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c1r7wu2ogq147" path="res://HUD.png" id="6_shal3"]
 [ext_resource type="AudioStream" uid="uid://ba3ic6w40b76l" path="res://woohoo.mp3" id="7_lvxvf"]
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
+[ext_resource type="Texture2D" uid="uid://dgqtrb0ioqb7g" path="res://goal_post.png" id="8_ofvmu"]
 [ext_resource type="PackedScene" uid="uid://cmah3n5yk1251" path="res://ring.tscn" id="10_qm8l1"]
+[ext_resource type="PackedScene" uid="uid://dryqir0hi3bpp" path="res://platform.tscn" id="13_ax5a2"]
 
 [sub_resource type="SystemFont" id="SystemFont_megr3"]
 font_weight = 900
@@ -20,12 +22,15 @@ font_weight = 900
 font = SubResource("SystemFont_megr3")
 font_size = 26
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t85h"]
+size = Vector2(47.9952, 48)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8wh"]
 radius = 26.0
 height = 78.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df8s7"]
-size = Vector2(879, 46)
+size = Vector2(869, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x48gu"]
 size = Vector2(200, 43.45)
@@ -105,16 +110,35 @@ size = Vector2(256, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syfrw"]
 size = Vector2(124, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_at3np"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yg8cy"]
+size = Vector2(65, 86)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgywg"]
-size = Vector2(38, 1023.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8yux"]
+size = Vector2(191, 18)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mh8x"]
-distance = -1125.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ina4p"]
+size = Vector2(252, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbt65"]
-size = Vector2(190, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4i1hv"]
+size = Vector2(190, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sacvs"]
+size = Vector2(208, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfv6m"]
+size = Vector2(127, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lk33"]
+size = Vector2(20, 365.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4adb"]
+size = Vector2(1028.4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g23df"]
+size = Vector2(515, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyugk"]
+size = Vector2(10589, 20)
 
 [node name="Game" type="Node2D"]
 
@@ -166,9 +190,8 @@ texture = ExtResource("1_2226m")
 
 [node name="FG" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = 1.0
 offset_top = -514.0
-offset_right = 16385.0
+offset_right = 16384.0
 offset_bottom = 1534.0
 texture = ExtResource("2_jekor")
 
@@ -176,6 +199,28 @@ texture = ExtResource("2_jekor")
 stream = ExtResource("3_yry7t")
 volume_db = -10.306
 script = ExtResource("6_gxnqw")
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(7458, 582)
+
+[node name="Platform" parent="Platforms" instance=ExtResource("13_ax5a2")]
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("13_ax5a2")]
+position = Vector2(76, -74)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("13_ax5a2")]
+position = Vector2(154, -135)
+
+[node name="GoalPost" type="Area2D" parent="."]
+position = Vector2(11183, 691)
+
+[node name="Sprite2D" type="Sprite2D" parent="GoalPost"]
+position = Vector2(3.00488, -13.3115)
+texture = ExtResource("8_ofvmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalPost"]
+position = Vector2(3.00195, -13.3115)
+shape = SubResource("RectangleShape2D_2t85h")
 
 [node name="Sonic" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(95, 377)
@@ -192,8 +237,8 @@ position = Vector2(15, 22)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = -860
-limit_right = 6000
-limit_bottom = 648
+limit_right = 12000
+limit_bottom = 748
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 
@@ -214,7 +259,7 @@ stream = ExtResource("8_ijmgq")
 position = Vector2(0, 448)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage"]
-position = Vector2(429.5, 24)
+position = Vector2(434.5, 24)
 shape = SubResource("RectangleShape2D_df8s7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stage"]
@@ -344,7 +389,7 @@ shape = SubResource("RectangleShape2D_4bxx7")
 
 [node name="CollisionShape2D33" type="CollisionPolygon2D" parent="Stage"]
 position = Vector2(5384, -247)
-polygon = PackedVector2Array(121, -20, 121, -10, 312, -11, 426, -74, 535, -74, 535, -62, 426, -61, 312, 1, -305, -2, -338, -16, -399, -45, -445, -66, -524, -66, -579, -76, -629, -94, -684, -119, -749, -129, -839, -127, -839, -139, -818, -141, -742, -140, -698, -133, -659, -124, -629, -108, -605, -97, -579.225, -86.1492, -549, -80, -519, -76, -485, -77, -456, -77, -421, -69, -388, -51, -351, -32, -323, -21, -305, -11, -285, -11, -253, -10, -215, -8, -198, -8, -153, -10, -68, -12, 27, -11, 83, -14)
+polygon = PackedVector2Array(121, -20, 121, -10, 312, -11, 426, -74, 817, -76, 842, -67, 861, -48, 869, -34, 870, -22, 870, -8, 864, 5, 846, 28, 832, 47, 826, 67, 826, 89, 829, 115, 838, 134, 852, 152, 868, 166, 887, 175, 922, 181, 956, 181, 996, 181, 1042, 179, 1078, 181, 1106, 185, 1143, 187, 1174, 185, 1195, 182, 1220, 179, 1245, 180, 1271, 180, 1304, 181, 1343, 183, 1375, 208, 1380, 223, 1383, 232, 1383, 247, 1374, 265, 1360, 282, 1348, 297, 1339, 317, 1338, 332, 1339, 363, 1342, 372, 1347, 386, 1355, 397, 1364, 408, 1375, 418, 1387, 425, 1399, 431, 1411, 434, 1424, 436, 1460, 437, 1497, 436, 1507, 435, 1515, 437, 1526, 437, 1528, 433, 1591, 434, 1603, 438, 1625, 443, 1665, 463, 1712, 487, 1738, 501, 1816, 500, 1836, 498, 1862, 487, 1877, 473, 1886, 457, 1892, 445, 1892, 437, 1915, 437, 1935, 440, 1955, 440, 1972, 437, 2094, 437, 2130, 443, 2174, 443, 2209, 439, 2223, 437, 2298, 436, 2298, 452, 2270, 452, 2241, 452, 2219, 459, 2174, 463, 2131, 461, 2092, 455, 1966, 454, 1918, 454, 1903, 449, 1900, 459, 1894, 477, 1878, 493, 1851, 507, 1816, 519, 1738, 519, 1719, 509, 1675, 487, 1603, 450, 1501, 449, 1481, 449, 1467, 443, 1441, 443, 1415, 442, 1396, 437, 1377, 428, 1360, 415, 1347, 400, 1336, 381, 1331, 363, 1331, 339, 1331, 322, 1336, 305, 1345, 286, 1362, 268, 1371, 255, 1373, 237, 1370, 219, 1355, 199, 1324, 191, 1280, 197, 1255, 196, 1228, 196, 1207, 199, 1184, 202, 1150, 204, 1107, 203, 1078, 197, 1011, 193, 1005, 193, 965, 191, 935, 188, 899, 186, 876, 178, 852, 163, 838, 149, 825, 126, 819, 102, 818, 78, 822, 55, 829, 35, 848, 13, 861, -3, 860, -29, 848, -51, 831, -61, 814, -62, 792, -62, 426, -61, 312, 1, -305, -2, -338, -16, -399, -45, -445, -66, -524, -66, -579, -76, -629, -94, -684, -119, -749, -129, -839, -127, -839, -139, -818, -141, -742, -140, -698, -133, -659, -124, -629, -108, -605, -97, -579.225, -86.1492, -549, -80, -519, -76, -485, -77, -456, -77, -421, -69, -388, -51, -351, -32, -323, -21, -305, -11, -285, -11, -253, -10, -215, -8, -198, -8, -153, -10, -68, -12, 27, -11, 83, -14)
 one_way_collision = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stage"]
@@ -366,31 +411,93 @@ position = Vector2(4865, -571)
 shape = SubResource("RectangleShape2D_syfrw")
 one_way_collision = true
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Stage"]
+polygon = PackedVector2Array(7426, -68, 7426, -47, 7680, -47, 7680, -68, 7666, -68, 7637, -59, 7622, -63, 7606, -61, 7559, -69, 7543, -69, 7495, -62, 7481, -62, 7440, -68)
+one_way_collision = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Stage"]
+position = Vector2(318, -118)
+polygon = PackedVector2Array(7425, -59, 7426, -47, 7680, -47, 7682, -59, 7667, -63, 7646, -63, 7621, -61, 7600, -62, 7563, -66, 7541, -62, 7515, -61, 7481, -62, 7441, -63)
+one_way_collision = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Stage"]
+position = Vector2(767, -118)
+polygon = PackedVector2Array(7425, -59, 7424, -44, 7617, -46, 7616, -57, 7609, -61, 7585, -61, 7527, -55, 7500, -56, 7472, -57, 7441, -63)
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Stage"]
+position = Vector2(7711.5, -90)
+shape = SubResource("RectangleShape2D_yg8cy")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Stage"]
+position = Vector2(640.5, -91)
+shape = SubResource("RectangleShape2D_r8yux")
+one_way_collision = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Stage"]
+polygon = PackedVector2Array(8255, -36, 8255, -15, 8291, -16, 8372, -50, 8473, -46, 8559, -70, 8639, -109, 8768, -112, 8768, -126, 8761, -132, 8706, -133, 8689, -127, 8671, -127, 8660, -124, 8649, -125, 8632, -126, 8623, -124, 8539, -81, 8522, -80, 8511, -78, 8487, -76, 8478, -76, 8463, -67, 8371, -67, 8358, -63, 8324, -47, 8292, -38)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Stage"]
+position = Vector2(1022, 0)
+polygon = PackedVector2Array(8255, -36, 8255, -15, 8291, -16, 8372, -50, 8473, -46, 8514, -42, 8601, -6, 8661, 17, 8724, 17, 8767, 17, 8771, 6, 8764, -3, 8750, -3, 8693, -3, 8663, -8, 8625, -22, 8594, -34, 8566, -47, 8531, -58, 8499, -65, 8463, -67, 8371, -67, 8358, -63, 8324, -47, 8292, -38)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Stage"]
+position = Vector2(1220, 223)
+polygon = PackedVector2Array(8255, -36, 8249, -31, 8249, -22, 8255, -15, 8291, -16, 8345, -9, 8428, -1, 8495, -8, 8584, -4, 8646, 21, 8710, 56, 8763, 53, 8818, 50, 8875, 20, 8888, -20, 8895, -67, 8897, -127, 8877, -127, 8876, -49, 8870, -17, 8859, -1, 8849, 11, 8835, 20, 8822, 26, 8806, 30, 8792, 30, 8730, 31, 8718, 31, 8705, 23, 8677, 10, 8648, -5, 8619, -19, 8587, -33, 8565, -34, 8527, -35, 8481, -35, 8450, -33, 8403, -28, 8352, -27, 8310, -31, 8287, -35)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Stage"]
+position = Vector2(8896, -171)
+shape = SubResource("RectangleShape2D_ina4p")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Stage"]
+position = Vector2(9312, -171)
+shape = SubResource("RectangleShape2D_4i1hv")
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Stage"]
+position = Vector2(10200, 85)
+shape = SubResource("RectangleShape2D_sacvs")
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Stage"]
+position = Vector2(10560.5, 84)
+shape = SubResource("RectangleShape2D_sfv6m")
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Stage"]
+position = Vector2(10294, 277.375)
+shape = SubResource("RectangleShape2D_5lk33")
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Stage"]
+position = Vector2(10507, 277)
+shape = SubResource("RectangleShape2D_5lk33")
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Stage"]
+polygon = PackedVector2Array(10624, 94, 10609, 94, 10609, 188, 10613, 210, 10627, 234, 10648, 253, 10673, 266, 10716, 274, 10751, 279, 11629, 280, 11629, 250, 11487, 252, 11408, 254, 11361, 254, 11332, 259, 11321, 260, 11297, 254, 11254, 255, 11211, 254, 11154, 254, 11136, 254, 11136, 244, 11118, 248, 11094, 252, 11076, 254, 11039, 254, 10952, 253, 10892, 254, 10861, 254, 10839, 256, 10816, 260, 10799, 258, 10779, 255, 10760, 252, 10753, 254, 10734, 254, 10705, 254, 10691, 253, 10675, 248, 10659, 240, 10644, 228, 10636, 216, 10629, 201, 10625, 185)
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Stage"]
+position = Vector2(8190.8, 261.135)
+shape = SubResource("RectangleShape2D_v4adb")
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Stage"]
+position = Vector2(9215.5, 261)
+shape = SubResource("RectangleShape2D_g23df")
+
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2(1, 124)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(98, 645)
-shape = SubResource("WorldBoundaryShape2D_at3np")
+position = Vector2(5293.5, 796)
+shape = SubResource("RectangleShape2D_fyugk")
 debug_color = Color(0.980392, 0, 0.388235, 0.419608)
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="FunnyZone" type="Area2D" parent="."]
+position = Vector2(1, 124)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-30, 73.75)
-shape = SubResource("RectangleShape2D_qgywg")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FunnyZone"]
+position = Vector2(-283, 381)
+polygon = PackedVector2Array(281, 190, 281, 238, -254, 244, -495, -212, -235, -504, -167, -504, -422, -217, -230, 180)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(4795, 100)
-rotation = -1.57079
-shape = SubResource("WorldBoundaryShape2D_4mh8x")
-
-[node name="Platform" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(638, 357)
-shape = SubResource("RectangleShape2D_tbt65")
-one_way_collision = true
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FunnyZone"]
+position = Vector2(11993.4, 321.139)
+polygon = PackedVector2Array(-596.423, 803.861, -598.423, 603.861, -45.4229, 621.861, 316.577, -204.139, -428.423, -943.139, -102.423, -943.139, 613.577, -195.139, 71.5771, 801.861)
 
 [node name="Rings" type="Node2D" parent="."]
 position = Vector2(187, 408)
@@ -1012,5 +1119,43 @@ position = Vector2(3826, -414)
 [node name="Ring106" parent="Rings" instance=ExtResource("10_qm8l1")]
 position = Vector2(3533, -18)
 
+[node name="ThreeRing" type="Node2D" parent="Rings"]
+position = Vector2(7257.65, 143.16)
+
+[node name="Ring208" parent="Rings/ThreeRing" instance=ExtResource("10_qm8l1")]
+position = Vector2(-8.65186, 3.84045)
+
+[node name="Ring209" parent="Rings/ThreeRing" instance=ExtResource("10_qm8l1")]
+position = Vector2(13.3481, 3.84045)
+
+[node name="Ring210" parent="Rings/ThreeRing" instance=ExtResource("10_qm8l1")]
+position = Vector2(35.3481, 3.84045)
+
+[node name="ThreeRing2" type="Node2D" parent="Rings"]
+position = Vector2(7333, 69)
+
+[node name="Ring208" parent="Rings/ThreeRing2" instance=ExtResource("10_qm8l1")]
+position = Vector2(-8.65186, 3.84045)
+
+[node name="Ring209" parent="Rings/ThreeRing2" instance=ExtResource("10_qm8l1")]
+position = Vector2(13.3481, 3.84045)
+
+[node name="Ring210" parent="Rings/ThreeRing2" instance=ExtResource("10_qm8l1")]
+position = Vector2(35.3481, 3.84045)
+
+[node name="ThreeRing3" type="Node2D" parent="Rings"]
+position = Vector2(7411, 7)
+
+[node name="Ring208" parent="Rings/ThreeRing3" instance=ExtResource("10_qm8l1")]
+position = Vector2(-8.65186, 3.84045)
+
+[node name="Ring209" parent="Rings/ThreeRing3" instance=ExtResource("10_qm8l1")]
+position = Vector2(13.3481, 3.84045)
+
+[node name="Ring210" parent="Rings/ThreeRing3" instance=ExtResource("10_qm8l1")]
+position = Vector2(35.3481, 3.84045)
+
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
+[connection signal="body_entered" from="GoalPost" to="Sonic" method="_on_goal_post_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="Sonic" method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="FunnyZone" to="Sonic" method="_on_funny_zone_body_entered"]

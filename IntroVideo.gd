@@ -2,14 +2,10 @@ extends VideoStreamPlayer
 
 @onready var skip_hint = $CanvasLayer/SkipHint
 
-func _ready():
-	var window_size = get_viewport_rect().size
-	size = window_size
-
 func _on_intro_done():
 	get_tree().change_scene_to_file("res://green-hill-simulator.tscn")
 
-func _process(delta):
+func _process(_delta):
 	var hint: String
 	match Input.get_joy_name(0):
 		"XInput Gamepad":

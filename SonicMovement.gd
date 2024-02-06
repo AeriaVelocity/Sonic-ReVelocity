@@ -49,9 +49,9 @@ func toggle_fullscreen():
 	var full_screen = DisplayServer.window_get_mode()
 
 	if full_screen:
-		DisplayServer.window_set_mode(0)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
-		DisplayServer.window_set_mode(4)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		
 	print(full_screen)
 
@@ -107,7 +107,6 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		const level_floor_normal = -1 # because Godot said so
-		var last_collision = get_last_slide_collision()
 		var floor_normal = get_floor_normal()
 
 		var on_slope = floor_normal.y > level_floor_normal
@@ -126,7 +125,7 @@ func _physics_process(delta):
 	var is_rolling = Input.is_action_pressed("Spin") and is_on_floor()
 
 	if is_rolling:
-		$SonicSprite.rotate(velocity.x if velocity.x != 0 else 0 / 100)
+		$SonicSprite.rotate(velocity.x if velocity.x != 0 else 0 / 100.0)
 
 	if direction != 0 and not is_rolling:
 		current_velocity.x = current_velocity.x + direction * acceleration * delta
@@ -180,3 +179,17 @@ func _on_death_area_body_entered(body):
 		await(death_sound.finished)
 		set_position(start_position)
 		dead = false
+
+func _on_funny_zone_body_entered(body):
+	if body.is_in_group("Player"):
+		call_deferred("_change_scene_to_wrong_zone")
+
+func _change_scene_to_wrong_zone():
+	get_tree().change_scene_to_file("res://wrong-zone.tscn")
+
+func _on_goal_post_body_entered(body):
+	if body.is_in_group("Player"):
+		call_deferred("show_victory_screen")
+
+func show_victory_screen():
+	get_tree().change_scene_to_file("res://victory.tscn")

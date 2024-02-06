@@ -28,6 +28,3 @@ func _ready():
 	offset_top = -120
 	offset_bottom = 0
 	offset_left = 40
-
-func _process(delta):
-	pass
