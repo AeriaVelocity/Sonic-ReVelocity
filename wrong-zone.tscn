@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bubs30frfyrb"]
+[gd_scene load_steps=4 format=3 uid="uid://bubs30frfyrb"]
+
+[ext_resource type="Script" path="res://MessageAdaptToOS.gd" id="1_ckpfa"]
 
 [sub_resource type="SystemFont" id="SystemFont_aq4ua"]
 font_names = PackedStringArray("Source Code Pro", "Consolas", "Monospace")
@@ -37,7 +39,7 @@ USER_ERROR
 
 If this is the first time you've seen this Stop error screen, congratulations. You get to brag to all your friends that you found the hidden Easter egg in an intentionally stupid Sonic fan game which greets you with a Blue Screen of Death. Well done to you. If you see this screen again, follow these steps:
 
-1. Close Green Hill Zone Simulator. (Alt-F4, or Cmd-Q if you're a Mac user (but did anyone even build this game for Mac?))
+1. Close Green Hill Zone Simulator. ({close_key})
 2. Start up the game again.
 3. Stop being a FRICKING FRICK!!!!!!!1!
 4. Play Sonic: Lock & Load instead.
@@ -48,6 +50,7 @@ Technical information:
 
 *** STOP: 0xFR1CKY0U 
 
-*** yourSanity.dll - Deleted as a result of Sonic falling off the stage."
+*** yourSanity.{driver_ext} - Deleted as a result of Sonic falling off the stage."
 label_settings = SubResource("LabelSettings_n14xc")
 autowrap_mode = 2
+script = ExtResource("1_ckpfa")
