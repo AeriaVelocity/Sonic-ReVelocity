@@ -16,7 +16,9 @@ under the terms of the GNU General Public License.
 
 ### Keyboard
 
-* **<kbd>Left/Right</kbd> or <kbd>A/D</kbd>** - Move Sonic left/righht
+* **<kbd>Left/Right</kbd> or <kbd>A/D</kbd>** - Move Sonic left/right
+* **<kbd>Down</kbd> or <kbd>S</kbd>** - Make Sonic roll if he's moving
+  * Rolling will preserve Sonic's momentum, but he can't change his direction until you stop rolling.
 * **<kbd>Space</kbd>** - Make Sonic jump
   * If Sonic jumps again while touching a wall, he can jump off of it.
   * Jumping will increase Sonic's speed. Chain together high-speed jumps
@@ -31,7 +33,9 @@ Xbox/PlayStation/Nintendo.
 For example, <kbd>A/Cross/B</kbd> means <kbd>A</kbd> on Xbox,
 <kbd>Cross</kbd> on PlayStation, and <kbd>B</kbd> on Nintendo.
 
-* **<kbd>Left Stick</kbd> or <kbd>D-Pad</kbd>** - Move Sonic left/right
+* **<kbd>Left Stick Left/Right</kbd> or <kbd>D-Pad Left/Right</kbd>** - Move Sonic left/right
+* **<kbd>Left Stick Down</kbd> or <kbd>D-Pad Down</kbd>** - Make Sonic roll if he's moving
+  * Rolling will preserve Sonic's momentum, but he can't change his direction until you stop rolling.
 * **<kbd>A/Cross/B</kbd>** - Make Sonic jump
   * If Sonic jumps again while touching a wall, he can jump off of it.
   * Jumping will increase Sonic's speed. Chain together high-speed jumps
