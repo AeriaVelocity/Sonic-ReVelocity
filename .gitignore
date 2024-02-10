@@ -1,2 +1,12 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Android APK
+*.apk*
+
+# Android and Windows build folders
+android/
+win-build/
+
+# VS Code
+.vscode/

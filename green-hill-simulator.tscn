@@ -1,13 +1,18 @@
-[gd_scene load_steps=56 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=65 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="Texture2D" uid="uid://ddixr67rn8g44" path="res://Scene1-BG Outside.png" id="1_2226m"]
 [ext_resource type="Script" path="res://HUDPositioning.gd" id="2_j0wyh"]
 [ext_resource type="Texture2D" uid="uid://b7xrood6a3usn" path="res://Scene1-FG Low.png" id="2_jekor"]
+[ext_resource type="Script" path="res://TouchScreenButtonPositioning.gd" id="3_50ebd"]
+[ext_resource type="Texture2D" uid="uid://b08c1dy8f67kw" path="res://LeftButton.png" id="3_emud6"]
 [ext_resource type="AudioStream" uid="uid://c02uelv7h1koi" path="res://greenhill.mp3" id="3_yry7t"]
 [ext_resource type="Texture2D" uid="uid://bqrgs4m1vy0wo" path="res://sonic.png" id="4_1omli"]
+[ext_resource type="Texture2D" uid="uid://cooe50bubtj2t" path="res://RightButton.png" id="4_522f4"]
+[ext_resource type="Texture2D" uid="uid://c51ssdc75qux" path="res://JumpButton.png" id="5_35cm4"]
 [ext_resource type="Script" path="res://SonicMovement.gd" id="5_nnihb"]
 [ext_resource type="AudioStream" uid="uid://dos0d3r7rqcun" path="res://movement-sfx.mp3" id="6_06xr4"]
 [ext_resource type="Script" path="res://BGMHandling.gd" id="6_gxnqw"]
+[ext_resource type="Texture2D" uid="uid://6wcu41r3b5jj" path="res://SpinButton.png" id="6_s2tw0"]
 [ext_resource type="Texture2D" uid="uid://c1r7wu2ogq147" path="res://HUD.png" id="6_shal3"]
 [ext_resource type="AudioStream" uid="uid://ba3ic6w40b76l" path="res://woohoo.mp3" id="7_lvxvf"]
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://scream.mp3" id="8_ijmgq"]
@@ -21,6 +26,15 @@ font_weight = 900
 [sub_resource type="LabelSettings" id="LabelSettings_mk1ad"]
 font = SubResource("SystemFont_megr3")
 font_size = 26
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6qlj"]
+radius = 150.38
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fp0e"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3cfn"]
+radius = 128.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2t85h"]
 size = Vector2(47.9952, 48)
@@ -137,6 +151,9 @@ size = Vector2(1028.4, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g23df"]
 size = Vector2(515, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqoib"]
+size = Vector2(256, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyugk"]
 size = Vector2(10589, 20)
 
@@ -146,10 +163,12 @@ size = Vector2(10589, 20)
 layer = 128
 
 [node name="TopHUD" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 2
 position = Vector2(296, 105)
 texture = ExtResource("6_shal3")
 
 [node name="BottomHUD" type="Control" parent="CanvasLayer"]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -174,6 +193,47 @@ offset_bottom = 80.0
 text = "Speed Rank "
 label_settings = SubResource("LabelSettings_mk1ad")
 vertical_alignment = 2
+
+[node name="TouchControls" type="Node2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.823529)
+script = ExtResource("3_50ebd")
+
+[node name="Left" type="Node2D" parent="CanvasLayer/TouchControls"]
+position = Vector2(0, 478)
+
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Left"]
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_emud6")
+shape = SubResource("CircleShape2D_q6qlj")
+passby_press = true
+action = "MoveLeft"
+visibility_mode = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Left"]
+position = Vector2(150, 0)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_522f4")
+shape = SubResource("CircleShape2D_q6qlj")
+action = "MoveRight"
+visibility_mode = 1
+
+[node name="Right" type="Node2D" parent="CanvasLayer/TouchControls"]
+position = Vector2(634, 478)
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Right"]
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_35cm4")
+shape = SubResource("CircleShape2D_5fp0e")
+action = "Jump"
+visibility_mode = 1
+
+[node name="SpinButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Right"]
+position = Vector2(-150, 0)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_s2tw0")
+shape = SubResource("CircleShape2D_q3cfn")
+action = "Spin"
+visibility_mode = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -479,6 +539,10 @@ shape = SubResource("RectangleShape2D_v4adb")
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Stage"]
 position = Vector2(9215.5, 261)
 shape = SubResource("RectangleShape2D_g23df")
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Stage"]
+position = Vector2(11136, 70)
+shape = SubResource("RectangleShape2D_kqoib")
 
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2(1, 124)

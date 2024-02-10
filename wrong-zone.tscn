@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MessageAdaptToOS.gd" id="1_ckpfa"]
 
 [sub_resource type="SystemFont" id="SystemFont_aq4ua"]
-font_names = PackedStringArray("Source Code Pro", "Consolas", "Monospace")
+font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Consolas", "Droid Sans Mono", "Monospace")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n14xc"]
 font = SubResource("SystemFont_aq4ua")

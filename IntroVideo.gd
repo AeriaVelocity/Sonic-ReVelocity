@@ -18,7 +18,14 @@ func _process(_delta):
 			hint = "Press SPACE to skip"
 		_:
 			hint = "Press JUMP to skip"
+	if OS.get_name() == "Android":
+		hint = "Touch screen to skip"
 	skip_hint.set_text("[center][font_size=24]" + hint + "[/font_size][/center]")
 	if Input.is_action_just_pressed("Jump"):
+		stop()
+		get_tree().change_scene_to_file("res://green-hill-simulator.tscn")
+
+func _input(event):
+	if event is InputEventScreenTouch and event.pressed:
 		stop()
 		get_tree().change_scene_to_file("res://green-hill-simulator.tscn")

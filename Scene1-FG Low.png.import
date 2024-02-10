@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7xrood6a3usn"
 path.s3tc="res://.godot/imported/Scene1-FG Low.png-df57a2d7760036ce361e1f8b992d8fd7.s3tc.ctex"
+path.etc2="res://.godot/imported/Scene1-FG Low.png-df57a2d7760036ce361e1f8b992d8fd7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scene1-FG Low.png"
-dest_files=["res://.godot/imported/Scene1-FG Low.png-df57a2d7760036ce361e1f8b992d8fd7.s3tc.ctex"]
+dest_files=["res://.godot/imported/Scene1-FG Low.png-df57a2d7760036ce361e1f8b992d8fd7.s3tc.ctex", "res://.godot/imported/Scene1-FG Low.png-df57a2d7760036ce361e1f8b992d8fd7.etc2.ctex"]
 
 [params]
 

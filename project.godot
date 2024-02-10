@@ -17,6 +17,11 @@ run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 MoveLeft={
@@ -61,4 +66,5 @@ FullScreen={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.12549, 0, 0.627451, 1)
