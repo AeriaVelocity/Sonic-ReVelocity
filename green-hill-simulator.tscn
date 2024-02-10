@@ -221,6 +221,7 @@ visibility_mode = 1
 position = Vector2(634, 478)
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Right"]
+position = Vector2(-150, 0)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_35cm4")
 shape = SubResource("CircleShape2D_5fp0e")
@@ -228,7 +229,6 @@ action = "Jump"
 visibility_mode = 1
 
 [node name="SpinButton" type="TouchScreenButton" parent="CanvasLayer/TouchControls/Right"]
-position = Vector2(-150, 0)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_s2tw0")
 shape = SubResource("CircleShape2D_q3cfn")
