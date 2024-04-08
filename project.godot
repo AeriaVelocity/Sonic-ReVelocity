@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Green Hill Zone Simulator"
-config/description="Green Hill Zone Simulator is a high momentum Sonic fan game that's so awful and lazy it loops back around to being fun."
+config/name="Sonic Re;Velocity"
+config/description="A 2D Sonic fan game with a focus on high-speed momentum-based platforming."
 config/version="Yes"
 run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.png"
+config/icon="res://Graphics/icon.png"
 
 [display]
 
