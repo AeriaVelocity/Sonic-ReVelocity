@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bubs30frfyrb"]
 
-[ext_resource type="Script" path="res://MessageAdaptToOS.gd" id="1_ckpfa"]
+[ext_resource type="Script" path="res://Scripts/MessageAdaptToOS.gd" id="1_ckpfa"]
 
 [sub_resource type="SystemFont" id="SystemFont_aq4ua"]
 font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Consolas", "Droid Sans Mono", "Monospace")

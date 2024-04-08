@@ -10,7 +10,7 @@ func _process(_delta):
 	match Input.get_joy_name(0):
 		"XInput Gamepad":
 			hint = "Press [color=green]A[/color] to skip"
-		"PS4 Controller", "PS5 Controller":
+		"PS4 Controller", "PS5 Controller":	
 			hint = "Press [img=24]playstation-cross.png[/img] to skip"
 		"Nintendo Switch Pro Controller":
 			hint = "Press B to skip"
