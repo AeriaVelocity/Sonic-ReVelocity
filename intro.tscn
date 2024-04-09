@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://f0sp4mwl4ub6"]
+[gd_scene load_steps=8 format=3 uid="uid://f0sp4mwl4ub6"]
 
-[ext_resource type="VideoStream" path="res://velocity-intro-crap.ogv" id="1_vunfo"]
-[ext_resource type="Script" path="res://IntroVideo.gd" id="2_ftiyj"]
+[ext_resource type="Script" path="res://Scripts/IntroVideo.gd" id="2_ftiyj"]
+[ext_resource type="Texture2D" uid="uid://ds8fltl6c3gnu" path="res://Graphics/aeria-logo.png" id="2_wowut"]
+[ext_resource type="AudioStream" uid="uid://dwpsn422fqvqx" path="res://Sounds/sega-ding.mp3" id="3_7rrao"]
 
 [sub_resource type="Animation" id="Animation_whbk8"]
 resource_name = "fade_in"
@@ -24,6 +25,39 @@ _data = {
 "fade_in_out": SubResource("Animation_whbk8")
 }
 
+[sub_resource type="Animation" id="Animation_qtxbv"]
+resource_name = "displaythenfade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.399374, 0.4, 3.1, 4),
+"transitions": PackedFloat32Array(1, 1, 1.00001, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qnqj"]
+_data = {
+"displaythenfade": SubResource("Animation_qtxbv")
+}
+
 [node name="Intro" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -32,22 +66,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IntroVideo" type="VideoStreamPlayer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_vunfo")
-autoplay = true
-expand = true
+color = Color(0, 0, 0, 1)
 script = ExtResource("2_ftiyj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="IntroVideo"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
 layer = 128
 
-[node name="SkipHint" type="RichTextLabel" parent="IntroVideo/CanvasLayer"]
+[node name="SkipHint" type="RichTextLabel" parent="Background/CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -60,16 +92,40 @@ offset_right = 576.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "[center]Press JUMP to skip[/center]
 "
 fit_content = true
 autowrap_mode = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="IntroVideo/CanvasLayer/SkipHint"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/CanvasLayer/SkipHint"]
 libraries = {
 "": SubResource("AnimationLibrary_pq556")
 }
 autoplay = "fade_in_out"
 
-[connection signal="finished" from="IntroVideo" to="IntroVideo" method="_on_intro_done"]
+[node name="Logo" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.0
+offset_top = -364.0
+offset_right = 599.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wowut")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_0qnqj")
+}
+autoplay = "displaythenfade"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Background/Logo"]
+stream = ExtResource("3_7rrao")
+volume_db = 8.514

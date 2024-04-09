@@ -1,6 +1,6 @@
 extends Node2D
 
-func _process(delta):
+func _process(_delta):
 	var viewport_size = get_viewport_rect().size
 	var buttons_height = viewport_size.y - 256
 

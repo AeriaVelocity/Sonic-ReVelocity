@@ -1,26 +1,3 @@
-"""
-SonicMovement.gd - Handles Sonic's movement as well as game-related
-functionality for Green Hill Zone Simulator, the high momentum Sonic fan game
-that's so awful and lazy it loops back around to being fun.
-
-Copyright (c) 2024 Arsalan "Velocity" Kazmi <sonicspeed848@gmail.com>
-
-This file is part of Green Hill Zone Simulator.
-
-Green Hill Zone Simulator is free software: you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
-
-Green Hill Zone Simulator is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-more details.
-
-You should have received a copy of the GNU General Public License along with
-Green Hill Zone Simulator. If not, see <https://www.gnu.org/licenses/>.
-"""
-
 extends CharacterBody2D
 
 var speed_cap = 2000.0
@@ -44,41 +21,7 @@ var current_velocity = Vector2()
 
 var camera_target
 var camera_speed = 150.0
-
-func toggle_fullscreen():
-	var full_screen = DisplayServer.window_get_mode()
-
-	if full_screen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		
-	print(full_screen)
-
-func update_speed_rank():
-	var speedometer: Label = get_node("/root/Game/CanvasLayer/BottomHUD/Speedometer")
-	var rank_object: Label = get_node("/root/Game/CanvasLayer/BottomHUD/SpeedRank")
-	var rank: String
-	var speed = sqrt(velocity.x ** 2 + velocity.y ** 2)
-	if dead:
-		rank = "You are ded, not big soup rice!"
-	elif speed >= 1500:
-		rank = "SPEED FASTEST!!!"
-	elif speed >= 1000:
-		rank = "Now That's What I Call Speed™!"
-	elif speed >= 500:
-		rank = "That's speed, but it's not speed enough!"
-	elif speed >= 60:
-		rank = "Come on! Speed up already!"
-	else:
-		rank = "You're barely even moving!"
-	if not dead:
-		speedometer.set_text("Speedometer: %d fasts per speed" % speed)
-		rank_object.set_text("Speed Rank: " + rank)
-	else:
-		speedometer.set_text("DEADometer: Yes DEATHS per DEAD")
-		rank_object.set_text("DEAD Rank: " + rank)
-	
 func handle_movement_sound():
 	movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
 	
@@ -100,8 +43,8 @@ func _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	update_speed_rank()
-	
+	get_node("/root/HudScripting").update_speed(velocity)
+
 	if dead:
 		return
 
@@ -148,9 +91,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		movement_sound.stop()
-	
-	if Input.is_action_just_pressed("FullScreen"):
-		toggle_fullscreen()
 
 	if velocity.x == 0:
 		handle_movement_sound()
@@ -170,26 +110,3 @@ func _physics_process(delta):
 			$SonicSprite.rotate(50 * delta * (velocity.x / abs(velocity.x) if velocity.x != 0 else 1))
 
 	current_velocity = velocity
-
-func _on_death_area_body_entered(body):
-	if body.is_in_group("Player"):
-		dead = true
-		death_sound.play()
-		velocity.x = 0
-		await(death_sound.finished)
-		set_position(start_position)
-		dead = false
-
-func _on_funny_zone_body_entered(body):
-	if body.is_in_group("Player"):
-		call_deferred("_change_scene_to_wrong_zone")
-
-func _change_scene_to_wrong_zone():
-	get_tree().change_scene_to_file("res://wrong-zone.tscn")
-
-func _on_goal_post_body_entered(body):
-	if body.is_in_group("Player"):
-		call_deferred("show_victory_screen")
-
-func show_victory_screen():
-	get_tree().change_scene_to_file("res://victory.tscn")

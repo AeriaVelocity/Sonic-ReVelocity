@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmdeegf86vs1m"]
+
+[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_ir3j6"]
+[ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_kj6dy"]
+[ext_resource type="Texture2D" uid="uid://cuwtuyk404kjq" path="res://Graphics/sonic-revelocity-logo-white-dropshadow.png" id="2_0epgh"]
+[ext_resource type="AudioStream" uid="uid://brmi8teuklmwo" path="res://Music/title.mp3" id="2_ipun8"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="3_djgiy"]
+
+[sub_resource type="Animation" id="Animation_q1bxc"]
+resource_name = "logo intro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.996078, 0.996078, 0.996078, 0.176471), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.189465),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.189465),
+"update": 0,
+"values": [-1.36659, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7kg5"]
+_data = {
+"logo intro": SubResource("Animation_q1bxc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojvov"]
+font = ExtResource("3_djgiy")
+font_size = 46
+
+[sub_resource type="Animation" id="Animation_8kfdk"]
+resource_name = "blinkingtext"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1w4c5"]
+_data = {
+"blinkingtext": SubResource("Animation_8kfdk")
+}
+
+[node name="TitleScreen" type="Control"]
+texture_filter = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ir3j6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kj6dy")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -626.497
+offset_top = -324.0
+offset_right = 626.503
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(593, 299)
+texture = ExtResource("2_0epgh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_b7kg5")
+}
+autoplay = "logo intro"
+
+[node name="PressStart" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.5
+offset_top = -312.0
+offset_right = 245.5
+offset_bottom = -251.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PRESS START BUTTON"
+label_settings = SubResource("LabelSettings_ojvov")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PressStart"]
+libraries = {
+"": SubResource("AnimationLibrary_1w4c5")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ipun8")
+autoplay = true

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgtox7gro0x8a"]
+
+[ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
+[ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
+[ext_resource type="Texture2D" uid="uid://btk371wi4ec6a" path="res://Textures/vr_grid.png" id="4_e8txd"]
+[ext_resource type="Texture2D" uid="uid://cjo6trmgamkv4" path="res://Textures/vr_background.png" id="4_onv0v"]
+[ext_resource type="Script" path="res://Scripts/BGMHandling.gd" id="11_hgbcj"]
+[ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwn6a"]
+size = Vector2(3653, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh3ra"]
+size = Vector2(20, 676)
+
+[node name="Test Level" type="Node2D"]
+
+[node name="HeadsUpDisplay" parent="." instance=ExtResource("1_11k6x")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_od5gh")
+volume_db = -10.306
+script = ExtResource("11_hgbcj")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="TextureRect" parent="ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_onv0v")
+
+[node name="Stage" type="TextureRect" parent="."]
+offset_top = 397.0
+offset_right = 3654.0
+offset_bottom = 912.0
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="StageCollision" type="StaticBody2D" parent="Stage"]
+position = Vector2(0, -397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/StageCollision"]
+position = Vector2(1826.5, 431.5)
+shape = SubResource("RectangleShape2D_wwn6a")
+
+[node name="BlockingWalls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockingWalls"]
+position = Vector2(-10, 59)
+shape = SubResource("RectangleShape2D_jh3ra")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockingWalls"]
+position = Vector2(3643, 59)
+shape = SubResource("RectangleShape2D_jh3ra")
+
+[node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
+position = Vector2(110, 310)
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]
