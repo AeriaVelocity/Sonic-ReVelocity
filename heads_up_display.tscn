@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=10 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
@@ -7,16 +7,12 @@
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://cooe50bubtj2t" path="res://Graphics/RightButton.png" id="5_3xgv0"]
 [ext_resource type="Texture2D" uid="uid://c51ssdc75qux" path="res://Graphics/JumpButton.png" id="6_ah1x0"]
-[ext_resource type="Texture2D" uid="uid://6wcu41r3b5jj" path="res://Graphics/SpinButton.png" id="7_xgeaq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_08q5w"]
-radius = 150.38
+radius = 178.36
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_526i1"]
-radius = 128.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hyul4"]
-radius = 128.0
+radius = 161.57
 
 [node name="HeadsUpDisplay" type="CanvasLayer"]
 
@@ -31,22 +27,23 @@ offset_bottom = 260.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TopHUD"]
 layout_mode = 1
-offset_right = 302.0
-offset_bottom = 204.0
+offset_left = -6.0
+offset_right = 513.0
+offset_bottom = 296.0
 
 [node name="Score" type="Label" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = "Score: Who cares?"
+text = "   Score: Who cares?"
 label_settings = ExtResource("1_wyqdf")
 
 [node name="Time" type="Label" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = "Time: Plenty"
+text = "  Time: Plenty"
 label_settings = ExtResource("1_wyqdf")
 
 [node name="Rings" type="Label" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = "Rings: 0"
+text = " Rings: 0"
 label_settings = ExtResource("1_wyqdf")
 
 [node name="Speed" type="Label" parent="TopHUD/VBoxContainer"]
@@ -67,13 +64,13 @@ script = ExtResource("2_2tygg")
 
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(0, -69)
 script = ExtResource("3_j21jd")
 
 [node name="Left" type="Node2D" parent="TouchControls"]
 position = Vector2(0, 478)
 
 [node name="LeftButton" type="TouchScreenButton" parent="TouchControls/Left"]
-scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_6b3bg")
 shape = SubResource("CircleShape2D_08q5w")
 passby_press = true
@@ -81,27 +78,18 @@ action = "MoveLeft"
 visibility_mode = 1
 
 [node name="RightButton" type="TouchScreenButton" parent="TouchControls/Left"]
-position = Vector2(150, 0)
-scale = Vector2(0.5, 0.5)
+position = Vector2(306, 0)
 texture_normal = ExtResource("5_3xgv0")
 shape = SubResource("CircleShape2D_08q5w")
 action = "MoveRight"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
-position = Vector2(634, 478)
+position = Vector2(1430, 478)
 
 [node name="JumpButton" type="TouchScreenButton" parent="TouchControls/Right"]
-position = Vector2(-150, 0)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-379, 0)
 texture_normal = ExtResource("6_ah1x0")
 shape = SubResource("CircleShape2D_526i1")
 action = "Jump"
-visibility_mode = 1
-
-[node name="SpinButton" type="TouchScreenButton" parent="TouchControls/Right"]
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("7_xgeaq")
-shape = SubResource("CircleShape2D_hyul4")
-action = "Spin"
 visibility_mode = 1
