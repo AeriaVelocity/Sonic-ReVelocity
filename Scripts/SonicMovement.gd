@@ -17,6 +17,8 @@ var was_on_floor: bool
 @onready var jump_sound = $JumpSound
 @onready var death_sound = $DeathSound
 
+var last_direction: float
+
 var current_velocity = Vector2()
 
 var camera_target
@@ -64,6 +66,10 @@ func _physics_process(delta):
 		jump_sound.play()
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
+	
+	if velocity.x != 0:
+		last_direction = velocity.x
+	$SonicSprite.flip_h = last_direction < 0
 	
 	var is_rolling = Input.is_action_pressed("Spin") and is_on_floor()
 
