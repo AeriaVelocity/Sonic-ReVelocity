@@ -15,7 +15,9 @@ var was_on_floor: bool
 
 @onready var movement_sound = $MovementSound
 @onready var jump_sound = $JumpSound
+@onready var jump_spin_sound = $JumpSpinSound
 @onready var death_sound = $DeathSound
+@onready var land_sound = $LandSound
 
 var last_direction: float
 
@@ -25,7 +27,7 @@ var camera_target
 var camera_speed = 150.0
 		
 func handle_movement_sound():
-	movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
+	pass#movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
 	
 func handle_wall_jump():
 	if is_on_floor():
@@ -64,6 +66,7 @@ func _physics_process(delta):
 
 		velocity.x *= 1.3
 		jump_sound.play()
+		jump_spin_sound.play()
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	
@@ -107,6 +110,9 @@ func _physics_process(delta):
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
+	
+	if is_on_floor() and not was_on_floor:
+		land_sound.play()
 
 	if not is_rolling:
 		var last_collision = get_last_slide_collision()

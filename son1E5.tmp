@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1rjb7rkohryr"]
+[gd_scene load_steps=9 format=3 uid="uid://c1rjb7rkohryr"]
 
 [ext_resource type="Script" path="res://Scripts/SonicMovement.gd" id="1_g17tg"]
 [ext_resource type="Texture2D" uid="uid://bqrgs4m1vy0wo" path="res://Sprites/sonic.png" id="2_f0lb3"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://bw36scbx317h2" path="res://Sounds/jump.wav" id="4_p8duc"]
 [ext_resource type="AudioStream" uid="uid://0y7obtvicamt" path="res://Sounds/jspin.wav" id="5_gp640"]
 [ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://Sounds/scream.mp3" id="5_grw5h"]
-[ext_resource type="AudioStream" uid="uid://dg2wunfk0p4td" path="res://Sounds/land.wav" id="5_mvg15"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jusa"]
 animations = [{
@@ -62,7 +61,3 @@ volume_db = -6.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sonic"]
 stream = ExtResource("5_grw5h")
-
-[node name="LandSound" type="AudioStreamPlayer" parent="Sonic"]
-stream = ExtResource("5_mvg15")
-volume_db = -6.0
