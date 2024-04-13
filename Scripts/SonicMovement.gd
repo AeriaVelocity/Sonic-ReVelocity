@@ -1,10 +1,50 @@
+# Sonic Re;Velocity is a project by Arsalan "Aeria" Kazmi (AeriaVelocity).
+
+## Handles inputs, physics, and movement for Sonic the Hedgehog in Sonic Re;Velocity.
+
 extends CharacterBody2D
 
-var speed_cap = 2000.0
-var acceleration = 300.0
-var deceleration = 200.0
-var jump_speed = -500.0
-var wall_jump_speed = 350.0
+@export_group("Movement Values")
+
+## The maximum horizontal speed that Sonic can reach. His X-velocity will never
+## exceed this value.
+@export var speed_cap: float = 2000.0
+
+## How fast Sonic gains horizontal speed when moving, capped at [member
+## speed_cap].
+@export var acceleration: float = 300.0
+
+## How fast Sonic loses horizontal speed when the player lets go of all movement
+## controls.
+@export var deceleration: float = 200.0
+
+## The Y-velocity force applied to Sonic when jumping. Lower negative values
+## will result in more upward force due to how Godot Engine handles physics. 
+## Similarly, a positive value will result in Sonic jumping [i]downwards[/i], so
+## don't do that.
+@export var jump_speed: float = -500.0
+
+## The diagonal force applied to Sonic when jumping off of a wall.
+## Unlike [member jump_speed], the vertical value is positive-up - a positive
+## value will result in an upward force.
+@export var wall_jump_speed: float = 350.0
+
+## Groups together thresholds for different grounded movement sprites depending
+## on Sonic's X-velocity.
+@export_group("Sprite Thresholds", "speed_level_")
+
+## How high Sonic's X-velocity has to be to use the Mach animations.
+@export var speed_level_mach = 800.0
+
+## How high Sonic's X-velocity has to be to use the Run animations.
+@export var speed_level_run = 400.0
+
+## How high Sonic's X-velocity has to be to use the Jog animations.
+@export var speed_level_jog = 200.0
+
+## How high Sonic's X-velocity has to be to use the Walk animations. Any
+## X-velocity below this value will fall back to Idle.
+@export var speed_level_walk = 0.1
 
 var dead = false
 
@@ -25,7 +65,7 @@ var current_velocity = Vector2()
 
 var camera_target
 var camera_speed = 150.0
-		
+
 func handle_movement_sound():
 	pass#movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
 	

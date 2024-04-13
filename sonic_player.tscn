@@ -252,7 +252,7 @@ size = Vector2(28, 39)
 [node name="Sonic" type="CharacterBody2D" parent="."]
 floor_stop_on_slope = false
 floor_max_angle = 1.39626
-safe_margin = 0.26
+safe_margin = 0.3
 script = ExtResource("1_g17tg")
 
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
