@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed_cap = 2000.0
-var acceleration = 400.0
+var acceleration = 300.0
 var deceleration = 200.0
 var jump_speed = -500.0
 var wall_jump_speed = 350.0
@@ -40,11 +40,35 @@ func handle_wall_jump():
 			velocity.x = -wall_jump_speed
 		elif collision_normal.x > 0:
 			velocity.x = wall_jump_speed
+			
+func _input(_event):
+	if Input.is_action_just_pressed("Start"):
+		get_tree().change_scene_to_file("res://title-screen.tscn")
 
 func _ready():
 	was_on_floor = is_on_floor()
 
+var camera_speed_multiplier: float = 0.1
+
+func set_camera_offset():
+	var offset_x = velocity.x * camera_speed_multiplier
+	var offset_y = velocity.y * camera_speed_multiplier / 8
+	
+	# Apply offset based on horizontal velocity
+	if abs(velocity.x) > 0:
+		$Camera2D.offset.x = offset_x
+	else:
+		$Camera2D.offset.x = lerp($Camera2D.offset.x, 0.0, camera_speed_multiplier)
+	
+	# Apply offset based on vertical velocity
+	if abs(velocity.y) > 0:
+		$Camera2D.offset.y = offset_y
+	else:
+		$Camera2D.offset.y = lerp($Camera2D.offset.y, 0.0, camera_speed_multiplier)
+
 func _physics_process(delta):
+	set_camera_offset()
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	get_node("/root/HudScripting").update_speed(velocity)
@@ -73,19 +97,14 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		last_direction = velocity.x
 	$SonicSprite.flip_h = last_direction < 0
-	
-	var is_rolling = Input.is_action_pressed("Spin") and is_on_floor()
 
-	if is_rolling:
-		$SonicSprite.rotate(velocity.x if velocity.x != 0 else 0 / 100.0)
-
-	if direction != 0 and not is_rolling:
+	if direction != 0:
 		current_velocity.x = current_velocity.x + direction * acceleration * delta
 		current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
 	else:
-		if current_velocity.x > 0 and is_on_floor() and not is_rolling:
+		if current_velocity.x > 0 and is_on_floor():
 			current_velocity.x = max(0, current_velocity.x - deceleration * delta)
-		elif current_velocity.x < 0 and is_on_floor() and not is_rolling:
+		elif current_velocity.x < 0 and is_on_floor():
 			current_velocity.x = min(0, current_velocity.x + deceleration * delta)
 
 	velocity.x = current_velocity.x
@@ -114,11 +133,28 @@ func _physics_process(delta):
 	if is_on_floor() and not was_on_floor:
 		land_sound.play()
 
-	if not is_rolling:
-		var last_collision = get_last_slide_collision()
-		if last_collision != null:
-			$SonicSprite.set_rotation(last_collision.get_normal().x)
-		else:
-			$SonicSprite.rotate(50 * delta * (velocity.x / abs(velocity.x) if velocity.x != 0 else 1))
+	var last_collision = get_last_slide_collision()
+	if last_collision != null:
+		set_grounded_sprite(abs(velocity.x))
+		$SonicSprite.set_rotation(last_collision.get_normal().x)
+	else:
+		$SonicSprite.set_rotation(0)
+		$SonicSprite.play("jump")
 
 	current_velocity = velocity
+
+func set_grounded_sprite(speed):
+	var sprite: StringName
+
+	if speed >= 800.0:
+		sprite = "mach"
+	elif speed >= 400.0:
+		sprite = "run"
+	elif speed >= 200.0:
+		sprite = "jog"
+	elif speed >= 0.1:
+		sprite = "walk"
+	else:
+		sprite = "idle"
+
+	$SonicSprite.play(sprite)

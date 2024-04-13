@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwn6a"]
-size = Vector2(3653, 69)
+size = Vector2(7268, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh3ra"]
 size = Vector2(20, 676)
@@ -34,8 +34,9 @@ texture = ExtResource("4_onv0v")
 
 [node name="Stage" type="TextureRect" parent="."]
 offset_top = 397.0
-offset_right = 3654.0
+offset_right = 7366.0
 offset_bottom = 912.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
@@ -43,13 +44,13 @@ stretch_mode = 1
 position = Vector2(0, -397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/StageCollision"]
-position = Vector2(1826.5, 431.5)
+position = Vector2(3634, 431.5)
 shape = SubResource("RectangleShape2D_wwn6a")
 
 [node name="BlockingWalls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockingWalls"]
-position = Vector2(-10, 59)
+position = Vector2(0, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockingWalls"]
