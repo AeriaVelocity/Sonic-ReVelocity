@@ -66,9 +66,45 @@ var current_velocity = Vector2()
 var camera_target
 var camera_speed = 150.0
 
-func handle_movement_sound():
-	pass#movement_sound.playing = abs(velocity.x) > 0 and is_on_floor()
+var movement_sound_tick = 0
+var footstep_sounds = []
+
+func _ready():
+	was_on_floor = is_on_floor()
+	for i in range(1, 6):
+		var step_sound = load("res://Sounds/footstep/step" + str(i) + ".wav")
+		footstep_sounds.append(step_sound)
+
+func handle_movement_sound(speed):
+	if not is_on_floor() or speed < speed_level_walk:
+		return
+
+	movement_sound_tick += 1
+
+	var sound_delay: float
+	var sound_volume: float
 	
+	if speed >= speed_level_mach:
+		sound_volume = 2.0
+		sound_delay = 7
+	elif speed >= speed_level_run:
+		sound_volume = 6.0
+		sound_delay = 10
+	elif speed >= speed_level_jog:
+		sound_volume = 8.0
+		sound_delay = 20
+	elif speed >= speed_level_walk:
+		sound_volume = 8.0
+		sound_delay = 30
+
+	if movement_sound_tick >= sound_delay:
+		var sound_index = randi() % footstep_sounds.size()
+		var selected_sound = footstep_sounds[sound_index]
+		movement_sound.set_stream(selected_sound)
+		movement_sound.set_volume_db(sound_volume)
+		movement_sound.play()
+		movement_sound_tick = 0
+
 func handle_wall_jump():
 	if is_on_floor():
 		return
@@ -84,9 +120,6 @@ func handle_wall_jump():
 func _input(_event):
 	if Input.is_action_just_pressed("Start"):
 		get_tree().change_scene_to_file("res://title-screen.tscn")
-
-func _ready():
-	was_on_floor = is_on_floor()
 
 var camera_speed_multiplier: float = 0.1
 
@@ -153,18 +186,6 @@ func _physics_process(delta):
 		handle_wall_jump()
 		velocity.y = jump_speed
 		jump_sound.play()
-	
-	if Input.is_action_just_pressed("MoveLeft") or Input.is_action_just_pressed("MoveRight"):
-		handle_movement_sound()
-	
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		movement_sound.stop()
-
-	if velocity.x == 0:
-		handle_movement_sound()
-		
-	if is_on_floor() and not was_on_floor:
-		handle_movement_sound()
 
 	was_on_floor = is_on_floor()
 
@@ -176,6 +197,7 @@ func _physics_process(delta):
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
 		set_grounded_sprite(abs(velocity.x))
+		handle_movement_sound(abs(velocity.x))
 		$SonicSprite.set_rotation(last_collision.get_normal().x)
 	else:
 		$SonicSprite.set_rotation(0)
@@ -186,13 +208,13 @@ func _physics_process(delta):
 func set_grounded_sprite(speed):
 	var sprite: StringName
 
-	if speed >= 800.0:
+	if speed >= speed_level_mach:
 		sprite = "mach"
-	elif speed >= 400.0:
+	elif speed >= speed_level_run:
 		sprite = "run"
-	elif speed >= 200.0:
+	elif speed >= speed_level_jog:
 		sprite = "jog"
-	elif speed >= 0.1:
+	elif speed >= speed_level_walk:
 		sprite = "walk"
 	else:
 		sprite = "idle"

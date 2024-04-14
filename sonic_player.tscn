@@ -1,8 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://c1rjb7rkohryr"]
+[gd_scene load_steps=59 format=3 uid="uid://c1rjb7rkohryr"]
 
 [ext_resource type="Script" path="res://Scripts/SonicMovement.gd" id="1_g17tg"]
 [ext_resource type="Texture2D" uid="uid://c83mj4vxqix17" path="res://Sprites/sonic/000.png" id="2_ns28t"]
-[ext_resource type="AudioStream" uid="uid://dos0d3r7rqcun" path="res://Sounds/movement-sfx.mp3" id="3_d6wna"]
 [ext_resource type="Texture2D" uid="uid://xb1djbmsmpdq" path="res://Sprites/sonic/013.png" id="3_w200n"]
 [ext_resource type="Texture2D" uid="uid://cwfoyh1jqbiby" path="res://Sprites/sonic/014.png" id="4_4o7or"]
 [ext_resource type="AudioStream" uid="uid://bw36scbx317h2" path="res://Sounds/jump.wav" id="4_p8duc"]
@@ -275,7 +274,6 @@ position = Vector2(-2, 4.5)
 shape = SubResource("RectangleShape2D_xnkyd")
 
 [node name="MovementSound" type="AudioStreamPlayer" parent="Sonic"]
-stream = ExtResource("3_d6wna")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="Sonic"]
 stream = ExtResource("4_p8duc")
