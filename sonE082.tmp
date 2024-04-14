@@ -357,7 +357,7 @@ script = ExtResource("1_g17tg")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jusa")
 animation = &"ball"
-frame_progress = 0.225196
+frame_progress = 0.272359
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
 position = Vector2(15, 22)
@@ -367,7 +367,7 @@ limit_top = -860
 limit_right = 12000
 limit_bottom = 748
 position_smoothing_enabled = true
-position_smoothing_speed = 12.0
+position_smoothing_speed = 8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sonic"]
 position = Vector2(0, 7)

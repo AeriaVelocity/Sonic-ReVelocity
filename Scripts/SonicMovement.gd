@@ -34,7 +34,7 @@ extends CharacterBody2D
 @export_group("Sprite Thresholds", "speed_level_")
 
 ## How high Sonic's X-velocity has to be to use the Mach animations.
-@export var speed_level_mach = 800.0
+@export var speed_level_mach = 1000.0
 
 ## How high Sonic's X-velocity has to be to use the Run animations.
 @export var speed_level_run = 400.0
@@ -56,6 +56,8 @@ var was_on_floor: bool
 @onready var movement_sound = $MovementSound
 @onready var jump_sound = $JumpSound
 @onready var jump_spin_sound = $JumpSpinSound
+@onready var spin_sound = $SpinSound
+@onready var launch_sound = $LaunchSound
 @onready var death_sound = $DeathSound
 @onready var land_sound = $LandSound
 
@@ -116,31 +118,66 @@ func handle_wall_jump():
 			velocity.x = -wall_jump_speed
 		elif collision_normal.x > 0:
 			velocity.x = wall_jump_speed
-			
+
+func do_quick_spin(speed_multiplier):
+	if not is_on_floor() or $SonicSprite.animation == "spin":
+		return velocity.x
+
+	var direction = Input.get_axis("MoveLeft", "MoveRight")
+
+	var current_direction = -1 if velocity.x < 0 else 1
+
+	if direction != current_direction and direction != 0:
+		speed_multiplier *= -1
+
+	$SonicSprite.play("spin")
+	spin_sound.play()
+
+	await(get_tree().create_timer(0.2).timeout)
+
+	$SonicSprite.offset.y = 3.735
+	$SonicSprite.play("ball")
+	launch_sound.play()
+
+	$SonicSprite.offset.y = 0.0
+	$SonicSprite.play("run")
+
+	return velocity.x * speed_multiplier
+
 func _input(_event):
 	if Input.is_action_just_pressed("Start"):
 		get_tree().change_scene_to_file("res://title-screen.tscn")
 
-var camera_speed_multiplier: float = 0.1
+var camera_speed_multiplier: float = 0.2
 
-func set_camera_offset():
+func set_camera_offset(delta):
 	var offset_x = velocity.x * camera_speed_multiplier
-	var offset_y = velocity.y * camera_speed_multiplier / 8
-	
-	# Apply offset based on horizontal velocity
+	var offset_y = velocity.y * camera_speed_multiplier / 16
+
 	if abs(velocity.x) > 0:
 		$Camera2D.offset.x = offset_x
 	else:
 		$Camera2D.offset.x = lerp($Camera2D.offset.x, 0.0, camera_speed_multiplier)
-	
-	# Apply offset based on vertical velocity
+
+	var zoom_speed = 8.0
+	var desired_zoom: Vector2
+
+	if abs(velocity.x) >= speed_level_mach:
+		desired_zoom = Vector2(2.5, 2.5)
+	elif abs(velocity.x) >= speed_level_run:
+		desired_zoom = Vector2(3, 3)
+	else:
+		desired_zoom = Vector2(4, 4)
+
+	$Camera2D.zoom = lerp($Camera2D.zoom, desired_zoom, zoom_speed * delta)
+
 	if abs(velocity.y) > 0:
 		$Camera2D.offset.y = offset_y
 	else:
 		$Camera2D.offset.y = lerp($Camera2D.offset.y, 0.0, camera_speed_multiplier)
 
 func _physics_process(delta):
-	set_camera_offset()
+	set_camera_offset(delta)
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -166,7 +203,7 @@ func _physics_process(delta):
 		jump_spin_sound.play()
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
-	
+
 	if velocity.x != 0:
 		last_direction = velocity.x
 	$SonicSprite.flip_h = last_direction < 0
@@ -189,15 +226,22 @@ func _physics_process(delta):
 
 	was_on_floor = is_on_floor()
 
+	if Input.is_action_just_pressed("Spin") and abs(velocity.x) > 0.0:
+		if direction < 0:
+			$SonicSprite.flip_h = true
+		elif direction > 0:
+			$SonicSprite.flip_h = false
+		velocity.x = await(do_quick_spin(1.2))
+
 	move_and_slide()
-	
+
 	if is_on_floor() and not was_on_floor:
 		land_sound.play()
 
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
-		set_grounded_sprite(abs(velocity.x))
-		handle_movement_sound(abs(velocity.x))
+		if set_grounded_sprite(abs(velocity.x)):
+			handle_movement_sound(abs(velocity.x))
 		$SonicSprite.set_rotation(last_collision.get_normal().x)
 	else:
 		$SonicSprite.set_rotation(0)
@@ -205,8 +249,11 @@ func _physics_process(delta):
 
 	current_velocity = velocity
 
-func set_grounded_sprite(speed):
+func set_grounded_sprite(speed) -> bool:
 	var sprite: StringName
+	
+	if $SonicSprite.animation == "spin" or $SonicSprite.animation == "ball":
+		return false
 
 	if speed >= speed_level_mach:
 		sprite = "mach"
@@ -220,3 +267,4 @@ func set_grounded_sprite(speed):
 		sprite = "idle"
 
 	$SonicSprite.play(sprite)
+	return true

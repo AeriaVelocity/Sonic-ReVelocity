@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=10 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
 [ext_resource type="Texture2D" uid="uid://btk371wi4ec6a" path="res://Textures/vr_grid.png" id="4_e8txd"]
 [ext_resource type="Texture2D" uid="uid://cjo6trmgamkv4" path="res://Textures/vr_background.png" id="4_onv0v"]
+[ext_resource type="Texture2D" uid="uid://cfakt1typ1yy4" path="res://Sprites/slope.png" id="6_0acua"]
 [ext_resource type="Script" path="res://Scripts/BGMHandling.gd" id="11_hgbcj"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
 
@@ -56,6 +57,17 @@ shape = SubResource("RectangleShape2D_jh3ra")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockingWalls"]
 position = Vector2(3643, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
+
+[node name="Slope" type="Sprite2D" parent="."]
+position = Vector2(1024, 348)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_0acua")
+
+[node name="SlopeCollision" type="StaticBody2D" parent="Slope"]
+position = Vector2(-382, -258)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slope/SlopeCollision"]
+polygon = PackedVector2Array(118, 454, 134, 450, 158, 434, 586, 106, 622, 78, 642, 62, 646, 62, 646, 82, 646, 454)
 
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
 position = Vector2(110, 310)
