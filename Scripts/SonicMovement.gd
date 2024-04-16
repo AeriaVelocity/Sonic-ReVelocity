@@ -256,8 +256,8 @@ func _physics_process(delta):
 	var down_direction = Input.is_action_pressed("Crouch")
 	
 	if Input.is_action_just_pressed("Spin") and down_direction and not is_on_floor():
-		velocity = await(quick_spin_down(speed_level_mach))
 		did_jump = true
+		velocity = await(quick_spin_down(speed_level_mach))
 
 	if Input.is_action_just_pressed("Spin") and abs(velocity.x) > 0.0:
 		did_jump = false
