@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=11 format=3 uid="uid://c528liaieedpb"]
 
+[ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
@@ -30,23 +31,36 @@ layout_mode = 1
 offset_left = -6.0
 offset_right = 513.0
 offset_bottom = 296.0
+script = ExtResource("1_vh8p3")
 
-[node name="Score" type="Label" parent="TopHUD/VBoxContainer"]
+[node name="ScoreMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = "   Score: Who cares?"
+
+[node name="Score" type="Label" parent="TopHUD/VBoxContainer/ScoreMargin"]
+layout_mode = 2
+text = "Score: Who cares?"
 label_settings = ExtResource("1_wyqdf")
 
-[node name="Time" type="Label" parent="TopHUD/VBoxContainer"]
+[node name="TimeMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = "  Time: Plenty"
+
+[node name="Time" type="Label" parent="TopHUD/VBoxContainer/TimeMargin"]
+layout_mode = 2
+text = "Time: Plenty"
 label_settings = ExtResource("1_wyqdf")
 
-[node name="Rings" type="Label" parent="TopHUD/VBoxContainer"]
+[node name="RingsMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
-text = " Rings: 0"
+
+[node name="Rings" type="Label" parent="TopHUD/VBoxContainer/RingsMargin"]
+layout_mode = 2
+text = "Rings: 0"
 label_settings = ExtResource("1_wyqdf")
 
-[node name="Speed" type="Label" parent="TopHUD/VBoxContainer"]
+[node name="SpeedMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="TopHUD/VBoxContainer/SpeedMargin"]
 layout_mode = 2
 text = "Speed: 0"
 label_settings = ExtResource("1_wyqdf")
