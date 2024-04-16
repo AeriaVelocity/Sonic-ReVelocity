@@ -18,6 +18,16 @@ Games HQ event.
 Sonic Re;Velocity is built in Godot Engine v4.2 and is free software under the
 GNU General Public License 3.0, or, at your option, any later version.
 
+## Controls
+
+| **Keyboard** | **Xbox Gamepad** | **Action** |
+| --- | --- | --- |
+| `←` | `D-Pad ←` | Move left |
+| `→` | `D-Pad →` | Move right |
+| `Z` | `A` | Jump, Wall Jump |
+| `X` | `B` | Quick Spin |
+| `Esc` | `Menu` | Back to title |
+
 ---
 
 > [!WARNING]

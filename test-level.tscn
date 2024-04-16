@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=15 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -9,10 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwn6a"]
-size = Vector2(7268, 69)
+size = Vector2(7366, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh3ra"]
 size = Vector2(20, 676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue64v"]
+size = Vector2(322, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emuw5"]
+size = Vector2(576, 10.4988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnpyi"]
+size = Vector2(66, 4.00017)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l8ng"]
+size = Vector2(576, 10.9985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpd24"]
+size = Vector2(66, 5.00061)
 
 [node name="Test Level" type="Node2D"]
 
@@ -45,17 +60,35 @@ stretch_mode = 1
 position = Vector2(0, -397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/StageCollision"]
-position = Vector2(3634, 431.5)
+position = Vector2(3683, 431.5)
 shape = SubResource("RectangleShape2D_wwn6a")
 
 [node name="BlockingWalls" type="StaticBody2D" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="BlockingWalls"]
+offset_left = 3683.0
+offset_top = -279.0
+offset_right = 3747.0
+offset_bottom = 1137.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BlockingWalls"]
+offset_left = -32.0
+offset_top = -277.0
+offset_right = 32.0
+offset_bottom = 1139.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockingWalls"]
-position = Vector2(0, 59)
+position = Vector2(-10, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockingWalls"]
-position = Vector2(3643, 59)
+position = Vector2(3693, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="Slope" type="Sprite2D" parent="."]
@@ -68,6 +101,84 @@ position = Vector2(-382, -258)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slope/SlopeCollision"]
 polygon = PackedVector2Array(118, 454, 134, 450, 158, 434, 586, 106, 622, 78, 642, 62, 646, 62, 646, 82, 646, 454)
+
+[node name="Platform" type="TextureRect" parent="."]
+offset_left = 1834.0
+offset_top = 222.0
+offset_right = 2155.0
+offset_bottom = 352.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform2" type="TextureRect" parent="."]
+offset_left = 1995.0
+offset_top = 222.0
+offset_right = 2316.0
+offset_bottom = 352.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform3" type="TextureRect" parent="."]
+offset_left = 1707.0
+offset_top = -150.0
+offset_right = 2284.0
+offset_bottom = -84.0
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
+position = Vector2(288, 5.25024)
+shape = SubResource("RectangleShape2D_emuw5")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
+position = Vector2(1.99988, 33)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_xnpyi")
+one_way_collision = true
+
+[node name="Platform4" type="TextureRect" parent="."]
+offset_left = 1797.0
+offset_top = 9.0
+offset_right = 2374.0
+offset_bottom = 75.0
+rotation = 4.71238
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
+position = Vector2(288, 5.50317)
+shape = SubResource("RectangleShape2D_3l8ng")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
+position = Vector2(574.5, 33.0039)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_qpd24")
+one_way_collision = true
 
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
 position = Vector2(110, 310)

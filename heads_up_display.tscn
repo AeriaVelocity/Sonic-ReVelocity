@@ -3,10 +3,10 @@
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
-[ext_resource type="Texture2D" uid="uid://b08c1dy8f67kw" path="res://Graphics/LeftButton.png" id="4_6b3bg"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
-[ext_resource type="Texture2D" uid="uid://cooe50bubtj2t" path="res://Graphics/RightButton.png" id="5_3xgv0"]
+[ext_resource type="Texture2D" uid="uid://cooe50bubtj2t" path="res://Graphics/ArrowButton.png" id="5_vcgjt"]
 [ext_resource type="Texture2D" uid="uid://c51ssdc75qux" path="res://Graphics/JumpButton.png" id="6_ah1x0"]
+[ext_resource type="Texture2D" uid="uid://6wcu41r3b5jj" path="res://Graphics/SpinButton.png" id="8_xvnem"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_08q5w"]
 radius = 178.36
@@ -71,25 +71,46 @@ script = ExtResource("3_j21jd")
 position = Vector2(0, 478)
 
 [node name="LeftButton" type="TouchScreenButton" parent="TouchControls/Left"]
-texture_normal = ExtResource("4_6b3bg")
+position = Vector2(178, 211)
+rotation = -3.14159
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("5_vcgjt")
 shape = SubResource("CircleShape2D_08q5w")
 passby_press = true
 action = "MoveLeft"
 visibility_mode = 1
 
+[node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left"]
+position = Vector2(314, 147)
+rotation = -4.71238
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("5_vcgjt")
+shape = SubResource("CircleShape2D_08q5w")
+passby_press = true
+action = "Crouch"
+visibility_mode = 1
+
 [node name="RightButton" type="TouchScreenButton" parent="TouchControls/Left"]
-position = Vector2(306, 0)
-texture_normal = ExtResource("5_3xgv0")
+position = Vector2(278, 32)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("5_vcgjt")
 shape = SubResource("CircleShape2D_08q5w")
 action = "MoveRight"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
-position = Vector2(1430, 478)
+position = Vector2(1819, 478)
 
 [node name="JumpButton" type="TouchScreenButton" parent="TouchControls/Right"]
-position = Vector2(-379, 0)
+position = Vector2(-615, 0)
 texture_normal = ExtResource("6_ah1x0")
 shape = SubResource("CircleShape2D_526i1")
 action = "Jump"
+visibility_mode = 1
+
+[node name="SpinButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-310, 0)
+texture_normal = ExtResource("8_xvnem")
+shape = SubResource("CircleShape2D_526i1")
+action = "Spin"
 visibility_mode = 1

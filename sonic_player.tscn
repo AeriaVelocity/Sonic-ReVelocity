@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://c1rjb7rkohryr"]
+[gd_scene load_steps=89 format=3 uid="uid://c1rjb7rkohryr"]
 
 [ext_resource type="Script" path="res://Scripts/SonicMovement.gd" id="1_g17tg"]
 [ext_resource type="Texture2D" uid="uid://c83mj4vxqix17" path="res://Sprites/sonic/000.png" id="2_ns28t"]
@@ -13,11 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://dbq1lytxry4bc" path="res://Sprites/sonic/017.png" id="7_ytfcw"]
 [ext_resource type="Texture2D" uid="uid://b6502sns7mb56" path="res://Sprites/sonic/018.png" id="8_trmy4"]
 [ext_resource type="Texture2D" uid="uid://bttnvdnad0lqy" path="res://Sprites/sonic/019.png" id="9_mymw8"]
+[ext_resource type="Texture2D" uid="uid://bmafw7fvficn" path="res://Sprites/sonic/068.png" id="10_egsym"]
+[ext_resource type="Texture2D" uid="uid://c54jcs15y0du6" path="res://Sprites/sonic/075.png" id="10_eqsp5"]
 [ext_resource type="Texture2D" uid="uid://c0tqwbaob3bot" path="res://Sprites/sonic/020.png" id="10_ofv4w"]
+[ext_resource type="Texture2D" uid="uid://domah8e8ogno8" path="res://Sprites/sonic/076.png" id="11_cnwvd"]
 [ext_resource type="Texture2D" uid="uid://bcykq804eaw1f" path="res://Sprites/sonic/021.png" id="11_jj11t"]
 [ext_resource type="Texture2D" uid="uid://c87a1r5kdoleh" path="res://Sprites/sonic/022.png" id="12_ge1ye"]
+[ext_resource type="Texture2D" uid="uid://bab4vqeug6da6" path="res://Sprites/sonic/077.png" id="12_y0c36"]
+[ext_resource type="Texture2D" uid="uid://bf2uvdlpicpmu" path="res://Sprites/sonic/078.png" id="13_5bl72"]
 [ext_resource type="Texture2D" uid="uid://bnn7dwggwddxu" path="res://Sprites/sonic/036.png" id="13_maiqx"]
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="14_favfv"]
+[ext_resource type="Texture2D" uid="uid://c6c0pxsbh3k4j" path="res://Sprites/sonic/079.png" id="14_fktp3"]
 [ext_resource type="Texture2D" uid="uid://bm62xekwoyle4" path="res://Sprites/sonic/001.png" id="14_vup07"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="15_ppflw"]
 [ext_resource type="Texture2D" uid="uid://lvvn4u1m606v" path="res://Sprites/sonic/002.png" id="15_t6m36"]
@@ -72,8 +78,14 @@
 [ext_resource type="Texture2D" uid="uid://c8hh6f15nd5r8" path="res://Sprites/sonic/065.png" id="54_wx4xq"]
 [ext_resource type="Texture2D" uid="uid://dotsa2xk8rbo3" path="res://Sprites/sonic/066.png" id="55_xpjbr"]
 [ext_resource type="Texture2D" uid="uid://442p8le465do" path="res://Sprites/sonic/067.png" id="56_ecxtt"]
+[ext_resource type="Texture2D" uid="uid://ddnswbyjx4gmv" path="res://Sprites/sonic/069.png" id="70_7w1ie"]
 [ext_resource type="AudioStream" uid="uid://cranb72ht8pks" path="res://Sounds/spin1.wav" id="71_7xtvy"]
+[ext_resource type="Texture2D" uid="uid://60p143aala2a" path="res://Sprites/sonic/070.png" id="71_u5jmm"]
 [ext_resource type="AudioStream" uid="uid://wr6xbj4f5m8" path="res://Sounds/spin2.wav" id="72_agllk"]
+[ext_resource type="Texture2D" uid="uid://33vkdm7lasjm" path="res://Sprites/sonic/071.png" id="72_t7wxt"]
+[ext_resource type="Texture2D" uid="uid://c2bft8170s4ra" path="res://Sprites/sonic/072.png" id="73_andsr"]
+[ext_resource type="Texture2D" uid="uid://c1a6s2vdcwooh" path="res://Sprites/sonic/073.png" id="74_b3eyv"]
+[ext_resource type="Texture2D" uid="uid://74lutxoaawfl" path="res://Sprites/sonic/074.png" id="75_54vg3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jusa"]
 animations = [{
@@ -105,6 +117,34 @@ animations = [{
 "loop": true,
 "name": &"ball",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_eqsp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cnwvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y0c36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5bl72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fktp3")
+}],
+"loop": false,
+"name": &"crouch",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_egsym")
+}],
+"loop": true,
+"name": &"drop",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -341,6 +381,29 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("70_7w1ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_u5jmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_t7wxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_andsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_b3eyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_54vg3")
+}],
+"loop": true,
+"name": &"wallbound",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7lql"]
@@ -356,16 +419,12 @@ script = ExtResource("1_g17tg")
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jusa")
-animation = &"ball"
-frame_progress = 0.225196
+animation = &"wallbound"
+frame_progress = 0.386765
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
 position = Vector2(15, 22)
 zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = -860
-limit_right = 12000
-limit_bottom = 748
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 

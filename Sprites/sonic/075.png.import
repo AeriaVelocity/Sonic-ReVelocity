@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cooe50bubtj2t"
-path="res://.godot/imported/RightButton.png-29f179233ad888e067fa5e0cd0678565.ctex"
+uid="uid://c54jcs15y0du6"
+path="res://.godot/imported/075.png-03c713e422ea6f9b0875f32b5a8e9620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/RightButton.png"
-dest_files=["res://.godot/imported/RightButton.png-29f179233ad888e067fa5e0cd0678565.ctex"]
+source_file="res://Sprites/sonic/075.png"
+dest_files=["res://.godot/imported/075.png-03c713e422ea6f9b0875f32b5a8e9620.ctex"]
 
 [params]
 

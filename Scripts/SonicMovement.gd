@@ -50,9 +50,6 @@ var dead = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var start_position = position
-var was_on_floor: bool
-
 @onready var movement_sound = $MovementSound
 @onready var jump_sound = $JumpSound
 @onready var jump_spin_sound = $JumpSpinSound
@@ -61,7 +58,10 @@ var was_on_floor: bool
 @onready var death_sound = $DeathSound
 @onready var land_sound = $LandSound
 
+var start_position = position
+var was_on_floor: bool
 var last_direction: float
+var did_jump: bool
 
 var current_velocity = Vector2()
 
@@ -73,6 +73,7 @@ var footstep_sounds = []
 
 func _ready():
 	was_on_floor = is_on_floor()
+	did_jump = false
 	for i in range(1, 6):
 		var step_sound = load("res://Sounds/footstep/step" + str(i) + ".wav")
 		footstep_sounds.append(step_sound)
@@ -119,30 +120,54 @@ func handle_wall_jump():
 		elif collision_normal.x > 0:
 			velocity.x = wall_jump_speed
 
-func do_quick_spin(speed_multiplier):
-	if not is_on_floor() or $SonicSprite.animation == "spin":
-		return velocity.x
+func do_quick_spin(base_speed, additional_speed) -> Vector2:
+	if $SonicSprite.animation == "spin":
+		return velocity
 
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
-
+	var current_speed = abs(velocity.x)
 	var current_direction = -1 if velocity.x < 0 else 1
-
-	if direction != current_direction and direction != 0:
-		speed_multiplier *= -1
 
 	$SonicSprite.play("spin")
 	spin_sound.play()
 
 	await(get_tree().create_timer(0.2).timeout)
 
-	$SonicSprite.offset.y = 3.735
-	$SonicSprite.play("ball")
+	spin_sound.stop()
 	launch_sound.play()
 
 	$SonicSprite.offset.y = 0.0
 	$SonicSprite.play("run")
 
-	return velocity.x * speed_multiplier
+	var spin_speed = base_speed if current_speed < base_speed else current_speed + additional_speed
+	if direction != current_direction:
+		spin_speed = current_speed
+	var directed_speed = spin_speed * direction if direction != 0 else spin_speed * current_direction
+
+	return Vector2(directed_speed, velocity.y)
+
+func quick_spin_down(down_speed) -> Vector2:
+	$SonicSprite.play("ball")
+	spin_sound.play()
+
+	await(get_tree().create_timer(0.2).timeout)
+
+	spin_sound.stop()
+	launch_sound.play()
+
+	$SonicSprite.offset.y = 0.0
+	$SonicSprite.play("jump")
+	
+	var direction = Input.get_axis("MoveLeft", "MoveRight")
+	var current_direction = -1 if velocity.x < 0 else 1
+
+	var directed_speed = 0
+	if direction == current_direction:
+		directed_speed = velocity.x
+	elif direction != current_direction and direction != 0:
+		directed_speed = -velocity.x
+
+	return Vector2(directed_speed, down_speed)
 
 func _input(_event):
 	if Input.is_action_just_pressed("Start"):
@@ -151,7 +176,7 @@ func _input(_event):
 var camera_speed_multiplier: float = 0.2
 
 func set_camera_offset(delta):
-	var offset_x = velocity.x * camera_speed_multiplier
+	var offset_x = velocity.x * camera_speed_multiplier / 4
 	var offset_y = velocity.y * camera_speed_multiplier / 16
 
 	if abs(velocity.x) > 0:
@@ -186,7 +211,8 @@ func _physics_process(delta):
 	if dead:
 		return
 
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and $SonicSprite.animation != "spin":
+		did_jump = true
 		const level_floor_normal = -1 # because Godot said so
 		var floor_normal = get_floor_normal()
 
@@ -220,45 +246,76 @@ func _physics_process(delta):
 	velocity.x = current_velocity.x
 
 	if Input.is_action_just_pressed("Jump") and is_on_wall():
+		did_jump = true
 		handle_wall_jump()
 		velocity.y = jump_speed
 		jump_sound.play()
 
 	was_on_floor = is_on_floor()
 
+	var down_direction = Input.is_action_pressed("Crouch")
+	
+	if Input.is_action_just_pressed("Spin") and down_direction and not is_on_floor():
+		velocity = await(quick_spin_down(speed_level_mach))
+		did_jump = true
+
 	if Input.is_action_just_pressed("Spin") and abs(velocity.x) > 0.0:
+		did_jump = false
 		if direction < 0:
 			$SonicSprite.flip_h = true
 		elif direction > 0:
 			$SonicSprite.flip_h = false
-		velocity.x = await(do_quick_spin(1.2))
+		velocity = await(do_quick_spin(speed_level_run, 40))
 
 	move_and_slide()
 
 	if is_on_floor() and not was_on_floor:
 		land_sound.play()
+		did_jump = false
 
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
-		if set_grounded_sprite(abs(velocity.x)):
+		if set_movement_sprite(abs(velocity.x)):
 			handle_movement_sound(abs(velocity.x))
-		$SonicSprite.set_rotation(last_collision.get_normal().x)
+		elif is_on_floor_only():
+			$SonicSprite.offset.x = 0
+			$SonicSprite.set_rotation(last_collision.get_normal().x)
+		else:
+			$SonicSprite.offset.x = 0
+			$SonicSprite.set_rotation(0)
 	else:
 		$SonicSprite.set_rotation(0)
-		$SonicSprite.play("jump")
+		if did_jump:
+			$SonicSprite.play("jump")
+		else:
+			set_movement_sprite(abs(velocity.x))
 
 	current_velocity = velocity
-
-func set_grounded_sprite(speed) -> bool:
-	var sprite: StringName
 	
-	if $SonicSprite.animation == "spin" or $SonicSprite.animation == "ball":
+func handle_wallbound_offset():
+	var collision_normal = get_last_slide_collision().get_normal()
+	if collision_normal.x < 0:
+		$SonicSprite.flip_h = true
+		$SonicSprite.offset.x = 7
+	elif collision_normal.x > 0:
+		$SonicSprite.flip_h = false
+		$SonicSprite.offset.x = -7
+
+func set_movement_sprite(speed) -> bool:
+	var sprite: StringName
+
+	if $SonicSprite.animation == "spin":
 		return false
 
-	if speed >= speed_level_mach:
+	if is_on_wall_only():
+		sprite = "wallbound"
+		handle_wallbound_offset()
+	elif speed >= speed_level_mach:
 		sprite = "mach"
 	elif speed >= speed_level_run:
 		sprite = "run"
+	elif not is_on_floor():
+		sprite = "drop"
 	elif speed >= speed_level_jog:
 		sprite = "jog"
 	elif speed >= speed_level_walk:
