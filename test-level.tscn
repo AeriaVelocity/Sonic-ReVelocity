@@ -1,12 +1,112 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=37 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
 [ext_resource type="Texture2D" uid="uid://btk371wi4ec6a" path="res://Textures/vr_grid.png" id="4_e8txd"]
 [ext_resource type="Texture2D" uid="uid://cjo6trmgamkv4" path="res://Textures/vr_background.png" id="4_onv0v"]
+[ext_resource type="Texture2D" uid="uid://1m8suxaedp36" path="res://Sprites/info-sign.png" id="5_a2k0e"]
 [ext_resource type="Texture2D" uid="uid://cfakt1typ1yy4" path="res://Sprites/slope.png" id="6_0acua"]
+[ext_resource type="Texture2D" uid="uid://dmo6w0nf3e5gh" path="res://Sprites/sonic/005.png" id="7_cyiv6"]
+[ext_resource type="Texture2D" uid="uid://xb1djbmsmpdq" path="res://Sprites/sonic/013.png" id="8_ck622"]
+[ext_resource type="Texture2D" uid="uid://bqu45mcji5y3p" path="res://Sprites/sonic/025.png" id="9_hu0q3"]
+[ext_resource type="Texture2D" uid="uid://rov8pruq8lnt" path="res://Sprites/sonic/033.png" id="10_dpfeo"]
 [ext_resource type="Script" path="res://Scripts/BGMHandling.gd" id="11_hgbcj"]
+[ext_resource type="Script" path="res://Scripts/ButtonPrompts.gd" id="11_jd4nr"]
+[ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="11_mofo2"]
+[ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
+[ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
+[ext_resource type="Texture2D" uid="uid://d20pue351cfvv" path="res://Sprites/sonic/039.png" id="14_kwwvs"]
+[ext_resource type="Texture2D" uid="uid://d0i64nrjdb2tr" path="res://Graphics/Info Signs/z-key.png" id="15_cnu5a"]
+[ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="15_oe7gf"]
+[ext_resource type="Texture2D" uid="uid://cg6dc5k1ac2r6" path="res://Graphics/Info Signs/x-key.png" id="15_p0rca"]
+[ext_resource type="Texture2D" uid="uid://cgp0elwhn4axq" path="res://Graphics/Info Signs/circle-button.png" id="16_23l2o"]
+[ext_resource type="Texture2D" uid="uid://u1v30hoxrf70" path="res://Graphics/Info Signs/cross-button.png" id="16_bv2s1"]
+[ext_resource type="Texture2D" uid="uid://442p8le465do" path="res://Sprites/sonic/067.png" id="16_o3c4i"]
+[ext_resource type="Texture2D" uid="uid://dg3ixmsdidfwg" path="res://Graphics/Info Signs/dpad-left.png" id="17_wwycd"]
+[ext_resource type="Texture2D" uid="uid://ddnswbyjx4gmv" path="res://Sprites/sonic/069.png" id="18_b3y2w"]
+[ext_resource type="Texture2D" uid="uid://cfjnq6dpp34v6" path="res://Graphics/Info Signs/left-key.png" id="24_u5rgk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vuw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_wwycd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_u5rgk")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_wwycd")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ip747"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_mofo2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_cnu5a")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_bv2s1")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2ldr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_oe7gf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_p0rca")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_23l2o")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwn6a"]
 size = Vector2(7366, 69)
@@ -18,16 +118,16 @@ size = Vector2(20, 676)
 size = Vector2(322, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emuw5"]
-size = Vector2(576, 10.4988)
+size = Vector2(916, 10.4988)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnpyi"]
-size = Vector2(66, 4.00017)
+size = Vector2(66, 17.9999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l8ng"]
-size = Vector2(576, 10.9985)
+size = Vector2(678, 10.9985)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpd24"]
-size = Vector2(66, 5.00061)
+size = Vector2(66, 14.5002)
 
 [node name="Test Level" type="Node2D"]
 
@@ -47,6 +147,276 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_onv0v")
+
+[node name="Info Sign 1" type="Sprite2D" parent="."]
+position = Vector2(224, 342)
+texture = ExtResource("5_a2k0e")
+
+[node name="Sonics" type="Node2D" parent="Info Sign 1"]
+position = Vector2(-68, -32)
+scale = Vector2(0.18, 0.18)
+
+[node name="005" type="Sprite2D" parent="Info Sign 1/Sonics"]
+modulate = Color(1, 1, 1, 0.580392)
+position = Vector2(133.333, 133.333)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("7_cyiv6")
+
+[node name="013" type="Sprite2D" parent="Info Sign 1/Sonics"]
+modulate = Color(1, 1, 1, 0.737255)
+position = Vector2(338.889, 133.333)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("8_ck622")
+
+[node name="025" type="Sprite2D" parent="Info Sign 1/Sonics"]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(533.333, 133.333)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("9_hu0q3")
+
+[node name="033" type="Sprite2D" parent="Info Sign 1/Sonics"]
+position = Vector2(733.333, 133.333)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("10_dpfeo")
+
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 1"]
+texture_filter = 4
+position = Vector2(-63, -32)
+rotation = 3.14159
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_0vuw3")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 2" type="Sprite2D" parent="."]
+position = Vector2(775, 342)
+texture = ExtResource("5_a2k0e")
+
+[node name="Sonics" type="Node2D" parent="Info Sign 2"]
+position = Vector2(-68, -32)
+
+[node name="037" type="Sprite2D" parent="Info Sign 2/Sonics"]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(58, 27)
+texture = ExtResource("12_n3y3u")
+
+[node name="038" type="Sprite2D" parent="Info Sign 2/Sonics"]
+modulate = Color(1, 1, 1, 0.768627)
+position = Vector2(87, 9)
+texture = ExtResource("13_1eht6")
+
+[node name="039" type="Sprite2D" parent="Info Sign 2/Sonics"]
+position = Vector2(120, -2)
+texture = ExtResource("14_kwwvs")
+
+[node name="A-button" type="AnimatedSprite2D" parent="Info Sign 2"]
+texture_filter = 4
+position = Vector2(-63, -32)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_ip747")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 5" type="Sprite2D" parent="."]
+position = Vector2(1762, 171)
+rotation = 1.57078
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 5"]
+position = Vector2(-95.0003, 24.9989)
+rotation = -1.57079
+
+[node name="Sonics" type="Node2D" parent="Info Sign 5/Elements"]
+position = Vector2(18.9997, 26.0002)
+
+[node name="038" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.435294)
+position = Vector2(21.9994, 127)
+texture = ExtResource("13_1eht6")
+flip_h = true
+
+[node name="069" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.690196)
+position = Vector2(-5.00038, 97.9999)
+texture = ExtResource("18_b3y2w")
+
+[node name="039" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.8)
+position = Vector2(21.9998, 67)
+texture = ExtResource("14_kwwvs")
+
+[node name="070" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+position = Vector2(53, 32.0002)
+texture = ExtResource("18_b3y2w")
+flip_h = true
+
+[node name="A-button" type="AnimatedSprite2D" parent="Info Sign 5/Elements"]
+texture_filter = 4
+position = Vector2(27.9998, 31.0002)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_ip747")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 3" type="Sprite2D" parent="."]
+position = Vector2(1995, 322)
+rotation = 3.14159
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 3"]
+position = Vector2(89.9999, 24.0004)
+rotation = 3.14159
+
+[node name="Sonics" type="Node2D" parent="Info Sign 3/Elements"]
+position = Vector2(18.9997, 26.0002)
+scale = Vector2(0.18, 0.18)
+
+[node name="067" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(183.332, 138.891)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("16_o3c4i")
+
+[node name="025" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(411.11, 138.893)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("9_hu0q3")
+
+[node name="033" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+position = Vector2(644.443, 138.895)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("10_dpfeo")
+
+[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 3/Elements"]
+texture_filter = 4
+position = Vector2(25.9998, 27.0003)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_e2ldr")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 6" type="Sprite2D" parent="."]
+position = Vector2(1995, 189.501)
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 6"]
+position = Vector2(-89.9994, -60.5016)
+rotation = 6.28318
+
+[node name="Sonics" type="Node2D" parent="Info Sign 6/Elements"]
+position = Vector2(18.9997, 26.0002)
+scale = Vector2(0.18, 0.18)
+
+[node name="067" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(183.332, 138.891)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("16_o3c4i")
+
+[node name="025" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(411.11, 138.893)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("9_hu0q3")
+
+[node name="033" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+position = Vector2(644.443, 138.895)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("10_dpfeo")
+
+[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 6/Elements"]
+texture_filter = 4
+position = Vector2(25.9994, 28.0005)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_e2ldr")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 7" type="Sprite2D" parent="."]
+position = Vector2(2324.5, 188.501)
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 7"]
+position = Vector2(-89.9994, -59.5016)
+
+[node name="Sonics" type="Node2D" parent="Info Sign 7/Elements"]
+position = Vector2(18.9997, 26.0002)
+scale = Vector2(0.18, 0.18)
+
+[node name="067" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(649.999, 138.895)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("16_o3c4i")
+
+[node name="025" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(444.443, 138.893)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("9_hu0q3")
+flip_h = true
+
+[node name="033" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+position = Vector2(205.554, 138.891)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("10_dpfeo")
+flip_h = true
+
+[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 7/Elements"]
+texture_filter = 4
+position = Vector2(26.499, 28.0003)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_e2ldr")
+script = ExtResource("11_jd4nr")
+
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 7/Elements"]
+texture_filter = 4
+position = Vector2(71.4993, 28.0006)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_0vuw3")
+script = ExtResource("11_jd4nr")
+
+[node name="Info Sign 4" type="Sprite2D" parent="."]
+position = Vector2(2324.5, 321)
+rotation = 3.14159
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 4"]
+position = Vector2(89.9999, 24.0004)
+rotation = 3.14159
+
+[node name="Sonics" type="Node2D" parent="Info Sign 4/Elements"]
+position = Vector2(18.9997, 26.0002)
+scale = Vector2(0.18, 0.18)
+
+[node name="067" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.764706)
+position = Vector2(649.999, 138.895)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("16_o3c4i")
+
+[node name="025" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(444.443, 138.893)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("9_hu0q3")
+flip_h = true
+
+[node name="033" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+position = Vector2(205.554, 138.891)
+scale = Vector2(5.55556, 5.55556)
+texture = ExtResource("10_dpfeo")
+flip_h = true
+
+[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 4/Elements"]
+texture_filter = 4
+position = Vector2(27.4993, 28.0003)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_e2ldr")
+script = ExtResource("11_jd4nr")
+
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 4/Elements"]
+texture_filter = 4
+position = Vector2(69.9995, 28.0006)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_0vuw3")
+script = ExtResource("11_jd4nr")
 
 [node name="Stage" type="TextureRect" parent="."]
 offset_top = 397.0
@@ -136,9 +506,9 @@ one_way_collision = true
 
 [node name="Platform3" type="TextureRect" parent="."]
 offset_left = 1707.0
-offset_top = -150.0
-offset_right = 2284.0
-offset_bottom = -84.0
+offset_top = -223.0
+offset_right = 2622.0
+offset_bottom = -157.0
 rotation = 1.57079
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -147,21 +517,21 @@ stretch_mode = 1
 [node name="PlatformCollision" type="StaticBody2D" parent="Platform3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
-position = Vector2(288, 5.25024)
+position = Vector2(458, 5.25)
 shape = SubResource("RectangleShape2D_emuw5")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
-position = Vector2(1.99988, 33)
+position = Vector2(8.99976, 33)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xnpyi")
 one_way_collision = true
 
 [node name="Platform4" type="TextureRect" parent="."]
 offset_left = 1797.0
-offset_top = 9.0
-offset_right = 2374.0
-offset_bottom = 75.0
+offset_top = 27.0
+offset_right = 2478.0
+offset_bottom = 93.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -170,14 +540,46 @@ stretch_mode = 1
 [node name="PlatformCollision" type="StaticBody2D" parent="Platform4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
-position = Vector2(288, 5.50317)
+position = Vector2(339, 5.50317)
 shape = SubResource("RectangleShape2D_3l8ng")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
-position = Vector2(574.5, 33.0039)
+position = Vector2(675.25, 33.0049)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_qpd24")
+one_way_collision = true
+
+[node name="Platform5" type="TextureRect" parent="."]
+offset_left = 2165.0
+offset_top = 222.0
+offset_right = 2486.0
+offset_bottom = 352.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform6" type="TextureRect" parent="."]
+offset_left = 2325.0
+offset_top = 222.0
+offset_right = 2646.0
+offset_bottom = 352.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]

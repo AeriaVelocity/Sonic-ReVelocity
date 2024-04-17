@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=14 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://tkwq1ij58gsm" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
+[ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_tr8ht"]
 [ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="7_ysnro"]
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="8_c36r7"]
 [ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="9_ygbhj"]
@@ -91,6 +92,7 @@ texture_filter = 4
 position = Vector2(189, 109)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("6_fyoe5")
+script = ExtResource("7_tr8ht")
 
 [node name="LeftButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
 position = Vector2(-62.6667, -5.33334)
