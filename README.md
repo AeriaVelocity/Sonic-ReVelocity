@@ -16,74 +16,59 @@ Games HQ event.
 Sonic Re;Velocity is built in Godot Engine v4.2 and is free software under the
 GNU General Public License 3.0, or, at your option, any later version.
 
-## Controls
-
-| **Keyboard** | **Xbox Gamepad** | **Action** |
-| --- | --- | --- |
-| `←` | `D-Pad ←` | Move left |
-| `→` | `D-Pad →` | Move right |
-| `↓` | `D-Pad ↓` | Aim down |
-| `Z` | `A` | Jump, Wall Jump |
-| `X` | `B` | Quick Spin |
-| `Esc` | `Menu` | Back to title |
-
 ## Move List
-
-* **Jump** - Sonic can jump, granting him height. I feel like I don't have to
-explain how a jump works. It's a jump.
-* **Wall Jump** - While Sonic is wallbound (touching a wall and not the floor),
-he can jump off of it, sending him upward and away from the wall.
-* **Quick Spin** - Sonic can perform a quick Spin Dash, boosting his speed or
-changing his direction. While aiming down, Quick Spin will be directed down.
-For more information, see [Quick Spin Tech](#quick-spin-tech).
-
-## Quick Spin Tech
-
-The Quick Spin is the central movement mechanic in Sonic Re;Velocity. Sonic can
-perform a Quick Spin by pressing the Quick Spin button (`X` on keyboard,
-`B` on Xbox controller).
-
-This Quick Spin will affect Sonic's movement in various ways, as described
-below.
-
-* If Sonic is moving, but not running, the Quick Spin will place Sonic into
-running speed immediately, providing an easy way to get moving.
-* If Sonic's running, and the held direction is the same, the Quick Spin will
-boost Sonic's speed in his running direction by a little bit. Consecutive Quick
-Spins can get him to Mach speed very quickly.
-* If Sonic's running, and the held direction is the opposite, the Quick Spin will
-cause Sonic to immediately change direction, making him begin running the other
-way, at the same speed he was already running.
-* If Sonic's airborne, and the player is holding down, the Quick Spin will be
-aimed directly downwards, sending Sonic straight down towards the floor.
-* If Sonic's airborne, moving horizontally, and the player is holding diagonally
-down, the Quick Spin will inherit Sonic's current X-velocity, directed towards
-the held horizontal direction.
-
-### Controller Notation
 
 This is assuming you're using an Xbox controller, and Sonic is moving right.
 
 If you're on keyboard, replace `B` with `X`. If you're using a PlayStation
-controller, replace `B` with `□`.
+controller, replace `B` with `○`.
 
 If Sonic's running left, not right, replace `→` with `←`, and vice versa.
 
-* `B`/`→ B` while walking or jogging - Quick Spin
+* **Movement** - `←` or `→`
+  * Sonic can move left and right, gradually building up speed. The screen will
+    zoom out when he starts running, and even more when he's at Mach speed.
+  * At Mach speed, Sonic will run extremely fast. In this state, it's crucial
+    to control his speed or he'll probably fall off a ledge or crash into a
+    wall.
+  * It's worth noting that pressing the opposite movement direction while Sonic
+    is already running will *not* turn him around, unlike most Sonic games.
+    You're encouraged to use **Quick Spin Reversal** if you need to turn around.
+* **Jump** - `A` while on the ground
+  * Sonic can jump, granting him height. Jumping off an upward
+    slope will let him jump higher and further. Chaining together consecutive
+    jumps will result in faster movement.
+* **Wall Jump** - `A` while wallbound
+  * While Sonic is wallbound (touching a wall and not the
+    floor), he can jump off of it, sending him upward and away from the wall. Be
+    aware the wall jump has a fixed amount of speed, and will cancel Sonic's
+    velocity.
+* **Quick Spin** - `B`
+  * Sonic can perform a quick Spin Dash and immediately transition into running,
+    boosting his speed or changing his direction.
+  * Quick Spin can be performed left, right and (in the air) down.
+* **Quick Spin Start** - `→ B` while walking or jogging
   * Get Sonic up to running speed immediately.
-* `→ B` while running or at Mach speed - Quick Spin Boost
+* **Quick Spin Boost** `→ B` while running or at Mach speed
   * Boost Sonic's running speed by a little bit.
-* While moving, `← B` - Quick Spin Reversal
+  * Chain together Quick Spin Boosts to get to Mach speed faster.
+* **Quick Spin Reversal** - `← B` while in motion
   * Change Sonic's direction, sending him running the other way.
-
-* Aerial `↓ B` - Quick Spin Down
+  * This is useful if you want to change direction quickly, especially
+  since simply pressing the opposite direction won't turn him around,
+  unlike most Sonic games.
+* **Quick Spin Down** - Aerial `↓ B` while in motion
   * Cancel Sonic's horizontal velocity and send him straight down.
-* Aerial `↘ B` - Quick Spin Comet
+* **Quick Spin Comet** Aerial `↘ B` while in motion
   * Send Sonic straight down without cancelling his horizontal velocity.
+  * This is a good way to keep Sonic's speed going if he's flying through
+    the air.
   * This move is most effective at Mach speed.
-* Aerial `↙ B` - Quick Spin Comet Reversal
+* **Quick Spin Comet Reversal** Aerial `↙ B` while in motion
   * Send Sonic straight down, and change his horizontal velocity to the
     opposite direction.
+  * Like with its non-reversal counterpart, this move is most effective at
+    Mach speed.
 
 ## Devlog
 
