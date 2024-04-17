@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=38 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/BGMHandling.gd" id="11_hgbcj"]
 [ext_resource type="Script" path="res://Scripts/ButtonPrompts.gd" id="11_jd4nr"]
 [ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="11_mofo2"]
+[ext_resource type="Texture2D" uid="uid://dv1883ej5xbj7" path="res://Graphics/Info Signs/ps-dpad-left.png" id="12_7snv5"]
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
@@ -47,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_wwycd")
+"texture": ExtResource("12_7snv5")
 }],
 "loop": true,
 "name": &"playstation",
