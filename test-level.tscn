@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=53 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dv1883ej5xbj7" path="res://Graphics/Info Signs/ps-dpad-left.png" id="12_7snv5"]
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
+[ext_resource type="Script" path="res://Scripts/DPadPrompts.gd" id="14_cqdmh"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
 [ext_resource type="Script" path="res://Scripts/HintMessages.gd" id="14_kvmsa"]
 [ext_resource type="Texture2D" uid="uid://d20pue351cfvv" path="res://Sprites/sonic/039.png" id="14_kwwvs"]
@@ -238,7 +239,7 @@ position = Vector2(-63, -32)
 rotation = 3.14159
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-script = ExtResource("11_jd4nr")
+script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 2" type="Sprite2D" parent="Info Signs"]
 position = Vector2(551, 0)
@@ -451,7 +452,7 @@ texture_filter = 4
 position = Vector2(71.4993, 28.0006)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-script = ExtResource("11_jd4nr")
+script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 4" type="Sprite2D" parent="Info Signs"]
 position = Vector2(2100.5, -21)
@@ -498,7 +499,7 @@ texture_filter = 4
 position = Vector2(69.9995, 28.0006)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-script = ExtResource("11_jd4nr")
+script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 8" type="Sprite2D" parent="Info Signs"]
 position = Vector2(2003, -682)
@@ -544,7 +545,7 @@ position = Vector2(24, 68)
 rotation = -1.57079
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-script = ExtResource("11_jd4nr")
+script = ExtResource("14_cqdmh")
 
 [node name="Stage" type="TextureRect" parent="."]
 offset_top = 397.0
