@@ -163,7 +163,7 @@ func quick_spin_down(down_speed) -> Vector2:
 	var current_direction = -1 if velocity.x < 0 else 1
 
 	var directed_speed = 0
-	var base_directed_speed = clamp(abs(velocity.x), speed_level_run, speed_cap)
+	var base_directed_speed = clamp(abs(velocity.length()), speed_level_run, speed_cap)
 	if direction == 0:
 		# Quick Spin Down
 		directed_speed = 0
