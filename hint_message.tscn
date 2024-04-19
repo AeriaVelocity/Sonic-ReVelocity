@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbc5p5wbrgod1"]
+
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_nisip"]
+[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="1_pya26"]
+[ext_resource type="FontFile" uid="uid://cuqb4jrlvmpbb" path="res://Fonts/ChakraPetch-Italic.ttf" id="3_4uvit"]
+[ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="4_85wk5"]
+[ext_resource type="Script" path="res://Scripts/HintMessage.gd" id="5_qcphf"]
+[ext_resource type="AudioStream" uid="uid://c3x801gp472xu" path="res://Sounds/alert.wav" id="6_wxrsd"]
+
+[sub_resource type="Animation" id="Animation_lm8oy"]
+resource_name = "fadeout"
+length = 2.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c00rr"]
+_data = {
+"fadeout": SubResource("Animation_lm8oy")
+}
+
+[node name="HintMessage" type="RichTextLabel"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 4
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -31.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_pya26")
+theme_override_fonts/bold_font = ExtResource("1_nisip")
+theme_override_fonts/italics_font = ExtResource("3_4uvit")
+theme_override_fonts/bold_italics_font = ExtResource("4_85wk5")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]There is no hint! Text intentionally left blank.[/center]"
+fit_content = true
+script = ExtResource("5_qcphf")
+
+[node name="HintSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wxrsd")
+volume_db = -3.0
+
+[node name="HintAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c00rr")
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=50 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
+[ext_resource type="Script" path="res://Scripts/HintMessages.gd" id="14_kvmsa"]
 [ext_resource type="Texture2D" uid="uid://d20pue351cfvv" path="res://Sprites/sonic/039.png" id="14_kwwvs"]
 [ext_resource type="Texture2D" uid="uid://d0i64nrjdb2tr" path="res://Graphics/Info Signs/z-key.png" id="15_cnu5a"]
 [ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="15_oe7gf"]
@@ -30,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://k8adfwb1pdx8" path="res://Sprites/sonic/049.png" id="25_cy386"]
 [ext_resource type="Texture2D" uid="uid://42b0y84t8abm" path="res://Sprites/sonic/043.png" id="26_vpb3c"]
 [ext_resource type="Texture2D" uid="uid://7m6ebaduu5vk" path="res://Textures/vr_grid_walljump.png" id="29_g6sjr"]
+[ext_resource type="PackedScene" uid="uid://dbc5p5wbrgod1" path="res://hint_message.tscn" id="31_x1w6k"]
+[ext_resource type="Texture2D" uid="uid://b4q273hwuqmgk" path="res://Sprites/hintring/hint1.png" id="32_ut7hh"]
+[ext_resource type="Texture2D" uid="uid://bjr4t3mkn6mwe" path="res://Sprites/hintring/hint2.png" id="33_8cpq2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vuw3"]
 animations = [{
@@ -139,9 +143,39 @@ size = Vector2(1084, 10.9985)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpd24"]
 size = Vector2(66, 4.00048)
 
+[sub_resource type="Animation" id="Animation_waigc"]
+resource_name = "spinny"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8o23b"]
+_data = {
+"spinny": SubResource("Animation_waigc")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fikd"]
+radius = 38.0
+
 [node name="Test Level" type="Node2D"]
 
 [node name="HeadsUpDisplay" parent="." instance=ExtResource("1_11k6x")]
+
+[node name="HintMessage" parent="HeadsUpDisplay" instance=ExtResource("31_x1w6k")]
+offset_top = 92.0
+offset_bottom = 155.0
+text = ""
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_od5gh")
@@ -158,38 +192,40 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_onv0v")
 
-[node name="Info Sign 1" type="Sprite2D" parent="."]
+[node name="Info Signs" type="Node2D" parent="."]
 position = Vector2(224, 342)
+
+[node name="Info Sign 1" type="Sprite2D" parent="Info Signs"]
 texture = ExtResource("5_a2k0e")
 
-[node name="Sonics" type="Node2D" parent="Info Sign 1"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 1"]
 position = Vector2(-68, -32)
 scale = Vector2(0.18, 0.18)
 
-[node name="005" type="Sprite2D" parent="Info Sign 1/Sonics"]
+[node name="005" type="Sprite2D" parent="Info Signs/Info Sign 1/Sonics"]
 modulate = Color(1, 1, 1, 0.580392)
 position = Vector2(133.333, 133.333)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("7_cyiv6")
 
-[node name="013" type="Sprite2D" parent="Info Sign 1/Sonics"]
+[node name="013" type="Sprite2D" parent="Info Signs/Info Sign 1/Sonics"]
 modulate = Color(1, 1, 1, 0.737255)
 position = Vector2(338.889, 133.333)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("8_ck622")
 
-[node name="025" type="Sprite2D" parent="Info Sign 1/Sonics"]
+[node name="025" type="Sprite2D" parent="Info Signs/Info Sign 1/Sonics"]
 modulate = Color(1, 1, 1, 0.760784)
 position = Vector2(533.333, 133.333)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("9_hu0q3")
 
-[node name="033" type="Sprite2D" parent="Info Sign 1/Sonics"]
+[node name="033" type="Sprite2D" parent="Info Signs/Info Sign 1/Sonics"]
 position = Vector2(733.333, 133.333)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("10_dpfeo")
 
-[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 1"]
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Signs/Info Sign 1"]
 texture_filter = 4
 position = Vector2(-63, -32)
 rotation = 3.14159
@@ -197,44 +233,44 @@ scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 2" type="Sprite2D" parent="."]
-position = Vector2(775, 342)
+[node name="Info Sign 2" type="Sprite2D" parent="Info Signs"]
+position = Vector2(551, 0)
 texture = ExtResource("5_a2k0e")
 
-[node name="Sonics" type="Node2D" parent="Info Sign 2"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 2"]
 position = Vector2(-68, -32)
 
-[node name="037" type="Sprite2D" parent="Info Sign 2/Sonics"]
+[node name="037" type="Sprite2D" parent="Info Signs/Info Sign 2/Sonics"]
 modulate = Color(1, 1, 1, 0.54902)
 position = Vector2(58, 27)
 texture = ExtResource("12_n3y3u")
 
-[node name="038" type="Sprite2D" parent="Info Sign 2/Sonics"]
+[node name="038" type="Sprite2D" parent="Info Signs/Info Sign 2/Sonics"]
 modulate = Color(1, 1, 1, 0.768627)
 position = Vector2(87, 9)
 texture = ExtResource("13_1eht6")
 
-[node name="039" type="Sprite2D" parent="Info Sign 2/Sonics"]
+[node name="039" type="Sprite2D" parent="Info Signs/Info Sign 2/Sonics"]
 position = Vector2(120, -2)
 texture = ExtResource("14_kwwvs")
 
-[node name="A-button" type="AnimatedSprite2D" parent="Info Sign 2"]
+[node name="A-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 2"]
 texture_filter = 4
 position = Vector2(-63, -32)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 5" type="Sprite2D" parent="."]
-position = Vector2(1762, 171)
+[node name="Info Sign 5" type="Sprite2D" parent="Info Signs"]
+position = Vector2(1538, -171)
 rotation = 1.57078
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 5"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 5"]
 position = Vector2(-95.0003, 24.9989)
 rotation = -1.57079
 
-[node name="VrGridWalljump" type="TextureRect" parent="Info Sign 5/Elements"]
+[node name="VrGridWalljump" type="TextureRect" parent="Info Signs/Info Sign 5/Elements"]
 offset_left = 5.00003
 offset_top = 42.9999
 offset_right = 29.0
@@ -246,7 +282,7 @@ expand_mode = 1
 stretch_mode = 1
 flip_h = true
 
-[node name="VrGridWalljump2" type="TextureRect" parent="Info Sign 5/Elements"]
+[node name="VrGridWalljump2" type="TextureRect" parent="Info Signs/Info Sign 5/Elements"]
 offset_left = 69.0004
 offset_top = 10.0006
 offset_right = 93.0004
@@ -257,238 +293,238 @@ texture = ExtResource("29_g6sjr")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Sonics" type="Node2D" parent="Info Sign 5/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 5/Elements"]
 position = Vector2(18.9997, 26.0002)
 
-[node name="038" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+[node name="038" type="Sprite2D" parent="Info Signs/Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.435294)
 position = Vector2(30.9992, 125)
 texture = ExtResource("13_1eht6")
 flip_h = true
 
-[node name="069" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+[node name="069" type="Sprite2D" parent="Info Signs/Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.690196)
 position = Vector2(7.99953, 95)
 texture = ExtResource("18_b3y2w")
 
-[node name="039" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+[node name="039" type="Sprite2D" parent="Info Signs/Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.8)
 position = Vector2(24.9998, 62.0001)
 texture = ExtResource("14_kwwvs")
 
-[node name="070" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
+[node name="070" type="Sprite2D" parent="Info Signs/Info Sign 5/Elements/Sonics"]
 position = Vector2(40.0001, 30.0003)
 texture = ExtResource("18_b3y2w")
 flip_h = true
 
-[node name="A-button" type="AnimatedSprite2D" parent="Info Sign 5/Elements"]
+[node name="A-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 5/Elements"]
 texture_filter = 4
 position = Vector2(27.9998, 31.0002)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 3" type="Sprite2D" parent="."]
-position = Vector2(1995, 322)
+[node name="Info Sign 3" type="Sprite2D" parent="Info Signs"]
+position = Vector2(1771, -20)
 rotation = 3.14159
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 3"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 3"]
 position = Vector2(89.9999, 24.0004)
 rotation = 3.14159
 
-[node name="Sonics" type="Node2D" parent="Info Sign 3/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 3/Elements"]
 position = Vector2(18.9997, 26.0002)
 scale = Vector2(0.18, 0.18)
 
-[node name="067" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+[node name="067" type="Sprite2D" parent="Info Signs/Info Sign 3/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.764706)
 position = Vector2(183.332, 138.891)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("16_o3c4i")
 
-[node name="025" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+[node name="025" type="Sprite2D" parent="Info Signs/Info Sign 3/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.760784)
 position = Vector2(411.11, 138.893)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("9_hu0q3")
 
-[node name="033" type="Sprite2D" parent="Info Sign 3/Elements/Sonics"]
+[node name="033" type="Sprite2D" parent="Info Signs/Info Sign 3/Elements/Sonics"]
 position = Vector2(644.443, 138.895)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("10_dpfeo")
 
-[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 3/Elements"]
+[node name="B-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 3/Elements"]
 texture_filter = 4
 position = Vector2(25.9998, 27.0003)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 6" type="Sprite2D" parent="."]
-position = Vector2(1995, 189.501)
+[node name="Info Sign 6" type="Sprite2D" parent="Info Signs"]
+position = Vector2(1771, -152.499)
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 6"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 6"]
 position = Vector2(-89.9994, -60.5016)
 rotation = 6.28318
 
-[node name="Sonics" type="Node2D" parent="Info Sign 6/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 6/Elements"]
 position = Vector2(18.9997, 26.0002)
 scale = Vector2(0.18, 0.18)
 
-[node name="067" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+[node name="067" type="Sprite2D" parent="Info Signs/Info Sign 6/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.764706)
 position = Vector2(183.332, 138.891)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("16_o3c4i")
 
-[node name="025" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+[node name="025" type="Sprite2D" parent="Info Signs/Info Sign 6/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.760784)
 position = Vector2(411.11, 138.893)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("9_hu0q3")
 
-[node name="033" type="Sprite2D" parent="Info Sign 6/Elements/Sonics"]
+[node name="033" type="Sprite2D" parent="Info Signs/Info Sign 6/Elements/Sonics"]
 position = Vector2(644.443, 138.895)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("10_dpfeo")
 
-[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 6/Elements"]
+[node name="B-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 6/Elements"]
 texture_filter = 4
 position = Vector2(25.9994, 28.0005)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 7" type="Sprite2D" parent="."]
-position = Vector2(2324.5, 188.501)
+[node name="Info Sign 7" type="Sprite2D" parent="Info Signs"]
+position = Vector2(2100.5, -153.499)
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 7"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 7"]
 position = Vector2(-89.9994, -59.5016)
 
-[node name="Sonics" type="Node2D" parent="Info Sign 7/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 7/Elements"]
 position = Vector2(18.9997, 26.0002)
 scale = Vector2(0.18, 0.18)
 
-[node name="067" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+[node name="067" type="Sprite2D" parent="Info Signs/Info Sign 7/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.764706)
 position = Vector2(649.999, 138.895)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("16_o3c4i")
 
-[node name="025" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+[node name="025" type="Sprite2D" parent="Info Signs/Info Sign 7/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.760784)
 position = Vector2(444.443, 138.893)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("9_hu0q3")
 flip_h = true
 
-[node name="033" type="Sprite2D" parent="Info Sign 7/Elements/Sonics"]
+[node name="033" type="Sprite2D" parent="Info Signs/Info Sign 7/Elements/Sonics"]
 position = Vector2(205.554, 138.891)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("10_dpfeo")
 flip_h = true
 
-[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 7/Elements"]
+[node name="B-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(26.499, 28.0003)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
-[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 7/Elements"]
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(71.4993, 28.0006)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 4" type="Sprite2D" parent="."]
-position = Vector2(2324.5, 321)
+[node name="Info Sign 4" type="Sprite2D" parent="Info Signs"]
+position = Vector2(2100.5, -21)
 rotation = 3.14159
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 4"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 4"]
 position = Vector2(89.9999, 24.0004)
 rotation = 3.14159
 
-[node name="Sonics" type="Node2D" parent="Info Sign 4/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 4/Elements"]
 position = Vector2(18.9997, 26.0002)
 scale = Vector2(0.18, 0.18)
 
-[node name="067" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+[node name="067" type="Sprite2D" parent="Info Signs/Info Sign 4/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.764706)
 position = Vector2(649.999, 138.895)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("16_o3c4i")
 
-[node name="025" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+[node name="025" type="Sprite2D" parent="Info Signs/Info Sign 4/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.760784)
 position = Vector2(444.443, 138.893)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("9_hu0q3")
 flip_h = true
 
-[node name="033" type="Sprite2D" parent="Info Sign 4/Elements/Sonics"]
+[node name="033" type="Sprite2D" parent="Info Signs/Info Sign 4/Elements/Sonics"]
 position = Vector2(205.554, 138.891)
 scale = Vector2(5.55556, 5.55556)
 texture = ExtResource("10_dpfeo")
 flip_h = true
 
-[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 4/Elements"]
+[node name="B-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 4/Elements"]
 texture_filter = 4
 position = Vector2(27.4993, 28.0003)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
-[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 4/Elements"]
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Signs/Info Sign 4/Elements"]
 texture_filter = 4
 position = Vector2(69.9995, 28.0006)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
-[node name="Info Sign 8" type="Sprite2D" parent="."]
-position = Vector2(2227, -340)
+[node name="Info Sign 8" type="Sprite2D" parent="Info Signs"]
+position = Vector2(2003, -682)
 rotation = -1.57079
 texture = ExtResource("5_a2k0e")
 
-[node name="Elements" type="Node2D" parent="Info Sign 8"]
+[node name="Elements" type="Node2D" parent="Info Signs/Info Sign 8"]
 position = Vector2(89.9999, -58.0003)
 rotation = 1.57079
 
-[node name="Sonics" type="Node2D" parent="Info Sign 8/Elements"]
+[node name="Sonics" type="Node2D" parent="Info Signs/Info Sign 8/Elements"]
 position = Vector2(18.9997, 26.0002)
 scale = Vector2(0.18, 0.18)
 
-[node name="049" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+[node name="049" type="Sprite2D" parent="Info Signs/Info Sign 8/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.686275)
 position = Vector2(200.001, 311.11)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("25_cy386")
 
-[node name="050" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+[node name="050" type="Sprite2D" parent="Info Signs/Info Sign 8/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.815686)
 position = Vector2(200.001, 505.555)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("25_cy386")
 
-[node name="051" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+[node name="051" type="Sprite2D" parent="Info Signs/Info Sign 8/Elements/Sonics"]
 position = Vector2(200.001, 705.554)
 scale = Vector2(5.556, 5.556)
 texture = ExtResource("26_vpb3c")
 
-[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 8/Elements"]
+[node name="B-button" type="AnimatedSprite2D" parent="Info Signs/Info Sign 8/Elements"]
 texture_filter = 4
 position = Vector2(24, 25)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
-[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 8/Elements"]
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Signs/Info Sign 8/Elements"]
 texture_filter = 4
 position = Vector2(24, 68)
 rotation = -1.57079
@@ -550,7 +586,12 @@ position = Vector2(-382, -258)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slope/SlopeCollision"]
 polygon = PackedVector2Array(118, 454, 134, 450, 158, 434, 586, 106, 622, 78, 642, 62, 646, 62, 646, 82, 646, 454)
 
-[node name="Platform" type="TextureRect" parent="."]
+[node name="Platforms" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Platform" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1834.0
 offset_top = 222.0
 offset_right = 2155.0
@@ -559,14 +600,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform2" type="TextureRect" parent="."]
+[node name="Platform2" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1995.0
 offset_top = 222.0
 offset_right = 2316.0
@@ -575,14 +617,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform2"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform3" type="TextureRect" parent="."]
+[node name="Platform3" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1707.0
 offset_top = -388.0
 offset_right = 2951.0
@@ -592,20 +635,21 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("29_g6sjr")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform3" groups=["WallJump"]]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform3" groups=["WallJump"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/PlatformCollision" groups=["Jumpable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3/PlatformCollision" groups=["Jumpable"]]
 position = Vector2(624, 5.24951)
 shape = SubResource("RectangleShape2D_emuw5")
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Platform3/PlatformCollision"]
 position = Vector2(1.99985, 33)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xnpyi")
 one_way_collision = true
 
-[node name="Platform4" type="TextureRect" parent="."]
+[node name="Platform4" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1797.0
 offset_top = 37.0
 offset_right = 2499.0
@@ -615,20 +659,21 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("29_g6sjr")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform4" groups=["WallJump"]]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform4" groups=["WallJump"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/PlatformCollision" groups=["Jumpable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4/PlatformCollision" groups=["Jumpable"]]
 position = Vector2(350, 5.50317)
 shape = SubResource("RectangleShape2D_nps0h")
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Platform4/PlatformCollision"]
 position = Vector2(701, 33.0063)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_p2bq7")
 one_way_collision = true
 
-[node name="Platform9" type="TextureRect" parent="."]
+[node name="Platform9" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 2286.0
 offset_top = -1.0
 offset_right = 3374.0
@@ -638,20 +683,21 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform9"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform9"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform9/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform9/PlatformCollision"]
 position = Vector2(542, 5.49707)
 shape = SubResource("RectangleShape2D_3l8ng")
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform9/PlatformCollision"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Platform9/PlatformCollision"]
 position = Vector2(1086, 33.0098)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_qpd24")
 one_way_collision = true
 
-[node name="Platform5" type="TextureRect" parent="."]
+[node name="Platform5" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 2165.0
 offset_top = 222.0
 offset_right = 2486.0
@@ -660,14 +706,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform5"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform5"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform6" type="TextureRect" parent="."]
+[node name="Platform6" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 2325.0
 offset_top = 222.0
 offset_right = 2646.0
@@ -676,14 +723,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform6"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform6"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform7" type="TextureRect" parent="."]
+[node name="Platform7" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1830.0
 offset_top = -314.0
 offset_right = 2151.0
@@ -692,14 +740,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform7"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform7"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform8" type="TextureRect" parent="."]
+[node name="Platform8" type="TextureRect" parent="Platforms"]
+layout_mode = 0
 offset_left = 1989.0
 offset_top = -314.0
 offset_right = 2310.0
@@ -708,14 +757,155 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform8"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform8"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8/PlatformCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform8/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
+[node name="Hints" type="Node2D" parent="."]
+position = Vector2(111, 358)
+scale = Vector2(0.6, 0.6)
+
+[node name="Hint1" type="Sprite2D" parent="Hints"]
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint1"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint1/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint1"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint1/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint2" type="Sprite2D" parent="Hints"]
+position = Vector2(960, 0)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint2"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint2/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint2"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint2/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint3" type="Sprite2D" parent="Hints"]
+position = Vector2(2735, -548.333)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint3"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint3/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint3"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint3/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint4" type="Sprite2D" parent="Hints"]
+position = Vector2(2913.33, -8.33334)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint4"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint4/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint4"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint4/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint4-2" type="Sprite2D" parent="Hints"]
+position = Vector2(3416.67, -308.333)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint4-2"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint4-2/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint4-2"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint4-2/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint5" type="Sprite2D" parent="Hints"]
+position = Vector2(3315, -1200)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Hints/Hint5"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint5/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Hints/Hint5"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint5/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
-position = Vector2(110, 310)
+position = Vector2(110, 293)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
+[connection signal="body_entered" from="Hints/Hint1/Area2D" to="Hints/Hint1/Area2D" method="_hint_1"]
+[connection signal="body_entered" from="Hints/Hint2/Area2D" to="Hints/Hint2/Area2D" method="_hint_2"]
+[connection signal="body_entered" from="Hints/Hint3/Area2D" to="Hints/Hint1/Area2D" method="_hint_3"]
+[connection signal="body_entered" from="Hints/Hint4/Area2D" to="Hints/Hint4/Area2D" method="_hint_4"]
+[connection signal="body_entered" from="Hints/Hint4-2/Area2D" to="Hints/Hint4-2/Area2D" method="_hint_4"]
+[connection signal="body_entered" from="Hints/Hint5/Area2D" to="Hints/Hint5/Area2D" method="_hint_5"]
