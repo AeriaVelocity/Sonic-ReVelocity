@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lc30x3j712l1"
-path="res://.godot/imported/down-key.png-f39d6c840cc854e3d75d8b8d0d4dc7bf.ctex"
+uid="uid://dnkac73c6sqps"
+path="res://.godot/imported/dpad-dright.png-97d76780c35d8ff2f4962c294ba85f31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Info Signs/down-key.png"
-dest_files=["res://.godot/imported/down-key.png-f39d6c840cc854e3d75d8b8d0d4dc7bf.ctex"]
+source_file="res://Graphics/Info Signs/dpad-dright.png"
+dest_files=["res://.godot/imported/dpad-dright.png-97d76780c35d8ff2f4962c294ba85f31.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c425rlyj1r131"
-path="res://.godot/imported/right-key.png-e57217c8e6b81cfd018f8d723e54f5ce.ctex"
+uid="uid://cfjnq6dpp34v6"
+path="res://.godot/imported/kbd-left.png-9c2c6076075f78afdcdcd073aa3409f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Info Signs/right-key.png"
-dest_files=["res://.godot/imported/right-key.png-e57217c8e6b81cfd018f8d723e54f5ce.ctex"]
+source_file="res://Graphics/Info Signs/kbd-left.png"
+dest_files=["res://.godot/imported/kbd-left.png-9c2c6076075f78afdcdcd073aa3409f5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfjnq6dpp34v6"
-path="res://.godot/imported/left-key.png-ab8f1ef44401dfc99296d6b256b7e4e9.ctex"
+uid="uid://b7te1qmq31nw2"
+path="res://.godot/imported/ps-dpad-dleft.png-36e2a309d7c4136c3eedca933e308624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Info Signs/left-key.png"
-dest_files=["res://.godot/imported/left-key.png-ab8f1ef44401dfc99296d6b256b7e4e9.ctex"]
+source_file="res://Graphics/Info Signs/ps-dpad-dleft.png"
+dest_files=["res://.godot/imported/ps-dpad-dleft.png-36e2a309d7c4136c3eedca933e308624.ctex"]
 
 [params]
 
