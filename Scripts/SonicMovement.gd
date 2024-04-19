@@ -140,12 +140,13 @@ func do_quick_spin(base_speed, additional_speed) -> Vector2:
 	$SonicSprite.play("run")
 
 	var spin_speed = base_speed if current_speed < base_speed else current_speed + additional_speed
-	if direction != current_direction:
+	if sign(direction) != current_direction:
 		spin_speed = current_speed
 	var directed_speed = spin_speed * direction if direction != 0 else spin_speed * current_direction
 
 	return Vector2(directed_speed, velocity.y)
 
+## Contains functionality for Quick Spin Down and Quick Spin Comet
 func quick_spin_down(down_speed) -> Vector2:
 	$SonicSprite.play("ball")
 	spin_sound.play()
@@ -158,14 +159,22 @@ func quick_spin_down(down_speed) -> Vector2:
 	$SonicSprite.offset.y = 0.0
 	$SonicSprite.play("jump")
 	
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
+	var direction = sign(Input.get_axis("MoveLeft", "MoveRight"))
 	var current_direction = -1 if velocity.x < 0 else 1
 
 	var directed_speed = 0
-	if direction == current_direction:
-		directed_speed = velocity.x
-	elif direction != current_direction and direction != 0:
-		directed_speed = -velocity.x
+	var base_directed_speed = clamp(abs(velocity.x), speed_level_run, speed_cap)
+	if direction == 0:
+		# Quick Spin Down
+		directed_speed = 0
+	elif direction > 0:
+		# Quick Spin Comet
+		directed_speed = base_directed_speed
+		down_speed = base_directed_speed
+	else:
+		# Quick Spin Comet Reversal
+		directed_speed = -base_directed_speed
+		down_speed = base_directed_speed
 
 	return Vector2(directed_speed, down_speed)
 
