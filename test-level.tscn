@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=43 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://dg3ixmsdidfwg" path="res://Graphics/Info Signs/dpad-left.png" id="17_wwycd"]
 [ext_resource type="Texture2D" uid="uid://ddnswbyjx4gmv" path="res://Sprites/sonic/069.png" id="18_b3y2w"]
 [ext_resource type="Texture2D" uid="uid://cfjnq6dpp34v6" path="res://Graphics/Info Signs/left-key.png" id="24_u5rgk"]
+[ext_resource type="Texture2D" uid="uid://k8adfwb1pdx8" path="res://Sprites/sonic/049.png" id="25_cy386"]
+[ext_resource type="Texture2D" uid="uid://42b0y84t8abm" path="res://Sprites/sonic/043.png" id="26_vpb3c"]
+[ext_resource type="Texture2D" uid="uid://7m6ebaduu5vk" path="res://Textures/vr_grid_walljump.png" id="29_g6sjr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vuw3"]
 animations = [{
@@ -119,16 +122,22 @@ size = Vector2(20, 676)
 size = Vector2(322, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emuw5"]
-size = Vector2(916, 10.4988)
+size = Vector2(1240, 10.4988)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnpyi"]
-size = Vector2(66, 17.9999)
+size = Vector2(66, 4.00007)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nps0h"]
+size = Vector2(700, 10.9985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2bq7"]
+size = Vector2(66, 2.00102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l8ng"]
-size = Vector2(678, 10.9985)
+size = Vector2(1084, 10.9985)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpd24"]
-size = Vector2(66, 14.5002)
+size = Vector2(66, 4.00048)
 
 [node name="Test Level" type="Node2D"]
 
@@ -225,27 +234,50 @@ texture = ExtResource("5_a2k0e")
 position = Vector2(-95.0003, 24.9989)
 rotation = -1.57079
 
+[node name="VrGridWalljump" type="TextureRect" parent="Info Sign 5/Elements"]
+offset_left = 5.00003
+offset_top = 42.9999
+offset_right = 29.0
+offset_bottom = 299.0
+rotation = 1.00136e-05
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_g6sjr")
+expand_mode = 1
+stretch_mode = 1
+flip_h = true
+
+[node name="VrGridWalljump2" type="TextureRect" parent="Info Sign 5/Elements"]
+offset_left = 69.0004
+offset_top = 10.0006
+offset_right = 93.0004
+offset_bottom = 266.001
+rotation = 1.00136e-05
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_g6sjr")
+expand_mode = 1
+stretch_mode = 1
+
 [node name="Sonics" type="Node2D" parent="Info Sign 5/Elements"]
 position = Vector2(18.9997, 26.0002)
 
 [node name="038" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.435294)
-position = Vector2(21.9994, 127)
+position = Vector2(30.9992, 125)
 texture = ExtResource("13_1eht6")
 flip_h = true
 
 [node name="069" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.690196)
-position = Vector2(-5.00038, 97.9999)
+position = Vector2(7.99953, 95)
 texture = ExtResource("18_b3y2w")
 
 [node name="039" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
 modulate = Color(1, 1, 1, 0.8)
-position = Vector2(21.9998, 67)
+position = Vector2(24.9998, 62.0001)
 texture = ExtResource("14_kwwvs")
 
 [node name="070" type="Sprite2D" parent="Info Sign 5/Elements/Sonics"]
-position = Vector2(53, 32.0002)
+position = Vector2(40.0001, 30.0003)
 texture = ExtResource("18_b3y2w")
 flip_h = true
 
@@ -419,6 +451,51 @@ scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
+[node name="Info Sign 8" type="Sprite2D" parent="."]
+position = Vector2(2227, -340)
+rotation = -1.57079
+texture = ExtResource("5_a2k0e")
+
+[node name="Elements" type="Node2D" parent="Info Sign 8"]
+position = Vector2(89.9999, -58.0003)
+rotation = 1.57079
+
+[node name="Sonics" type="Node2D" parent="Info Sign 8/Elements"]
+position = Vector2(18.9997, 26.0002)
+scale = Vector2(0.18, 0.18)
+
+[node name="049" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.686275)
+position = Vector2(200.001, 311.11)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("25_cy386")
+
+[node name="050" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+modulate = Color(1, 1, 1, 0.815686)
+position = Vector2(200.001, 505.555)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("25_cy386")
+
+[node name="051" type="Sprite2D" parent="Info Sign 8/Elements/Sonics"]
+position = Vector2(200.001, 705.554)
+scale = Vector2(5.556, 5.556)
+texture = ExtResource("26_vpb3c")
+
+[node name="B-button" type="AnimatedSprite2D" parent="Info Sign 8/Elements"]
+texture_filter = 4
+position = Vector2(24, 25)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_e2ldr")
+script = ExtResource("11_jd4nr")
+
+[node name="Dpad-left" type="AnimatedSprite2D" parent="Info Sign 8/Elements"]
+texture_filter = 4
+position = Vector2(24, 68)
+rotation = -1.57079
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_0vuw3")
+script = ExtResource("11_jd4nr")
+
 [node name="Stage" type="TextureRect" parent="."]
 offset_top = 397.0
 offset_right = 7366.0
@@ -507,46 +584,69 @@ one_way_collision = true
 
 [node name="Platform3" type="TextureRect" parent="."]
 offset_left = 1707.0
-offset_top = -223.0
-offset_right = 2622.0
-offset_bottom = -157.0
+offset_top = -388.0
+offset_right = 2951.0
+offset_bottom = -322.0
 rotation = 1.57079
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_e8txd")
+texture = ExtResource("29_g6sjr")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform3"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform3" groups=["WallJump"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
-position = Vector2(458, 5.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/PlatformCollision" groups=["Jumpable"]]
+position = Vector2(624, 5.24951)
 shape = SubResource("RectangleShape2D_emuw5")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform3/PlatformCollision"]
-position = Vector2(8.99976, 33)
+position = Vector2(1.99985, 33)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xnpyi")
 one_way_collision = true
 
 [node name="Platform4" type="TextureRect" parent="."]
 offset_left = 1797.0
-offset_top = 27.0
-offset_right = 2478.0
-offset_bottom = 93.0
+offset_top = 37.0
+offset_right = 2499.0
+offset_bottom = 103.0
+rotation = 4.71238
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_g6sjr")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform4" groups=["WallJump"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/PlatformCollision" groups=["Jumpable"]]
+position = Vector2(350, 5.50317)
+shape = SubResource("RectangleShape2D_nps0h")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
+position = Vector2(701, 33.0063)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_p2bq7")
+one_way_collision = true
+
+[node name="Platform9" type="TextureRect" parent="."]
+offset_left = 2286.0
+offset_top = -1.0
+offset_right = 3374.0
+offset_bottom = 65.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
 
-[node name="PlatformCollision" type="StaticBody2D" parent="Platform4"]
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform9"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
-position = Vector2(339, 5.50317)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform9/PlatformCollision"]
+position = Vector2(542, 5.49707)
 shape = SubResource("RectangleShape2D_3l8ng")
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform4/PlatformCollision"]
-position = Vector2(675.25, 33.0049)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform9/PlatformCollision"]
+position = Vector2(1086, 33.0098)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_qpd24")
 one_way_collision = true
@@ -579,6 +679,38 @@ stretch_mode = 1
 [node name="PlatformCollision" type="StaticBody2D" parent="Platform6"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform7" type="TextureRect" parent="."]
+offset_left = 1830.0
+offset_top = -314.0
+offset_right = 2151.0
+offset_bottom = -184.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform8" type="TextureRect" parent="."]
+offset_left = 1989.0
+offset_top = -314.0
+offset_right = 2310.0
+offset_bottom = -184.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Platform8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8/PlatformCollision"]
 position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true

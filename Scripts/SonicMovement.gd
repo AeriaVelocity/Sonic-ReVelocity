@@ -209,6 +209,15 @@ func set_camera_offset(delta):
 		$Camera2D.offset.y = offset_y
 	else:
 		$Camera2D.offset.y = lerp($Camera2D.offset.y, 0.0, camera_speed_multiplier)
+		
+func check_wall_jumpable() -> bool:
+	var wall_is_jumpable = false
+	var last_slide_collision = get_last_slide_collision()
+	
+	if last_slide_collision:
+		wall_is_jumpable = last_slide_collision.get_collider().is_in_group("WallJump")
+	
+	return wall_is_jumpable
 
 func _physics_process(delta):
 	set_camera_offset(delta)
@@ -254,7 +263,7 @@ func _physics_process(delta):
 
 	velocity.x = current_velocity.x
 
-	if Input.is_action_just_pressed("Jump") and is_on_wall():
+	if Input.is_action_just_pressed("Jump") and is_on_wall_only() and check_wall_jumpable():
 		did_jump = true
 		handle_wall_jump()
 		velocity.y = jump_speed
@@ -316,7 +325,7 @@ func set_movement_sprite(speed) -> bool:
 	if $SonicSprite.animation == "spin":
 		return false
 
-	if is_on_wall_only():
+	if is_on_wall_only() and check_wall_jumpable():
 		sprite = "wallbound"
 		handle_wallbound_offset()
 	elif speed >= speed_level_mach:
@@ -324,7 +333,10 @@ func set_movement_sprite(speed) -> bool:
 	elif speed >= speed_level_run:
 		sprite = "run"
 	elif not is_on_floor():
-		sprite = "drop"
+		if did_jump:
+			sprite = "ball"
+		else:
+			sprite = "drop"
 	elif speed >= speed_level_jog:
 		sprite = "jog"
 	elif speed >= speed_level_walk:
