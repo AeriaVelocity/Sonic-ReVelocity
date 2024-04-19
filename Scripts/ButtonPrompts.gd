@@ -3,9 +3,7 @@ extends AnimatedSprite2D
 func _process(delta):
 	var button_prompts = "default"
 	match Input.get_joy_name(0):
-		"PlayStation 4 Controller":
-			button_prompts = "playstation"
-		"PlayStation 5 Controller":
+		"PS4 Controller", "PS5 Controller":
 			button_prompts = "playstation"
 		"":
 			if DisplayServer.is_touchscreen_available():
