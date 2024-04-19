@@ -910,7 +910,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint3" type="Sprite2D" parent="Hints"]
-position = Vector2(2735, -548.333)
+position = Vector2(4456.67, -6.66665)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Hints/Hint3"]
@@ -928,28 +928,6 @@ scale = Vector2(1.66667, 1.66667)
 script = ExtResource("14_kvmsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint3/Area2D"]
-position = Vector2(1.52588e-05, 0)
-shape = SubResource("CircleShape2D_2fikd")
-
-[node name="Hint3-2" type="Sprite2D" parent="Hints"]
-position = Vector2(4453.33, -15)
-texture = ExtResource("32_ut7hh")
-
-[node name="HintRing" type="Sprite2D" parent="Hints/Hint3-2"]
-texture = ExtResource("33_8cpq2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hints/Hint3-2/HintRing"]
-libraries = {
-"": SubResource("AnimationLibrary_8o23b")
-}
-autoplay = "spinny"
-
-[node name="Area2D" type="Area2D" parent="Hints/Hint3-2"]
-position = Vector2(-1.66669, -1.66667)
-scale = Vector2(1.66667, 1.66667)
-script = ExtResource("14_kvmsa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/Hint3-2/Area2D"]
 position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
@@ -1042,13 +1020,12 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
-position = Vector2(110, 293)
+position = Vector2(110, -144)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="body_entered" from="Hints/Hint1/Area2D" to="Hints/Hint1/Area2D" method="_hint_1"]
 [connection signal="body_entered" from="Hints/Hint2/Area2D" to="Hints/Hint2/Area2D" method="_hint_2"]
 [connection signal="body_entered" from="Hints/Hint3/Area2D" to="Hints/Hint1/Area2D" method="_hint_3"]
-[connection signal="body_entered" from="Hints/Hint3-2/Area2D" to="Hints/Hint1/Area2D" method="_hint_3"]
 [connection signal="body_entered" from="Hints/Hint4/Area2D" to="Hints/Hint4/Area2D" method="_hint_4"]
 [connection signal="body_entered" from="Hints/Hint4-2/Area2D" to="Hints/Hint4-2/Area2D" method="_hint_4"]
 [connection signal="body_entered" from="Hints/Hint5/Area2D" to="Hints/Hint5/Area2D" method="_hint_5"]

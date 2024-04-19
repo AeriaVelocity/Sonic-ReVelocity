@@ -109,7 +109,10 @@ func _hint_5(body):
 	display_label(body, "In the air, press " + get_button_image("Down") + " + " + get_button_image("Spin") + " to perform Quick Spin Down.")
 
 func _hint_6(body):
+	var sonic: AnimatedSprite2D = get_node("/root/Test Level/SonicPlayer/Sonic/SonicSprite")
+	var direction = "Left" if sonic.flip_h else "Right"
+	var opp_direction = "Right" if sonic.flip_h else "Left"
 	if Input.get_joy_name(0) == "" and not DisplayServer.is_touchscreen_available():
-		display_label(body, "In the air, while holding " + get_button_image("Down") + ", press " + get_button_image("Left") + "/" + get_button_image("Right") + " + " + get_button_image("Spin") + " to perform Quick Spin Comet.")
+		display_label(body, "In the air, press " + get_button_image("Down") + " + " + get_button_image(direction) + " + " + get_button_image("Spin") + " to perform Quick Spin Comet,\n or press " + get_button_image("Down") + " + " + get_button_image(opp_direction) + " + " + get_button_image("Spin") + " to perform Quick Spin Comet Reversal.")
 	else:
-		display_label(body, "In the air, press " + get_button_image("DLeft") + "/" + get_button_image("DRight") + " + " + get_button_image("Spin") + " to perform Quick Spin Comet.")
+		display_label(body, "In the air, press " + get_button_image("D" + direction) + " + " + get_button_image("Spin") + " to perform Quick Spin Comet,\n or press " + get_button_image("D" + opp_direction) + " + " + get_button_image("Spin") + " to perform Quick Spin Comet Reversal.")
