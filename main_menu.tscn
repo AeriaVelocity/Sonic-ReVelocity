@@ -60,7 +60,7 @@ font_size = 36
 [sub_resource type="CircleShape2D" id="CircleShape2D_68220"]
 radius = 58.81
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wohs3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6v0sw"]
 radius = 139.19
 
 [node name="Main Menu" type="Control"]
@@ -179,8 +179,8 @@ fit_content = true
 script = ExtResource("8_u6aui")
 
 [node name="TouchControls" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.517647)
-position = Vector2(0, 300)
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(0, -69)
 script = ExtResource("9_qrv5f")
 
 [node name="Left" type="Node2D" parent="TouchControls"]
@@ -197,14 +197,14 @@ script = ExtResource("11_gvgy1")
 position = Vector2(0.588242, -68.8235)
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "MoveLeft"
+action = "MenuUp"
 visibility_mode = 1
 
 [node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
 position = Vector2(0.666656, 58)
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "Crouch"
+action = "MenuDown"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
@@ -214,7 +214,7 @@ position = Vector2(1819, 478)
 position = Vector2(-500, 0)
 texture_normal = ExtResource("12_i12hx")
 texture_pressed = ExtResource("13_4d7r4")
-shape = SubResource("CircleShape2D_wohs3")
+shape = SubResource("CircleShape2D_6v0sw")
 action = "Jump"
 visibility_mode = 1
 
@@ -222,6 +222,6 @@ visibility_mode = 1
 position = Vector2(-219, -2)
 texture_normal = ExtResource("14_cvslx")
 texture_pressed = ExtResource("15_vj41m")
-shape = SubResource("CircleShape2D_wohs3")
+shape = SubResource("CircleShape2D_6v0sw")
 action = "Spin"
 visibility_mode = 1
