@@ -197,14 +197,14 @@ script = ExtResource("11_gvgy1")
 position = Vector2(0.588242, -68.8235)
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "MenuUp"
+action = "ui_up"
 visibility_mode = 1
 
 [node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
 position = Vector2(0.666656, 58)
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "MenuDown"
+action = "ui_down"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
