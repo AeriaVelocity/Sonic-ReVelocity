@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-func set_label_text(message: String, delay: float):
+func set_label_text(message: String):
 	if $HintAnim.is_playing():
 		$HintAnim.stop()
 	$HintSound.play()

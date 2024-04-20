@@ -406,14 +406,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u7lql"]
-radius = 17.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6d48t"]
+radius = 14.0
+height = 34.0
 
 [node name="SonicPlayer" type="Node2D" groups=["Player"]]
 
 [node name="Sonic" type="CharacterBody2D" parent="." groups=["Player"]]
 floor_max_angle = 1.39626
-safe_margin = 0.3
+floor_snap_length = 15.0
+safe_margin = 0.1
 script = ExtResource("1_g17tg")
 
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
@@ -427,9 +429,9 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sonic"]
+[node name="Collision" type="CollisionShape2D" parent="Sonic"]
 position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_u7lql")
+shape = SubResource("CapsuleShape2D_6d48t")
 
 [node name="MovementSound" type="AudioStreamPlayer" parent="Sonic"]
 

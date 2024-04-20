@@ -119,6 +119,19 @@ func handle_wall_jump():
 			velocity.x = -wall_jump_speed
 		elif collision_normal.x > 0:
 			velocity.x = wall_jump_speed
+			
+func is_pressed_against_wall() -> bool:
+	if get_last_slide_collision() and is_on_wall_only() and check_wall_jumpable():
+		var collision_normal = get_last_slide_collision().get_normal()
+		var direction = Input.get_axis("MoveLeft", "MoveRight")
+
+		if collision_normal.x < 0 and direction == 1:
+			return true
+		elif collision_normal.x > 0 and direction == -1:
+			return true
+		else:
+			return false
+	return false
 
 func do_quick_spin(base_speed, additional_speed) -> Vector2:
 	if $SonicSprite.animation == "spin":
@@ -160,7 +173,6 @@ func quick_spin_down(down_speed) -> Vector2:
 	$SonicSprite.play("jump")
 	
 	var direction = sign(Input.get_axis("MoveLeft", "MoveRight"))
-	var current_direction = -1 if velocity.x < 0 else 1
 
 	var directed_speed = 0
 	var base_directed_speed = clamp(abs(velocity.length()), speed_level_run, speed_cap)
@@ -223,7 +235,10 @@ func _physics_process(delta):
 	set_camera_offset(delta)
 	
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if is_pressed_against_wall():
+			velocity.y = 0
+		else:
+			velocity.y += gravity * delta
 	get_node("/root/HudScripting").update_speed(velocity)
 
 	if dead:
@@ -287,20 +302,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+	set_rotation(get_floor_normal().x)
+
 	if is_on_floor() and not was_on_floor:
 		land_sound.play()
 		did_jump = false
 
 	var last_collision = get_last_slide_collision()
-	if last_collision != null:
+	if last_collision:
 		if set_movement_sprite(abs(velocity.x)):
 			handle_movement_sound(abs(velocity.x))
-		elif is_on_floor_only():
-			$SonicSprite.offset.x = 0
-			$SonicSprite.set_rotation(last_collision.get_normal().x)
-		else:
-			$SonicSprite.offset.x = 0
-			$SonicSprite.set_rotation(0)
 	else:
 		$SonicSprite.set_rotation(0)
 		if did_jump:
@@ -310,24 +321,28 @@ func _physics_process(delta):
 
 	current_velocity = velocity
 	
-func handle_wallbound_offset():
-	var collision_normal = get_last_slide_collision().get_normal()
-	if collision_normal.x < 0:
-		$SonicSprite.flip_h = true
-		$SonicSprite.offset.x = 7
-	elif collision_normal.x > 0:
-		$SonicSprite.flip_h = false
-		$SonicSprite.offset.x = -7
+func handle_wallbound_offset(offset_pos: int, offset_neg: int):
+	if is_on_wall_only() and check_wall_jumpable():
+		var collision_normal = get_last_slide_collision().get_normal()
+		if collision_normal.x < 0:
+			$SonicSprite.flip_h = true
+			$SonicSprite.offset.x = offset_pos
+		elif collision_normal.x > 0:
+			$SonicSprite.flip_h = false
+			$SonicSprite.offset.x = offset_neg
+	else:
+		$SonicSprite.offset.x = 0
 
 func set_movement_sprite(speed) -> bool:
 	var sprite: StringName
 
 	if $SonicSprite.animation == "spin":
 		return false
+	
+	handle_wallbound_offset(4, -5)
 
 	if is_on_wall_only() and check_wall_jumpable():
 		sprite = "wallbound"
-		handle_wallbound_offset()
 	elif speed >= speed_level_mach:
 		sprite = "mach"
 	elif speed >= speed_level_run:
