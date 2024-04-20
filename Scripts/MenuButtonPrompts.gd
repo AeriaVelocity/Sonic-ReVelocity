@@ -2,6 +2,8 @@ extends RichTextLabel
 
 const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
+var original_text: String
+
 func up_button() -> String:
 	match Input.get_joy_name(0):
 		"PS4 Controller", "PS5 Controller":
@@ -49,6 +51,9 @@ func spin_button() -> String:
 				return "[img=48x48]" + GRAPHICS_PATH + "x-key.png[/img]"
 		_:
 			return "[img=48x48]" + GRAPHICS_PATH + "b-button.png[/img]"
+			
+func _ready():
+	original_text = text
 
 func _process(_delta):
-	text = text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button()})
+	set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button()}))
