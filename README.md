@@ -21,11 +21,12 @@ GNU General Public License 3.0, or, at your option, any later version.
 ## Move List
 
 > [!TIP]
-> This is assuming you're using an Xbox controller, and Sonic is moving right.
-> Button prompts in Sonic Re;Velocity will automatically adapt to your controller type.
+> This is assuming you're using an Xbox controller, and Sonic is facing right.
+> Button prompts in Sonic Re;Velocity will automatically adapt to your controller type
+> and the direction Sonic's facing.
 > But just in case you need a refresher:
 >
-> * If Sonic's running left, not right, swap `←` and `→`.<br>
+> * If Sonic's facing left, not right, swap `←` and `→`.<br>
 > * If you're on keyboard, replace `A` and `B` with `Z` and `X`.<br>
 > * If you're using a PlayStation controller, replace `A` and `B` with `⨉` and `○`.<br>
 > * If you're using a Nintendo controller, swap `A` and `B`.
