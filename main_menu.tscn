@@ -1,0 +1,227 @@
+[gd_scene load_steps=26 format=3 uid="uid://dfbyuhf84b6w7"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
+[ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
+[ext_resource type="Texture2D" uid="uid://quwlsg31et1n" path="res://Graphics/sonic-revelocity-logo-white.png" id="1_tstpe"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_8ee2s"]
+[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="4_0wlhg"]
+[ext_resource type="AudioStream" uid="uid://bp6awh3qnwkqm" path="res://Music/move.wav" id="5_ieik7"]
+[ext_resource type="AudioStream" uid="uid://bh3mw1vdj6ld5" path="res://Music/select.wav" id="6_a3hk4"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="8_u6aui"]
+[ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="9_qrv5f"]
+[ext_resource type="Texture2D" uid="uid://tkwq1ij58gsm" path="res://Graphics/Touch Buttons/d-pad.png" id="10_hq1u6"]
+[ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="11_gvgy1"]
+[ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="12_i12hx"]
+[ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="13_4d7r4"]
+[ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
+[ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
+
+[sub_resource type="Gradient" id="Gradient_4j0m0"]
+colors = PackedColorArray(0.992157, 0.262745, 0.972549, 1, 0.262745, 0.333333, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4neor"]
+gradient = SubResource("Gradient_4j0m0")
+
+[sub_resource type="Gradient" id="Gradient_bj77f"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6nbjp"]
+gradient = SubResource("Gradient_bj77f")
+
+[sub_resource type="Animation" id="Animation_mrpoo"]
+resource_name = "infromleft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-250, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhky8"]
+_data = {
+"infromleft": SubResource("Animation_mrpoo")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_bd02j"]
+font = ExtResource("2_8ee2s")
+font_size = 126
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6tqh"]
+font = ExtResource("4_0wlhg")
+font_size = 36
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68220"]
+radius = 58.81
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wohs3"]
+radius = 139.19
+
+[node name="Main Menu" type="Control"]
+texture_filter = 6
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bkml6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_4neor")
+
+[node name="Logo" type="Sprite2D" parent="Background"]
+texture_filter = 6
+position = Vector2(363, 189)
+scale = Vector2(0.530384, 0.530384)
+texture = ExtResource("1_tstpe")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.807843)
+position = Vector2(-21, 441)
+scale = Vector2(4.07422, 261.784)
+skew = 0.785398
+texture = SubResource("GradientTexture1D_6nbjp")
+centered = false
+offset = Vector2(-250, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Highlight"]
+libraries = {
+"": SubResource("AnimationLibrary_uhky8")
+}
+autoplay = "infromleft"
+
+[node name="MenuOptions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -738.0
+offset_right = 749.0
+offset_bottom = -122.0
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="StartGame" type="Label" parent="MenuOptions"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Start Game"
+label_settings = SubResource("LabelSettings_bd02j")
+vertical_alignment = 1
+
+[node name="ExitGame" type="Label" parent="MenuOptions"]
+layout_mode = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_bd02j")
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fegnr")
+volume_db = 1.0
+autoplay = true
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ieik7")
+volume_db = -6.0
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_a3hk4")
+volume_db = -6.0
+
+[node name="Notice" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1202.0
+offset_top = -1012.0
+offset_right = -75.0
+offset_bottom = -913.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "This is a bleeding-edge Git development version of Sonic Re;Velocity.
+Expect bugs, unintended behaviour and general weirdness."
+label_settings = SubResource("LabelSettings_j6tqh")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 448.0
+offset_bottom = 503.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_8ee2s")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]{Up} {Down} Select Option   {Jump} Activate Option   {Spin} Back to Main Menu[/center]"
+fit_content = true
+script = ExtResource("8_u6aui")
+
+[node name="TouchControls" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.517647)
+position = Vector2(0, 300)
+script = ExtResource("9_qrv5f")
+
+[node name="Left" type="Node2D" parent="TouchControls"]
+position = Vector2(0, 478)
+
+[node name="D-Pad" type="Sprite2D" parent="TouchControls/Left"]
+texture_filter = 4
+position = Vector2(189, 109)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("10_hq1u6")
+script = ExtResource("11_gvgy1")
+
+[node name="UpButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
+position = Vector2(0.588242, -68.8235)
+shape = SubResource("CircleShape2D_68220")
+passby_press = true
+action = "MoveLeft"
+visibility_mode = 1
+
+[node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
+position = Vector2(0.666656, 58)
+shape = SubResource("CircleShape2D_68220")
+passby_press = true
+action = "Crouch"
+visibility_mode = 1
+
+[node name="Right" type="Node2D" parent="TouchControls"]
+position = Vector2(1819, 478)
+
+[node name="JumpButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-500, 0)
+texture_normal = ExtResource("12_i12hx")
+texture_pressed = ExtResource("13_4d7r4")
+shape = SubResource("CircleShape2D_wohs3")
+action = "Jump"
+visibility_mode = 1
+
+[node name="SpinButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-219, -2)
+texture_normal = ExtResource("14_cvslx")
+texture_pressed = ExtResource("15_vj41m")
+shape = SubResource("CircleShape2D_wohs3")
+action = "Spin"
+visibility_mode = 1
