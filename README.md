@@ -45,10 +45,12 @@ GNU General Public License 3.0, or, at your option, any later version.
     slope will let him jump higher and further. Chaining together consecutive
     jumps will result in faster movement.
 * **Wall Jump** - `A` while wallbound
-  * While Sonic is wallbound (touching a wall and not the
+  * While Sonic is wallbound (touching a jumpable wall and not touching the
     floor), he can jump off of it, sending him upward and away from the wall. Be
     aware the wall jump has a fixed amount of speed, and will cancel Sonic's
     velocity.
+  * Holding `←` or `→` against a jumpable wall will stick Sonic to that wall and
+    inhibit any vertical movement, making it easier to line up a jump.
 * **Quick Spin** - `B`
   * Sonic can perform a quick Spin Dash and immediately transition into running,
     boosting his speed or changing his direction.
