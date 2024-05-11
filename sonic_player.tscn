@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cwfoyh1jqbiby" path="res://Sprites/sonic/014.png" id="4_4o7or"]
 [ext_resource type="AudioStream" uid="uid://bw36scbx317h2" path="res://Sounds/jump.wav" id="4_p8duc"]
 [ext_resource type="AudioStream" uid="uid://0y7obtvicamt" path="res://Sounds/jspin.wav" id="5_gp640"]
-[ext_resource type="AudioStream" uid="uid://duj2qnyx28hhu" path="res://Sounds/scream.mp3" id="5_grw5h"]
 [ext_resource type="AudioStream" uid="uid://dg2wunfk0p4td" path="res://Sounds/land.wav" id="5_mvg15"]
 [ext_resource type="Texture2D" uid="uid://rka51xjx68jm" path="res://Sprites/sonic/015.png" id="5_nn5lr"]
 [ext_resource type="Texture2D" uid="uid://cwj4cqd8ntpul" path="res://Sprites/sonic/016.png" id="6_p62ry"]
@@ -86,6 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://c2bft8170s4ra" path="res://Sprites/sonic/072.png" id="73_andsr"]
 [ext_resource type="Texture2D" uid="uid://c1a6s2vdcwooh" path="res://Sprites/sonic/073.png" id="74_b3eyv"]
 [ext_resource type="Texture2D" uid="uid://74lutxoaawfl" path="res://Sprites/sonic/074.png" id="75_54vg3"]
+[ext_resource type="AudioStream" uid="uid://bh6uwqenjgdl" path="res://Sounds/Hurt.wav" id="85_ogbc7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jusa"]
 animations = [{
@@ -427,7 +427,7 @@ animation = &"idle"
 position = Vector2(15, 22)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-position_smoothing_speed = 12.0
+position_smoothing_speed = 18.0
 
 [node name="Collision" type="CollisionShape2D" parent="Sonic"]
 position = Vector2(0, 7)
@@ -452,7 +452,7 @@ stream = ExtResource("72_agllk")
 volume_db = -3.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sonic"]
-stream = ExtResource("5_grw5h")
+stream = ExtResource("85_ogbc7")
 
 [node name="LandSound" type="AudioStreamPlayer" parent="Sonic"]
 stream = ExtResource("5_mvg15")
