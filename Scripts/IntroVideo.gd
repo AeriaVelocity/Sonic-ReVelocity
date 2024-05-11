@@ -8,6 +8,9 @@ func _ready():
 	$SubBackground/AnimationPlayer.play("SAGE2024")
 	$SAGELogo/AnimationPlayer.play("displaythenfade")
 	await($SAGELogo/AnimationPlayer.animation_finished)
+	$SubBackground/AnimationPlayer.play("Controllers")
+	$ControllerHint/AnimationPlayer.play("displaythenfade")
+	await($ControllerHint/AnimationPlayer.animation_finished)
 	go_to_menu()
 
 func _process(_delta):

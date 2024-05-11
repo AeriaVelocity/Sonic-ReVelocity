@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://f0sp4mwl4ub6"]
+[gd_scene load_steps=22 format=3 uid="uid://f0sp4mwl4ub6"]
 
+[ext_resource type="Texture2D" uid="uid://cg1u6y0qtop3" path="res://Gradients/Controllers_Gradient.tres" id="2_3y2sx"]
 [ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="2_b1two"]
 [ext_resource type="Texture2D" uid="uid://tywswbhj6re2" path="res://Gradients/AeriaVelocity_Gradient.tres" id="2_d8hgx"]
 [ext_resource type="Script" path="res://Scripts/IntroVideo.gd" id="2_ftiyj"]
@@ -7,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ds8fltl6c3gnu" path="res://Graphics/aeria-logo.png" id="2_wowut"]
 [ext_resource type="AudioStream" uid="uid://dwpsn422fqvqx" path="res://Sounds/sega-ding.mp3" id="3_7rrao"]
 [ext_resource type="Texture2D" uid="uid://b64g4y5h6wn6i" path="res://Graphics/SAGE_2024_Backdrop.png" id="5_mdmc4"]
+[ext_resource type="Texture2D" uid="uid://crnya85khd6jj" path="res://Graphics/xbox-controller.png" id="8_quh6a"]
+[ext_resource type="Texture2D" uid="uid://dd67wgwn80lvk" path="res://Graphics/ps5-controller.png" id="9_m5ky2"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="10_luigo"]
 
 [sub_resource type="Animation" id="Animation_k6nyp"]
 resource_name = "AeriaVelocity"
@@ -64,9 +68,38 @@ tracks/1/keys = {
 "values": [ExtResource("2_kp0bx")]
 }
 
+[sub_resource type="Animation" id="Animation_gh2qx"]
+resource_name = "Controllers"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 3.1, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubBackground:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3y2sx")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6sric"]
 _data = {
 "AeriaVelocity": SubResource("Animation_k6nyp"),
+"Controllers": SubResource("Animation_gh2qx"),
 "SAGE2024": SubResource("Animation_blqkh")
 }
 
@@ -112,6 +145,14 @@ _data = {
 "displaythenfade": SubResource("Animation_qtxbv")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_162ap"]
+font = ExtResource("10_luigo")
+font_size = 84
+
+[sub_resource type="LabelSettings" id="LabelSettings_rqqd2"]
+font = ExtResource("10_luigo")
+font_size = 42
+
 [node name="Intro" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -131,13 +172,14 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("2_ftiyj")
 
 [node name="SubBackground" type="TextureRect" parent="Background"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d8hgx")
+texture = ExtResource("2_3y2sx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SubBackground"]
 root_node = NodePath("../..")
@@ -223,3 +265,70 @@ autoplay = "displaythenfade"
 [node name="Sound" type="AudioStreamPlayer2D" parent="Background/Logo"]
 stream = ExtResource("3_7rrao")
 volume_db = 8.514
+
+[node name="ControllerHint" type="Control" parent="Background"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsTitle" type="Label" parent="Background/ControllerHint"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -396.0
+offset_bottom = -283.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REAL HEDGEHOGS USE A GAMEPAD"
+label_settings = SubResource("LabelSettings_162ap")
+horizontal_alignment = 1
+
+[node name="Controllers" type="Control" parent="Background/ControllerHint"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -788.0
+offset_top = -256.5
+offset_right = 788.0
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Xbox-controller" type="Sprite2D" parent="Background/ControllerHint/Controllers"]
+position = Vector2(368, 256)
+scale = Vector2(0.612863, 0.612863)
+texture = ExtResource("8_quh6a")
+
+[node name="Ps5-controller" type="Sprite2D" parent="Background/ControllerHint/Controllers"]
+position = Vector2(1192, 272)
+scale = Vector2(0.612, 0.612)
+texture = ExtResource("9_m5ky2")
+
+[node name="Controls" type="Label" parent="Background/ControllerHint"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 276.0
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The use of a controller is highly recommended.
+This game includes button prompts for Xbox and PlayStation controllers."
+label_settings = SubResource("LabelSettings_rqqd2")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/ControllerHint"]
+libraries = {
+"": SubResource("AnimationLibrary_0qnqj")
+}
