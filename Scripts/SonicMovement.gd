@@ -197,8 +197,8 @@ func _input(_event):
 var camera_speed_multiplier: float = 0.2
 
 func set_camera_offset(delta):
-	var offset_x = velocity.x * camera_speed_multiplier / 4
-	var offset_y = velocity.y * camera_speed_multiplier / 16
+	var offset_x = velocity.x * camera_speed_multiplier / 3
+	var offset_y = velocity.y * camera_speed_multiplier / 12
 
 	if abs(velocity.x) > 0:
 		$Camera2D.offset.x = offset_x
@@ -233,6 +233,9 @@ func check_wall_jumpable() -> bool:
 
 func _physics_process(delta):
 	set_camera_offset(delta)
+
+	if is_dead:
+		return
 	
 	if not is_on_floor():
 		if is_pressed_against_wall():
