@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=15 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
+[ext_resource type="Script" path="res://Scripts/LevelTime.gd" id="3_xcodd"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://tkwq1ij58gsm" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_tr8ht"]
@@ -51,6 +52,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Time: Plenty"
 label_settings = ExtResource("1_wyqdf")
+script = ExtResource("3_xcodd")
 
 [node name="RingsMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
 layout_mode = 2
