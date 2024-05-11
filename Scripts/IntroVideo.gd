@@ -3,7 +3,9 @@ extends ColorRect
 @onready var skip_hint = $CanvasLayer/SkipHint
 
 func _ready():
+	$SubBackground/AnimationPlayer.play("AeriaVelocity")
 	await($Logo/AnimationPlayer.animation_finished)
+	$SubBackground/AnimationPlayer.play("SAGE2024")
 	$SAGELogo/AnimationPlayer.play("displaythenfade")
 	await($SAGELogo/AnimationPlayer.animation_finished)
 	go_to_menu()

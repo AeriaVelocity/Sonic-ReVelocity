@@ -1,10 +1,74 @@
-[gd_scene load_steps=10 format=3 uid="uid://f0sp4mwl4ub6"]
+[gd_scene load_steps=15 format=3 uid="uid://f0sp4mwl4ub6"]
 
 [ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="2_b1two"]
+[ext_resource type="Texture2D" uid="uid://tywswbhj6re2" path="res://Gradients/AeriaVelocity_Gradient.tres" id="2_d8hgx"]
 [ext_resource type="Script" path="res://Scripts/IntroVideo.gd" id="2_ftiyj"]
+[ext_resource type="Texture2D" uid="uid://bdeek0otbptd5" path="res://Gradients/SAGE2024_Gradient.tres" id="2_kp0bx"]
 [ext_resource type="Texture2D" uid="uid://ds8fltl6c3gnu" path="res://Graphics/aeria-logo.png" id="2_wowut"]
 [ext_resource type="AudioStream" uid="uid://dwpsn422fqvqx" path="res://Sounds/sega-ding.mp3" id="3_7rrao"]
 [ext_resource type="Texture2D" uid="uid://b64g4y5h6wn6i" path="res://Graphics/SAGE_2024_Backdrop.png" id="5_mdmc4"]
+
+[sub_resource type="Animation" id="Animation_k6nyp"]
+resource_name = "AeriaVelocity"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 3.1, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubBackground:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_d8hgx")]
+}
+
+[sub_resource type="Animation" id="Animation_blqkh"]
+resource_name = "SAGE2024"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 3.1, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubBackground:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_kp0bx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sric"]
+_data = {
+"AeriaVelocity": SubResource("Animation_k6nyp"),
+"SAGE2024": SubResource("Animation_blqkh")
+}
 
 [sub_resource type="Animation" id="Animation_whbk8"]
 resource_name = "fade_in"
@@ -65,6 +129,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_ftiyj")
+
+[node name="SubBackground" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8hgx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SubBackground"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6sric")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Background"]
 layer = 128
