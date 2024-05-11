@@ -62,6 +62,7 @@ var start_position = position
 var was_on_floor: bool
 var last_direction: float
 var did_jump: bool
+var is_dead: bool
 
 var current_velocity = Vector2()
 
@@ -364,3 +365,13 @@ func set_movement_sprite(speed) -> bool:
 
 	$SonicSprite.play(sprite)
 	return true
+
+func die():
+	is_dead = true
+	$DeathSound.play()
+	await(get_tree().create_timer(2.0).timeout)
+	is_dead = false
+	did_jump = false
+	position = start_position
+	velocity = Vector2(0, 0)
+	move_and_slide()
