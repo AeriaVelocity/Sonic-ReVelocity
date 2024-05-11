@@ -4,6 +4,8 @@ extends ColorRect
 
 func _ready():
 	await($Logo/AnimationPlayer.animation_finished)
+	$SAGELogo/AnimationPlayer.play("displaythenfade")
+	await($SAGELogo/AnimationPlayer.animation_finished)
 	go_to_menu()
 
 func _process(_delta):
