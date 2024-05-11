@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://ydnvpwtv0trd"]
+[gd_scene load_steps=18 format=3 uid="uid://ydnvpwtv0trd"]
 
+[ext_resource type="Script" path="res://Scripts/GoalRing.gd" id="1_sfoh5"]
 [ext_resource type="Texture2D" uid="uid://dmh060kbb1344" path="res://Sprites/goalring/000.png" id="1_vw6qr"]
 [ext_resource type="Texture2D" uid="uid://c05v6324m61cs" path="res://Sprites/goalring/001.png" id="2_brkly"]
 [ext_resource type="Texture2D" uid="uid://cjnt1wy83nerq" path="res://Sprites/goalring/002.png" id="3_dq1dv"]
@@ -53,6 +54,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_5ne0i"]
 resource_name = "shrink_ring"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,6 +90,7 @@ radius = 58.0
 
 [node name="GoalRing" type="Node2D"]
 texture_filter = 3
+script = ExtResource("1_sfoh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -107,9 +110,11 @@ max_distance = 750.0
 
 [node name="Get" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_exs3j")
-autoplay = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_gy616")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_ring_touched"]
