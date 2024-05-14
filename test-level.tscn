@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
 [ext_resource type="Texture2D" uid="uid://c1iwp1m5gfoly" path="res://Graphics/Info Signs/nswitch-left.png" id="13_jvvxk"]
-[ext_resource type="Texture2D" path="res://Graphics/Info Signs/ps-dpad-dright.png" id="14_ab6h3"]
+[ext_resource type="Texture2D" uid="uid://bipom4goo27en" path="res://Graphics/Info Signs/ps-downright.png" id="14_ab6h3"]
 [ext_resource type="Script" path="res://Scripts/DPadPrompts.gd" id="14_cqdmh"]
 [ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://sonic_player.tscn" id="14_gyep7"]
 [ext_resource type="Script" path="res://Scripts/HintMessages.gd" id="14_kvmsa"]
@@ -320,6 +320,7 @@ position = Vector2(-63, -32)
 rotation = 3.14159
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
+animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 2" type="Sprite2D" parent="Info Signs"]
@@ -458,6 +459,7 @@ position = Vector2(68.9993, 27.5019)
 rotation = -3.14159
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
+animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 7" type="Sprite2D" parent="Info Signs"]
@@ -503,6 +505,7 @@ texture_filter = 4
 position = Vector2(71.4993, 28.0006)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
+animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 8" type="Sprite2D" parent="Info Signs"]
