@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dfbyuhf84b6w7"]
+[gd_scene load_steps=28 format=3 uid="uid://dfbyuhf84b6w7"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
@@ -9,11 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://bh3mw1vdj6ld5" path="res://Music/select.wav" id="6_a3hk4"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="8_u6aui"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="9_qrv5f"]
-[ext_resource type="Texture2D" uid="uid://tkwq1ij58gsm" path="res://Graphics/Touch Buttons/d-pad.png" id="10_hq1u6"]
+[ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="10_hq1u6"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="11_gvgy1"]
-[ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="12_i12hx"]
+[ext_resource type="Texture2D" uid="uid://dwqo28p80k4f8" path="res://Graphics/Touch Buttons/touch-arrow-empty.png" id="12_1ky8k"]
+[ext_resource type="Texture2D" uid="uid://dvbghtag4eoui" path="res://Graphics/Touch Buttons/a-button.png" id="12_i12hx"]
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="13_4d7r4"]
-[ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
+[ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="13_413yu"]
+[ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
 
 [sub_resource type="Gradient" id="Gradient_4j0m0"]
@@ -194,14 +196,19 @@ texture = ExtResource("10_hq1u6")
 script = ExtResource("11_gvgy1")
 
 [node name="UpButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
-position = Vector2(0.588242, -68.8235)
+position = Vector2(-45.8824, -122.941)
+texture_normal = ExtResource("12_1ky8k")
+texture_pressed = ExtResource("13_413yu")
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
 action = "ui_up"
 visibility_mode = 1
 
 [node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
-position = Vector2(0.666656, 58)
+position = Vector2(48.2353, 123.529)
+rotation = -3.14159
+texture_normal = ExtResource("12_1ky8k")
+texture_pressed = ExtResource("13_413yu")
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
 action = "ui_down"

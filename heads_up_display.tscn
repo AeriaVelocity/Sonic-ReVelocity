@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=17 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
@@ -6,15 +6,17 @@
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
 [ext_resource type="Script" path="res://Scripts/LevelTime.gd" id="3_xcodd"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
-[ext_resource type="Texture2D" uid="uid://tkwq1ij58gsm" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
+[ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_tr8ht"]
-[ext_resource type="Texture2D" uid="uid://i8mabuageo6b" path="res://Graphics/Touch Buttons/a-button.png" id="7_ysnro"]
+[ext_resource type="Texture2D" uid="uid://dvbghtag4eoui" path="res://Graphics/Touch Buttons/a-button.png" id="7_ysnro"]
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="8_c36r7"]
-[ext_resource type="Texture2D" uid="uid://b1co4cvuuyamj" path="res://Graphics/Touch Buttons/b-button.png" id="9_ygbhj"]
+[ext_resource type="Texture2D" uid="uid://dwqo28p80k4f8" path="res://Graphics/Touch Buttons/touch-arrow-empty.png" id="9_kofgh"]
+[ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="9_ygbhj"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="10_1in3v"]
+[ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="10_irsd5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_08q5w"]
-radius = 58.81
+radius = 65.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_526i1"]
 radius = 139.19
@@ -97,20 +99,30 @@ texture = ExtResource("6_fyoe5")
 script = ExtResource("7_tr8ht")
 
 [node name="LeftButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
-position = Vector2(-62.6667, -5.33334)
+position = Vector2(-111.765, 47.6471)
+rotation = -1.57079
+texture_normal = ExtResource("9_kofgh")
+texture_pressed = ExtResource("10_irsd5")
 shape = SubResource("CircleShape2D_08q5w")
 passby_press = true
 action = "MoveLeft"
 visibility_mode = 1
 
 [node name="RightButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
-position = Vector2(63.3333, -4)
+position = Vector2(111.765, -46.4706)
+rotation = 1.57079
+texture_normal = ExtResource("9_kofgh")
+texture_pressed = ExtResource("10_irsd5")
 shape = SubResource("CircleShape2D_08q5w")
+passby_press = true
 action = "MoveRight"
 visibility_mode = 1
 
 [node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
-position = Vector2(0.666656, 58)
+position = Vector2(49.4118, 110)
+rotation = 3.14159
+texture_normal = ExtResource("9_kofgh")
+texture_pressed = ExtResource("10_irsd5")
 shape = SubResource("CircleShape2D_08q5w")
 passby_press = true
 action = "Crouch"

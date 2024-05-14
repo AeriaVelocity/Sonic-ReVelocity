@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbbbskqnvi0y3"
-path="res://.godot/imported/d-pad.png-71bce8c5b0b0a7f0804abfdcaa9bf959.ctex"
+uid="uid://dwqo28p80k4f8"
+path="res://.godot/imported/touch-arrow-empty.png-c4ae1100e774e2d4fbd2abff7a044924.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Touch Buttons/d-pad.png"
-dest_files=["res://.godot/imported/d-pad.png-71bce8c5b0b0a7f0804abfdcaa9bf959.ctex"]
+source_file="res://Graphics/Touch Buttons/touch-arrow-empty.png"
+dest_files=["res://.godot/imported/touch-arrow-empty.png-c4ae1100e774e2d4fbd2abff7a044924.ctex"]
 
 [params]
 
