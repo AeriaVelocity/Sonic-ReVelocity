@@ -36,11 +36,18 @@ func handle_input():
 		$MoveSound.play()
 		update_highlight_position()
 	elif Input.is_action_just_pressed("Jump"):
-		$SelectSound.play()
-		activate_selected_option()
+		if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
+			get_tree().change_scene_to_file("res://intro.tscn")
+		else:
+			$SelectSound.play()
+			activate_selected_option()
 	elif Input.is_action_just_pressed("Spin"):
-		get_tree().change_scene_to_file("res://title-screen.tscn")
-		
+		if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
+			$SelectSound.play()
+			activate_selected_option()
+		else:
+			get_tree().change_scene_to_file("res://intro.tscn")
+
 func activate_selected_option():
 	match selected_option_index:
 		0:

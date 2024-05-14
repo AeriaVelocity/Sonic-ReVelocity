@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bngeet3ylx7rh"
-path="res://.godot/imported/kbd-down.png-8a69e9fa33060235dac9b300cee01112.ctex"
+uid="uid://bal4oa1vs8jas"
+path="res://.godot/imported/xbox-up.png-be73497375671a93dc1b11fdb03d8b01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Info Signs/kbd-down.png"
-dest_files=["res://.godot/imported/kbd-down.png-8a69e9fa33060235dac9b300cee01112.ctex"]
+source_file="res://Graphics/Info Signs/xbox-up.png"
+dest_files=["res://.godot/imported/xbox-up.png-be73497375671a93dc1b11fdb03d8b01.ctex"]
 
 [params]
 

@@ -3,86 +3,21 @@ extends Area2D
 const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
 func get_button_image(type: String) -> String:
-	# Yes, it's horribly inefficient, but frick off
-	match type:
-		"Left":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "ps-dpad-left.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "dpad-left.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "kbd-left.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "dpad-left.png[/img]"
-		"Right":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "ps-dpad-right.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "dpad-right.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "kbd-right.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "dpad-right.png[/img]"
-		"DLeft":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "ps-dpad-dleft.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "dpad-dleft.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "kbd-left.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "dpad-dleft.png[/img]"
-		"DRight":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "ps-dpad-dright.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "dpad-dright.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "kbd-right.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "dpad-dright.png[/img]"
-		"Down":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "ps-dpad-down.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "dpad-down.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "kbd-down.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "dpad-down.png[/img]"
-		"Jump":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "cross-button.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "a-button.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "z-key.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "a-button.png[/img]"
-		"Spin":
-			match Input.get_joy_name(0):
-				"PS4 Controller", "PS5 Controller":
-					return "[img=48x48]" + GRAPHICS_PATH + "circle-button.png[/img]"
-				"":
-					if DisplayServer.is_touchscreen_available():
-						return "[img=48x48]" + GRAPHICS_PATH + "b-button.png[/img]"
-					else:
-						return "[img=48x48]" + GRAPHICS_PATH + "x-key.png[/img]"
-				_:
-					return "[img=48x48]" + GRAPHICS_PATH + "b-button.png[/img]"
-	return type
+	match Input.get_joy_name(0):
+		"PS4 Controller", "PS5 Controller":
+			return get_image_path(type, "ps")
+		"Nintendo Switch Pro Controller":
+			return get_image_path(type, "nswitch")
+		"":
+			if DisplayServer.is_touchscreen_available():
+				return get_image_path(type, "xbox")
+			else:
+				return get_image_path(type, "kbd")
+		_:
+			return get_image_path(type, "xbox")
+
+func get_image_path(type: String, controller: String) -> String:
+	return "[img=48x48]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"
 
 func display_label(body, message: String):
 	if body.is_in_group("Player"):
@@ -114,8 +49,4 @@ func _hint_6(body):
 	var sonic: AnimatedSprite2D = get_node("/root/Test Level/SonicPlayer/Sonic/SonicSprite")
 	var direction = "Left" if sonic.flip_h else "Right"
 	var opp_direction = "Right" if sonic.flip_h else "Left"
-	var is_on_keyboard = Input.get_joy_name(0) == "" and not DisplayServer.is_touchscreen_available()
-	if is_on_keyboard:
-		display_label(body, "In the air, press %s + %s + %s to perform Quick Spin Comet,\n or press %s + %s + %s to perform Quick Spin Comet Reversal." % [get_button_image("Down"), get_button_image(direction), get_button_image("Spin"), get_button_image("Down"), get_button_image(opp_direction), get_button_image("Spin")])
-	else:
-		display_label(body, "In the air, press %s + %s to perform Quick Spin Comet,\n or press %s + %s to perform Quick Spin Comet Reversal." % [get_button_image("D" + direction), get_button_image("Spin"), get_button_image("D" + opp_direction), get_button_image("Spin")])
+	display_label(body, "In the air, press %s + %s to perform Quick Spin Comet,\n or press %s + %s to perform Quick Spin Comet Reversal." % [get_button_image("Down" + direction), get_button_image("Spin"), get_button_image("Down" + opp_direction), get_button_image("Spin")])
