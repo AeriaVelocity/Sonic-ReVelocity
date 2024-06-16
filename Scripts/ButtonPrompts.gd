@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 func _process(_delta):
 	var button_prompts = "default"
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			button_prompts = "playstation"
 		"":

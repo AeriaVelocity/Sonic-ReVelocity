@@ -5,7 +5,7 @@ const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 var original_text: String
 
 func up_button() -> String:
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			return "[img=48x48]" + GRAPHICS_PATH + "ps-up.png[/img]"
 		"Nintendo Switch Pro Controller":
@@ -19,7 +19,7 @@ func up_button() -> String:
 			return "[img=48x48]" + GRAPHICS_PATH + "xbox-up.png[/img]"
 
 func down_button() -> String:
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			return "[img=48x48]" + GRAPHICS_PATH + "ps-down.png[/img]"
 		"Nintendo Switch Pro Controller":
@@ -33,7 +33,7 @@ func down_button() -> String:
 			return "[img=48x48]" + GRAPHICS_PATH + "xbox-down.png[/img]"
 
 func jump_button() -> String:
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			return "[img=48x48]" + GRAPHICS_PATH + "ps-jump.png[/img]"
 		"Nintendo Switch Pro Controller":
@@ -48,7 +48,7 @@ func jump_button() -> String:
 			return "[img=48x48]" + GRAPHICS_PATH + "xbox-jump.png[/img]"
 
 func spin_button() -> String:
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			return "[img=48x48]" + GRAPHICS_PATH + "ps-spin.png[/img]"
 		"Nintendo Switch Pro Controller":
@@ -60,7 +60,7 @@ func spin_button() -> String:
 				return "[img=48x48]" + GRAPHICS_PATH + "kbd-spin.png[/img]"
 		_:
 			return "[img=48x48]" + GRAPHICS_PATH + "xbox-spin.png[/img]"
-			
+
 func _ready():
 	original_text = text
 

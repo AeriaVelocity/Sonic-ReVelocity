@@ -6,7 +6,7 @@ func _ready():
 
 func _process(_delta):
 	var hint: String
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"XInput Gamepad":
 			hint = "PRESS MENU BUTTON"
 		"PS4 Controller", "PS5 Controller":

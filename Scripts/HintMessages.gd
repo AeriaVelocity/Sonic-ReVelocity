@@ -3,7 +3,7 @@ extends Area2D
 const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
 func get_button_image(type: String) -> String:
-	match Input.get_joy_name(0):
+	match ControllerHandling.get_real_joy_name():
 		"PS4 Controller", "PS5 Controller":
 			return get_image_path(type, "ps")
 		"Nintendo Switch Pro Controller":
