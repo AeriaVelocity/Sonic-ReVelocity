@@ -27,11 +27,12 @@ func update_highlight_position():
 			option.modulate = Color(1, 1, 1)
 
 func handle_input():
-	if Input.is_action_just_pressed("ui_up"):
+	var sysinfo_prereq = Input.is_action_pressed("SysinfoPrereq1") and Input.is_action_pressed("SysinfoPrereq1")
+	if Input.is_action_just_pressed("MenuUp"):
 		selected_option_index = (selected_option_index - 1 + menu_options.get_child_count()) % menu_options.get_child_count()
 		$MoveSound.play()
 		update_highlight_position()
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("MenuDown"):
 		selected_option_index = (selected_option_index + 1) % menu_options.get_child_count()
 		$MoveSound.play()
 		update_highlight_position()
@@ -47,6 +48,8 @@ func handle_input():
 			activate_selected_option()
 		else:
 			get_tree().change_scene_to_file("res://intro.tscn")
+	elif sysinfo_prereq and Input.is_action_just_pressed("Sysinfo"):
+		get_tree().change_scene_to_file("res://system_information.tscn")
 
 func activate_selected_option():
 	match selected_option_index:

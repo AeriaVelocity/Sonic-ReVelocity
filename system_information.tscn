@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxycbll0vnnrg"]
+
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="1_oterw"]
+[ext_resource type="Script" path="res://Scripts/SystemInformation.gd" id="1_rqsql"]
+[ext_resource type="AudioStream" uid="uid://c5rlby1fmju6a" path="res://Music/sysinfo-music.mp3" id="2_eo8eo"]
+
+[sub_resource type="Gradient" id="Gradient_4j0m0"]
+colors = PackedColorArray(0.110697, 0.000184226, 0.24183, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e7161"]
+gradient = SubResource("Gradient_4j0m0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4in8"]
+font_size = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmx1b"]
+bg_color = Color(1, 1, 1, 0.0705882)
+
+[node name="SystemInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqsql")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_e7161")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eo8eo")
+volume_db = 1.0
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "System Information"
+label_settings = SubResource("LabelSettings_o4in8")
+
+[node name="SysInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xmx1b")
+context_menu_enabled = true
+selection_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CopyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Copy Details"
+
+[node name="Notice" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This page is intended for the Sonic Re;Velocity developers to test Godot Engine stuff.
+If you are not a developer, please return to the main menu with {Spin}.
+Thank you for your probable cooperation!"
+fit_content = true
+script = ExtResource("1_oterw")
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/CopyButton" to="." method="_on_copy_button_button_down"]

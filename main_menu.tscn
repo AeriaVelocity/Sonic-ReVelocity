@@ -18,11 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
 
-[sub_resource type="Gradient" id="Gradient_4j0m0"]
+[sub_resource type="Gradient" id="Gradient_uq1gy"]
 colors = PackedColorArray(0.47527, 0.209736, 1, 1, 0.818371, 0.0609213, 0.999999, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4neor"]
-gradient = SubResource("Gradient_4j0m0")
+gradient = SubResource("Gradient_uq1gy")
 
 [sub_resource type="Gradient" id="Gradient_bj77f"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
