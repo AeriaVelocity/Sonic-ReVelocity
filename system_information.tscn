@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxycbll0vnnrg"]
+[gd_scene load_steps=9 format=3 uid="uid://cxycbll0vnnrg"]
 
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="1_oterw"]
 [ext_resource type="Script" path="res://Scripts/SystemInformation.gd" id="1_rqsql"]
@@ -12,6 +12,9 @@ gradient = SubResource("Gradient_4j0m0")
 
 [sub_resource type="LabelSettings" id="LabelSettings_o4in8"]
 font_size = 48
+
+[sub_resource type="SystemFont" id="SystemFont_4xelo"]
+font_names = PackedStringArray("JetBrains Mono", "Fira Code", "Source Code Pro", "Menlo", "Consolas")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmx1b"]
 bg_color = Color(1, 1, 1, 0.0705882)
@@ -64,6 +67,7 @@ label_settings = SubResource("LabelSettings_o4in8")
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_4xelo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xmx1b")
 context_menu_enabled = true
 selection_enabled = true
@@ -73,6 +77,23 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
+[node name="Notice" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {Spin}. Thank you for your probable cooperation!"
+fit_content = true
+script = ExtResource("1_oterw")
+
+[node name="UpdateButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Update Details"
+
 [node name="CopyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,15 +102,5 @@ theme_override_font_sizes/font_size = 24
 action_mode = 0
 text = "Copy Details"
 
-[node name="Notice" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "This page is intended for the Sonic Re;Velocity developers to test Godot Engine stuff.
-If you are not a developer, please return to the main menu with {Spin}.
-Thank you for your probable cooperation!"
-fit_content = true
-script = ExtResource("1_oterw")
-
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/UpdateButton" to="." method="_on_update_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/CopyButton" to="." method="_on_copy_button_button_down"]
