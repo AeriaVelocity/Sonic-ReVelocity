@@ -16,6 +16,6 @@ func _process(delta):
 	text = base_time_display.format({"time": format_time(level_time)})
 
 func format_time(time: int) -> String:
-	var minutes: int = time / 60
+	var minutes: int = int(time / 60.0)
 	var seconds: int = time % 60
 	return "%02d:%02d" % [minutes, seconds]
