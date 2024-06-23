@@ -157,7 +157,7 @@ offset_right = -75.0
 offset_bottom = -913.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "This is a bleeding-edge Git development version of Sonic Re;Velocity.
+text = "This demo of Sonic Re;Velocity is super early and very unfinished.
 Expect bugs, unintended behaviour and general weirdness."
 label_settings = SubResource("LabelSettings_j6tqh")
 horizontal_alignment = 2
