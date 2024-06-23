@@ -43,4 +43,10 @@ func get_real_joy_guid(offset: int = 0) -> String:
 			return Input.get_joy_guid(joy_index + offset)
 	return ""
 
+func _input(event):
+	if event is InputEventJoypadMotion and not Input.is_joy_known(event.device):
+		print("Unrecognised controller - %s (GUID: %s)" % [Input.get_joy_name(event.device), Input.get_joy_guid(event.device)])
+		# Try to prevent this unknown device from doing anything else
+		get_viewport().set_input_as_handled()
+
 # Yes, this file is seriously more comments than it is code. Oh well.
