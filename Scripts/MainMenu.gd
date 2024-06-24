@@ -59,4 +59,5 @@ func activate_selected_option():
 			get_tree().quit()
 
 func _process(_delta):
-	handle_input()
+	if not $Popup.visible:
+		handle_input()
