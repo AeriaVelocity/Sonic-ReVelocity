@@ -360,10 +360,12 @@ func set_movement_sprite(speed) -> bool:
 		sprite = "jog"
 	elif speed >= speed_level_walk:
 		sprite = "walk"
+	elif Input.is_action_pressed("Crouch") and is_on_floor():
+		sprite = "crouch"
 	else:
 		sprite = "idle"
 
-	$SonicSprite.play(sprite)
+	$SonicSprite.play(sprite, 1.0, true)
 	return true
 
 func die():
