@@ -8,15 +8,47 @@
 
 ## Overview
 
-Sonic Re;Velocity is a 2D Sonic fan game with a focus on high-speed momentum
-and stupidly fast platforming, with a unique control style, blending old and
-new.
+Sonic Re;Velocity is a 2D Sonic fan game with a heavy focus on high-speed
+momentum and stupidly fast platforming, with a unique control style and a
+strange emphasis on going as fast as hedgehogly possible.
 
 Sonic Re;Velocity started life as an earlier project, known as Green Hill Zone
 Simulator, a joke Sonic fan game built for the RAGE 2024 Sonic Fan Games HQ event.
 
 Sonic Re;Velocity is built in Godot Engine v4.2 and is free software under the
 GNU General Public License 3.0, or, at your option, any later version.
+
+## Techniques
+
+### Wall Jump
+
+Wall jumping is a holdover from Green Hill Zone Simulator, where Sonic can
+rebound and kick off a wall that's wall jumpable (in GHZSim it was any wall,
+but SR;V it's only jumpable walls) and send himself in the opposite direction,
+potentially preventing him from losing any speed.
+
+### Quick Spin
+
+The Quick Spin is a simple yet powerful technique, where Sonic briefly curls
+up into a ball and performs a lightning-fast Spin Dash, boosting his speed
+or outright changing his direction.
+
+To perform the Quick Spin, simply press the `Spin` button (`B` on an Xbox
+controller) while pressing a movement direction. A full list of the different
+Quick Spin variations can be seen in the [Move List](#move-list).
+
+### Velocity Gauge & Velocity State
+
+The Velocity Gauge is the gauge displayed at the top right of the game window.
+It goes up as Sonic runs and continuously goes down over time. When the Velocity
+Gauge is full, Sonic enters Velocity State, granting him:
+
+* 250% velocity accumulation
+* Uncapped running speed
+* Boosted jump height
+
+If at any time Sonic stops moving, the Velocity Gauge will go down and he'll
+lose the Velocity State.
 
 ## Move List
 

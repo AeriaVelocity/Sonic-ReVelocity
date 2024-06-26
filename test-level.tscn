@@ -522,7 +522,7 @@ animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 8" type="Sprite2D" parent="Info Signs"]
-position = Vector2(3552.5, -584)
+position = Vector2(3401.9, -584)
 rotation = -1.57079
 texture = ExtResource("5_a2k0e")
 
@@ -613,7 +613,7 @@ sprite_frames = SubResource("SpriteFrames_xtu4v")
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 10" type="Sprite2D" parent="Info Signs"]
-position = Vector2(3984, -1)
+position = Vector2(3706.5, -1)
 texture = ExtResource("5_a2k0e")
 
 [node name="Elements" type="Node2D" parent="Info Signs/Info Sign 10"]
@@ -638,6 +638,7 @@ value = 184.0
 rounded = true
 fill_mode = 1
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Info Signs/Info Sign 10/Elements/VelocityGauge"]
 layout_mode = 1
@@ -656,6 +657,7 @@ text = "VELOCITY"
 label_settings = SubResource("LabelSettings_kodyt")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Dpad-left" type="AnimatedSprite2D" parent="Info Signs/Info Sign 10/Elements"]
 texture_filter = 4
@@ -861,9 +863,9 @@ shape = SubResource("RectangleShape2D_8xxvh")
 
 [node name="Platform9" type="TextureRect" parent="Platforms"]
 layout_mode = 0
-offset_left = 3835.5
+offset_left = 3684.9
 offset_top = 97.0003
-offset_right = 4923.5
+offset_right = 4772.9
 offset_bottom = 163.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
@@ -994,29 +996,12 @@ position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
-[node name="Platform14" type="TextureRect" parent="Platforms"]
-layout_mode = 0
-offset_left = 3553.0
-offset_top = -148.0
-offset_right = 3874.0
-offset_bottom = -18.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_e8txd")
-stretch_mode = 1
-
-[node name="PlatformCollision" type="StaticBody2D" parent="Platforms/Platform14"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform14/PlatformCollision"]
-position = Vector2(161, 65)
-shape = SubResource("RectangleShape2D_ue64v")
-one_way_collision = true
-
 [node name="Platform16" type="TextureRect" parent="Platforms"]
 layout_mode = 0
 offset_left = 6294.0
-offset_top = -638.0
+offset_top = -833.0
 offset_right = 7320.0
-offset_bottom = -508.0
+offset_bottom = -703.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
@@ -1031,9 +1016,9 @@ one_way_collision = true
 [node name="Platform17" type="TextureRect" parent="Platforms"]
 layout_mode = 0
 offset_left = 6807.0
-offset_top = -1057.0
+offset_top = -1252.0
 offset_right = 7833.0
-offset_bottom = -927.0
+offset_bottom = -1122.0
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -1139,7 +1124,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint5" type="Sprite2D" parent="Hints"]
-position = Vector2(5925, -918.333)
+position = Vector2(5674, -918.333)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Hints/Hint5"]
@@ -1183,7 +1168,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint7" type="Sprite2D" parent="Hints"]
-position = Vector2(7081.67, -15)
+position = Vector2(6619.17, -15)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Hints/Hint7"]
@@ -1230,7 +1215,7 @@ shape = SubResource("CircleShape2D_2fikd")
 position = Vector2(110, 112)
 
 [node name="GoalRing" parent="." instance=ExtResource("40_3mvnn")]
-position = Vector2(6553, -712)
+position = Vector2(6553, -907)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

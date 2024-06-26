@@ -28,7 +28,7 @@ func _hint_1(body):
     var sonic: AnimatedSprite2D = get_node("/root/Test Level/SonicPlayer/Sonic/SonicSprite")
     var direction = "Left" if sonic.flip_h else "Right"
     var opp_direction = "Right" if sonic.flip_h else "Left"
-    display_label(body, "Press %s to make Sonic run.\nPressing %s will [i]not[/i] turn him around.." % [get_button_image(direction), get_button_image(opp_direction)])
+    display_label(body, "Press %s to make Sonic run.\nPress %s while running to come to a stop faster." % [get_button_image(direction), get_button_image(opp_direction)])
 
 func _hint_2(body):
     display_label(body, "Press %s to make Sonic jump.\nJumping while running up a slope will send him higher." % get_button_image("Jump"))
