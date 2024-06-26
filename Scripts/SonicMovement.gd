@@ -282,9 +282,12 @@ func _physics_process(delta):
     $SonicSprite.flip_h = last_direction < 0
 
     if direction != 0:
-        current_velocity.x = current_velocity.x + direction * acceleration * delta
+        var velocity_state_multiplier = 2.5 if VelocitySystem.velocity_state else 1.0
+        current_velocity.x = current_velocity.x + direction * acceleration * velocity_state_multiplier * delta
         if not VelocitySystem.velocity_state:
             current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
+        if is_on_floor() and (current_velocity.x < 0 and direction > 0 or current_velocity.x > 0 and direction < 0):
+            current_velocity.x /= 1.05
     else:
         if current_velocity.x > 0 and is_on_floor():
             current_velocity.x = max(0, current_velocity.x - deceleration * delta)
