@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Sonic Re;Velocity"
 config/description="A 2D Sonic fan game with a focus on high-speed momentum-based platforming."
-config/version="0.0.1"
+config/version="0.1.0"
 run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Graphics/icon.png"

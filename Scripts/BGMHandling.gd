@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
 func _ready():
-	play()
+    play()
 
 func _on_finished():
-	play()
+    play()
 

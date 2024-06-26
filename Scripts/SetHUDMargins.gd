@@ -13,9 +13,9 @@ extends VBoxContainer
 @export_range(-8, 16) var element_spacing: int = 0
 
 func _process(_delta):
-	score.add_theme_constant_override("margin_left", edge_spacing * 3)
-	time.add_theme_constant_override("margin_left", edge_spacing * 2)
-	rings.add_theme_constant_override("margin_left", edge_spacing * 1)
-	speed.add_theme_constant_override("margin_left", edge_spacing * 0)
+    score.add_theme_constant_override("margin_left", edge_spacing * 3)
+    time.add_theme_constant_override("margin_left", edge_spacing * 2)
+    rings.add_theme_constant_override("margin_left", edge_spacing * 1)
+    speed.add_theme_constant_override("margin_left", edge_spacing * 0)
 
-	add_theme_constant_override("separation", element_spacing)
+    add_theme_constant_override("separation", element_spacing)

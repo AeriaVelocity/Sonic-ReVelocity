@@ -22,9 +22,9 @@ Green Hill Zone Simulator. If not, see <https://www.gnu.org/licenses/>.
 extends Control
 
 func _ready():
-	anchor_top = 1
-	anchor_bottom = 1
-	
-	offset_top = -120
-	offset_bottom = 0
-	offset_left = 40
+    anchor_top = 1
+    anchor_bottom = 1
+
+    offset_top = -120
+    offset_bottom = 0
+    offset_left = 40
