@@ -22,6 +22,7 @@ config/icon="res://Graphics/icon.png"
 HudScripting="*res://Scripts/HUDScripting.gd"
 FullScreen="*res://Scripts/FullScreen.gd"
 ControllerHandling="*res://Scripts/ControllerHandling.gd"
+VelocitySystem="*res://Scripts/VelocitySystem.gd"
 
 [display]
 
@@ -119,6 +120,10 @@ MenuDown={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[internationalization]
+
+rendering/version="0.1.0"
 
 [rendering]
 

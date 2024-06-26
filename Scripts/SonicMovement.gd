@@ -79,6 +79,14 @@ func _ready():
         var step_sound = load("res://Sounds/footstep/step" + str(i) + ".wav")
         footstep_sounds.append(step_sound)
 
+func inc_velocity_gauge(speed):
+    if speed >= speed_level_mach:
+        VelocitySystem.increment_velocity_gauge.emit(4)
+    elif speed >= speed_level_run:
+        VelocitySystem.increment_velocity_gauge.emit(3)
+    elif speed >= speed_level_jog:
+        VelocitySystem.increment_velocity_gauge.emit(2)
+
 func handle_movement_sound(speed):
     if not is_on_floor() or speed < speed_level_walk:
         return
@@ -234,6 +242,7 @@ func check_wall_jumpable() -> bool:
 
 func _physics_process(delta):
     set_camera_offset(delta)
+    inc_velocity_gauge(abs(velocity.x))
 
     if is_dead:
         return
@@ -253,13 +262,14 @@ func _physics_process(delta):
         const level_floor_normal = -1 # because Godot said so
         var floor_normal = get_floor_normal()
 
+        var velocity_state_bonus = -250 if VelocitySystem.velocity_state else 0
         var on_slope = floor_normal.y > level_floor_normal
         if on_slope and abs(velocity.x) > 100:
             var slope_bonus = (2.0 + floor_normal.y)
             var speed_bonus = (abs(velocity.x) - 100) / 4
-            velocity.y += jump_speed * slope_bonus - speed_bonus
+            velocity.y += (jump_speed + velocity_state_bonus) * slope_bonus - speed_bonus
         else:
-            velocity.y += jump_speed
+            velocity.y += jump_speed + velocity_state_bonus
 
         velocity.x *= 1.3
         jump_sound.play()
@@ -273,7 +283,8 @@ func _physics_process(delta):
 
     if direction != 0:
         current_velocity.x = current_velocity.x + direction * acceleration * delta
-        current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
+        if not VelocitySystem.velocity_state:
+            current_velocity.x = clamp(current_velocity.x, -speed_cap, speed_cap)
     else:
         if current_velocity.x > 0 and is_on_floor():
             current_velocity.x = max(0, current_velocity.x - deceleration * delta)

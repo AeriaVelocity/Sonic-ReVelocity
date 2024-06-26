@@ -1,6 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=23 format=3 uid="uid://c528liaieedpb"]
 
+[ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
+[ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
 [ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
+[ext_resource type="StyleBox" uid="uid://dac5up3ya1p8b" path="res://VelocityGauge-Filled.tres" id="1_vn161"]
 [ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
@@ -15,6 +18,18 @@
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="10_1in3v"]
 [ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="10_irsd5"]
 
+[sub_resource type="Theme" id="Theme_mqoso"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l11u6"]
+skew = Vector2(0.325, 0)
+shadow_color = Color(0, 0, 0, 0.286275)
+shadow_size = 5
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_agauu"]
+font = ExtResource("1_mi55f")
+font_size = 46
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_08q5w"]
 radius = 65.0
 
@@ -26,17 +41,54 @@ radius = 139.19
 [node name="TopHUD" type="Control" parent="."]
 texture_filter = 4
 layout_mode = 3
-anchors_preset = 0
-offset_left = 59.0
-offset_top = 31.0
-offset_right = 368.0
-offset_bottom = 260.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 364.0
+grow_horizontal = 2
+
+[node name="VelocityGauge" type="ProgressBar" parent="TopHUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -693.0
+offset_top = 36.0
+offset_right = -98.0
+offset_bottom = 114.0
+grow_horizontal = 0
+theme = SubResource("Theme_mqoso")
+theme_override_styles/background = SubResource("StyleBoxFlat_l11u6")
+theme_override_styles/fill = ExtResource("1_vn161")
+max_value = 255.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+script = ExtResource("1_hac6q")
+
+[node name="Label" type="Label" parent="TopHUD/VelocityGauge"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -20.5
+offset_right = 72.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "VELOCITY"
+label_settings = SubResource("LabelSettings_agauu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TopHUD"]
 layout_mode = 1
-offset_left = -6.0
-offset_right = 513.0
-offset_bottom = 296.0
+offset_left = 60.0
+offset_top = 27.0
+offset_right = 579.0
+offset_bottom = 323.0
 script = ExtResource("1_vh8p3")
 
 [node name="ScoreMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
