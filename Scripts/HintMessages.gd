@@ -50,3 +50,9 @@ func _hint_6(body):
     var direction = "Left" if sonic.flip_h else "Right"
     var opp_direction = "Right" if sonic.flip_h else "Left"
     display_label(body, "In the air, press %s + %s to perform Quick Spin Comet,\n or press %s + %s to perform Quick Spin Comet Reversal." % [get_button_image("Down" + direction), get_button_image("Spin"), get_button_image("Down" + opp_direction), get_button_image("Spin")])
+
+func _hint_7(body):
+    display_label(body, "Keep running fast to build up the Velocity Gauge.\nAt max Velocity, Sonic will enter Velocity State.")
+
+func _hint_8(body):
+    display_label(body, "When in Velocity State, your speed is uncapped.\nEnter Velocity State and jump up this slope to reach the goal!")

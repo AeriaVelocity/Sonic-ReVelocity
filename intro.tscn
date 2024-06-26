@@ -151,7 +151,7 @@ font_size = 84
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqqd2"]
 font = ExtResource("10_luigo")
-font_size = 42
+font_size = 40
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -281,8 +281,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -396.0
-offset_bottom = -283.0
+offset_top = -412.0
+offset_bottom = -299.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "REAL HEDGEHOGS USE A GAMEPAD"
@@ -319,12 +319,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 276.0
-offset_bottom = 389.0
+offset_top = 308.0
+offset_bottom = 479.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "The use of a controller is highly recommended.
-This game includes button prompts for Xbox and PlayStation controllers."
+text = "Sonic Re;Velocity is best experienced with a controller of some kind.
+This game includes button prompts for the Xbox 360 controller, Xbox One controller, 
+Xbox Series X|S controller, DualShock 4, DualSense and Nintendo Switch Pro Controller."
 label_settings = SubResource("LabelSettings_rqqd2")
 horizontal_alignment = 1
 
