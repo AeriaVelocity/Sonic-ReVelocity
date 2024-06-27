@@ -1,13 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=24 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
-[ext_resource type="Script" path="res://Scripts/SetHUDMargins.gd" id="1_vh8p3"]
 [ext_resource type="StyleBox" uid="uid://dac5up3ya1p8b" path="res://VelocityGauge-Filled.tres" id="1_vn161"]
-[ext_resource type="LabelSettings" uid="uid://jawds3fcvj3h" path="res://HUDFont.tres" id="1_wyqdf"]
 [ext_resource type="Script" path="res://Scripts/HUDPositioning.gd" id="2_2tygg"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
 [ext_resource type="Script" path="res://Scripts/LevelTime.gd" id="3_xcodd"]
+[ext_resource type="Script" path="res://Scripts/SpeedGauge.gd" id="4_8fb3d"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_tr8ht"]
@@ -21,10 +20,19 @@
 [sub_resource type="Theme" id="Theme_mqoso"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l11u6"]
+bg_color = Color(1, 1, 1, 0.313726)
 skew = Vector2(0.325, 0)
 shadow_color = Color(0, 0, 0, 0.286275)
 shadow_size = 5
 shadow_offset = Vector2(7, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6e57"]
+bg_color = Color(0.172549, 0.262745, 0.819608, 1)
+skew = Vector2(0.325, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v8pq5"]
+font = ExtResource("1_mi55f")
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_agauu"]
 font = ExtResource("1_mi55f")
@@ -46,85 +54,79 @@ anchor_right = 1.0
 offset_bottom = 364.0
 grow_horizontal = 2
 
+[node name="SpeedGauge" type="ProgressBar" parent="TopHUD"]
+layout_mode = 1
+offset_left = 68.0
+offset_top = 45.0
+offset_right = 1044.0
+offset_bottom = 85.0
+theme = SubResource("Theme_mqoso")
+theme_override_styles/background = SubResource("StyleBoxFlat_l11u6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n6e57")
+max_value = 2000.0
+rounded = true
+show_percentage = false
+script = ExtResource("4_8fb3d")
+
+[node name="Speedometer" type="Label" parent="TopHUD/SpeedGauge"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -30.0
+offset_right = 152.0
+offset_bottom = 31.0
+grow_vertical = 2
+text = "SPEED"
+label_settings = SubResource("LabelSettings_v8pq5")
+vertical_alignment = 1
+script = ExtResource("4_tc64l")
+
+[node name="Time" type="Label" parent="TopHUD"]
+offset_left = 729.0
+offset_top = 190.0
+offset_right = 1001.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_agauu")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("3_xcodd")
+
 [node name="VelocityGauge" type="ProgressBar" parent="TopHUD"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -693.0
-offset_top = 36.0
-offset_right = -98.0
-offset_bottom = 114.0
-grow_horizontal = 0
+offset_left = 44.0
+offset_top = 99.0
+offset_right = 1020.0
+offset_bottom = 177.0
 theme = SubResource("Theme_mqoso")
 theme_override_styles/background = SubResource("StyleBoxFlat_l11u6")
 theme_override_styles/fill = ExtResource("1_vn161")
-max_value = 255.0
+max_value = 1000.0
 rounded = true
-fill_mode = 1
 show_percentage = false
 script = ExtResource("1_hac6q")
 
-[node name="Label" type="Label" parent="TopHUD/VelocityGauge"]
+[node name="Velocity" type="Label" parent="TopHUD/VelocityGauge"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -20.5
-offset_right = 72.5
-offset_bottom = 20.5
-grow_horizontal = 2
+offset_left = 58.0
+offset_top = -30.5
+offset_right = 272.0
+offset_bottom = 30.5
 grow_vertical = 2
 text = "VELOCITY"
 label_settings = SubResource("LabelSettings_agauu")
-horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TopHUD"]
-layout_mode = 1
-offset_left = 60.0
-offset_top = 27.0
-offset_right = 579.0
-offset_bottom = 323.0
-script = ExtResource("1_vh8p3")
-
-[node name="ScoreMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
-layout_mode = 2
-
-[node name="Score" type="Label" parent="TopHUD/VBoxContainer/ScoreMargin"]
-layout_mode = 2
-text = "Score: Who cares?"
-label_settings = ExtResource("1_wyqdf")
-
-[node name="TimeMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
-layout_mode = 2
-
-[node name="Time" type="Label" parent="TopHUD/VBoxContainer/TimeMargin"]
-layout_mode = 2
-text = "Time: Plenty"
-label_settings = ExtResource("1_wyqdf")
-script = ExtResource("3_xcodd")
-
-[node name="RingsMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
-layout_mode = 2
-
-[node name="Rings" type="Label" parent="TopHUD/VBoxContainer/RingsMargin"]
-layout_mode = 2
-text = "Rings: 0"
-label_settings = ExtResource("1_wyqdf")
-
-[node name="SpeedMargin" type="MarginContainer" parent="TopHUD/VBoxContainer"]
-layout_mode = 2
-
-[node name="Speed" type="Label" parent="TopHUD/VBoxContainer/SpeedMargin"]
-layout_mode = 2
-text = "Speed: 0"
-label_settings = ExtResource("1_wyqdf")
-vertical_alignment = 2
-script = ExtResource("4_tc64l")
 
 [node name="BottomHUD" type="Control" parent="."]
 texture_filter = 2

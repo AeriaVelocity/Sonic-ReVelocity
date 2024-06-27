@@ -1,7 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://jawds3fcvj3h"]
-
-[ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_ddewb"]
-
-[resource]
-font = ExtResource("1_ddewb")
-font_size = 54

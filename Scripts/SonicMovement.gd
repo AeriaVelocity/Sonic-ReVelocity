@@ -86,6 +86,8 @@ func inc_velocity_gauge(speed):
         VelocitySystem.increment_velocity_gauge.emit(3)
     elif speed >= speed_level_jog:
         VelocitySystem.increment_velocity_gauge.emit(2)
+    elif speed >= speed_level_walk:
+        VelocitySystem.increment_velocity_gauge.emit(1)
 
 func handle_movement_sound(speed):
     if not is_on_floor() or speed < speed_level_walk:
