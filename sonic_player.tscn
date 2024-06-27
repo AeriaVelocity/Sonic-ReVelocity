@@ -432,15 +432,15 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6d48t"]
 radius = 14.0
-height = 34.0
+height = 38.0
 
 [node name="SonicPlayer" type="Node2D" groups=["Player"]]
 
 [node name="Sonic" type="CharacterBody2D" parent="." groups=["Player"]]
 floor_max_angle = 1.39626
 floor_snap_length = 15.0
-safe_margin = 0.1
 script = ExtResource("1_g17tg")
+speed_cap = 1200.0
 
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
 texture_filter = 1
@@ -454,7 +454,7 @@ texture_filter = 3
 position = Vector2(-4, 4)
 sprite_frames = SubResource("SpriteFrames_fbltw")
 autoplay = "default"
-frame_progress = 0.279778
+frame_progress = 0.684962
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
@@ -464,7 +464,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 18.0
 
 [node name="Collision" type="CollisionShape2D" parent="Sonic"]
-position = Vector2(0, 7)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_6d48t")
 
 [node name="MovementSound" type="AudioStreamPlayer" parent="Sonic"]

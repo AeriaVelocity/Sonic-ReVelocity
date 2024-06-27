@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export_group("Movement Values")
 
 ## The maximum horizontal speed that Sonic can reach. His X-velocity will never
-## exceed this value.
+## exceed this value unless he's in Velocity State.
 @export var speed_cap: float = 2000.0
 
 ## How fast Sonic gains horizontal speed when moving, capped at [member
@@ -83,7 +83,7 @@ func inc_velocity_gauge(speed):
     if speed >= speed_level_mach:
         VelocitySystem.increment_velocity_gauge.emit(6)
     elif speed >= speed_level_run:
-        VelocitySystem.increment_velocity_gauge.emit(5)
+        VelocitySystem.increment_velocity_gauge.emit(2)
 
 func handle_movement_sound(speed):
     if not is_on_floor() or speed < speed_level_walk:
