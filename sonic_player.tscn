@@ -421,9 +421,7 @@ script = ExtResource("1_g17tg")
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jusa")
-animation = &"crouch"
-frame = 4
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
 position = Vector2(15, 22)
