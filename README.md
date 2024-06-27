@@ -2,6 +2,8 @@
 
 ![Sonic Re;Velocity](title-screen.png)
 
+![Gameplay Screenshot](gameplay-screenshot.png)
+
 > [!WARNING]
 > Sonic Re;Velocity is still very much a work-in-progress. Don't expect any
 > form of quality here.
@@ -39,7 +41,8 @@ Quick Spin variations can be seen in the [Move List](#move-list).
 
 ### Velocity Gauge & Velocity State
 
-The Velocity Gauge is the gauge displayed at the top right of the game window.
+The Velocity Gauge is the gauge with the word "VELOCITY" on the top left of the
+game window, underneath the Speed Gauge.
 It goes up as Sonic runs and continuously goes down over time. When the Velocity
 Gauge is full, Sonic enters Velocity State, granting him:
 
