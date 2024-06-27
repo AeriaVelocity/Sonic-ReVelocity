@@ -5,6 +5,8 @@ func _process(_delta):
     match ControllerHandling.get_real_joy_name():
         "PS4 Controller", "PS5 Controller":
             button_prompts = "playstation"
+        "Nintendo Switch Pro Controller":
+            button_prompts = "nintendo"
         "":
             if DisplayServer.is_touchscreen_available():
                 # The touch prompts use A and B like an Xbox controller,
