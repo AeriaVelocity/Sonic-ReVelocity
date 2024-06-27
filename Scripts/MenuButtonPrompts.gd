@@ -61,8 +61,36 @@ func spin_button() -> String:
         _:
             return "[img=48x48]" + GRAPHICS_PATH + "xbox-spin.png[/img]"
 
+func special1_button() -> String:
+    match ControllerHandling.get_real_joy_name():
+        "PS4 Controller", "PS5 Controller":
+            return "[img=48x48]" + GRAPHICS_PATH + "ps-unused1.png[/img]"
+        "Nintendo Switch Pro Controller":
+            return "[img=48x48]" + GRAPHICS_PATH + "nswitch-unused1.png[/img]"
+        "":
+            if DisplayServer.is_touchscreen_available():
+                return "[img=48x48]" + GRAPHICS_PATH + "xbox-unused1.png[/img]"
+            else:
+                return "[img=48x48]" + GRAPHICS_PATH + "kbd-unused1.png[/img]"
+        _:
+            return "[img=48x48]" + GRAPHICS_PATH + "xbox-unused1.png[/img]"
+
+func special2_button() -> String:
+    match ControllerHandling.get_real_joy_name():
+        "PS4 Controller", "PS5 Controller":
+            return "[img=48x48]" + GRAPHICS_PATH + "ps-unused2.png[/img]"
+        "Nintendo Switch Pro Controller":
+            return "[img=48x48]" + GRAPHICS_PATH + "nswitch-unused2.png[/img]"
+        "":
+            if DisplayServer.is_touchscreen_available():
+                return "[img=48x48]" + GRAPHICS_PATH + "xbox-unused2.png[/img]"
+            else:
+                return "[img=48x48]" + GRAPHICS_PATH + "kbd-unused2.png[/img]"
+        _:
+            return "[img=48x48]" + GRAPHICS_PATH + "xbox-unused2.png[/img]"
+
 func _ready():
     original_text = text
 
 func _process(_delta):
-    set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button()}))
+    set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button(), "Special1": special1_button(), "Special2": special2_button()}))

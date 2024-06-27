@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=27 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
@@ -37,6 +37,12 @@ font = ExtResource("1_mi55f")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_agauu"]
+font = ExtResource("1_mi55f")
+font_size = 46
+shadow_color = Color(0, 0, 0, 0.286275)
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mfjv"]
 font = ExtResource("1_mi55f")
 font_size = 46
 
@@ -146,7 +152,7 @@ offset_right = 272.0
 offset_bottom = 30.5
 grow_vertical = 2
 text = "VELOCITY"
-label_settings = SubResource("LabelSettings_agauu")
+label_settings = SubResource("LabelSettings_3mfjv")
 vertical_alignment = 1
 
 [node name="Start" type="AudioStreamPlayer" parent="TopHUD/VelocityGauge"]
