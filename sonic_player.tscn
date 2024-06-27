@@ -454,7 +454,7 @@ texture_filter = 3
 position = Vector2(-4, 4)
 sprite_frames = SubResource("SpriteFrames_fbltw")
 autoplay = "default"
-frame_progress = 0.657848
+frame_progress = 0.289071
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]

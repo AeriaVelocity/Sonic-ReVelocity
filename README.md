@@ -128,3 +128,17 @@ That basically means you can do what you want with it, but you can't make it
 proprietary, not even if you take all the Sonic elements out. It's also a
 Sonic fan game, so don't sell it either. We already saw how that turned out
 the last time that happened...
+
+### Special Thanks
+
+* **SEGA** and **Sonic Team** - Created and owns the entire copyright,
+trademarks and patents for the Sonic the Hedgehog series.
+* **Sonic Mania** - Provided the sprites for Sonic himself and various sound
+effects.
+* **Sonic Unleashed** - Provided running sound effects, the "alert" sound
+effect, the boost sound effect, the goal ring sound effect, jump sound effect,
+etc.
+* **Sonic Rush** - Provided the goal ring and boost sprites.
+* **AsuharaMoon** on The Sprites Resource - Ripped the Sonic graphics from
+Sonic Mania.
+* **Techokami** on The Sprites Resource - Ripped the Boost graphics from Sonic Rush.
