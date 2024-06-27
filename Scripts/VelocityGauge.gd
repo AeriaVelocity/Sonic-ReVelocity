@@ -41,4 +41,4 @@ func _process(delta):
 func increment(amount: int):
     if velocity_gauge < velocity_gauge_max:
         velocity_gauge += amount
-    reset_counter = amount * global_delta
+    reset_counter = 2.5 * global_delta
