@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://c1rjb7rkohryr"]
+[gd_scene load_steps=94 format=3 uid="uid://c1rjb7rkohryr"]
 
 [ext_resource type="Script" path="res://Scripts/SonicMovement.gd" id="1_g17tg"]
 [ext_resource type="Texture2D" uid="uid://c83mj4vxqix17" path="res://Sprites/sonic/000.png" id="2_ns28t"]
@@ -85,6 +85,10 @@
 [ext_resource type="Texture2D" uid="uid://c2bft8170s4ra" path="res://Sprites/sonic/072.png" id="73_andsr"]
 [ext_resource type="Texture2D" uid="uid://c1a6s2vdcwooh" path="res://Sprites/sonic/073.png" id="74_b3eyv"]
 [ext_resource type="Texture2D" uid="uid://74lutxoaawfl" path="res://Sprites/sonic/074.png" id="75_54vg3"]
+[ext_resource type="Texture2D" uid="uid://cwy2505byy8ve" path="res://Sprites/boost/000.png" id="81_lhtoo"]
+[ext_resource type="Texture2D" uid="uid://cvfo6svab0uim" path="res://Sprites/boost/001.png" id="82_1p5gf"]
+[ext_resource type="Texture2D" uid="uid://d0ehl2ri86qcx" path="res://Sprites/boost/002.png" id="83_0nu5f"]
+[ext_resource type="Texture2D" uid="uid://bb6a6iebx53x2" path="res://Sprites/boost/003.png" id="84_42ulx"]
 [ext_resource type="AudioStream" uid="uid://bh6uwqenjgdl" path="res://Sounds/Hurt.wav" id="85_ogbc7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jusa"]
@@ -406,6 +410,26 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbltw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("81_lhtoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_1p5gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_0nu5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_42ulx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6d48t"]
 radius = 14.0
 height = 34.0
@@ -422,6 +446,16 @@ script = ExtResource("1_g17tg")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jusa")
 animation = &"idle"
+
+[node name="BoostSprite" type="AnimatedSprite2D" parent="Sonic"]
+visible = false
+modulate = Color(1, 1, 1, 0.588235)
+texture_filter = 3
+position = Vector2(-4, 4)
+sprite_frames = SubResource("SpriteFrames_fbltw")
+autoplay = "default"
+frame_progress = 0.657848
+flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="Sonic"]
 position = Vector2(15, 22)

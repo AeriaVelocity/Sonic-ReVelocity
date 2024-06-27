@@ -238,6 +238,10 @@ func check_wall_jumpable() -> bool:
 
     return wall_is_jumpable
 
+func _process(_delta):
+    $BoostSprite.visible = VelocitySystem.velocity_state
+    $BoostSprite.rotation = velocity.angle()
+
 func _physics_process(delta):
     set_camera_offset(delta)
     inc_velocity_gauge(abs(velocity.x))

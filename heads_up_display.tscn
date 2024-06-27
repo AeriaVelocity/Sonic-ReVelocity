@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=25 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/SpeedGauge.gd" id="4_8fb3d"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
+[ext_resource type="AudioStream" uid="uid://b4olokvhcsj1u" path="res://Sounds/velocity_start.wav" id="7_2t5xt"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_tr8ht"]
 [ext_resource type="Texture2D" uid="uid://dvbghtag4eoui" path="res://Graphics/Touch Buttons/a-button.png" id="7_ysnro"]
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="8_c36r7"]
@@ -128,6 +129,10 @@ grow_vertical = 2
 text = "VELOCITY"
 label_settings = SubResource("LabelSettings_agauu")
 vertical_alignment = 1
+
+[node name="Start" type="AudioStreamPlayer" parent="TopHUD/VelocityGauge"]
+stream = ExtResource("7_2t5xt")
+volume_db = 6.0
 
 [node name="BottomHUD" type="Control" parent="."]
 texture_filter = 2
