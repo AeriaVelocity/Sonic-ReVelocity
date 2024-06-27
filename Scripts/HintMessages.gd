@@ -54,4 +54,4 @@ func _hint_7(body):
     display_label(body, "Keep running fast to build up the purple Velocity Gauge.\nAt max Velocity, Sonic will enter Velocity State.")
 
 func _hint_8(body):
-    display_label(body, "When in Velocity State, your speed is uncapped.\nEnter Velocity State and jump up this slope to reach the goal!")
+    display_label(body, "When in Velocity State, Sonic will gain speed much faster.\nEnter Velocity State and jump up the slope at the end to reach the goal!")
