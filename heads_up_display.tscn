@@ -27,7 +27,7 @@ shadow_size = 5
 shadow_offset = Vector2(7, 7)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6e57"]
-bg_color = Color(0.172549, 0.262745, 0.819608, 1)
+bg_color = Color(0.284495, 0.387324, 1, 1)
 skew = Vector2(0.325, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v8pq5"]
@@ -84,6 +84,7 @@ vertical_alignment = 1
 script = ExtResource("4_tc64l")
 
 [node name="Time" type="Label" parent="TopHUD"]
+layout_mode = 0
 offset_left = 729.0
 offset_top = 190.0
 offset_right = 1001.0
