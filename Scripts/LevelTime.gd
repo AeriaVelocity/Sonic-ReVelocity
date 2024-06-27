@@ -12,6 +12,7 @@ func _process(delta):
         level_time += 1
         timer = 0
     text = format_time(level_time)
+    LevelStats.level_time = level_time
 
 func format_time(time: int) -> String:
     var minutes: int = int(time / 60.0)

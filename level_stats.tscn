@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc0sds7o685ht"]
+
+[ext_resource type="Script" path="res://Scripts/LevelStatsDisplay.gd" id="1_p3cjv"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_y8qj5"]
+[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="2_n1vgf"]
+[ext_resource type="AudioStream" uid="uid://cw7jxwjvsrlm7" path="res://Music/victory.mp3" id="4_kpax7"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="5_qpbyf"]
+
+[sub_resource type="Gradient" id="Gradient_uq1gy"]
+colors = PackedColorArray(0.818371, 0.0609213, 0.999999, 1, 0.47527, 0.209736, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kwxe7"]
+gradient = SubResource("Gradient_uq1gy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nea8l"]
+font = ExtResource("1_y8qj5")
+font_size = 91
+
+[sub_resource type="LabelSettings" id="LabelSettings_07h0f"]
+font = ExtResource("2_n1vgf")
+font_size = 56
+
+[node name="LevelStats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3cjv")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_kwxe7")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 168.0
+offset_bottom = 378.0
+grow_horizontal = 2
+text = "Stage Clear"
+label_settings = SubResource("LabelSettings_nea8l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 336.0
+offset_bottom = 410.0
+grow_horizontal = 2
+text = "Level name goes here."
+label_settings = SubResource("LabelSettings_07h0f")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 12.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Time" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level time goes here."
+label_settings = SubResource("LabelSettings_07h0f")
+horizontal_alignment = 1
+
+[node name="Quote" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "\"Funny quote goes here.\""
+label_settings = SubResource("LabelSettings_07h0f")
+horizontal_alignment = 1
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kpax7")
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 448.0
+offset_bottom = 503.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_y8qj5")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center] {Jump} Back to Title Screen  {Spin} Replay Level[/center]"
+fit_content = true
+script = ExtResource("5_qpbyf")

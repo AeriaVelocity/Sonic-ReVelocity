@@ -23,6 +23,7 @@ HudScripting="*res://Scripts/HUDScripting.gd"
 FullScreen="*res://Scripts/FullScreen.gd"
 ControllerHandling="*res://Scripts/ControllerHandling.gd"
 VelocitySystem="*res://Scripts/VelocitySystem.gd"
+LevelStats="*res://Scripts/LevelStats.gd"
 
 [display]
 
