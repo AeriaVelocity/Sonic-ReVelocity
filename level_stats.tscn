@@ -79,6 +79,12 @@ text = "Level time goes here."
 label_settings = SubResource("LabelSettings_07h0f")
 horizontal_alignment = 1
 
+[node name="Rings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rings go here."
+label_settings = SubResource("LabelSettings_07h0f")
+horizontal_alignment = 1
+
 [node name="Quote" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "\"Funny quote goes here.\""

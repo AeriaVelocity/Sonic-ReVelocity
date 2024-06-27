@@ -387,9 +387,10 @@ func set_movement_sprite(speed) -> bool:
 func die():
     is_dead = true
     $DeathSound.play()
-    await(get_tree().create_timer(2.0).timeout)
+    await(get_tree().create_timer(0.5).timeout)
     is_dead = false
     did_jump = false
+    LevelStats.rings = 0
     position = start_position
     velocity = Vector2(0, 0)
     move_and_slide()

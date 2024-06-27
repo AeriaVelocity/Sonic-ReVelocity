@@ -54,6 +54,7 @@ func handle_input():
 func activate_selected_option():
     match selected_option_index:
         0:
+            LevelStats.rings = 0
             get_tree().change_scene_to_file("res://test-level.tscn")
         1:
             get_tree().quit()
