@@ -825,7 +825,6 @@ position = Vector2(2198, -25)
 scale = Vector2(0.432076, 0.406091)
 
 [node name="Slope" type="Sprite2D" parent="Stage Objects/Slopes"]
-scale = Vector2(1, 1)
 texture = ExtResource("6_0acua")
 flip_h = true
 
