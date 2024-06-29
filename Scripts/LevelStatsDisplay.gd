@@ -29,7 +29,7 @@ func determine_rank() -> Array:
     elif level_time >= 45 and level_time < 60:
         return ["C", Color.YELLOW]
     elif level_time >= 60:
-        return ["D", Color.DIM_GRAY]
+        return ["D", Color.SLATE_GRAY]
     return ["How did you even", Color.GRAY]
 
 func _process(_delta):
@@ -39,4 +39,4 @@ func _process(_delta):
         LevelStats.rings = 0
         get_tree().change_scene_to_file("res://test-level.tscn")
     elif Input.is_action_just_pressed("Unused1"):
-        get_tree().change_scene_to_file("res://title-screen.tscn")
+        get_tree().change_scene_to_file("res://intro.tscn")

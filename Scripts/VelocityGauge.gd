@@ -8,6 +8,7 @@ var global_delta: float
 func _ready():
     velocity_gauge = 0
     VelocitySystem.connect("increment_velocity_gauge", increment)
+    VelocitySystem.connect("inhibit_velocity_gauge", inhibit)
 
 var flash_counter: float
 var reset_counter: float
@@ -23,6 +24,8 @@ func _process(delta):
     value = velocity_gauge
 
     flash_counter += delta
+
+    global_delta = delta
 
     if reset_counter > 0:
         reset_counter -= delta
@@ -44,9 +47,13 @@ func _process(delta):
     else:
         self_modulate = Color.WHITE
 
-    global_delta = delta
-
 func increment(amount: int):
     if velocity_gauge < velocity_gauge_max:
         velocity_gauge += amount
-    reset_counter = 2.5 * global_delta
+    keep_from_dropping(2.5)
+
+func inhibit():
+    keep_from_dropping(2.001)
+
+func keep_from_dropping(amount: float):
+    reset_counter = amount * global_delta
