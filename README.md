@@ -53,13 +53,12 @@ Gauge is full, Sonic enters Velocity State, granting him:
 If at any time Sonic stops moving, the Velocity Gauge will go down and he'll
 lose the Velocity State.
 
-## Move List
+## Controls
 
 > [!TIP]
 > This is assuming you're using an Xbox controller, and Sonic is facing right.
-> Button prompts in Sonic Re;Velocity will automatically adapt to your controller type
-> and the direction Sonic's facing.
-> But just in case you need a refresher:
+> Button prompts in Sonic Re;Velocity will automatically adapt to your
+> controller type and the direction Sonic's facing. But just in case:
 >
 > * If Sonic's facing left, not right, swap `←` and `→`.<br>
 > * If you're on keyboard, replace `A` and `B` with `Z` and `X`.<br>
@@ -72,13 +71,14 @@ lose the Velocity State.
   * At Mach speed, Sonic will run extremely fast. In this state, it's crucial
     to control his speed or he'll probably fall off a ledge or crash into a
     wall.
-  * It's worth noting that pressing the opposite movement direction while Sonic
-    is already running will *not* turn him around, unlike most Sonic games.
-    You're encouraged to use **Quick Spin Reversal** if you need to turn around.
+  * When running or at Mach speed, Sonic will begin to charge energy in the
+    Velocity Gauge. When the gauge is full, it triggers Velocity State, which
+    breaks his speed limit and grants him uncapped running speed. He'll also
+    accumulate speed much faster.
 * **Jump** - `A` while on the ground
   * Sonic can jump, granting him height. Jumping off an upward
-    slope will let him jump higher and further. Chaining together consecutive
-    jumps will result in faster movement.
+    slope will let him jump higher and further.
+  * Sonic's jump height will be boosted by 250 units when in Velocity State.
 * **Wall Jump** - `A` while wallbound
   * While Sonic is wallbound (touching a jumpable wall and not touching the
     floor), he can jump off of it, sending him upward and away from the wall. Be
@@ -86,32 +86,26 @@ lose the Velocity State.
     velocity.
   * Holding `←` or `→` against a jumpable wall will stick Sonic to that wall and
     inhibit any vertical movement, making it easier to line up a jump.
-* **Quick Spin** - `B`
+* **Quick Spin** - `B`/`→ B`
   * Sonic can perform a quick Spin Dash and immediately transition into running,
     boosting his speed or changing his direction.
   * Quick Spin can be performed left, right and (in the air) down.
-* **Quick Spin Start** - `→ B` while walking or jogging
-  * Get Sonic up to running speed immediately.
-* **Quick Spin Boost** `→ B` while running or at Mach speed
-  * Boost Sonic's running speed by a little bit.
   * Chain together Quick Spin Boosts to get to Mach speed faster.
 * **Quick Spin Reversal** - `← B` while in motion
   * Change Sonic's direction, sending him running the other way.
-  * This is useful if you want to change direction quickly, especially
-  since simply pressing the opposite direction won't turn him around,
-  unlike most Sonic games.
+  * This is useful if you need to turn Sonic around quickly while maintaining
+    Velocity State.
 * **Quick Spin Down** - Aerial `↓ B` while in motion
   * Cancel Sonic's horizontal velocity and send him straight down.
 * **Quick Spin Comet** Aerial `↘ B` while in motion
   * Send Sonic straight down without cancelling his horizontal velocity.
   * This is a good way to keep Sonic's speed going if he's flying through
-    the air.
-  * This move is most effective at Mach speed.
+    the air. It will always travel in a perfect diagonal path.
 * **Quick Spin Comet Reversal** Aerial `↙ B` while in motion
   * Send Sonic straight down, and change his horizontal velocity to the
     opposite direction.
-  * Like with its non-reversal counterpart, this move is most effective at
-    Mach speed.
+  * Like with its non-reversal counterpart, this move will always travel in
+    a perfect diagonal path.
 
 ## Devlog
 
