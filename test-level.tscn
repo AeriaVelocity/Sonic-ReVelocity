@@ -283,7 +283,7 @@ text = ""
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_od5gh")
-volume_db = -10.306
+volume_db = -4.0
 script = ExtResource("11_hgbcj")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
