@@ -36,7 +36,7 @@ func update_info():
     for i in controller_count:
         var to_append = Input.get_joy_name(i) + " (GUID " + Input.get_joy_guid(i) + ")"
         if !Input.is_joy_known(i):
-            to_append = "ILLEGAL: " + to_append + " (This device is not a valid controller.)"
+            to_append = to_append + " (This device is not a valid controller.)"
         controller_names.append(to_append)
 
     sysinfo_text = """=== Sonic Re;Velocity System Information ===
@@ -60,7 +60,7 @@ Touchscreen detected: %s
     sysinfo_text += "Connected controllers: \n"
 
     if controller_names.size() > 0:
-        var index = 0
+        var index = 1
         for controller_name in controller_names:
             sysinfo_text += str(index) + ". " + controller_name + "\n"
             index += 1
