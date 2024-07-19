@@ -158,7 +158,7 @@ offset_right = -75.0
 offset_bottom = -913.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "This demo of Sonic Re;Velocity is super early and very unfinished.
+text = "This is the SAGE 2024 demo of Sonic Re;Velocity.
 Expect bugs, unintended behaviour and general weirdness."
 label_settings = SubResource("LabelSettings_j6tqh")
 horizontal_alignment = 2
@@ -235,6 +235,7 @@ action = "Spin"
 visibility_mode = 1
 
 [node name="Popup" parent="." instance=ExtResource("18_ttq5m")]
+visible = false
 layout_mode = 1
 title_text = "Expectation Warning"
 message_text = "Sonic Re;Velocity is still in very very VERY early stages of development.
