@@ -1,12 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 
-# Android
-*.apk*
-android/
-
-# Binaries folder
-binaries/
+# Exports folder
+export/
 
 # VS Code
 .vscode/
