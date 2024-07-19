@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://h8g2ounfhvmn"]
+
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_qjvdc"]
+[ext_resource type="Script" path="res://Scripts/Thanks.gd" id="1_xmvf4"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="2_paev8"]
+[ext_resource type="AudioStream" uid="uid://b1nss4r4hdp5s" path="res://Music/endscreen.mp3" id="3_jtrhg"]
+[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="3_stfvv"]
+
+[sub_resource type="Gradient" id="Gradient_gj7im"]
+offsets = PackedFloat32Array(0, 0.514107, 1)
+colors = PackedColorArray(0.324572, 0.000781451, 0.48506, 1, 0.272877, 0.000935999, 0.542038, 1, 0.404197, 0.00109873, 0.582081, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ib7dl"]
+gradient = SubResource("Gradient_gj7im")
+
+[sub_resource type="LabelSettings" id="LabelSettings_v4jtj"]
+font = ExtResource("1_qjvdc")
+font_size = 66
+
+[sub_resource type="LabelSettings" id="LabelSettings_yenjx"]
+font = ExtResource("3_stfvv")
+font_size = 36
+
+[node name="Thanks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xmvf4")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ib7dl")
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 448.0
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_qjvdc")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]{Spin} Return to Title Screen[/center]"
+fit_content = true
+script = ExtResource("2_paev8")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -936.0
+offset_top = 26.0
+offset_right = -317.0
+offset_bottom = 113.0
+grow_horizontal = 2
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_v4jtj")
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -927.0
+offset_top = 132.0
+offset_right = 919.0
+offset_bottom = 945.0
+grow_horizontal = 2
+text = "Thanks so much for playing Sonic Re;Velocity and (hopefully) sharing it with a nonzero amount of people!
+
+Sonic Re;Velocity started life as Green Hill Zone Simulator, a, shall we say, \"experimental\" attempt at intensive fast-paced Sonic platforming, submitted as part of RAGE 2024, the \"Really Amateur Games Expo\", from the same group who host the Sonic Amateur Games Expo (SAGE).
+
+So, instead of submitting Sonic: Lock & Load as part of SAGE 2024 like I have for the past two years (since I can't just release the same project over and over forever), I decided to revisit my good old Green Hill Zone Simulator project and give it a new lease on life - with actual thought put into it, and without the whole \"joke game\" angle attached to it. So I made Sonic Re;Velocity, and introduced features like the Quick Spin and Velocity State!
+
+And while it's been fun, and a great way to brush up on my Godot-fu, I'm probably going to put Sonic Re;Velocity on indefinite hold, at least until I have the chance to work on projects freely without experiencing burnout.
+
+Either way, I hope you enjoyed what little this demo had to offer! Enjoy the rest of SAGE 2024!
+- Arsalan \"Aeria\" Kazmi (AeriaVelocity)"
+label_settings = SubResource("LabelSettings_yenjx")
+autowrap_mode = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jtrhg")
+volume_db = 1.0
+autoplay = true

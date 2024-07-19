@@ -112,6 +112,39 @@ lose the Velocity State.
 The video devlog for Sonic Re;Velocity is available on
 [YouTube](https://www.youtube.com/playlist?list=PLBVN9inYeKYy7QS9P7kSf6Gc_aZOokCw9https://www.youtube.com/watch?v=VnZ6H0RmH2A).
 
+## Testing
+
+Green Hill Zone Simulator had a test plan, so Sonic Re;Velocity has one too.
+
+Sonic Re;Velocity has been tested on Windows 11, Fedora Workstation 40 and
+Android 14.
+
+### Test Plan
+
+* ✅ - Fully or mostly meets expectations.
+* ❇️ - Partially or marginally meets expectations.
+* ❎ - Does not meet expectations.
+* ❔ - Untested, or testing is not possible.
+
+| Test | Expectation | Windows | Fedora | Android |
+| --- | --- | --- | --- | --- |
+| Launching the game | The game displays the AeriaVelocity logo, the SAGE 2024 logo and the "Real hedgehogs use a gamepad" screen with no issues. | ✅ | ✅ | ✅ |
+| Title screen | The title screen displays and correctly scales to the screen, with "PRESS START BUTTON" blinking in the middle-bottom. | ✅ | ✅ | ✅ |
+| Button prompts | Correctly displays button prompts for the plugged-in controller, or for Android, displays the touch button prompts. | ✅ | ✅ | ✅ |
+| Controller input | Correctly receives input without issues or with minor issues. | ✅ | ❇️, the touchpad is recognised as a controller but this is an engine issue | ✅ |
+| Xbox One S controller | Correctly receives input without issues. | ✅ | ✅ | ❔ |
+| DualShock 4 | Correctly receives input without issues. | ✅ | ✅ | ✅ |
+| DualSense | Correctly receives input without issues. | ✅ | ✅ | ✅ |
+| Touch controls | Appears properly on touch-enabled devices | ❔, no touch screen | ❔, no touch screen | ✅ |
+| Touch input | Correctly receives input without issues. | ❔, no touch screen | ❔, no touch screen | ✅ |
+| Sonic's movement | Sonic can run, jump, wall jump and perform Quick Spin. | ✅ | ✅ | ✅ |
+| Speed Gauge | Updates concurrently with Sonic's speed. | ❔ | ✅ | ✅ |
+| Velocity | The Velocity Gauge fills up and Velocity State works as expected. | ❔ | ✅ | ✅ |
+| Rings | Can be collected and adds to the ring count. | ❔ | ✅ | ✅ |
+| Death | Sonic falling in the pit at the start will make him respawn at the beginning. | ✅ | ✅ | ✅ |
+| Goal | Sonic reaches the goal and wins. | ✅ | ✅ | ✅ |
+| End-level screen | The screen is displayed and the player is given an end-level rank. | ❔ | ✅ | ✅ |
+
 ## Credits, Licence and Legal Whatevers
 
 Sonic Re;Velocity is a project by Arsalan "Aeria" Kazmi (AeriaVelocity).
