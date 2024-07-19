@@ -37,7 +37,7 @@ or outright changing his direction.
 
 To perform the Quick Spin, simply press the `Spin` button (`B` on an Xbox
 controller) while pressing a movement direction. A full list of the different
-Quick Spin variations can be seen in the [Move List](#move-list).
+Quick Spin variations can be seen in the move list below.
 
 ### Velocity Gauge & Velocity State
 
