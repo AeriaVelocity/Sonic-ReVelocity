@@ -442,6 +442,7 @@ floor_snap_length = 15.0
 safe_margin = 0.4
 script = ExtResource("1_g17tg")
 speed_cap = 1200.0
+speed_level_mach = 1500.0
 
 [node name="SonicSprite" type="AnimatedSprite2D" parent="Sonic"]
 texture_filter = 1
