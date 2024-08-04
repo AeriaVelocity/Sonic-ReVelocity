@@ -83,13 +83,27 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 37.0
 offset_top = -30.0
-offset_right = 152.0
+offset_right = 137.0
 offset_bottom = 31.0
 grow_vertical = 2
-text = "SPEED"
+text = "00.00"
 label_settings = SubResource("LabelSettings_v8pq5")
 vertical_alignment = 1
 script = ExtResource("4_tc64l")
+
+[node name="SpeedLabel" type="Label" parent="TopHUD/SpeedGauge"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -30.0
+offset_right = 244.0
+offset_bottom = 31.0
+grow_vertical = 2
+text = "f/s"
+label_settings = SubResource("LabelSettings_v8pq5")
+vertical_alignment = 1
 
 [node name="Rings" type="Label" parent="TopHUD"]
 layout_mode = 0
