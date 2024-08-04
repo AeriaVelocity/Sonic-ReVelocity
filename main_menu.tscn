@@ -202,7 +202,7 @@ texture_normal = ExtResource("12_1ky8k")
 texture_pressed = ExtResource("13_413yu")
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "ui_up"
+action = "MenuUp"
 visibility_mode = 1
 
 [node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
@@ -212,7 +212,7 @@ texture_normal = ExtResource("12_1ky8k")
 texture_pressed = ExtResource("13_413yu")
 shape = SubResource("CircleShape2D_68220")
 passby_press = true
-action = "ui_down"
+action = "MenuDown"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
