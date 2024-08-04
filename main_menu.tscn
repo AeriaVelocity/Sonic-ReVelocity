@@ -235,7 +235,6 @@ action = "Spin"
 visibility_mode = 1
 
 [node name="Popup" parent="." instance=ExtResource("18_ttq5m")]
-visible = false
 layout_mode = 1
 title_text = "Expectation Warning"
 message_text = "Sonic Re;Velocity is still in very very VERY early stages of development.
