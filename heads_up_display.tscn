@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=31 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="9_ygbhj"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="10_1in3v"]
 [ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="10_irsd5"]
+[ext_resource type="Texture2D" uid="uid://c1lrhm7y4sm6w" path="res://Graphics/Touch Buttons/Sonic-ReVelocity-PauseButton.png" id="11_cjqag"]
+[ext_resource type="Script" path="res://Scripts/DynamicButtonPause.gd" id="16_iomea"]
+[ext_resource type="Texture2D" uid="uid://t573e0iyq2eq" path="res://Graphics/Info Signs/xbox-unused1.png" id="20_jwwoy"]
 
 [sub_resource type="Theme" id="Theme_mqoso"]
 
@@ -45,6 +48,9 @@ shadow_offset = Vector2(7, 7)
 [sub_resource type="LabelSettings" id="LabelSettings_3mfjv"]
 font = ExtResource("1_mi55f")
 font_size = 46
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22jxj"]
+size = Vector2(450, 240)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_08q5w"]
 radius = 65.0
@@ -188,8 +194,16 @@ modulate = Color(1, 1, 1, 0.823529)
 position = Vector2(0, -69)
 script = ExtResource("3_j21jd")
 
+[node name="Pause" type="TouchScreenButton" parent="TouchControls"]
+position = Vector2(1395, 109)
+texture_normal = ExtResource("11_cjqag")
+shape = SubResource("RectangleShape2D_22jxj")
+passby_press = true
+action = "Start"
+visibility_mode = 1
+
 [node name="Left" type="Node2D" parent="TouchControls"]
-position = Vector2(0, 478)
+position = Vector2(0, 833)
 
 [node name="D-Pad" type="Sprite2D" parent="TouchControls/Left"]
 texture_filter = 4
@@ -229,7 +243,8 @@ action = "Crouch"
 visibility_mode = 1
 
 [node name="Right" type="Node2D" parent="TouchControls"]
-position = Vector2(1819, 478)
+position = Vector2(1819, 833)
+script = ExtResource("16_iomea")
 
 [node name="JumpButton" type="TouchScreenButton" parent="TouchControls/Right"]
 position = Vector2(-500, 0)
@@ -245,4 +260,12 @@ texture_normal = ExtResource("9_ygbhj")
 texture_pressed = ExtResource("10_1in3v")
 shape = SubResource("CircleShape2D_526i1")
 action = "Spin"
+visibility_mode = 1
+
+[node name="Unused1" type="TouchScreenButton" parent="TouchControls/Right"]
+visible = false
+position = Vector2(-500, 0)
+texture_normal = ExtResource("20_jwwoy")
+shape = SubResource("CircleShape2D_526i1")
+action = "Unused1"
 visibility_mode = 1
