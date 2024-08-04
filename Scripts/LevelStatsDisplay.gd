@@ -19,7 +19,7 @@ func format_time(time: int) -> String:
 
 func determine_rank() -> Array:
     if level_time < 20 and LevelStats.rings >= 80:
-        return ["X", Color.ORCHID]
+        return ["X", Color.DEEP_SKY_BLUE]
     elif level_time < 20:
         return ["S", Color.GOLD]
     elif level_time >= 20 and level_time < 30:
