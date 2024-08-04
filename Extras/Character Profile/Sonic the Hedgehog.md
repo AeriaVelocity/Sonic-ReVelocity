@@ -9,7 +9,6 @@
 + Last Appearance: Sonic Dream Team (2023)
 + Favourite Food: Chilli dogs
 + Favourite Colour: I dunno, maybe it's pink
-on who you ask
 + Abilities:
   + Jump: Sonic can perform a jump, either off the floor or off of walls.
   + Quick Spin: Sonic charges a lightning-fast Spin Dash to boost his speed.
