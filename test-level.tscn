@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=75 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://ydnvpwtv0trd" path="res://goal_ring.tscn" id="40_3mvnn"]
 [ext_resource type="Texture2D" uid="uid://cxfhc2qua8son" path="res://Sprites/run-indicator.png" id="47_mvgf0"]
 [ext_resource type="PackedScene" uid="uid://cmah3n5yk1251" path="res://ring.tscn" id="48_q72w2"]
+[ext_resource type="PackedScene" uid="uid://dyebvobwucj8f" path="res://pause_menu.tscn" id="49_41xoe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vuw3"]
 animations = [{
@@ -280,6 +281,9 @@ radius = 38.0
 offset_top = 92.0
 offset_bottom = 155.0
 text = ""
+
+[node name="Pause Menu" parent="HeadsUpDisplay" instance=ExtResource("49_41xoe")]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_od5gh")

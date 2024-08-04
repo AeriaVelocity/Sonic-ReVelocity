@@ -199,10 +199,6 @@ func quick_spin_down(down_speed) -> Vector2:
 
     return Vector2(directed_speed, down_speed)
 
-func _input(_event):
-    if Input.is_action_just_pressed("Start"):
-        get_tree().change_scene_to_file("res://title-screen.tscn")
-
 var camera_speed_multiplier: float = 0.2
 
 func set_camera_offset(delta):

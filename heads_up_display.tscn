@@ -183,6 +183,7 @@ grow_vertical = 0
 script = ExtResource("2_2tygg")
 
 [node name="TouchControls" type="Node2D" parent="."]
+process_mode = 3
 modulate = Color(1, 1, 1, 0.823529)
 position = Vector2(0, -69)
 script = ExtResource("3_j21jd")

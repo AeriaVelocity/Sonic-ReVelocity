@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://h8g2ounfhvmn"]
+[gd_scene load_steps=14 format=3 uid="uid://h8g2ounfhvmn"]
 
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_qjvdc"]
 [ext_resource type="Script" path="res://Scripts/Thanks.gd" id="1_xmvf4"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="2_paev8"]
 [ext_resource type="AudioStream" uid="uid://b1nss4r4hdp5s" path="res://Music/endscreen.mp3" id="3_jtrhg"]
 [ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="3_stfvv"]
+[ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="6_vu2ov"]
+[ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="7_74wn8"]
+[ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="8_o77wo"]
 
 [sub_resource type="Gradient" id="Gradient_gj7im"]
 offsets = PackedFloat32Array(0, 0.514107, 1)
@@ -20,6 +23,9 @@ font_size = 66
 [sub_resource type="LabelSettings" id="LabelSettings_yenjx"]
 font = ExtResource("3_stfvv")
 font_size = 36
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sbjn"]
+radius = 139.19
 
 [node name="Thanks" type="Control"]
 layout_mode = 3
@@ -97,3 +103,19 @@ autowrap_mode = 3
 stream = ExtResource("3_jtrhg")
 volume_db = 1.0
 autoplay = true
+
+[node name="TouchControls" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(0, -69)
+script = ExtResource("6_vu2ov")
+
+[node name="Right" type="Node2D" parent="TouchControls"]
+position = Vector2(1819, 478)
+
+[node name="SpinButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-219, -2)
+texture_normal = ExtResource("7_74wn8")
+texture_pressed = ExtResource("8_o77wo")
+shape = SubResource("CircleShape2D_6sbjn")
+action = "Spin"
+visibility_mode = 1

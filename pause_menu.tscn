@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyebvobwucj8f"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_e2ij1"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_yrlba"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="2_7hl5o"]
+[ext_resource type="AudioStream" uid="uid://bqyxkj06go3wl" path="res://Sounds/menuopen.wav" id="3_8xr7w"]
+[ext_resource type="AudioStream" uid="uid://cmf1a3xwriyxh" path="res://Sounds/menuclose.wav" id="4_t4nmb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38d1q"]
+font = ExtResource("1_yrlba")
+font_size = 96
+
+[node name="Pause Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2ij1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -63.0
+offset_right = 150.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_38d1q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1883.0
+offset_top = -165.0
+offset_right = -32.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_yrlba")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[right]{Special1} Restart Level
+{Spin} Back to Main Menu[/right]"
+fit_content = true
+script = ExtResource("2_7hl5o")
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8xr7w")
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t4nmb")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -25,7 +25,10 @@ func set_close_button_icon():
         "Nintendo Switch Pro Controller":
             button_prompt = preload("res://Graphics/Info Signs/nswitch-jump.png")
         "":
-            button_prompt = preload("res://Graphics/Info Signs/kbd-jump.png")
+            if DisplayServer.is_touchscreen_available():
+                button_prompt = preload("res://Graphics/Info Signs/xbox-jump.png")
+            else:
+                button_prompt = preload("res://Graphics/Info Signs/kbd-jump.png")
         _:
             button_prompt = preload("res://Graphics/Info Signs/xbox-jump.png")
 
