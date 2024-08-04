@@ -109,6 +109,9 @@ modulate = Color(1, 1, 1, 0.823529)
 position = Vector2(0, -69)
 script = ExtResource("6_vu2ov")
 
+[node name="Left" type="Node2D" parent="TouchControls"]
+position = Vector2(0, 478)
+
 [node name="Right" type="Node2D" parent="TouchControls"]
 position = Vector2(1819, 478)
 
