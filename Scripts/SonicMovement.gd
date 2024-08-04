@@ -81,10 +81,10 @@ func _ready():
 
 func inc_velocity_gauge(speed):
     if speed >= speed_level_mach:
-        VelocitySystem.increment_velocity_gauge.emit(6)
+        VelocitySystem.increment_velocity_gauge.emit(5)
     elif speed >= speed_level_run:
         VelocitySystem.increment_velocity_gauge.emit(2)
-    elif abs(velocity.y) >= 10:
+    elif abs(velocity.y) >= 80:
         VelocitySystem.inhibit_velocity_gauge.emit()
 
 func handle_movement_sound(speed):
