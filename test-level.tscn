@@ -209,7 +209,7 @@ distance = -0.635089
 size = Vector2(2132, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yq1a"]
-size = Vector2(13388, 69)
+size = Vector2(16970, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh3ra"]
 size = Vector2(20, 2125)
@@ -230,10 +230,10 @@ size = Vector2(1088, 66.0119)
 size = Vector2(322, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysh7e"]
-size = Vector2(194, 446)
+size = Vector2(194, 579)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie83"]
-size = Vector2(1758, 320)
+size = Vector2(4628, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emuw5"]
 size = Vector2(1244, 65.9999)
@@ -373,7 +373,7 @@ sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 5" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(2922, -74)
+position = Vector2(4750.4, -74)
 rotation = -1.57079
 texture = ExtResource("5_a2k0e")
 
@@ -437,7 +437,7 @@ sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 6" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(1545, -161)
+position = Vector2(2626.4, -161)
 texture = ExtResource("5_a2k0e")
 
 [node name="Elements" type="Node2D" parent="Stage Objects/Info Signs/Info Sign 6"]
@@ -483,7 +483,7 @@ animation = &"playstation"
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 7" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(2377, -3)
+position = Vector2(3812, -3)
 texture = ExtResource("5_a2k0e")
 
 [node name="Elements" type="Node2D" parent="Stage Objects/Info Signs/Info Sign 7"]
@@ -528,7 +528,7 @@ sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 8" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(3123.5, -584)
+position = Vector2(4951.9, -584)
 rotation = -1.57079
 texture = ExtResource("5_a2k0e")
 
@@ -575,7 +575,7 @@ animation = &"playstation"
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 9" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(2014, -711)
+position = Vector2(3699, -711)
 texture = ExtResource("5_a2k0e")
 
 [node name="Elements" type="Node2D" parent="Stage Objects/Info Signs/Info Sign 9"]
@@ -616,10 +616,10 @@ texture_filter = 4
 position = Vector2(59.9991, 58.5019)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_xtu4v")
-script = ExtResource("14_cqdmh")
+script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 10" type="Sprite2D" parent="Stage Objects/Info Signs"]
-position = Vector2(3323.5, -1)
+position = Vector2(5151.9, -1)
 texture = ExtResource("5_a2k0e")
 
 [node name="Elements" type="Node2D" parent="Stage Objects/Info Signs/Info Sign 10"]
@@ -711,7 +711,7 @@ position = Vector2(901, 682)
 shape = SubResource("WorldBoundaryShape2D_tlk3i")
 
 [node name="Run Indicators" type="Node2D" parent="Stage Objects"]
-position = Vector2(3735, 0)
+position = Vector2(5563.4, 0)
 
 [node name="Run-indicator" type="Sprite2D" parent="Stage Objects/Run Indicators"]
 texture = ExtResource("47_mvgf0")
@@ -770,7 +770,7 @@ shape = SubResource("RectangleShape2D_wwn6a")
 texture_filter = 1
 offset_left = 1205.0
 offset_top = 55.0
-offset_right = 14595.0
+offset_right = 18173.0
 offset_bottom = 570.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -780,16 +780,16 @@ stretch_mode = 1
 position = Vector2(0, -397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Stage2/StageCollision"]
-position = Vector2(6694, 431.5)
+position = Vector2(8485, 431.5)
 shape = SubResource("RectangleShape2D_1yq1a")
 
 [node name="BlockingWalls" type="StaticBody2D" parent="Stage Objects"]
 position = Vector2(-224, -342)
 
 [node name="TextureRect" type="TextureRect" parent="Stage Objects/BlockingWalls"]
-offset_left = 8097.0
+offset_left = 9913.0
 offset_top = -1729.0
-offset_right = 8161.0
+offset_right = 9977.0
 offset_bottom = 2595.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -809,7 +809,7 @@ position = Vector2(-10, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stage Objects/BlockingWalls"]
-position = Vector2(8107, -665.5)
+position = Vector2(9935.4, -665.5)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Stage Objects/BlockingWalls"]
@@ -821,7 +821,7 @@ position = Vector2(1441, 525.5)
 shape = SubResource("RectangleShape2D_sdpeo")
 
 [node name="Slopes" type="Node2D" parent="Stage Objects"]
-position = Vector2(2198, -25)
+position = Vector2(3633, -25)
 scale = Vector2(0.432076, 0.406091)
 
 [node name="Slope" type="Sprite2D" parent="Stage Objects/Slopes"]
@@ -836,7 +836,7 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(118, 454, 115.843, 58.9998, 646, 454)
 
 [node name="Slope2" type="Sprite2D" parent="Stage Objects/Slopes"]
-position = Vector2(-3295.72, 176.069)
+position = Vector2(-6616.89, 176.069)
 scale = Vector2(0.777291, 0.10625)
 texture = ExtResource("6_0acua")
 
@@ -848,7 +848,7 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(118, 454, 645.843, 58.9998, 646, 454)
 
 [node name="Slope3" type="Sprite2D" parent="Stage Objects/Slopes"]
-position = Vector2(2044.78, -1.23126)
+position = Vector2(2955.27, -1.23126)
 scale = Vector2(0.764192, 1.00625)
 texture = ExtResource("6_0acua")
 flip_h = true
@@ -861,7 +861,7 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(118, 454, 115.843, 58.9998, 646, 454)
 
 [node name="Slope4" type="Sprite2D" parent="Stage Objects/Slopes"]
-position = Vector2(12709.2, -217.931)
+position = Vector2(13619.7, -217.931)
 scale = Vector2(1.59958, 2.10625)
 texture = ExtResource("6_0acua")
 
@@ -883,9 +883,9 @@ offset_bottom = -342.0
 
 [node name="Platform3" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 2097.0
+offset_left = 3532.0
 offset_top = -407.0
-offset_right = 3126.0
+offset_right = 4561.0
 offset_bottom = -341.0
 rotation = 1.57079
 scale = Vector2(0.5, 0.5)
@@ -900,9 +900,9 @@ shape = SubResource("RectangleShape2D_1pulg")
 
 [node name="Platform4" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 2187.0
+offset_left = 3622.0
 offset_top = 37.0
-offset_right = 2889.0
+offset_right = 4324.0
 offset_bottom = 103.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
@@ -917,9 +917,9 @@ shape = SubResource("RectangleShape2D_8xxvh")
 
 [node name="Platform9" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 3406.5
+offset_left = 5234.9
 offset_top = 97.0003
-offset_right = 4494.5
+offset_right = 6322.9
 offset_bottom = 163.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
@@ -935,9 +935,9 @@ one_way_collision = true
 
 [node name="Platform7" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 2220.0
+offset_left = 3655.0
 offset_top = -314.0
-offset_right = 2541.0
+offset_right = 3976.0
 offset_bottom = -184.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -952,9 +952,9 @@ one_way_collision = true
 
 [node name="Platform8" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 2379.0
+offset_left = 3814.0
 offset_top = -314.0
-offset_right = 2700.0
+offset_right = 4135.0
 offset_bottom = -184.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -969,10 +969,10 @@ one_way_collision = true
 
 [node name="Platform15" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 2741.0
-offset_top = 173.0
-offset_right = 2935.0
-offset_bottom = 621.0
+offset_left = 4176.0
+offset_top = 107.0
+offset_right = 4370.0
+offset_bottom = 687.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
 stretch_mode = 1
@@ -980,14 +980,14 @@ stretch_mode = 1
 [node name="PlatformCollision" type="StaticBody2D" parent="Stage Objects/Platforms/Platform15"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Platforms/Platform15/PlatformCollision"]
-position = Vector2(97, 223)
+position = Vector2(97, 289.5)
 shape = SubResource("RectangleShape2D_ysh7e")
 
 [node name="Platform10" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
 offset_left = 1429.0
 offset_top = 237.0
-offset_right = 3185.0
+offset_right = 6055.0
 offset_bottom = 557.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -996,14 +996,14 @@ stretch_mode = 1
 [node name="PlatformCollision" type="StaticBody2D" parent="Stage Objects/Platforms/Platform10"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Platforms/Platform10/PlatformCollision"]
-position = Vector2(879, 160)
+position = Vector2(2314, 160)
 shape = SubResource("RectangleShape2D_2ie83")
 
 [node name="Platform11" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 3070.0
+offset_left = 4898.4
 offset_top = -326.0
-offset_right = 4314.0
+offset_right = 6142.4
 offset_bottom = -260.0
 rotation = 1.57079
 scale = Vector2(0.5, 0.5)
@@ -1018,9 +1018,9 @@ shape = SubResource("RectangleShape2D_emuw5")
 
 [node name="Platform12" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 3184.0
+offset_left = 5012.4
 offset_top = 397.0
-offset_right = 4274.0
+offset_right = 6102.4
 offset_bottom = 463.0
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
@@ -1035,9 +1035,9 @@ shape = SubResource("RectangleShape2D_nps0h")
 
 [node name="Platform13" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 3217.0
+offset_left = 5045.4
 offset_top = -148.0
-offset_right = 3347.0
+offset_right = 5175.4
 offset_bottom = -18.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -1052,9 +1052,9 @@ one_way_collision = true
 
 [node name="Platform16" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 7584.0
+offset_left = 9412.4
 offset_top = -833.0
-offset_right = 8610.0
+offset_right = 10438.4
 offset_bottom = -703.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -1069,9 +1069,9 @@ one_way_collision = true
 
 [node name="Platform17" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 8097.0
+offset_left = 9925.4
 offset_top = -1252.0
-offset_right = 9123.0
+offset_right = 10951.4
 offset_bottom = -1122.0
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
@@ -1134,7 +1134,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint3" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(4868.33, -6.66665)
+position = Vector2(7915.67, -6.66665)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint3"]
@@ -1155,7 +1155,7 @@ position = Vector2(-0.00204468, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint4" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(2506.67, -270)
+position = Vector2(4309, -270)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint4"]
@@ -1177,7 +1177,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint5" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(5203.33, -918.333)
+position = Vector2(8250.67, -918.333)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint5"]
@@ -1199,7 +1199,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint6" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(3748.33, -1190)
+position = Vector2(6140, -1190)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint6"]
@@ -1221,7 +1221,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint7" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(5980.84, -15)
+position = Vector2(9028.18, -15)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint7"]
@@ -1243,7 +1243,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint8" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(7988.33, -15)
+position = Vector2(11035.7, -15)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint8"]
@@ -1268,7 +1268,7 @@ shape = SubResource("CircleShape2D_2fikd")
 position = Vector2(110, 112)
 
 [node name="GoalRing" parent="." instance=ExtResource("40_3mvnn")]
-position = Vector2(7843, -907)
+position = Vector2(9671.4, -907)
 
 [node name="Rings" type="Node2D" parent="."]
 position = Vector2(230, 373)
@@ -1318,238 +1318,310 @@ position = Vector2(816, -17)
 position = Vector2(844, -37)
 
 [node name="Ring16" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2083, -149)
+position = Vector2(3518, -149)
 
 [node name="Ring17" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2106, -134)
+position = Vector2(3541, -134)
 
 [node name="Ring18" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2130, -118)
+position = Vector2(3565, -118)
 
 [node name="Ring19" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2153, -102)
+position = Vector2(3588, -102)
 
 [node name="Ring20" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2177, -87)
+position = Vector2(3612, -87)
 
 [node name="Ring21" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2200, -72)
+position = Vector2(3635, -72)
 
 [node name="Ring22" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2224, -56)
+position = Vector2(3659, -56)
 
 [node name="Ring23" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2247, -40)
+position = Vector2(3682, -40)
 
 [node name="Ring24" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2270, -22)
+position = Vector2(3705, -22)
 
 [node name="Ring25" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2293, -6)
+position = Vector2(3728, -6)
 
 [node name="Ring26" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2322, 4)
+position = Vector2(3757, 4)
 
 [node name="Ring27" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2354, 4)
+position = Vector2(3789, 4)
 
 [node name="Ring28" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2384, 3)
+position = Vector2(3819, 3)
 
 [node name="Ring29" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(1884, -299)
+position = Vector2(3319, -299)
 
 [node name="Ring30" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(1908, -282)
+position = Vector2(3343, -282)
 
 [node name="Ring31" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(1935, -264)
+position = Vector2(3370, -264)
 
 [node name="Ring32" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(1962, -240)
+position = Vector2(3397, -240)
 
 [node name="Ring51" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2182, -704)
+position = Vector2(3617, -704)
 
 [node name="Ring52" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2208, -704)
+position = Vector2(3643, -704)
 
 [node name="Ring53" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2234, -704)
+position = Vector2(3669, -704)
 
 [node name="Ring54" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2523, -214)
+position = Vector2(3958, -280)
 
 [node name="Ring55" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2548, -214)
+position = Vector2(3983, -280)
 
 [node name="Ring56" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2573, -214)
+position = Vector2(4008, -280)
 
 [node name="Ring57" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2598, -214)
+position = Vector2(4033, -280)
+
+[node name="Ring61" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2100, -159)
+
+[node name="Ring62" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2125, -159)
+
+[node name="Ring63" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2150, -159)
+
+[node name="Ring66" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2175, -159)
+
+[node name="Ring67" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2203, -159)
+
+[node name="Ring68" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2228, -159)
+
+[node name="Ring69" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2253, -159)
+
+[node name="Ring70" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2278, -159)
+
+[node name="Ring71" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2531, -159)
+
+[node name="Ring72" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2556, -159)
+
+[node name="Ring73" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2581, -159)
+
+[node name="Ring74" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2606, -159)
+
+[node name="Ring75" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2634, -159)
+
+[node name="Ring76" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2659, -159)
+
+[node name="Ring77" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2684, -159)
+
+[node name="Ring78" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2709, -159)
+
+[node name="Ring79" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2927, -159)
+
+[node name="Ring80" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2952, -159)
+
+[node name="Ring81" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(2977, -159)
+
+[node name="Ring82" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3002, -159)
+
+[node name="Ring83" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3030, -159)
+
+[node name="Ring84" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3055, -159)
+
+[node name="Ring85" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3080, -159)
+
+[node name="Ring86" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3105, -159)
 
 [node name="Ring58" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2896, -38)
+position = Vector2(4724.4, -38)
 
 [node name="Ring59" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2922, -58)
+position = Vector2(4750.4, -58)
 
 [node name="Ring60" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2945, -77)
+position = Vector2(4773.4, -77)
 
 [node name="Ring64" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2853, 4)
+position = Vector2(4681.4, 4)
 
 [node name="Ring65" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(2876, -16)
+position = Vector2(4704.4, -16)
 
 [node name="Ring98" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3010, -139)
+position = Vector2(4838.4, -139)
 
 [node name="Ring99" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3034, -119)
+position = Vector2(4862.4, -119)
 
 [node name="Ring100" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3058, -98)
+position = Vector2(4886.4, -98)
 
 [node name="Ring101" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3080, -76)
+position = Vector2(4908.4, -76)
 
 [node name="Ring102" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3103, -55)
+position = Vector2(4931.4, -55)
 
 [node name="Ring103" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3127, -35)
+position = Vector2(4955.4, -35)
 
 [node name="Ring104" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3148, -17)
+position = Vector2(4976.4, -17)
 
 [node name="Ring105" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3168, 6)
+position = Vector2(4996.4, 6)
 
 [node name="Ring106" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3241, 6)
+position = Vector2(5069.4, 6)
 
 [node name="Ring107" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3265, 6)
+position = Vector2(5093.4, 6)
 
 [node name="Ring108" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3289, 6)
+position = Vector2(5117.4, 6)
 
 [node name="Ring109" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3656, 6)
+position = Vector2(5484.4, 6)
 
 [node name="Ring110" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3680, 6)
+position = Vector2(5508.4, 6)
 
 [node name="Ring111" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3704, 6)
+position = Vector2(5532.4, 6)
 
 [node name="Ring112" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3729, 6)
+position = Vector2(5557.4, 6)
 
 [node name="Ring113" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3755, 6)
+position = Vector2(5583.4, 6)
 
 [node name="Ring114" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3778, 6)
+position = Vector2(5606.4, 6)
 
 [node name="Ring115" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(3803, 6)
+position = Vector2(5631.4, 6)
 
 [node name="Ring116" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4827, 6)
+position = Vector2(6655.4, 6)
 
 [node name="Ring117" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4851, 6)
+position = Vector2(6679.4, 6)
 
 [node name="Ring118" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4875, 6)
+position = Vector2(6703.4, 6)
 
 [node name="Ring119" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4900, 6)
+position = Vector2(6728.4, 6)
 
 [node name="Ring120" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4926, 6)
+position = Vector2(6754.4, 6)
 
 [node name="Ring121" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4949, 6)
+position = Vector2(6777.4, 6)
 
 [node name="Ring122" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(4974, 6)
+position = Vector2(6802.4, 6)
 
 [node name="Ring123" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6194, 6)
+position = Vector2(8022.4, 6)
 
 [node name="Ring124" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6218, 6)
+position = Vector2(8046.4, 6)
 
 [node name="Ring125" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6242, 6)
+position = Vector2(8070.4, 6)
 
 [node name="Ring126" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6267, 6)
+position = Vector2(8095.4, 6)
 
 [node name="Ring127" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6293, 6)
+position = Vector2(8121.4, 6)
 
 [node name="Ring128" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6316, 6)
+position = Vector2(8144.4, 6)
 
 [node name="Ring129" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(6341, 6)
+position = Vector2(8169.4, 6)
 
 [node name="Ring130" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7204, 1)
+position = Vector2(9032.4, 1)
 
 [node name="Ring131" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7228, 1)
+position = Vector2(9056.4, 1)
 
 [node name="Ring132" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7252, 1)
+position = Vector2(9080.4, 1)
 
 [node name="Ring133" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7277, 1)
+position = Vector2(9105.4, 1)
 
 [node name="Ring134" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7303, 1)
+position = Vector2(9131.4, 1)
 
 [node name="Ring135" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7326, 1)
+position = Vector2(9154.4, 1)
 
 [node name="Ring136" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7351, 1)
+position = Vector2(9179.4, 1)
 
 [node name="Ring137" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7375, 1)
+position = Vector2(9203.4, 1)
 
 [node name="Ring138" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7399, 1)
+position = Vector2(9227.4, 1)
 
 [node name="Ring139" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7423, 1)
+position = Vector2(9251.4, 1)
 
 [node name="Ring140" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7448, 1)
+position = Vector2(9276.4, 1)
 
 [node name="Ring141" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7474, 1)
+position = Vector2(9302.4, 1)
 
 [node name="Ring142" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7497, 1)
+position = Vector2(9325.4, 1)
 
 [node name="Ring143" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7522, -17)
+position = Vector2(9350.4, -17)
 
 [node name="Ring144" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7541, -35)
+position = Vector2(9369.4, -35)
 
 [node name="Ring145" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7562, -56)
+position = Vector2(9390.4, -56)
 
 [node name="Ring146" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(7583, -75)
+position = Vector2(9411.4, -75)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="body_entered" from="Stage Objects/DeathZone" to="Stage Objects/DeathZone" method="_on_body_entered"]
