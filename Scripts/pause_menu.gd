@@ -30,4 +30,5 @@ func return_to_main_menu():
 
 func restart_level():
     get_tree().paused = false
+    LevelStats.rings = 0
     get_tree().reload_current_scene()
