@@ -975,6 +975,40 @@ position = Vector2(161, 65)
 shape = SubResource("RectangleShape2D_ue64v")
 one_way_collision = true
 
+[node name="Platform14" type="TextureRect" parent="Stage Objects/Platforms"]
+layout_mode = 0
+offset_left = 5875.0
+offset_top = -458.0
+offset_right = 6196.0
+offset_bottom = -328.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Stage Objects/Platforms/Platform14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Platforms/Platform14/PlatformCollision"]
+position = Vector2(159, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
+[node name="Platform18" type="TextureRect" parent="Stage Objects/Platforms"]
+layout_mode = 0
+offset_left = 6034.0
+offset_top = -458.0
+offset_right = 6355.0
+offset_bottom = -328.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Stage Objects/Platforms/Platform18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Platforms/Platform18/PlatformCollision"]
+position = Vector2(161, 65)
+shape = SubResource("RectangleShape2D_ue64v")
+one_way_collision = true
+
 [node name="Platform15" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
 offset_left = 4176.0
@@ -1272,6 +1306,28 @@ script = ExtResource("14_kvmsa")
 position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
+[node name="Hint9" type="Sprite2D" parent="Stage Objects/Hints"]
+position = Vector2(9873.33, -1426.67)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint9"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage Objects/Hints/Hint9/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Stage Objects/Hints/Hint9"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Hints/Hint9/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
 [node name="SonicPlayer" parent="." instance=ExtResource("14_gyep7")]
 position = Vector2(110, 112)
 
@@ -1383,6 +1439,15 @@ position = Vector2(3617, -704)
 position = Vector2(3643, -704)
 
 [node name="Ring53" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3669, -704)
+
+[node name="Ring87" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3617, -704)
+
+[node name="Ring88" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(3643, -704)
+
+[node name="Ring89" parent="Rings" instance=ExtResource("48_q72w2")]
 position = Vector2(3669, -704)
 
 [node name="Ring54" parent="Rings" instance=ExtResource("48_q72w2")]
@@ -1662,3 +1727,4 @@ position = Vector2(11699, -75)
 [connection signal="body_entered" from="Stage Objects/Hints/Hint6/Area2D" to="Stage Objects/Hints/Hint6/Area2D" method="_hint_6"]
 [connection signal="body_entered" from="Stage Objects/Hints/Hint7/Area2D" to="Stage Objects/Hints/Hint7/Area2D" method="_hint_7"]
 [connection signal="body_entered" from="Stage Objects/Hints/Hint8/Area2D" to="Stage Objects/Hints/Hint8/Area2D" method="_hint_8"]
+[connection signal="body_entered" from="Stage Objects/Hints/Hint9/Area2D" to="Stage Objects/Hints/Hint9/Area2D" method="_hint_9"]

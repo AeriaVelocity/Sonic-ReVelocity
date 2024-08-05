@@ -55,3 +55,31 @@ func _hint_7(body):
 
 func _hint_8(body):
     display_label(body, "When in Velocity State, Sonic will gain speed much faster.\nEnter Velocity State and jump up the slope at the end to reach the goal!")
+
+func _hint_9(body):
+    var random_messages = [
+        "How did you even get up here?",
+        "There is no hint! Message intentionally left blank.",
+        "Wait, you actually made it here? I didn't plan an Easter egg for this...",
+        "Wow, good job! If you missed, you would have fallen down to the actual level.",
+        "Can you believe this game shares its codebase with a silly joke game I threw together? The intro video from Green Hill Zone Simulator is still in Sonic Re;Velocity's codebase right now.",
+        "I hope you don't accidentally press %s and Quick Spin off this platform.\nIf you did, you wouldn't get to sit here and read these messages!" % get_button_image("Spin"),
+        "So, how are you enjoying the game so far? Good? Well, I'm glad you're probably having fun.",
+        "Yeah, this is the only level in this demo. Sorry. :D",
+        "I wonder if I should keep working on this game after SAGE...",
+        "So, played any good games today? Ones from SAGE, maybe?\nNot including this one, obviously.",
+        "I've been thinking about remaking Sonic and the Black Knight.\nKinda like Project Reignited, but Black Knight instead of Secret Rings.\nI dunno, what do you think?",
+        "You know, you're probably gonna get a D Rank for taking so long reading these stupid messages.",
+        "It's called Sonic [b]Re;[/b]Velocity because there's already a Sonic Velocity.",
+        "The [i]Re[/i] in Sonic Re;Velocity stands for Renewed.\nSo if you want, you can call it Sonic Renewed Velocity.",
+    ]
+    if ControllerHandling.get_real_joy_name() == "" and !DisplayServer.is_touchscreen_available():
+        random_messages.append(
+            "You can access a secret System Information page on the title screen!\nPress and hold the left and right mouse buttons and press V to access it."
+        )
+    elif ControllerHandling.get_real_joy_name() != "":
+        random_messages.append(
+            "You can access a secret System Information page on the title screen!\nPress and hold the left and right triggers and press %s to access it."
+            % get_button_image("Unused2")
+        )
+    display_label(body, random_messages[randi_range(0, random_messages.size() - 1)])
