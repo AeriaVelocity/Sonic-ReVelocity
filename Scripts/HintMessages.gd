@@ -17,7 +17,7 @@ func get_button_image(type: String) -> String:
             return get_image_path(type, "xbox")
 
 func get_image_path(type: String, controller: String) -> String:
-    return "[img=48x48]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"
+    return "[img=42x42]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"
 
 func display_label(body, message: String):
     if body.is_in_group("Player"):
@@ -27,7 +27,7 @@ func display_label(body, message: String):
 func _hint_1(body):
     var sonic: AnimatedSprite2D = get_node("/root/Test Level/SonicPlayer/Sonic/SonicSprite")
     var direction = "Left" if sonic.flip_h else "Right"
-    display_label(body, "Press %s to make Sonic run.\nSonic's current speed can be seen in the blue Speed Gauge." % [get_button_image(direction)])
+    display_label(body, "Press %s to make Sonic run.\nSonic's current speed can be seen in the blue Speed Gauge,\ndisplayed in f/s (fasts per speed)." % [get_button_image(direction)])
 
 func _hint_2(body):
     display_label(body, "Press %s to make Sonic jump.\nJumping while running up a slope will send him higher." % get_button_image("Jump"))
@@ -51,7 +51,7 @@ func _hint_6(body):
     display_label(body, "In the air, press %s + %s to perform Quick Spin Comet,\n or press %s + %s to perform Quick Spin Comet Reversal." % [get_button_image("Down" + direction), get_button_image("Spin"), get_button_image("Down" + opp_direction), get_button_image("Spin")])
 
 func _hint_7(body):
-    display_label(body, "Keep running fast to build up the purple Velocity Gauge.\nAt max Velocity, Sonic will enter Velocity State.")
+    display_label(body, "Keep running fast to build up the purple Velocity Gauge.\nAt max Velocity, Sonic will enter Velocity State.\nUse Quick Spin (%s) to increase your speed." % get_button_image("Spin"))
 
 func _hint_8(body):
     display_label(body, "When in Velocity State, Sonic will gain speed much faster.\nEnter Velocity State and jump up the slope at the end to reach the goal!")

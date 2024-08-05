@@ -150,6 +150,10 @@ func do_quick_spin(base_speed, additional_speed) -> Vector2:
     var current_speed = abs(velocity.x)
     var current_direction = -1 if velocity.x < 0 else 1
 
+    if direction == 0:
+        direction = current_direction
+        additional_speed *= 1.4
+
     $SonicSprite.play("spin")
     spin_sound.play()
 
@@ -310,13 +314,13 @@ func _physics_process(delta):
         did_jump = true
         velocity = await(quick_spin_down(speed_level_mach))
 
-    if Input.is_action_just_pressed("Spin") and abs(velocity.x) > 0.0:
+    if Input.is_action_just_pressed("Spin"):
         did_jump = false
         if direction < 0:
             $SonicSprite.flip_h = true
         elif direction > 0:
             $SonicSprite.flip_h = false
-        velocity = await(do_quick_spin(speed_level_run, 40))
+        velocity = await(do_quick_spin(speed_level_run, 120))
 
     move_and_slide()
 
@@ -389,6 +393,7 @@ func die():
     is_dead = false
     did_jump = false
     LevelStats.rings = 0
+    VelocitySystem.velocity_gauge = 0
     position = start_position
     velocity = Vector2(0, 0)
     move_and_slide()

@@ -273,7 +273,7 @@ grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_y8qj5")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[center] {Jump} Continue  {Spin} Replay Level  {Special1} Title Screen[/center]"
+text = "[center] {Jump} Continue  {Spin} Main Menu  {Special1} Replay Level[/center]"
 fit_content = true
 script = ExtResource("5_qpbyf")
 

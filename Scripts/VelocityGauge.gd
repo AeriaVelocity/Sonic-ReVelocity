@@ -17,9 +17,9 @@ var do_flash: bool = false
 func _process(delta):
     if velocity_gauge >= 1 and reset_counter <= 0:
         if VelocitySystem.velocity_state:
-            velocity_gauge -= 7
+            velocity_gauge -= 12
         else:
-            velocity_gauge -= 5
+            velocity_gauge -= 7
 
     value = velocity_gauge
 

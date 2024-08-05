@@ -210,7 +210,7 @@ distance = -0.635089
 size = Vector2(2132, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yq1a"]
-size = Vector2(16970, 69)
+size = Vector2(21570, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh3ra"]
 size = Vector2(20, 2125)
@@ -728,28 +728,32 @@ texture = ExtResource("47_mvgf0")
 position = Vector2(2535, 0)
 texture = ExtResource("47_mvgf0")
 
+[node name="Run-indicator11" type="Sprite2D" parent="Stage Objects/Run Indicators"]
+position = Vector2(4138.6, 0)
+texture = ExtResource("47_mvgf0")
+
 [node name="Run-indicator6" type="Sprite2D" parent="Stage Objects/Run Indicators"]
-position = Vector2(3510, -38)
+position = Vector2(5717.6, -38)
 rotation = -1.57079
 texture = ExtResource("47_mvgf0")
 
 [node name="Run-indicator7" type="Sprite2D" parent="Stage Objects/Run Indicators"]
-position = Vector2(3590, -38)
+position = Vector2(5797.6, -38)
 rotation = -1.57079
 texture = ExtResource("47_mvgf0")
 
 [node name="Run-indicator8" type="Sprite2D" parent="Stage Objects/Run Indicators"]
-position = Vector2(3670, -38)
+position = Vector2(5877.6, -38)
 rotation = -1.57079
 texture = ExtResource("47_mvgf0")
 
 [node name="Run-indicator9" type="Sprite2D" parent="Stage Objects/Run Indicators"]
-position = Vector2(3750, -38)
+position = Vector2(6037.6, -38)
 rotation = -1.57079
 texture = ExtResource("47_mvgf0")
 
 [node name="Run-indicator10" type="Sprite2D" parent="Stage Objects/Run Indicators"]
-position = Vector2(3750, -38)
+position = Vector2(5957.6, -38)
 rotation = -1.57079
 texture = ExtResource("47_mvgf0")
 
@@ -774,7 +778,7 @@ shape = SubResource("RectangleShape2D_wwn6a")
 texture_filter = 1
 offset_left = 1205.0
 offset_top = 55.0
-offset_right = 18173.0
+offset_right = 22791.0
 offset_bottom = 570.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -784,16 +788,16 @@ stretch_mode = 1
 position = Vector2(0, -397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Stage2/StageCollision"]
-position = Vector2(8485, 431.5)
+position = Vector2(10785, 431.5)
 shape = SubResource("RectangleShape2D_1yq1a")
 
 [node name="BlockingWalls" type="StaticBody2D" parent="Stage Objects"]
 position = Vector2(-224, -342)
 
 [node name="TextureRect" type="TextureRect" parent="Stage Objects/BlockingWalls"]
-offset_left = 9913.0
+offset_left = 12200.6
 offset_top = -1729.0
-offset_right = 9977.0
+offset_right = 12264.6
 offset_bottom = 2595.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -813,7 +817,7 @@ position = Vector2(-10, 59)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stage Objects/BlockingWalls"]
-position = Vector2(9935.4, -665.5)
+position = Vector2(12223, -665.5)
 shape = SubResource("RectangleShape2D_jh3ra")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Stage Objects/BlockingWalls"]
@@ -865,7 +869,7 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(118, 454, 115.843, 58.9998, 646, 454)
 
 [node name="Slope4" type="Sprite2D" parent="Stage Objects/Slopes"]
-position = Vector2(13619.7, -217.931)
+position = Vector2(18914.1, -217.931)
 scale = Vector2(1.59958, 2.10625)
 texture = ExtResource("6_0acua")
 
@@ -1056,9 +1060,9 @@ one_way_collision = true
 
 [node name="Platform16" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 9412.4
+offset_left = 11700.0
 offset_top = -833.0
-offset_right = 10438.4
+offset_right = 12726.0
 offset_bottom = -703.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_e8txd")
@@ -1073,9 +1077,9 @@ one_way_collision = true
 
 [node name="Platform17" type="TextureRect" parent="Stage Objects/Platforms"]
 layout_mode = 0
-offset_left = 9925.4
+offset_left = 12213.0
 offset_top = -1252.0
-offset_right = 10951.4
+offset_right = 13239.0
 offset_bottom = -1122.0
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
@@ -1247,7 +1251,7 @@ position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
 [node name="Hint8" type="Sprite2D" parent="Stage Objects/Hints"]
-position = Vector2(11035.7, -15)
+position = Vector2(14476.7, -28.3333)
 texture = ExtResource("32_ut7hh")
 
 [node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint8"]
@@ -1272,7 +1276,7 @@ shape = SubResource("CircleShape2D_2fikd")
 position = Vector2(110, 112)
 
 [node name="GoalRing" parent="." instance=ExtResource("40_3mvnn")]
-position = Vector2(9671.4, -907)
+position = Vector2(11959, -907)
 
 [node name="Rings" type="Node2D" parent="."]
 position = Vector2(230, 373)
@@ -1576,56 +1580,77 @@ position = Vector2(8144.4, 6)
 [node name="Ring129" parent="Rings" instance=ExtResource("48_q72w2")]
 position = Vector2(8169.4, 6)
 
+[node name="Ring147" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9626, 6)
+
+[node name="Ring148" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9650, 6)
+
+[node name="Ring149" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9674, 6)
+
+[node name="Ring150" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9699, 6)
+
+[node name="Ring151" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9725, 6)
+
+[node name="Ring152" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9748, 6)
+
+[node name="Ring153" parent="Rings" instance=ExtResource("48_q72w2")]
+position = Vector2(9773, 6)
+
 [node name="Ring130" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9032.4, 1)
+position = Vector2(11320, 1)
 
 [node name="Ring131" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9056.4, 1)
+position = Vector2(11344, 1)
 
 [node name="Ring132" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9080.4, 1)
+position = Vector2(11368, 1)
 
 [node name="Ring133" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9105.4, 1)
+position = Vector2(11393, 1)
 
 [node name="Ring134" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9131.4, 1)
+position = Vector2(11419, 1)
 
 [node name="Ring135" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9154.4, 1)
+position = Vector2(11442, 1)
 
 [node name="Ring136" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9179.4, 1)
+position = Vector2(11467, 1)
 
 [node name="Ring137" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9203.4, 1)
+position = Vector2(11491, 1)
 
 [node name="Ring138" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9227.4, 1)
+position = Vector2(11515, 1)
 
 [node name="Ring139" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9251.4, 1)
+position = Vector2(11539, 1)
 
 [node name="Ring140" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9276.4, 1)
+position = Vector2(11564, 1)
 
 [node name="Ring141" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9302.4, 1)
+position = Vector2(11590, 1)
 
 [node name="Ring142" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9325.4, 1)
+position = Vector2(11613, 1)
 
 [node name="Ring143" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9350.4, -17)
+position = Vector2(11638, -17)
 
 [node name="Ring144" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9369.4, -35)
+position = Vector2(11657, -35)
 
 [node name="Ring145" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9390.4, -56)
+position = Vector2(11678, -56)
 
 [node name="Ring146" parent="Rings" instance=ExtResource("48_q72w2")]
-position = Vector2(9411.4, -75)
+position = Vector2(11699, -75)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="body_entered" from="Stage Objects/DeathZone" to="Stage Objects/DeathZone" method="_on_body_entered"]
