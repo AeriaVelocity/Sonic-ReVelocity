@@ -58,7 +58,3 @@ func activate_selected_option():
             get_tree().change_scene_to_file("res://test-level.tscn")
         1:
             get_tree().quit()
-
-func _process(_delta):
-    if not $Popup.visible:
-        handle_input()

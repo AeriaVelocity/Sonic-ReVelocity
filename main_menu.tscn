@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfbyuhf84b6w7"]
+[gd_scene load_steps=28 format=3 uid="uid://dfbyuhf84b6w7"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="13_413yu"]
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
-[ext_resource type="PackedScene" uid="uid://c3b57t6oxwavu" path="res://popup.tscn" id="18_ttq5m"]
 
 [sub_resource type="Gradient" id="Gradient_1dtdv"]
 colors = PackedColorArray(0.47527, 0.209736, 1, 1, 0.818371, 0.0609213, 0.999999, 1)
@@ -233,10 +232,3 @@ texture_pressed = ExtResource("15_vj41m")
 shape = SubResource("CircleShape2D_6v0sw")
 action = "Spin"
 visibility_mode = 1
-
-[node name="Popup" parent="." instance=ExtResource("18_ttq5m")]
-layout_mode = 1
-title_text = "Expectation Warning"
-message_text = "Sonic Re;Velocity is still in very very VERY early stages of development.
-Keep your expectations set low and don't expect greatness.
-Remember, it's still Green Hill Zone Simulator at the core."
