@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dfbyuhf84b6w7"]
+[gd_scene load_steps=29 format=3 uid="uid://dfbyuhf84b6w7"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bp6awh3qnwkqm" path="res://Music/move.wav" id="5_ieik7"]
 [ext_resource type="AudioStream" uid="uid://bh3mw1vdj6ld5" path="res://Music/select.wav" id="6_a3hk4"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="8_u6aui"]
+[ext_resource type="Script" path="res://Scripts/NoticeTouchSecret.gd" id="8_vd11i"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="9_qrv5f"]
 [ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="10_hq1u6"]
 [ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="11_gvgy1"]
@@ -146,22 +147,22 @@ volume_db = -6.0
 
 [node name="Notice" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1202.0
-offset_top = -1012.0
-offset_right = -75.0
-offset_bottom = -913.0
+offset_left = -1211.0
+offset_top = 65.0
+offset_right = -84.0
+offset_bottom = 215.0
 grow_horizontal = 0
-grow_vertical = 0
 text = "This is the SAGE 2024 demo of Sonic Re;Velocity.
-Expect bugs, unintended behaviour and general weirdness."
+Expect bugs, unintended behaviour and a lack of perfection.
+Remember, it's still Green Hill Zone Simulator at the core."
 label_settings = SubResource("LabelSettings_j6tqh")
 horizontal_alignment = 2
+vertical_alignment = 2
 autowrap_mode = 3
+script = ExtResource("8_vd11i")
 
 [node name="Controls" type="RichTextLabel" parent="."]
 layout_mode = 1
