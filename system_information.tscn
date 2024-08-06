@@ -82,7 +82,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {Spin}. Thank you for your probable cooperation!"
+text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {Spin} or the button to the right. Thank you for your probable cooperation!"
 fit_content = true
 script = ExtResource("1_oterw")
 
@@ -102,5 +102,14 @@ theme_override_font_sizes/font_size = 24
 action_mode = 0
 text = "Copy Details"
 
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Main Menu"
+
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/UpdateButton" to="." method="_on_update_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/CopyButton" to="." method="_on_copy_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_button_down"]

@@ -75,12 +75,17 @@ func _hint_9(body):
     ]
     if ControllerHandling.get_real_joy_name() == "" and !DisplayServer.is_touchscreen_available():
         random_messages.append(
-            "You can access a secret System Information page on the title screen!\nPress and hold the left and right mouse buttons and press V to access it."
+            "You can access a secret System Information page on the title screen!\nPress and hold the left and right mouse buttons and press %s to access it."
+            % get_button_image("Unused2")
         )
     elif ControllerHandling.get_real_joy_name() != "":
         random_messages.append(
             "You can access a secret System Information page on the title screen!\nPress and hold the left and right triggers and press %s to access it."
             % get_button_image("Unused2")
+        )
+    elif DisplayServer.is_touchscreen_available():
+        random_messages.append(
+            "You can access a secret System Information page on the title screen!\nTouch the SAGE 2024 demo notice at the top right of the screen to access it."
         )
     display_label(body, random_messages[randi_range(0, random_messages.size() - 1)])
 
