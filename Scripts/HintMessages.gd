@@ -83,3 +83,21 @@ func _hint_9(body):
             % get_button_image("Unused2")
         )
     display_label(body, random_messages[randi_range(0, random_messages.size() - 1)])
+
+func _hint_10(body):
+    var random_messages = [
+        "How did you even get DOWN here?!",
+        "Well, congratulations! You missed the death plane and now you're stuck down here.",
+        "Oh, dear, you're going to have to restart the level now.",
+        "Well done! You found the Ultimate Easter Egg: Nothing. Enjoy your stay.",
+        "I don't think you're even Sonic. Sonic would never do this.",
+        "If you jump off either edge of this platform, you're going to be falling in the infinite void.",
+        "No Way? No Way! No Way? No Way! No Way? No Way! No Way? No Way!",
+        "No, you can't do it that way! Use all the other ways to finish the level!",
+        "I bet this isn't even the first SAGE game you've gotten stuck at.",
+        "Hey, if this was Green Hill Zone Simulator, I'd have shown you a BSOD.",
+        "Fun is ∞ with AeriaVelocity. - Aeria",
+        "No, this isn't how you're supposed to play the game.",
+        "Frick, I ran out of ways to passively ridicule you.\nYou'll just have to insult yourself."
+    ]
+    display_label(body, random_messages[randi_range(0, random_messages.size() - 1)])

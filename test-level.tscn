@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=76 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -202,9 +202,8 @@ shadow_offset = Vector2(7, 7)
 font = ExtResource("38_xaigu")
 font_size = 46
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tlk3i"]
-normal = Vector2(0.00591706, -0.999982)
-distance = -0.635089
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ur8w"]
+size = Vector2(347, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwn6a"]
 size = Vector2(2132, 69)
@@ -247,6 +246,9 @@ size = Vector2(130, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x1ik"]
 size = Vector2(1024, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7070"]
+size = Vector2(4874, 130)
 
 [sub_resource type="Animation" id="Animation_waigc"]
 resource_name = "spinny"
@@ -711,8 +713,8 @@ position = Vector2(-224, -342)
 script = ExtResource("34_prgio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/DeathZone"]
-position = Vector2(901, 682)
-shape = SubResource("WorldBoundaryShape2D_tlk3i")
+position = Vector2(1258.5, 982)
+shape = SubResource("RectangleShape2D_2ur8w")
 
 [node name="Run Indicators" type="Node2D" parent="Stage Objects"]
 position = Vector2(5563.4, 0)
@@ -1127,6 +1129,23 @@ position = Vector2(512, 65)
 shape = SubResource("RectangleShape2D_8x1ik")
 one_way_collision = true
 
+[node name="Platform19" type="TextureRect" parent="Stage Objects/Platforms"]
+layout_mode = 0
+offset_left = 2476.0
+offset_top = 1431.0
+offset_right = 7349.0
+offset_bottom = 1561.0
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e8txd")
+stretch_mode = 1
+
+[node name="PlatformCollision" type="StaticBody2D" parent="Stage Objects/Platforms/Platform19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Platforms/Platform19/PlatformCollision"]
+position = Vector2(2437, 65)
+shape = SubResource("RectangleShape2D_k7070")
+
 [node name="Hints" type="Node2D" parent="Stage Objects"]
 texture_filter = 3
 position = Vector2(-113, 16)
@@ -1325,6 +1344,28 @@ scale = Vector2(1.66667, 1.66667)
 script = ExtResource("14_kvmsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Hints/Hint9/Area2D"]
+position = Vector2(1.52588e-05, 0)
+shape = SubResource("CircleShape2D_2fikd")
+
+[node name="Hint10" type="Sprite2D" parent="Stage Objects/Hints"]
+position = Vector2(1913.33, 1595)
+texture = ExtResource("32_ut7hh")
+
+[node name="HintRing" type="Sprite2D" parent="Stage Objects/Hints/Hint10"]
+texture = ExtResource("33_8cpq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage Objects/Hints/Hint10/HintRing"]
+libraries = {
+"": SubResource("AnimationLibrary_8o23b")
+}
+autoplay = "spinny"
+
+[node name="Area2D" type="Area2D" parent="Stage Objects/Hints/Hint10"]
+position = Vector2(-1.66669, -1.66667)
+scale = Vector2(1.66667, 1.66667)
+script = ExtResource("14_kvmsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage Objects/Hints/Hint10/Area2D"]
 position = Vector2(1.52588e-05, 0)
 shape = SubResource("CircleShape2D_2fikd")
 
@@ -1728,3 +1769,4 @@ position = Vector2(11699, -75)
 [connection signal="body_entered" from="Stage Objects/Hints/Hint7/Area2D" to="Stage Objects/Hints/Hint7/Area2D" method="_hint_7"]
 [connection signal="body_entered" from="Stage Objects/Hints/Hint8/Area2D" to="Stage Objects/Hints/Hint8/Area2D" method="_hint_8"]
 [connection signal="body_entered" from="Stage Objects/Hints/Hint9/Area2D" to="Stage Objects/Hints/Hint9/Area2D" method="_hint_9"]
+[connection signal="body_entered" from="Stage Objects/Hints/Hint10/Area2D" to="Stage Objects/Hints/Hint10/Area2D" method="_hint_10"]
