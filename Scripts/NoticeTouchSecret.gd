@@ -1,4 +1,4 @@
-extends Label
+extends TextureRect
 
 func _input(event):
     if event is InputEventScreenTouch and event.pressed and get_rect().has_point(event.position):

@@ -85,7 +85,7 @@ func _hint_9(body):
         )
     elif DisplayServer.is_touchscreen_available():
         random_messages.append(
-            "You can access a secret System Information page on the title screen!\nTouch the SAGE 2024 demo notice at the top right of the screen to access it."
+            "You can access a secret System Information page on the title screen!\nTouch the Sonic Re;Velocity logo at the top right of the screen to access it."
         )
     display_label(body, random_messages[randi_range(0, random_messages.size() - 1)])
 

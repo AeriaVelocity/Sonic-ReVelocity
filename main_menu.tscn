@@ -132,6 +132,7 @@ grow_horizontal = 0
 texture = ExtResource("1_tstpe")
 expand_mode = 5
 stretch_mode = 4
+script = ExtResource("8_vd11i")
 
 [node name="Highlight" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.866667)
@@ -249,7 +250,6 @@ label_settings = SubResource("LabelSettings_j6tqh")
 horizontal_alignment = 2
 vertical_alignment = 2
 autowrap_mode = 3
-script = ExtResource("8_vd11i")
 
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
