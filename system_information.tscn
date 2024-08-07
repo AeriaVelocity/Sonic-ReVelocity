@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxycbll0vnnrg"]
+[gd_scene load_steps=8 format=3 uid="uid://cxycbll0vnnrg"]
 
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="1_oterw"]
 [ext_resource type="Script" path="res://Scripts/SystemInformation.gd" id="1_rqsql"]
@@ -9,9 +9,6 @@ colors = PackedColorArray(0.110697, 0.000184226, 0.24183, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_e7161"]
 gradient = SubResource("Gradient_4j0m0")
-
-[sub_resource type="LabelSettings" id="LabelSettings_o4in8"]
-font_size = 48
 
 [sub_resource type="SystemFont" id="SystemFont_4xelo"]
 font_names = PackedStringArray("JetBrains Mono", "Fira Code", "Source Code Pro", "Menlo", "Consolas")
@@ -58,16 +55,12 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "System Information"
-label_settings = SubResource("LabelSettings_o4in8")
-
 [node name="SysInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 2
 theme_override_fonts/normal_font = SubResource("SystemFont_4xelo")
+theme_override_font_sizes/normal_font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_xmx1b")
 context_menu_enabled = true
 selection_enabled = true
@@ -80,7 +73,7 @@ alignment = 1
 [node name="Notice" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {Spin} or the button to the right. Thank you for your probable cooperation!"
 fit_content = true
@@ -90,25 +83,25 @@ script = ExtResource("1_oterw")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
 action_mode = 0
-text = "Update Details"
+text = "Update"
 
 [node name="CopyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
 action_mode = 0
-text = "Copy Details"
+text = "Copy"
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
 action_mode = 0
-text = "Main Menu"
+text = "Back"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/UpdateButton" to="." method="_on_update_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/CopyButton" to="." method="_on_copy_button_button_down"]
