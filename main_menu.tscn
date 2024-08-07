@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfbyuhf84b6w7"]
+[gd_scene load_steps=31 format=3 uid="uid://dfbyuhf84b6w7"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
 [ext_resource type="Texture2D" uid="uid://quwlsg31et1n" path="res://Graphics/sonic-revelocity-logo-white.png" id="1_tstpe"]
+[ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="2_7srnn"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_8ee2s"]
-[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="4_0wlhg"]
 [ext_resource type="AudioStream" uid="uid://bp6awh3qnwkqm" path="res://Music/move.wav" id="5_ieik7"]
 [ext_resource type="AudioStream" uid="uid://bh3mw1vdj6ld5" path="res://Music/select.wav" id="6_a3hk4"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="8_u6aui"]
@@ -20,16 +20,18 @@
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
 
 [sub_resource type="Gradient" id="Gradient_1dtdv"]
-colors = PackedColorArray(0.47527, 0.209736, 1, 1, 0.818371, 0.0609213, 0.999999, 1)
+offsets = PackedFloat32Array(0.658307)
+colors = PackedColorArray(0.839216, 0.631373, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4neor"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sndqo"]
 gradient = SubResource("Gradient_1dtdv")
 
-[sub_resource type="Gradient" id="Gradient_bj77f"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_yhmwk"]
+offsets = PackedFloat32Array(0.338558)
+colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6nbjp"]
-gradient = SubResource("Gradient_bj77f")
+gradient = SubResource("Gradient_yhmwk")
 
 [sub_resource type="Animation" id="Animation_mrpoo"]
 resource_name = "infromleft"
@@ -56,9 +58,23 @@ _data = {
 font = ExtResource("2_8ee2s")
 font_size = 126
 
+[sub_resource type="LabelSettings" id="LabelSettings_mserp"]
+font = ExtResource("2_8ee2s")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dffj0"]
+bg_color = Color(0.837429, 0.63153, 1, 0.866667)
+skew = Vector2(1, 0)
+expand_margin_left = 30.0
+expand_margin_top = 5.0
+expand_margin_right = 100.0
+expand_margin_bottom = 5.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_j6tqh"]
-font = ExtResource("4_0wlhg")
-font_size = 36
+font = ExtResource("2_8ee2s")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_68220"]
 radius = 58.81
@@ -83,17 +99,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_4neor")
+texture = ExtResource("2_7srnn")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.337255)
+
+[node name="BackgroundThing2" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.807843)
+position = Vector2(1957.98, 937)
+scale = Vector2(7.53191, 207.889)
+skew = 0.785398
+texture = SubResource("GradientTexture1D_sndqo")
+centered = false
+offset = Vector2(-250, 0)
 
 [node name="Logo" type="Sprite2D" parent="Background"]
 texture_filter = 6
-position = Vector2(363, 189)
+position = Vector2(1560, 189)
 scale = Vector2(0.530384, 0.530384)
 texture = ExtResource("1_tstpe")
 
 [node name="Highlight" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.807843)
-position = Vector2(-21, 441)
+modulate = Color(1, 1, 1, 0.866667)
+position = Vector2(916, 240)
 scale = Vector2(4.07422, 261.784)
 skew = 0.785398
 texture = SubResource("GradientTexture1D_6nbjp")
@@ -108,14 +142,14 @@ autoplay = "infromleft"
 
 [node name="MenuOptions" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 70.0
-offset_top = -738.0
-offset_right = 749.0
-offset_bottom = -122.0
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 49.0
+offset_top = -308.0
+offset_right = 733.0
+offset_bottom = 308.0
+grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
@@ -126,11 +160,52 @@ text = "Start Demo"
 label_settings = SubResource("LabelSettings_bd02j")
 vertical_alignment = 1
 
+[node name="Options" type="Label" parent="MenuOptions"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_bd02j")
+vertical_alignment = 1
+
 [node name="ExitGame" type="Label" parent="MenuOptions"]
 layout_mode = 2
 text = "Exit"
 label_settings = SubResource("LabelSettings_bd02j")
 vertical_alignment = 1
+
+[node name="Tooltip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -99.0
+offset_right = 1176.0
+offset_bottom = -44.0
+grow_vertical = 0
+text = "Tooltip messages go here."
+label_settings = SubResource("LabelSettings_mserp")
+vertical_alignment = 1
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -651.0
+offset_top = -99.0
+offset_right = -60.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_8ee2s")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[right]{Jump} Confirm  {Spin} Back[/right]"
+fit_content = true
+script = ExtResource("8_u6aui")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_fegnr")
@@ -147,14 +222,18 @@ volume_db = -6.0
 
 [node name="Notice" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -1211.0
-offset_top = 65.0
-offset_right = -84.0
-offset_bottom = 215.0
+anchor_bottom = 1.0
+offset_left = -1165.0
+offset_top = -332.0
+offset_right = -15.0
+offset_bottom = -167.0
 grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dffj0")
 text = "This is the SAGE 2024 demo of Sonic Re;Velocity.
 Expect bugs, unintended behaviour and a lack of perfection.
 Remember, it's still Green Hill Zone Simulator at the core."
@@ -164,26 +243,9 @@ vertical_alignment = 2
 autowrap_mode = 3
 script = ExtResource("8_vd11i")
 
-[node name="Controls" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 448.0
-offset_bottom = 513.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_8ee2s")
-theme_override_font_sizes/normal_font_size = 42
-bbcode_enabled = true
-text = "[center]{Up} {Down} Select Option   {Jump} Activate Option   {Spin} Back to Intro Video[/center]"
-fit_content = true
-script = ExtResource("8_u6aui")
-
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
-position = Vector2(0, -69)
+position = Vector2(0, 309)
 script = ExtResource("9_qrv5f")
 
 [node name="Left" type="Node2D" parent="TouchControls"]

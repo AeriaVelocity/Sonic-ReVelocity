@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://dmdeegf86vs1m"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_ir3j6"]
-[ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_kj6dy"]
 [ext_resource type="Texture2D" uid="uid://cuwtuyk404kjq" path="res://Graphics/sonic-revelocity-logo-white-dropshadow.png" id="2_0epgh"]
 [ext_resource type="AudioStream" uid="uid://brmi8teuklmwo" path="res://Music/title.mp3" id="2_ipun8"]
+[ext_resource type="Texture2D" uid="uid://qn0ajpirs6bc" path="res://Graphics/sonic-revelocity-titlescreen-bg.png" id="2_mtqxy"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="3_djgiy"]
 
 [sub_resource type="Animation" id="Animation_q1bxc"]
@@ -54,6 +54,9 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_ojvov"]
 font = ExtResource("3_djgiy")
 font_size = 46
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.341176)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_8kfdk"]
 resource_name = "blinkingtext"
@@ -94,7 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_kj6dy")
+texture = ExtResource("2_mtqxy")
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(0.996078, 0.996078, 0.996078, 0.176471)
