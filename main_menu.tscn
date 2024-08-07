@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dfbyuhf84b6w7"]
+[gd_scene load_steps=30 format=3 uid="uid://dfbyuhf84b6w7"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
@@ -19,12 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="14_cvslx"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="15_vj41m"]
 
-[sub_resource type="Gradient" id="Gradient_1dtdv"]
-offsets = PackedFloat32Array(0.658307)
-colors = PackedColorArray(0.839216, 0.631373, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sndqo"]
-gradient = SubResource("Gradient_1dtdv")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xlyr"]
+bg_color = Color(0.837429, 0.63153, 1, 0.866667)
+skew = Vector2(1, 0)
 
 [sub_resource type="Gradient" id="Gradient_yhmwk"]
 offsets = PackedFloat32Array(0.338558)
@@ -110,20 +107,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.337255)
 
-[node name="BackgroundThing2" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 1, 0.807843)
-position = Vector2(1957.98, 937)
-scale = Vector2(7.53191, 207.889)
-skew = 0.785398
-texture = SubResource("GradientTexture1D_sndqo")
-centered = false
-offset = Vector2(-250, 0)
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3xlyr")
 
-[node name="Logo" type="Sprite2D" parent="Background"]
+[node name="Logo" type="TextureRect" parent="Background"]
 texture_filter = 6
-position = Vector2(1560, 189)
-scale = Vector2(0.530384, 0.530384)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -632.0
+offset_top = 50.0
+offset_right = -50.0601
+offset_bottom = 298.57
+grow_horizontal = 0
 texture = ExtResource("1_tstpe")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="Highlight" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.866667)
@@ -245,7 +253,7 @@ script = ExtResource("8_vd11i")
 
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
-position = Vector2(0, 309)
+position = Vector2(1, -82)
 script = ExtResource("9_qrv5f")
 
 [node name="Left" type="Node2D" parent="TouchControls"]
