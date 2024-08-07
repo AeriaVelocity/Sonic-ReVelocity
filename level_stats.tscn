@@ -12,12 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="13_0afnu"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="14_mmfvk"]
 
-[sub_resource type="Gradient" id="Gradient_uq1gy"]
-offsets = PackedFloat32Array(0.338558, 0.761755)
-colors = PackedColorArray(0.818371, 0.0609213, 0.999999, 1, 0.47527, 0.209736, 1, 1)
+[sub_resource type="Gradient" id="Gradient_wllgh"]
+colors = PackedColorArray(0.240831, 0.122865, 0.609977, 1, 0.48985, 0.0395198, 0.690076, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kwxe7"]
-gradient = SubResource("Gradient_uq1gy")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1dys0"]
+gradient = SubResource("Gradient_wllgh")
+fill_from = Vector2(0.457265, 0)
+fill_to = Vector2(0.448718, 0.974359)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0wh5"]
 bg_color = Color(0, 0, 0, 0.239216)
@@ -168,7 +169,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_kwxe7")
+texture = SubResource("GradientTexture2D_1dys0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
