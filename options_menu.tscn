@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://cju4jjrx6o8qh"]
+
+[ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_m1v31"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_mitix"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="4_mov84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kean2"]
+bg_color = Color(0.837429, 0.63153, 1, 0.866667)
+skew = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xt14o"]
+font = ExtResource("2_mitix")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_lslx0"]
+font = ExtResource("2_mitix")
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6cor"]
+font = ExtResource("2_mitix")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m1v31")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.337255)
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kean2")
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -513.0
+offset_top = 53.0
+offset_right = -70.0
+offset_bottom = 210.0
+grow_horizontal = 0
+text = "Options"
+label_settings = SubResource("LabelSettings_xt14o")
+horizontal_alignment = 2
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 31.0
+offset_right = 1332.0
+offset_bottom = -164.0
+grow_vertical = 2
+
+[node name="FullScreen" type="CheckBox" parent="Options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mitix")
+text = "Full Screen"
+
+[node name="CameraSmoothing" type="CheckBox" parent="Options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mitix")
+text = "Camera Smoothing"
+
+[node name="CamSmoothAmount" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Options/CamSmoothAmount"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/CamSmoothAmount"]
+layout_mode = 2
+text = "Camera Smoothing Amount"
+label_settings = SubResource("LabelSettings_lslx0")
+
+[node name="Tooltip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -99.0
+offset_right = 1176.0
+offset_bottom = -44.0
+grow_vertical = 0
+text = "Tooltip messages go here."
+label_settings = SubResource("LabelSettings_r6cor")
+vertical_alignment = 1
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -651.0
+offset_top = -99.0
+offset_right = -60.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_mitix")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[right]{Jump} Confirm  {Spin} Back[/right]"
+fit_content = true
+script = ExtResource("4_mov84")
