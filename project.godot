@@ -15,6 +15,7 @@ config/description="A 2D Sonic fan game with a focus on high-speed momentum-base
 config/version="0.1.0"
 run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 config/icon="res://Graphics/icon.png"
 
 [autoload]
