@@ -14,7 +14,7 @@ var flash_counter: float
 var reset_counter: float
 var do_flash: bool = false
 
-func _process(delta):
+func _physics_process(delta):
     if velocity_gauge >= 1 and reset_counter <= 0:
         if VelocitySystem.velocity_state:
             velocity_gauge -= 12
