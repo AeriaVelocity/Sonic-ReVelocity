@@ -4,10 +4,6 @@
 
 ![Gameplay Screenshot](gameplay-screenshot.png)
 
-> [!WARNING]
-> Sonic Re;Velocity is still very much a work-in-progress. Don't expect any
-> form of quality here.
-
 ## Overview
 
 Sonic Re;Velocity is a 2D Sonic fan game with a heavy focus on high-speed
@@ -19,6 +15,16 @@ Simulator, a joke Sonic fan game built for the RAGE 2024 Sonic Fan Games HQ even
 
 Sonic Re;Velocity is built in Godot Engine v4.2 and is free software under the
 GNU General Public License 3.0, or, at your option, any later version.
+
+## Versions
+
+Sonic Re;Velocity's major versions are organised into "revolutions" - for
+example, versions v1.x.x are part of the "1st Revolution", versions v2.x.x are
+part of the "2nd Revolution", etc.
+
+* **0th Revolution (SAGE 2024 Demo)** - The initial version of Sonic Re;Velocity, created specifically for the Sonic Amateur Games Expo event in 2024. Includes the Quick Spin and Velocity State, but is limited to one short test level.
+  * **v0.1.0** - The initial version released to SAGE 2024.
+  * **v0.1.1** - Fixes an issue with high FPS counts by capping the FPS to 60 and properly tying the Velocity System to `_physics_process`. The actual game executable doesn't include the v0.1.1 version string, because I forgot.
 
 ## Techniques
 
