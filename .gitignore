@@ -6,3 +6,6 @@ export/
 
 # VS Code
 .vscode/
+
+# Temporary files
+*.tmp
