@@ -4,7 +4,7 @@ func _ready():
     call_deferred("initialise")
 
 func initialise():
-    size = get_viewport_rect().size / 2
+    set_deferred("size", get_viewport_rect().size / 2)
     position = get_viewport_rect().size / 4
     $MessageContainer.size.y = size.y - $TitleBar.size.y - $CloseButton.size.y
     $MessageContainer.position.y = $TitleBar.size.y
