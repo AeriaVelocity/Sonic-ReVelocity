@@ -37,4 +37,4 @@ func _input(event):
         go_to_menu()
 
 func go_to_menu():
-    get_tree().change_scene_to_file("res://title-screen.tscn")
+    get_tree().change_scene_to_file("res://Scenes/title-screen.tscn")

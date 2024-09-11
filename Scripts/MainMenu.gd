@@ -45,7 +45,7 @@ func handle_input():
         update_highlight_position()
     elif Input.is_action_just_pressed("Jump"):
         if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
-            get_tree().change_scene_to_file("res://intro.tscn")
+            get_tree().change_scene_to_file("res://Scenes/intro.tscn")
         else:
             $SelectSound.play()
             activate_selected_option()
@@ -54,9 +54,9 @@ func handle_input():
             $SelectSound.play()
             activate_selected_option()
         else:
-            get_tree().change_scene_to_file("res://intro.tscn")
+            get_tree().change_scene_to_file("res://Scenes/intro.tscn")
     elif sysinfo_prereq and Input.is_action_just_pressed("Sysinfo"):
-        get_tree().change_scene_to_file("res://system_information.tscn")
+        get_tree().change_scene_to_file("res://Scenes/system_information.tscn")
 
 func handle_tooltip():
     if selected_option_index == 0:
@@ -72,9 +72,9 @@ func activate_selected_option():
     match selected_option_index:
         0:
             LevelStats.rings = 0
-            get_tree().change_scene_to_file("res://test-level.tscn")
+            get_tree().change_scene_to_file("res://Scenes/test-level.tscn")
         1:
-            unimplemented_popup = preload("res://popup.tscn").instantiate()
+            unimplemented_popup = preload("res://Scenes/popup.tscn").instantiate()
             add_child(unimplemented_popup)
             unimplemented_popup.title_text = "Unimplemented"
             unimplemented_popup.message_text = "The options menu is not yet implemented.\nPlease check back in a future update."

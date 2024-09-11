@@ -30,9 +30,9 @@ func determine_rank() -> Array:
 
 func _process(_delta):
     if Input.is_action_just_pressed("Jump"):
-        get_tree().change_scene_to_file("res://thanks.tscn")
+        get_tree().change_scene_to_file("res://Scenes/thanks.tscn")
     elif Input.is_action_just_pressed("Spin"):
-        get_tree().change_scene_to_file("res://main_menu.tscn")
+        get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
     elif Input.is_action_just_pressed("Unused1"):
         LevelStats.rings = 0
-        get_tree().change_scene_to_file("res://test-level.tscn")
+        get_tree().change_scene_to_file("res://Scenes/test-level.tscn")

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="3_j21jd"]
 [ext_resource type="Script" path="res://Scripts/LevelTime.gd" id="3_xcodd"]
 [ext_resource type="Script" path="res://Scripts/SpeedGauge.gd" id="4_8fb3d"]
-[ext_resource type="Script" path="res://LevelRings.gd" id="4_nr11h"]
+[ext_resource type="Script" path="res://Scripts/LevelRings.gd" id="4_nr11h"]
 [ext_resource type="Script" path="res://Scripts/Speedometer.gd" id="4_tc64l"]
 [ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_fyoe5"]
 [ext_resource type="AudioStream" uid="uid://b4olokvhcsj1u" path="res://Sounds/velocity_start.wav" id="7_2t5xt"]

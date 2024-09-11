@@ -10,4 +10,4 @@ func _on_ring_touched(body):
         $Get.play()
         LevelStats.level_name = get_tree().current_scene.name
         await($AnimatedSprite2D/AnimationPlayer.animation_finished)
-        get_tree().change_scene_to_file("res://level_stats.tscn")
+        get_tree().change_scene_to_file("res://Scenes/level_stats.tscn")

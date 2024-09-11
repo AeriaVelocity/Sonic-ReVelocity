@@ -21,7 +21,7 @@ func _process(_delta):
         hint = "TOUCH TO START"
     $PressStart.set_text(hint)
 
-const NEXT_SCENE: String = "res://main_menu.tscn"
+const NEXT_SCENE: String = "res://Scenes/main_menu.tscn"
 
 func _input(event):
     if event is InputEventScreenTouch and event.pressed:
