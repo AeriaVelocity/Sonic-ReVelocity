@@ -16,6 +16,8 @@ Simulator, a joke Sonic fan game built for the RAGE 2024 Sonic Fan Games HQ even
 Sonic Re;Velocity is built in Godot Engine v4.2 and is free software under the
 GNU General Public License 3.0, or, at your option, any later version.
 
+[![Sonic Re;Velocity by AeriaVelocity](itchio-fake-widget.png)](https://aeriavelocity.itch.io/sonic-revelocity)
+
 ## Versions
 
 Sonic Re;Velocity's major versions are organised into "revolutions" - for
