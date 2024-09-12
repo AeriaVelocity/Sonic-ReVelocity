@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bowtpoo3ojjh1"]
+[gd_scene load_steps=32 format=3 uid="uid://bowtpoo3ojjh1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
 [ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_8ee2s"]
 [ext_resource type="AudioStream" uid="uid://bp6awh3qnwkqm" path="res://Music/move.wav" id="5_ieik7"]
 [ext_resource type="AudioStream" uid="uid://bh3mw1vdj6ld5" path="res://Music/select.wav" id="6_a3hk4"]
+[ext_resource type="Script" path="res://Scripts/VersionLabel.gd" id="6_b1ddu"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="8_u6aui"]
 [ext_resource type="Script" path="res://Scripts/NoticeTouchSecret.gd" id="8_vd11i"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="9_qrv5f"]
@@ -22,6 +23,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xlyr"]
 bg_color = Color(0.837429, 0.63153, 1, 0.866667)
 skew = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_epua2"]
+font = ExtResource("2_8ee2s")
+font_size = 40
 
 [sub_resource type="Gradient" id="Gradient_yhmwk"]
 offsets = PackedFloat32Array(0.338558)
@@ -133,6 +138,26 @@ texture = ExtResource("1_tstpe")
 expand_mode = 5
 stretch_mode = 4
 script = ExtResource("8_vd11i")
+
+[node name="Version" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -768.0
+offset_right = -65.0
+offset_bottom = -715.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "vX.X.X (Nth Revolution)"
+label_settings = SubResource("LabelSettings_epua2")
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 3
+script = ExtResource("6_b1ddu")
 
 [node name="Highlight" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.866667)
