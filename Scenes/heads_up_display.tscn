@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=32 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
@@ -20,7 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="10_irsd5"]
 [ext_resource type="Texture2D" uid="uid://c1lrhm7y4sm6w" path="res://Graphics/Touch Buttons/Sonic-ReVelocity-PauseButton.png" id="11_cjqag"]
 [ext_resource type="Script" path="res://Scripts/DynamicButtonPause.gd" id="16_iomea"]
-[ext_resource type="Texture2D" uid="uid://t573e0iyq2eq" path="res://Graphics/Info Signs/xbox-unused1.png" id="20_jwwoy"]
+[ext_resource type="Texture2D" uid="uid://bin0aegm30ax1" path="res://Graphics/Touch Buttons/x-button.png" id="21_nv7ee"]
+[ext_resource type="Texture2D" uid="uid://b8rsjiau2323f" path="res://Graphics/Touch Buttons/x-button-touched.png" id="22_41i7o"]
 
 [sub_resource type="Theme" id="Theme_mqoso"]
 
@@ -262,9 +263,9 @@ action = "Spin"
 visibility_mode = 1
 
 [node name="Unused1" type="TouchScreenButton" parent="TouchControls/Right"]
-visible = false
-position = Vector2(-500, 0)
-texture_normal = ExtResource("20_jwwoy")
+position = Vector2(-500, -282)
+texture_normal = ExtResource("21_nv7ee")
+texture_pressed = ExtResource("22_41i7o")
 shape = SubResource("CircleShape2D_526i1")
 action = "Unused1"
 visibility_mode = 1

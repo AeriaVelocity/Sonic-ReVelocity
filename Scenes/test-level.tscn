@@ -380,7 +380,7 @@ texture = ExtResource("10_dpfeo")
 texture_filter = 4
 position = Vector2(-63, -32)
 rotation = 3.14159
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("14_cqdmh")
 
@@ -409,7 +409,7 @@ texture = ExtResource("14_kwwvs")
 [node name="A-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 2"]
 texture_filter = 4
 position = Vector2(-63, -32)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
@@ -473,7 +473,7 @@ texture = ExtResource("18_b3y2w")
 [node name="A-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 5/Elements"]
 texture_filter = 4
 position = Vector2(59.9978, 164.001)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
@@ -510,7 +510,7 @@ texture = ExtResource("10_dpfeo")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 6/Elements"]
 texture_filter = 4
 position = Vector2(25.9994, 28.0005)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
@@ -518,7 +518,7 @@ script = ExtResource("11_jd4nr")
 texture_filter = 4
 position = Vector2(68.9993, 27.5019)
 rotation = -3.14159
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
@@ -556,14 +556,14 @@ flip_h = true
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(26.499, 28.0003)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
 [node name="Dpad-left" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(71.4993, 28.0006)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
@@ -601,7 +601,7 @@ texture = ExtResource("26_vpb3c")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 8/Elements"]
 texture_filter = 4
 position = Vector2(24, 25)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
@@ -609,7 +609,7 @@ script = ExtResource("11_jd4nr")
 texture_filter = 4
 position = Vector2(24, 68)
 rotation = -1.57079
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
@@ -646,14 +646,14 @@ texture = ExtResource("26_vpb3c")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 9/Elements"]
 texture_filter = 4
 position = Vector2(25.9994, 28.0005)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
 [node name="Dpad-dright" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 9/Elements"]
 texture_filter = 4
 position = Vector2(59.9991, 58.5019)
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_xtu4v")
 script = ExtResource("11_jd4nr")
 
@@ -708,7 +708,7 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 4
 position = Vector2(26.9993, 28.5017)
 rotation = -3.14159
-scale = Vector2(0.043, 0.043)
+scale = Vector2(0.344, 0.344)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("14_cqdmh")
 

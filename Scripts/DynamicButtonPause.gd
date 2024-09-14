@@ -5,7 +5,5 @@ func _process(_delta):
 
     if game_paused:
         $Unused1.show()
-        $JumpButton.hide()
     else:
         $Unused1.hide()
-        $JumpButton.show()

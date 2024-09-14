@@ -13,7 +13,7 @@ func _process(_delta):
             if DisplayServer.is_touchscreen_available():
                 # The touch prompts use A and B like an Xbox controller,
                 # so use the default prompts.
-                button_prompts = "default"
+                button_prompts = "xbox"
             else: # the user is likely using a keyboard
                 button_prompts = "keyboard"
         _:
