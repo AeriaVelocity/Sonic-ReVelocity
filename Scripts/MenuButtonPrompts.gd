@@ -42,4 +42,8 @@ func _ready():
     original_text = text
 
 func _process(_delta):
-    set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button(), "Special1": special1_button(), "Special2": special2_button()}))
+    match ControllerHandling.get_real_joy_name():
+        "Nintendo Switch Pro Controller":
+            set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": spin_button(), "Spin": jump_button(), "Special1": special1_button(), "Special2": special2_button()}))
+        _:
+            set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button(), "Special1": special1_button(), "Special2": special2_button()}))
