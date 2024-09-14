@@ -17,7 +17,7 @@ func get_button_image(type: String) -> String:
             return get_image_path(type, "xbox")
 
 func get_image_path(type: String, controller: String) -> String:
-    return "[img=42x42]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"
+    return "[img=64x64]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"
 
 func display_label(body, message: String):
     if body.is_in_group("Player"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dgtox7gro0x8a"]
+[gd_scene load_steps=80 format=3 uid="uid://dgtox7gro0x8a"]
 
 [ext_resource type="PackedScene" uid="uid://c528liaieedpb" path="res://Scenes/heads_up_display.tscn" id="1_11k6x"]
 [ext_resource type="AudioStream" uid="uid://blx5mrnnup8wx" path="res://Music/bgm.mp3" id="2_od5gh"]
@@ -14,17 +14,19 @@
 [ext_resource type="Script" path="res://Scripts/BGMHandling.gd" id="11_hgbcj"]
 [ext_resource type="Script" path="res://Scripts/ButtonPrompts.gd" id="11_jd4nr"]
 [ext_resource type="Texture2D" uid="uid://diox5i7ai7bv1" path="res://Sprites/sonic/037.png" id="12_n3y3u"]
+[ext_resource type="Texture2D" uid="uid://q2uue5dvcc2a" path="res://Graphics/Info Signs/generic-left.png" id="12_tqsre"]
 [ext_resource type="Texture2D" uid="uid://blr0psphqcqrg" path="res://Sprites/sonic/038.png" id="13_1eht6"]
 [ext_resource type="Texture2D" uid="uid://c1iwp1m5gfoly" path="res://Graphics/Info Signs/nswitch-left.png" id="13_jvvxk"]
 [ext_resource type="Texture2D" uid="uid://bipom4goo27en" path="res://Graphics/Info Signs/ps-downright.png" id="14_ab6h3"]
 [ext_resource type="Script" path="res://Scripts/DPadPrompts.gd" id="14_cqdmh"]
-[ext_resource type="PackedScene" path="res://Scenes/sonic_player.tscn" id="14_gyep7"]
+[ext_resource type="PackedScene" uid="uid://c1rjb7rkohryr" path="res://Scenes/sonic_player.tscn" id="14_gyep7"]
 [ext_resource type="Script" path="res://Scripts/HintMessages.gd" id="14_kvmsa"]
 [ext_resource type="Texture2D" uid="uid://d20pue351cfvv" path="res://Sprites/sonic/039.png" id="14_kwwvs"]
 [ext_resource type="Texture2D" uid="uid://dctuqdo3hy8hn" path="res://Graphics/Info Signs/ps-left.png" id="14_stjdh"]
 [ext_resource type="Texture2D" uid="uid://442p8le465do" path="res://Sprites/sonic/067.png" id="16_o3c4i"]
 [ext_resource type="Texture2D" uid="uid://ddnswbyjx4gmv" path="res://Sprites/sonic/069.png" id="18_b3y2w"]
 [ext_resource type="Texture2D" uid="uid://do6pgwtjfvuho" path="res://Graphics/Info Signs/xbox-jump.png" id="19_ikg5e"]
+[ext_resource type="Texture2D" uid="uid://rsok8kkcagj3" path="res://Graphics/Info Signs/generic-jump.png" id="20_2ucln"]
 [ext_resource type="Texture2D" uid="uid://btsdo62exrpks" path="res://Graphics/Info Signs/kbd-jump.png" id="20_ccfqc"]
 [ext_resource type="Texture2D" uid="uid://qanm1vf3ijru" path="res://Graphics/Info Signs/nswitch-jump.png" id="21_1enlu"]
 [ext_resource type="Texture2D" uid="uid://rc6bdcgm0pn4" path="res://Graphics/Info Signs/ps-jump.png" id="22_hab4o"]
@@ -35,26 +37,28 @@
 [ext_resource type="Texture2D" uid="uid://bnie26y85pth2" path="res://Graphics/Info Signs/kbd-spin.png" id="28_wn66g"]
 [ext_resource type="Texture2D" uid="uid://7m6ebaduu5vk" path="res://Textures/vr_grid_walljump.png" id="29_g6sjr"]
 [ext_resource type="Texture2D" uid="uid://b1oeg4biqcftw" path="res://Graphics/Info Signs/nswitch-spin.png" id="29_mnken"]
+[ext_resource type="Texture2D" uid="uid://dpifww6andy4b" path="res://Graphics/Info Signs/generic-spin.png" id="30_5bgdk"]
 [ext_resource type="Texture2D" uid="uid://dehcjj2aq5r46" path="res://Graphics/Info Signs/ps-spin.png" id="30_g467q"]
-[ext_resource type="PackedScene" path="res://Scenes/hint_message.tscn" id="31_x1w6k"]
+[ext_resource type="PackedScene" uid="uid://dbc5p5wbrgod1" path="res://Scenes/hint_message.tscn" id="31_x1w6k"]
 [ext_resource type="Texture2D" uid="uid://b4q273hwuqmgk" path="res://Sprites/hintring/hint1.png" id="32_ut7hh"]
 [ext_resource type="Texture2D" uid="uid://bjr4t3mkn6mwe" path="res://Sprites/hintring/hint2.png" id="33_8cpq2"]
 [ext_resource type="Texture2D" uid="uid://btc6u8uhrvovn" path="res://Graphics/Info Signs/xbox-downright.png" id="33_ko770"]
 [ext_resource type="Texture2D" uid="uid://rxr2attys21a" path="res://Graphics/Info Signs/kbd-downright.png" id="34_cfb8n"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="34_prgio"]
 [ext_resource type="Texture2D" uid="uid://c4t7t6fbuk1x7" path="res://Graphics/Info Signs/nswitch-downright.png" id="35_5cy53"]
+[ext_resource type="Texture2D" uid="uid://d3saymidal4yi" path="res://Graphics/Info Signs/generic-downright.png" id="37_072p4"]
 [ext_resource type="StyleBox" uid="uid://dac5up3ya1p8b" path="res://VelocityGauge-Filled.tres" id="37_voex6"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="38_xaigu"]
-[ext_resource type="PackedScene" path="res://Scenes/goal_ring.tscn" id="40_3mvnn"]
+[ext_resource type="PackedScene" uid="uid://ydnvpwtv0trd" path="res://Scenes/goal_ring.tscn" id="40_3mvnn"]
 [ext_resource type="Texture2D" uid="uid://cxfhc2qua8son" path="res://Sprites/run-indicator.png" id="47_mvgf0"]
-[ext_resource type="PackedScene" path="res://Scenes/ring.tscn" id="48_q72w2"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="49_41xoe"]
+[ext_resource type="PackedScene" uid="uid://cmah3n5yk1251" path="res://Scenes/ring.tscn" id="48_q72w2"]
+[ext_resource type="PackedScene" uid="uid://dyebvobwucj8f" path="res://Scenes/pause_menu.tscn" id="49_41xoe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vuw3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_cg7ur")
+"texture": ExtResource("12_tqsre")
 }],
 "loop": true,
 "name": &"default",
@@ -83,13 +87,21 @@ animations = [{
 "loop": true,
 "name": &"playstation",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_cg7ur")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip747"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("19_ikg5e")
+"texture": ExtResource("20_2ucln")
 }],
 "loop": true,
 "name": &"default",
@@ -118,13 +130,21 @@ animations = [{
 "loop": true,
 "name": &"playstation",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_ikg5e")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2ldr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("27_dwnid")
+"texture": ExtResource("30_5bgdk")
 }],
 "loop": true,
 "name": &"default",
@@ -153,13 +173,21 @@ animations = [{
 "loop": true,
 "name": &"playstation",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_dwnid")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xtu4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("33_ko770")
+"texture": ExtResource("37_072p4")
 }],
 "loop": true,
 "name": &"default",
@@ -187,6 +215,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"playstation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_ko770")
+}],
+"loop": true,
+"name": &"xbox",
 "speed": 5.0
 }]
 
@@ -344,9 +380,8 @@ texture = ExtResource("10_dpfeo")
 texture_filter = 4
 position = Vector2(-63, -32)
 rotation = 3.14159
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Info Sign 2" type="Sprite2D" parent="Stage Objects/Info Signs"]
@@ -374,7 +409,7 @@ texture = ExtResource("14_kwwvs")
 [node name="A-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 2"]
 texture_filter = 4
 position = Vector2(-63, -32)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
@@ -438,7 +473,7 @@ texture = ExtResource("18_b3y2w")
 [node name="A-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 5/Elements"]
 texture_filter = 4
 position = Vector2(59.9978, 164.001)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_ip747")
 script = ExtResource("11_jd4nr")
 
@@ -475,7 +510,7 @@ texture = ExtResource("10_dpfeo")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 6/Elements"]
 texture_filter = 4
 position = Vector2(25.9994, 28.0005)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
@@ -483,9 +518,8 @@ script = ExtResource("11_jd4nr")
 texture_filter = 4
 position = Vector2(68.9993, 27.5019)
 rotation = -3.14159
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-animation = &"playstation"
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 7" type="Sprite2D" parent="Stage Objects/Info Signs"]
@@ -522,14 +556,14 @@ flip_h = true
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(26.499, 28.0003)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
 [node name="Dpad-left" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 7/Elements"]
 texture_filter = 4
 position = Vector2(71.4993, 28.0006)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
 script = ExtResource("11_jd4nr")
 
@@ -567,7 +601,7 @@ texture = ExtResource("26_vpb3c")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 8/Elements"]
 texture_filter = 4
 position = Vector2(24, 25)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
@@ -575,9 +609,8 @@ script = ExtResource("11_jd4nr")
 texture_filter = 4
 position = Vector2(24, 68)
 rotation = -1.57079
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-animation = &"playstation"
 script = ExtResource("11_jd4nr")
 
 [node name="Info Sign 9" type="Sprite2D" parent="Stage Objects/Info Signs"]
@@ -613,14 +646,14 @@ texture = ExtResource("26_vpb3c")
 [node name="B-button" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 9/Elements"]
 texture_filter = 4
 position = Vector2(25.9994, 28.0005)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_e2ldr")
 script = ExtResource("11_jd4nr")
 
 [node name="Dpad-dright" type="AnimatedSprite2D" parent="Stage Objects/Info Signs/Info Sign 9/Elements"]
 texture_filter = 4
 position = Vector2(59.9991, 58.5019)
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_xtu4v")
 script = ExtResource("11_jd4nr")
 
@@ -675,9 +708,8 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 4
 position = Vector2(26.9993, 28.5017)
 rotation = -3.14159
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.043, 0.043)
 sprite_frames = SubResource("SpriteFrames_0vuw3")
-animation = &"playstation"
 script = ExtResource("14_cqdmh")
 
 [node name="Sonics" type="Node2D" parent="Stage Objects/Info Signs/Info Sign 10/Elements"]
