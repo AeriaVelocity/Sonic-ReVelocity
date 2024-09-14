@@ -7,7 +7,7 @@ func _process(_delta):
             button_prompts = "playstation"
         "Nintendo Switch Pro Controller":
             button_prompts = "nintendo"
-        "XInput Controller", "Xbox 360 Controller", "Xbox One Controller", "Xbox Series Controller":
+        "XInput Gamepad", "Xbox 360 Controller", "Xbox One Controller", "Xbox Series Controller":
             button_prompts = "xbox"
         "":
             if DisplayServer.is_touchscreen_available():
