@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bc0sds7o685ht"]
+[gd_scene load_steps=22 format=3 uid="uid://bc0sds7o685ht"]
 
 [ext_resource type="Script" path="res://Scripts/LevelStatsDisplay.gd" id="1_p3cjv"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="1_y8qj5"]
@@ -6,7 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://cw7jxwjvsrlm7" path="res://Music/victory.mp3" id="4_kpax7"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="5_qpbyf"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="6_q6gwg"]
-[ext_resource type="Texture2D" uid="uid://t573e0iyq2eq" path="res://Graphics/Info Signs/xbox-unused1.png" id="7_26k3w"]
+[ext_resource type="Texture2D" uid="uid://bin0aegm30ax1" path="res://Graphics/Touch Buttons/x-button.png" id="7_vqr41"]
+[ext_resource type="Texture2D" uid="uid://b8rsjiau2323f" path="res://Graphics/Touch Buttons/x-button-touched.png" id="8_rslxx"]
 [ext_resource type="Texture2D" uid="uid://dvbghtag4eoui" path="res://Graphics/Touch Buttons/a-button.png" id="11_je75x"]
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="12_cf74e"]
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="13_0afnu"]
@@ -172,20 +173,22 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_1dys0")
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 382.0
-offset_top = -298.0
+offset_top = -540.0
 offset_right = -382.0
-offset_bottom = 298.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k0wh5")
 
 [node name="Title" type="Label" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -197,6 +200,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Level" type="Label" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -209,6 +213,7 @@ horizontal_alignment = 1
 
 [node name="Rank" type="Label" parent="Panel"]
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -221,12 +226,14 @@ offset_right = 66.0
 offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 pivot_offset = Vector2(66, 92)
 text = "Z"
 label_settings = SubResource("LabelSettings_qfwci")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -262,6 +269,7 @@ libraries = {
 }
 
 [node name="Controls" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -286,13 +294,6 @@ script = ExtResource("6_q6gwg")
 [node name="Left" type="Node2D" parent="TouchControls"]
 position = Vector2(0, 478)
 
-[node name="Unused1" type="TouchScreenButton" parent="TouchControls/Left"]
-position = Vector2(-1, -2)
-texture_normal = ExtResource("7_26k3w")
-shape = SubResource("CircleShape2D_og6s2")
-action = "Unused1"
-visibility_mode = 1
-
 [node name="Right" type="Node2D" parent="TouchControls"]
 position = Vector2(1819, 478)
 
@@ -310,4 +311,12 @@ texture_normal = ExtResource("13_0afnu")
 texture_pressed = ExtResource("14_mmfvk")
 shape = SubResource("CircleShape2D_og6s2")
 action = "Spin"
+visibility_mode = 1
+
+[node name="Unused1" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-500, -279)
+texture_normal = ExtResource("7_vqr41")
+texture_pressed = ExtResource("8_rslxx")
+shape = SubResource("CircleShape2D_og6s2")
+action = "Unused1"
 visibility_mode = 1
