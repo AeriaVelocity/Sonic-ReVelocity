@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://f0sp4mwl4ub6"]
+[gd_scene load_steps=21 format=3 uid="uid://f0sp4mwl4ub6"]
 
 [ext_resource type="Texture2D" uid="uid://cg1u6y0qtop3" path="res://Gradients/Controllers_Gradient.tres" id="2_3y2sx"]
 [ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="2_b1two"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bdeek0otbptd5" path="res://Gradients/SAGE2024_Gradient.tres" id="2_kp0bx"]
 [ext_resource type="Texture2D" uid="uid://ds8fltl6c3gnu" path="res://Graphics/aeria-logo.png" id="2_wowut"]
 [ext_resource type="AudioStream" uid="uid://dwpsn422fqvqx" path="res://Sounds/sega-ding.mp3" id="3_7rrao"]
-[ext_resource type="Texture2D" uid="uid://b64g4y5h6wn6i" path="res://Graphics/SAGE_2024_Backdrop.png" id="5_mdmc4"]
 [ext_resource type="Texture2D" uid="uid://crnya85khd6jj" path="res://Graphics/xbox-controller.png" id="8_quh6a"]
 [ext_resource type="Texture2D" uid="uid://dd67wgwn80lvk" path="res://Graphics/ps5-controller.png" id="9_m5ky2"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="10_luigo"]
@@ -217,28 +216,6 @@ libraries = {
 "": SubResource("AnimationLibrary_pq556")
 }
 autoplay = "fade_in_out"
-
-[node name="SAGELogo" type="TextureRect" parent="Background"]
-modulate = Color(0, 0, 0, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -619.0
-offset_top = -412.0
-offset_right = 620.0
-offset_bottom = 414.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_mdmc4")
-expand_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/SAGELogo"]
-libraries = {
-"": SubResource("AnimationLibrary_0qnqj")
-}
 
 [node name="Logo" type="TextureRect" parent="Background"]
 modulate = Color(0, 0, 0, 0)

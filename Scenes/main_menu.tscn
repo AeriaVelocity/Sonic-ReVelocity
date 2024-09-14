@@ -262,15 +262,14 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1165.0
-offset_top = -332.0
+offset_top = -276.0
 offset_right = -15.0
 offset_bottom = -167.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_dffj0")
-text = "This is the SAGE 2024 demo of Sonic Re;Velocity.
-Expect bugs, unintended behaviour and a lack of perfection.
-Remember, it's still Green Hill Zone Simulator at the core."
+text = "This is an unfinished version of Sonic Re;Velocity.
+Expect bugs, unintended behaviour and a lack of perfection."
 label_settings = SubResource("LabelSettings_j6tqh")
 horizontal_alignment = 2
 vertical_alignment = 2

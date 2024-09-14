@@ -5,9 +5,6 @@ extends ColorRect
 func _ready():
     $SubBackground/AnimationPlayer.play("AeriaVelocity")
     await($Logo/AnimationPlayer.animation_finished)
-    $SubBackground/AnimationPlayer.play("SAGE2024")
-    $SAGELogo/AnimationPlayer.play("displaythenfade")
-    await($SAGELogo/AnimationPlayer.animation_finished)
     $SubBackground/AnimationPlayer.play("Controllers")
     $ControllerHint/AnimationPlayer.play("displaythenfade")
     await($ControllerHint/AnimationPlayer.animation_finished)
