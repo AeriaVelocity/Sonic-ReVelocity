@@ -243,6 +243,25 @@ func check_wall_jumpable() -> bool:
 func _process(_delta):
     $BoostSprite.visible = VelocitySystem.velocity_state
     $BoostSprite.rotation = velocity.angle()
+    if VelocitySystem.velocity_state:
+        create_boost_trail()
+
+func create_boost_trail():
+    var trail = Sprite2D.new()
+    var sprite = $SonicSprite.sprite_frames.get_frame_texture($SonicSprite.animation, $SonicSprite.frame)
+    trail.texture = load(sprite.get_path())
+    trail.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+    trail.position = position
+    trail.modulate = Color(1, 1, 1, 0.4)
+    trail.flip_h = $SonicSprite.flip_h
+    get_parent().add_child(trail)
+
+    var timer = Timer.new()
+    timer.one_shot = true
+    timer.wait_time = 0.25
+    timer.timeout.connect(trail.queue_free)
+    get_parent().add_child(timer)
+    timer.start()
 
 func _physics_process(delta):
     set_camera_offset(delta)
