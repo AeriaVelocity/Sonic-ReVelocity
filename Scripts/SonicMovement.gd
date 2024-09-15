@@ -243,7 +243,7 @@ func check_wall_jumpable() -> bool:
 func _process(_delta):
     $BoostSprite.visible = VelocitySystem.velocity_state
     $BoostSprite.rotation = velocity.angle()
-    if VelocitySystem.velocity_state:
+    if VelocitySystem.velocity_state and abs(velocity) > Vector2.ZERO:
         create_boost_trail()
 
 func create_boost_trail():
@@ -254,11 +254,12 @@ func create_boost_trail():
     trail.position = position
     trail.modulate = Color(1, 1, 1, 0.4)
     trail.flip_h = $SonicSprite.flip_h
+    trail.show_behind_parent = true
     get_parent().add_child(trail)
 
     var timer = Timer.new()
     timer.one_shot = true
-    timer.wait_time = 0.25
+    timer.wait_time = 0.15
     timer.timeout.connect(trail.queue_free)
     get_parent().add_child(timer)
     timer.start()
