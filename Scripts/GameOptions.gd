@@ -8,8 +8,10 @@ var camera_smoothing_amount: int
 var fps_cap: int
 var button_prompts: int
 
+const CONFIG_FILE = "user://game-config.cfg"
+
 func _ready():
-    config.load("user://game-config.cfg")
+    config.load(CONFIG_FILE)
     read_config()
     set_config()
 
@@ -28,6 +30,7 @@ func set_config():
     config.set_value("settings", "button_prompts", button_prompts)
     read_config()
     apply_config()
+    config.save(CONFIG_FILE)
 
 func apply_config():
     # Full screen
