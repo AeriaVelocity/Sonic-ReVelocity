@@ -206,7 +206,7 @@ func quick_spin_down(down_speed) -> Vector2:
 var camera_speed_multiplier: float = 0.2
 
 func set_camera_offset(delta):
-    var offset_x = velocity.x * camera_speed_multiplier / 3
+    var offset_x = velocity.x * camera_speed_multiplier / 3.5
     var offset_y = velocity.y * camera_speed_multiplier / 12
 
     if abs(velocity.x) > 0:
@@ -243,8 +243,6 @@ func check_wall_jumpable() -> bool:
 func _process(_delta):
     $BoostSprite.visible = VelocitySystem.velocity_state
     $BoostSprite.rotation = velocity.angle()
-    if VelocitySystem.velocity_state and abs(velocity) > Vector2.ZERO:
-        create_boost_trail()
 
 func create_boost_trail():
     var trail = Sprite2D.new()
@@ -252,7 +250,7 @@ func create_boost_trail():
     trail.texture = load(sprite.get_path())
     trail.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
     trail.position = position
-    trail.modulate = Color(1, 1, 1, 0.4)
+    trail.modulate = Color(1, 1, 1, 0.6)
     trail.flip_h = $SonicSprite.flip_h
     trail.show_behind_parent = true
     get_parent().add_child(trail)
@@ -267,6 +265,9 @@ func create_boost_trail():
 func _physics_process(delta):
     set_camera_offset(delta)
     inc_velocity_gauge(abs(velocity.x))
+
+    if VelocitySystem.velocity_state and abs(velocity) > Vector2.ZERO:
+        create_boost_trail()
 
     if is_dead:
         return
