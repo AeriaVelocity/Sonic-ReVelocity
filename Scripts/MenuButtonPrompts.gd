@@ -5,20 +5,33 @@ const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 var original_text: String
 
 func get_controller_specific_prompt(button: String) -> String:
-    match ControllerHandling.get_real_joy_name():
-        "PS4 Controller", "PS5 Controller":
-            return "[img=64x64]" + GRAPHICS_PATH + "ps-" + button + ".png[/img]"
-        "Nintendo Switch Pro Controller":
-            return "[img=64x64]" + GRAPHICS_PATH + "nswitch-" + button + ".png[/img]"
-        "XInput Gamepad", "Xbox 360 Controller", "Xbox One Controller", "Xbox Series Controller":
-            return "[img=64x64]" + GRAPHICS_PATH + "xbox-" + button + ".png[/img]"
-        "":
-            if DisplayServer.is_touchscreen_available():
+    if GameOptions.button_prompts == 0: # Automatic
+        match ControllerHandling.get_real_joy_name():
+            "PS4 Controller", "PS5 Controller":
+                return "[img=64x64]" + GRAPHICS_PATH + "ps-" + button + ".png[/img]"
+            "Nintendo Switch Pro Controller":
+                return "[img=64x64]" + GRAPHICS_PATH + "nswitch-" + button + ".png[/img]"
+            "XInput Gamepad", "Xbox 360 Controller", "Xbox One Controller", "Xbox Series Controller":
                 return "[img=64x64]" + GRAPHICS_PATH + "xbox-" + button + ".png[/img]"
-            else:
+            "":
+                if DisplayServer.is_touchscreen_available():
+                    return "[img=64x64]" + GRAPHICS_PATH + "xbox-" + button + ".png[/img]"
+                else:
+                    return "[img=64x64]" + GRAPHICS_PATH + "kbd-" + button + ".png[/img]"
+            _:
+                return "[img=64x64]" + GRAPHICS_PATH + "generic-" + button + ".png[/img]"
+    else:
+        match GameOptions.button_prompts:
+            1: # Xbox
+                return "[img=64x64]" + GRAPHICS_PATH + "xbox-" + button + ".png[/img]"
+            2: # PlayStation
+                return "[img=64x64]" + GRAPHICS_PATH + "ps-" + button + ".png[/img]"
+            3: # Switch Pro
+                return "[img=64x64]" + GRAPHICS_PATH + "nswitch-" + button + ".png[/img]"
+            5: # Keyboard
                 return "[img=64x64]" + GRAPHICS_PATH + "kbd-" + button + ".png[/img]"
-        _:
-            return "[img=64x64]" + GRAPHICS_PATH + "generic-" + button + ".png[/img]"
+            _: # Positional (4), or fallback
+                return "[img=64x64]" + GRAPHICS_PATH + "generic-" + button + ".png[/img]"
 
 func up_button() -> String:
     return get_controller_specific_prompt("up")

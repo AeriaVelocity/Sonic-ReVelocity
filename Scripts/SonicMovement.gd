@@ -209,6 +209,8 @@ func set_camera_offset(delta):
     var offset_x = velocity.x * camera_speed_multiplier / 3.5
     var offset_y = velocity.y * camera_speed_multiplier / 12
 
+    $Camera2D.position_smoothing_enabled = GameOptions.camera_smoothing
+
     if abs(velocity.x) > 0:
         $Camera2D.offset.x = offset_x
     else:

@@ -1,8 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cju4jjrx6o8qh"]
+[gd_scene load_steps=20 format=3 uid="uid://cju4jjrx6o8qh"]
 
+[ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_4hi4i"]
 [ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_m1v31"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_mitix"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="4_mov84"]
+[ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="5_dnfn3"]
+[ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_506a0"]
+[ext_resource type="Script" path="res://Scripts/DPadVisibility.gd" id="7_gtnka"]
+[ext_resource type="Texture2D" uid="uid://dwqo28p80k4f8" path="res://Graphics/Touch Buttons/touch-arrow-empty.png" id="8_oxpu1"]
+[ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="9_ysa26"]
+[ext_resource type="Texture2D" uid="uid://dvbghtag4eoui" path="res://Graphics/Touch Buttons/a-button.png" id="10_iubm4"]
+[ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="11_klaeu"]
+[ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="12_ij6nq"]
+[ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="13_4ni77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kean2"]
 bg_color = Color(0.837429, 0.63153, 1, 0.866667)
@@ -20,6 +30,12 @@ font = ExtResource("2_mitix")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw6yf"]
+radius = 58.81
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ics7b"]
+radius = 139.19
+
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4hi4i")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -102,6 +119,50 @@ layout_mode = 2
 text = "Camera Smoothing Amount"
 label_settings = SubResource("LabelSettings_lslx0")
 
+[node name="FPSCap" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Options/FPSCap"]
+layout_mode = 2
+selected = 1
+item_count = 4
+popup/item_0/text = "30 FPS"
+popup/item_1/text = "60 FPS"
+popup/item_1/id = 1
+popup/item_2/text = "120 FPS"
+popup/item_2/id = 2
+popup/item_3/text = "Uncapped"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Options/FPSCap"]
+layout_mode = 2
+text = "FPS Cap"
+label_settings = SubResource("LabelSettings_lslx0")
+
+[node name="ButtonPrompts" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Options/ButtonPrompts"]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "Automatic"
+popup/item_1/text = "Xbox"
+popup/item_1/id = 1
+popup/item_2/text = "PlayStation"
+popup/item_2/id = 2
+popup/item_3/text = "Switch Pro"
+popup/item_3/id = 3
+popup/item_4/text = "Positional"
+popup/item_4/id = 4
+popup/item_5/text = "Keyboard"
+popup/item_5/id = 5
+
+[node name="Label" type="Label" parent="Options/ButtonPrompts"]
+layout_mode = 2
+text = "Button Prompts"
+label_settings = SubResource("LabelSettings_lslx0")
+
 [node name="Tooltip" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -136,3 +197,56 @@ bbcode_enabled = true
 text = "[right]{Jump} Confirm  {Spin} Back[/right]"
 fit_content = true
 script = ExtResource("4_mov84")
+
+[node name="TouchControls" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(1, -82)
+script = ExtResource("5_dnfn3")
+
+[node name="Left" type="Node2D" parent="TouchControls"]
+position = Vector2(0, 478)
+
+[node name="D-Pad" type="Sprite2D" parent="TouchControls/Left"]
+texture_filter = 4
+position = Vector2(189, 109)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("6_506a0")
+script = ExtResource("7_gtnka")
+
+[node name="UpButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
+position = Vector2(-45.8824, -122.941)
+texture_normal = ExtResource("8_oxpu1")
+texture_pressed = ExtResource("9_ysa26")
+shape = SubResource("CircleShape2D_nw6yf")
+passby_press = true
+action = "MenuUp"
+visibility_mode = 1
+
+[node name="DownButton" type="TouchScreenButton" parent="TouchControls/Left/D-Pad"]
+position = Vector2(48.2353, 123.529)
+rotation = -3.14159
+texture_normal = ExtResource("8_oxpu1")
+texture_pressed = ExtResource("9_ysa26")
+shape = SubResource("CircleShape2D_nw6yf")
+passby_press = true
+action = "MenuDown"
+visibility_mode = 1
+
+[node name="Right" type="Node2D" parent="TouchControls"]
+position = Vector2(1819, 478)
+
+[node name="JumpButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-500, 0)
+texture_normal = ExtResource("10_iubm4")
+texture_pressed = ExtResource("11_klaeu")
+shape = SubResource("CircleShape2D_ics7b")
+action = "Jump"
+visibility_mode = 1
+
+[node name="SpinButton" type="TouchScreenButton" parent="TouchControls/Right"]
+position = Vector2(-219, -2)
+texture_normal = ExtResource("12_ij6nq")
+texture_pressed = ExtResource("13_4ni77")
+shape = SubResource("CircleShape2D_ics7b")
+action = "Spin"
+visibility_mode = 1

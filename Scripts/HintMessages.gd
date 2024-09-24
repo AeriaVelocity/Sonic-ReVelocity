@@ -3,18 +3,33 @@ extends Area2D
 const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
 func get_button_image(type: String) -> String:
-    match ControllerHandling.get_real_joy_name():
-        "PS4 Controller", "PS5 Controller":
-            return get_image_path(type, "ps")
-        "Nintendo Switch Pro Controller":
-            return get_image_path(type, "nswitch")
-        "":
-            if DisplayServer.is_touchscreen_available():
+    if GameOptions.button_prompts == 0: # Automatic
+        match ControllerHandling.get_real_joy_name():
+            "PS4 Controller", "PS5 Controller":
+                return get_image_path(type, "ps")
+            "Nintendo Switch Pro Controller":
+                return get_image_path(type, "nswitch")
+            "XInput Gamepad", "Xbox 360 Controller", "Xbox One Controller", "Xbox Series Controller":
                 return get_image_path(type, "xbox")
-            else:
+            "":
+                if DisplayServer.is_touchscreen_available():
+                    return get_image_path(type, "xbox")
+                else:
+                    return get_image_path(type, "kbd")
+            _:
+                return get_image_path(type, "generic")
+    else:
+        match GameOptions.button_prompts:
+            1: # Xbox
+                return get_image_path(type, "xbox")
+            2: # PlayStation
+                return get_image_path(type, "ps")
+            3: # Switch Pro
+                return get_image_path(type, "nswitch")
+            5: # Keyboard
                 return get_image_path(type, "kbd")
-        _:
-            return get_image_path(type, "xbox")
+            _: # Positional (4), or fallback
+                return get_image_path(type, "generic")
 
 func get_image_path(type: String, controller: String) -> String:
     return "[img=64x64]" + GRAPHICS_PATH + controller + "-" + type.to_lower() + ".png[/img]"

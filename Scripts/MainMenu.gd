@@ -74,10 +74,7 @@ func activate_selected_option():
             LevelStats.rings = 0
             get_tree().change_scene_to_file("res://Scenes/test-level.tscn")
         1:
-            unimplemented_popup = preload("res://Scenes/popup.tscn").instantiate()
-            add_child(unimplemented_popup)
-            unimplemented_popup.title_text = "Unimplemented"
-            unimplemented_popup.message_text = "The options menu is not yet implemented.\nPlease check back in a future update."
+            get_tree().change_scene_to_file("res://Scenes/options_menu.tscn")
         2:
             get_tree().quit()
 
