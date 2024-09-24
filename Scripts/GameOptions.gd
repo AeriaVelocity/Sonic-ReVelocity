@@ -37,15 +37,7 @@ func apply_config():
     DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN if full_screen else DisplayServer.WINDOW_MODE_WINDOWED)
 
     # FPS cap
-    match fps_cap:
-        0:
-            Engine.max_fps = 30
-        1:
-            Engine.max_fps = 60
-        2:
-            Engine.max_fps = 120
-        _:
-            Engine.max_fps = 0
+    Engine.max_fps = fps_cap
 
     # Camera smoothing and button prompts will be handled elsewhere, using this
     # script's variables
