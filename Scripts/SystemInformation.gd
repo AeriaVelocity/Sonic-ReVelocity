@@ -5,10 +5,11 @@ var sysinfo_text: String
 
 func handle_exit():
     if Input.is_action_just_pressed("Jump"):
-        if ControllerHandling.get_real_joy_name() == "Nintendo Switch Pro Controller":
-            get_tree().change_scene_to_file("res://Scenes/main-menu.tscn")
+        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+            get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
     elif Input.is_action_just_pressed("Spin"):
-        get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+        if GameOptions.button_prompts != GameOptions.Buttons.Switch:
+            get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func get_inputs() -> Dictionary:
     var inputs: Dictionary = {}

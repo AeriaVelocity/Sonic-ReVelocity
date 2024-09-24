@@ -42,10 +42,10 @@ func _process(_delta):
 
 func _input(_event):
     if Input.is_action_just_pressed("Jump"):
-        if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
+        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
     elif Input.is_action_just_pressed("Spin"):
-        if Input.get_joy_name(0) != "Nintendo Switch Pro Controller":
+        if GameOptions.button_prompts != GameOptions.Buttons.Switch:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_option_toggled(t: bool):

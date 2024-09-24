@@ -5,7 +5,7 @@ const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 var original_text: String
 
 func get_controller_specific_prompt(button: String) -> String:
-    if GameOptions.button_prompts == 0: # Automatic
+    if GameOptions.button_prompts == GameOptions.Buttons.Automatic:
         match ControllerHandling.get_real_joy_name():
             "PS4 Controller", "PS5 Controller":
                 return "[img=64x64]" + GRAPHICS_PATH + "ps-" + button + ".png[/img]"
@@ -40,10 +40,16 @@ func down_button() -> String:
     return get_controller_specific_prompt("down")
 
 func jump_button() -> String:
-    return get_controller_specific_prompt("jump")
+    if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        return get_controller_specific_prompt("spin")
+    else:
+        return get_controller_specific_prompt("jump")
 
 func spin_button() -> String:
-    return get_controller_specific_prompt("spin")
+    if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        return get_controller_specific_prompt("jump")
+    else:
+        return get_controller_specific_prompt("spin")
 
 func special1_button() -> String:
     return get_controller_specific_prompt("unused1")
@@ -55,8 +61,4 @@ func _ready():
     original_text = text
 
 func _process(_delta):
-    match ControllerHandling.get_real_joy_name():
-        "Nintendo Switch Pro Controller":
-            set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": spin_button(), "Spin": jump_button(), "Special1": special1_button(), "Special2": special2_button()}))
-        _:
-            set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button(), "Special1": special1_button(), "Special2": special2_button()}))
+    set_text(original_text.format({"Up": up_button(), "Down": down_button(), "Jump": jump_button(), "Spin": spin_button(), "Special1": special1_button(), "Special2": special2_button()}))

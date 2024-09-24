@@ -1,5 +1,14 @@
 extends Node
 
+enum Buttons {
+    Automatic,
+    Xbox,
+    PlayStation,
+    Switch,
+    Positional,
+    Keyboard
+}
+
 @onready var config = ConfigFile.new()
 
 var full_screen: bool

@@ -44,13 +44,13 @@ func handle_input():
         $MoveSound.play()
         update_highlight_position()
     elif Input.is_action_just_pressed("Jump"):
-        if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
+        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
             get_tree().change_scene_to_file("res://Scenes/intro.tscn")
         else:
             $SelectSound.play()
             activate_selected_option()
     elif Input.is_action_just_pressed("Spin"):
-        if Input.get_joy_name(0) == "Nintendo Switch Pro Controller":
+        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
             $SelectSound.play()
             activate_selected_option()
         else:
