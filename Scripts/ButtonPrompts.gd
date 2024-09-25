@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 func _process(_delta):
     var button_prompts = "default"
     if GameOptions.button_prompts == 0: # Automatic
-        match ControllerHandling.get_real_joy_name():
+        match Input.get_joy_name(0):
             "PS4 Controller", "PS5 Controller":
                 button_prompts = "playstation"
             "Nintendo Switch Pro Controller":

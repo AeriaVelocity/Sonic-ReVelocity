@@ -4,7 +4,7 @@ const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
 func get_controller_specific_prompt(button: String) -> String:
     if GameOptions.button_prompts == GameOptions.Buttons.Automatic:
-        match ControllerHandling.get_real_joy_name():
+        match Input.get_joy_name(0):
             "PS4 Controller", "PS5 Controller":
                 return "[img=64x64]" + GRAPHICS_PATH + "ps-" + button + ".png[/img]"
             "Nintendo Switch Pro Controller":

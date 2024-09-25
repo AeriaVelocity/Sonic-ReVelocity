@@ -12,7 +12,7 @@ func _ready():
 
 func _process(_delta):
     var hint: String
-    match ControllerHandling.get_real_joy_name():
+    match Input.get_joy_name(0):
         "Xbox 360 Controller", "Xbox One Controller", "XInput Gamepad":
             hint = "Press Menu to skip"
         "PS4 Controller", "PS5 Controller":

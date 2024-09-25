@@ -4,7 +4,7 @@ const GRAPHICS_PATH = "res://Graphics/Info Signs/"
 
 func get_button_image(type: String) -> String:
     if GameOptions.button_prompts == 0: # Automatic
-        match ControllerHandling.get_real_joy_name():
+        match Input.get_joy_name(0):
             "PS4 Controller", "PS5 Controller":
                 return get_image_path(type, "ps")
             "Nintendo Switch Pro Controller":
@@ -88,12 +88,12 @@ func _hint_9(body):
         "It's called Sonic [b]Re;[/b]Velocity because there's already a Sonic Velocity.",
         "The [i]Re[/i] in Sonic Re;Velocity stands for Renewed.\nSo if you want, you can call it Sonic Renewed Velocity.",
     ]
-    if ControllerHandling.get_real_joy_name() == "" and !DisplayServer.is_touchscreen_available():
+    if Input.get_joy_name(0) == "" and !DisplayServer.is_touchscreen_available():
         random_messages.append(
             "You can access a secret System Information page on the title screen!\nPress and hold the left and right mouse buttons and press %s to access it."
             % get_button_image("Unused2")
         )
-    elif ControllerHandling.get_real_joy_name() != "":
+    elif Input.get_joy_name(0) != "":
         random_messages.append(
             "You can access a secret System Information page on the title screen!\nPress and hold the left and right triggers and press %s to access it."
             % get_button_image("Unused2")
