@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cju4jjrx6o8qh"]
+[gd_scene load_steps=51 format=3 uid="uid://cju4jjrx6o8qh"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_4hi4i"]
 [ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_m1v31"]
@@ -15,6 +15,27 @@
 [ext_resource type="Texture2D" uid="uid://coqqu0wvl66h5" path="res://Graphics/Touch Buttons/a-button-touched.png" id="11_klaeu"]
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="12_ij6nq"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="13_4ni77"]
+[ext_resource type="Texture2D" uid="uid://dpifww6andy4b" path="res://Graphics/Info Signs/generic-spin.png" id="16_h2ux8"]
+[ext_resource type="Texture2D" uid="uid://rsok8kkcagj3" path="res://Graphics/Info Signs/generic-jump.png" id="16_xb7jb"]
+[ext_resource type="Texture2D" uid="uid://bnie26y85pth2" path="res://Graphics/Info Signs/kbd-spin.png" id="17_su02i"]
+[ext_resource type="Texture2D" uid="uid://btsdo62exrpks" path="res://Graphics/Info Signs/kbd-jump.png" id="17_tyi4i"]
+[ext_resource type="Texture2D" uid="uid://b1oeg4biqcftw" path="res://Graphics/Info Signs/nswitch-spin.png" id="18_2iyo4"]
+[ext_resource type="Texture2D" uid="uid://qanm1vf3ijru" path="res://Graphics/Info Signs/nswitch-jump.png" id="18_fpdnh"]
+[ext_resource type="Texture2D" uid="uid://rc6bdcgm0pn4" path="res://Graphics/Info Signs/ps-jump.png" id="19_3lt1q"]
+[ext_resource type="Texture2D" uid="uid://dehcjj2aq5r46" path="res://Graphics/Info Signs/ps-spin.png" id="19_ob0eb"]
+[ext_resource type="Texture2D" uid="uid://do6pgwtjfvuho" path="res://Graphics/Info Signs/xbox-jump.png" id="20_04qph"]
+[ext_resource type="Texture2D" uid="uid://b02kwg6wvw4o7" path="res://Graphics/Info Signs/xbox-spin.png" id="20_k2ui4"]
+[ext_resource type="Script" path="res://Scripts/ButtonPrompts.gd" id="21_wq1fl"]
+[ext_resource type="Texture2D" uid="uid://cpt0cnhyeudny" path="res://Graphics/Info Signs/generic-unused1.png" id="27_umhxv"]
+[ext_resource type="Texture2D" uid="uid://wulx3stqb4ea" path="res://Graphics/Info Signs/kbd-unused1.png" id="28_mq8p1"]
+[ext_resource type="Texture2D" uid="uid://c25e2roqbe7vc" path="res://Graphics/Info Signs/nswitch-unused1.png" id="29_8gq8o"]
+[ext_resource type="Texture2D" uid="uid://be4433akdewkf" path="res://Graphics/Info Signs/ps-unused1.png" id="30_ib6od"]
+[ext_resource type="Texture2D" uid="uid://t573e0iyq2eq" path="res://Graphics/Info Signs/xbox-unused1.png" id="31_hesw7"]
+[ext_resource type="Texture2D" uid="uid://ddu1cna2qs835" path="res://Graphics/Info Signs/generic-unused2.png" id="32_csnfd"]
+[ext_resource type="Texture2D" uid="uid://m55jxvxmt22l" path="res://Graphics/Info Signs/kbd-unused2.png" id="33_7q375"]
+[ext_resource type="Texture2D" uid="uid://dtn3y28fmgfe4" path="res://Graphics/Info Signs/nswitch-unused2.png" id="34_cqy2r"]
+[ext_resource type="Texture2D" uid="uid://cq1uj88ptefrq" path="res://Graphics/Info Signs/ps-unused2.png" id="35_3iepl"]
+[ext_resource type="Texture2D" uid="uid://dahr0rwaja687" path="res://Graphics/Info Signs/xbox-unused2.png" id="36_r5aot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kean2"]
 bg_color = Color(0.837429, 0.63153, 1, 0.866667)
@@ -33,6 +54,178 @@ LineEdit/fonts/font = ExtResource("2_mitix")
 [sub_resource type="LabelSettings" id="LabelSettings_lslx0"]
 font = ExtResource("2_mitix")
 font_size = 30
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsosx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xb7jb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_tyi4i")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_fpdnh")
+}],
+"loop": true,
+"name": &"nintendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_3lt1q")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_04qph")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m7nk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_h2ux8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_su02i")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_2iyo4")
+}],
+"loop": true,
+"name": &"nintendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_ob0eb")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_k2ui4")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61jmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_umhxv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_mq8p1")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_8gq8o")
+}],
+"loop": true,
+"name": &"nintendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_ib6od")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_hesw7")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cpxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_csnfd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_7q375")
+}],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_cqy2r")
+}],
+"loop": true,
+"name": &"nintendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_3iepl")
+}],
+"loop": true,
+"name": &"playstation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_r5aot")
+}],
+"loop": true,
+"name": &"xbox",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wknq0"]
 bg_color = Color(0.837429, 0.63153, 1, 0.866667)
@@ -204,6 +397,40 @@ popup/item_5/id = 5
 layout_mode = 2
 text = "Button Prompts"
 label_settings = SubResource("LabelSettings_lslx0")
+
+[node name="Buttons" type="Node2D" parent="Options/ButtonPrompts"]
+position = Vector2(471, 24)
+
+[node name="A-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
+texture_filter = 6
+scale = Vector2(0.365, 0.365)
+sprite_frames = SubResource("SpriteFrames_tsosx")
+animation = &"xbox"
+script = ExtResource("21_wq1fl")
+
+[node name="B-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
+texture_filter = 6
+position = Vector2(52, 0)
+scale = Vector2(0.365, 0.365)
+sprite_frames = SubResource("SpriteFrames_6m7nk")
+animation = &"xbox"
+script = ExtResource("21_wq1fl")
+
+[node name="X-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
+texture_filter = 6
+position = Vector2(104, 0)
+scale = Vector2(0.365, 0.365)
+sprite_frames = SubResource("SpriteFrames_61jmk")
+animation = &"xbox"
+script = ExtResource("21_wq1fl")
+
+[node name="Y-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
+texture_filter = 6
+position = Vector2(156, 0)
+scale = Vector2(0.365, 0.365)
+sprite_frames = SubResource("SpriteFrames_6cpxk")
+animation = &"xbox"
+script = ExtResource("21_wq1fl")
 
 [node name="NoControllerWarning" type="Label" parent="."]
 layout_mode = 1
