@@ -22,6 +22,7 @@ Button Prompts (dropdown: Automatic, Xbox, PlayStation, Switch Pro, Positional, 
 
 func _ready():
     tooltip = $Tooltip
+    handle_tooltip()
 
     selected_option_index = 0
 
@@ -36,9 +37,6 @@ func _ready():
     camera_smoothing_amount_control.connect("value_changed", _on_opt_value_changed)
     fps_cap_control.connect("item_selected", _on_opt_item_selected)
     button_prompts_control.connect("item_selected", _on_opt_item_selected)
-
-func _process(_delta):
-    handle_tooltip()
 
 func _input(_event):
     if Input.is_action_just_pressed("Jump"):
@@ -68,6 +66,19 @@ func apply_options(message: String = ""):
     GameOptions.set_config()
 
 func handle_tooltip():
-    tooltip.text = "Configure options and settings. (Use the mouse.)"
-    if DisplayServer.is_touchscreen_available():
-        tooltip.text = "Configure options and settings. (Use the touchscreen.)"
+    tooltip.text = "Configure options and settings."
+
+func _full_screen_tooltip():
+    tooltip.text = "Toggle full screen mode."
+
+func _camera_smoothing_tooltip():
+    tooltip.text = "Toggle camera position smoothing."
+
+func _smoothing_amount_tooltip():
+    tooltip.text = "Set the camera position smoothing factor."
+
+func _fps_cap_tooltip():
+    tooltip.text = "Set the target FPS (30, 60, 120, 144 or 240)."
+
+func _button_prompts_tooltip():
+    tooltip.text = "Change what button prompts you see in-game."

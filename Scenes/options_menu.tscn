@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cju4jjrx6o8qh"]
+[gd_scene load_steps=26 format=3 uid="uid://cju4jjrx6o8qh"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_4hi4i"]
 [ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_m1v31"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_mitix"]
+[ext_resource type="Texture2D" uid="uid://c66h2tpv62li" path="res://Graphics/checkbox_unchecked.png" id="4_gtwfl"]
+[ext_resource type="Texture2D" uid="uid://cvkafjxvykwvb" path="res://Graphics/checkbox_checked.png" id="4_ib3i3"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="4_mov84"]
 [ext_resource type="Script" path="res://Scripts/TouchScreenButtonPositioning.gd" id="5_dnfn3"]
 [ext_resource type="Texture2D" uid="uid://cbbbskqnvi0y3" path="res://Graphics/Touch Buttons/d-pad.png" id="6_506a0"]
@@ -22,8 +24,28 @@ skew = Vector2(1, 0)
 font = ExtResource("2_mitix")
 font_size = 120
 
+[sub_resource type="Theme" id="Theme_jyiwg"]
+
+[sub_resource type="Theme" id="Theme_fspuh"]
+LineEdit/font_sizes/font_size = 30
+LineEdit/fonts/font = ExtResource("2_mitix")
+
 [sub_resource type="LabelSettings" id="LabelSettings_lslx0"]
 font = ExtResource("2_mitix")
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wknq0"]
+bg_color = Color(0.837429, 0.63153, 1, 0.866667)
+skew = Vector2(1, 0)
+expand_margin_left = 95.0
+expand_margin_top = 5.0
+expand_margin_right = 50.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ns30r"]
+font = ExtResource("2_mitix")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6cor"]
 font = ExtResource("2_mitix")
@@ -100,19 +122,30 @@ grow_vertical = 2
 
 [node name="FullScreen" type="CheckBox" parent="Options"]
 layout_mode = 2
+theme = SubResource("Theme_jyiwg")
+theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("2_mitix")
+theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = ExtResource("4_ib3i3")
+theme_override_icons/unchecked = ExtResource("4_gtwfl")
 text = "Full Screen"
 
 [node name="CameraSmoothing" type="CheckBox" parent="Options"]
 layout_mode = 2
+theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("2_mitix")
+theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = ExtResource("4_ib3i3")
+theme_override_icons/unchecked = ExtResource("4_gtwfl")
 text = "Camera Smoothing"
 
 [node name="CamSmoothAmount" type="HBoxContainer" parent="Options"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="SpinBox" type="SpinBox" parent="Options/CamSmoothAmount"]
 layout_mode = 2
+theme = SubResource("Theme_fspuh")
 
 [node name="Label" type="Label" parent="Options/CamSmoothAmount"]
 layout_mode = 2
@@ -121,9 +154,12 @@ label_settings = SubResource("LabelSettings_lslx0")
 
 [node name="FPSCap" type="HBoxContainer" parent="Options"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="OptionButton" type="OptionButton" parent="Options/FPSCap"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mitix")
+theme_override_font_sizes/font_size = 30
 selected = 1
 item_count = 5
 popup/item_0/text = "30 FPS"
@@ -144,9 +180,12 @@ label_settings = SubResource("LabelSettings_lslx0")
 
 [node name="ButtonPrompts" type="HBoxContainer" parent="Options"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="OptionButton" type="OptionButton" parent="Options/ButtonPrompts"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mitix")
+theme_override_font_sizes/font_size = 30
 selected = 0
 item_count = 6
 popup/item_0/text = "Automatic"
@@ -165,6 +204,22 @@ popup/item_5/id = 5
 layout_mode = 2
 text = "Button Prompts"
 label_settings = SubResource("LabelSettings_lslx0")
+
+[node name="NoControllerWarning" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = -257.0
+offset_right = 874.0
+offset_bottom = -174.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wknq0")
+text = "Game controllers will not work here.
+Please use a mouse or touch input to navigate this menu."
+label_settings = SubResource("LabelSettings_ns30r")
+autowrap_mode = 3
 
 [node name="Tooltip" type="Label" parent="."]
 layout_mode = 1
@@ -197,7 +252,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_mitix")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[right]{Jump} Confirm  {Spin} Back[/right]"
+text = "[right]{Spin} Main Menu[/right]"
 fit_content = true
 script = ExtResource("4_mov84")
 
@@ -253,3 +308,17 @@ texture_pressed = ExtResource("13_4ni77")
 shape = SubResource("CircleShape2D_ics7b")
 action = "Spin"
 visibility_mode = 1
+
+[connection signal="focus_entered" from="Options/FullScreen" to="." method="_full_screen_tooltip"]
+[connection signal="mouse_entered" from="Options/FullScreen" to="." method="_full_screen_tooltip"]
+[connection signal="focus_entered" from="Options/CameraSmoothing" to="." method="_camera_smoothing_tooltip"]
+[connection signal="mouse_entered" from="Options/CameraSmoothing" to="." method="_camera_smoothing_tooltip"]
+[connection signal="mouse_entered" from="Options/CamSmoothAmount" to="." method="_smoothing_amount_tooltip"]
+[connection signal="focus_entered" from="Options/CamSmoothAmount/SpinBox" to="." method="_smoothing_amount_tooltip"]
+[connection signal="mouse_entered" from="Options/CamSmoothAmount/SpinBox" to="." method="_smoothing_amount_tooltip"]
+[connection signal="mouse_entered" from="Options/FPSCap" to="." method="_fps_cap_tooltip"]
+[connection signal="focus_entered" from="Options/FPSCap/OptionButton" to="." method="_fps_cap_tooltip"]
+[connection signal="mouse_entered" from="Options/FPSCap/OptionButton" to="." method="_fps_cap_tooltip"]
+[connection signal="mouse_entered" from="Options/ButtonPrompts" to="." method="_button_prompts_tooltip"]
+[connection signal="focus_entered" from="Options/ButtonPrompts/OptionButton" to="." method="_button_prompts_tooltip"]
+[connection signal="mouse_entered" from="Options/ButtonPrompts/OptionButton" to="." method="_button_prompts_tooltip"]
