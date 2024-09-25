@@ -171,13 +171,13 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="RichTextLabel" parent="Elements/MessageContainer"]
-custom_minimum_size = Vector2(600, 100)
+custom_minimum_size = Vector2(600, 110)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_q7lmk")
 theme_override_fonts/italics_font = ExtResource("5_71i7q")
 theme_override_fonts/bold_italics_font = ExtResource("6_witmj")
 theme_override_fonts/bold_font = ExtResource("2_ac1vq")
-theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "[center]Body text body text body text.
 The body text keeps growing.[/center]"

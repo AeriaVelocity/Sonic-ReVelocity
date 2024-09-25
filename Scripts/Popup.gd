@@ -25,7 +25,7 @@ func _process(_delta):
     title.text = title_text
     message.text = message_text
     controls.text = get_controls_text()
-    if visible:
+    if visible and $Elements.modulate == Color.WHITE:
         handle_close_input()
 
 func set_title_text(t: String):
