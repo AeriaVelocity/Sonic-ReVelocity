@@ -14,6 +14,8 @@ FPS Cap (dropdown: 30 FPS, 60 FPS, 120 FPS, Uncapped)
 Button Prompts (dropdown: Automatic, Xbox, PlayStation, Switch Pro, Positional, Keyboard)
 """
 
+@onready var music: AudioStreamPlayer = get_node("/root/GlobalAudio/GlobalMusic")
+
 @onready var full_screen_control = $Options/FullScreen
 @onready var camera_smoothing_control = $Options/CameraSmoothing
 @onready var camera_smoothing_amount_control = $Options/CamSmoothAmount/SpinBox
@@ -23,6 +25,10 @@ Button Prompts (dropdown: Automatic, Xbox, PlayStation, Switch Pro, Positional, 
 func _ready():
     tooltip = $Tooltip
     handle_tooltip()
+
+    var music_stream: AudioStreamMP3 = load("res://Music/options.mp3")
+    music.stream = music_stream
+    music.play()
 
     selected_option_index = 0
 

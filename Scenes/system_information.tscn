@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxycbll0vnnrg"]
+[gd_scene load_steps=7 format=3 uid="uid://cxycbll0vnnrg"]
 
 [ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="1_oterw"]
 [ext_resource type="Script" path="res://Scripts/SystemInformation.gd" id="1_rqsql"]
-[ext_resource type="AudioStream" uid="uid://c5rlby1fmju6a" path="res://Music/sysinfo-music.mp3" id="2_eo8eo"]
 
 [sub_resource type="Gradient" id="Gradient_4j0m0"]
 colors = PackedColorArray(0.110697, 0.000184226, 0.24183, 1, 0, 0, 0, 1)
@@ -33,11 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_e7161")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_eo8eo")
-volume_db = 1.0
-autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

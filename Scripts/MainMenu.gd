@@ -8,12 +8,18 @@ var menu_options: VBoxContainer
 var tooltip: Label
 var unimplemented_popup: Control
 
+@onready var music: AudioStreamPlayer = get_node("/root/GlobalAudio/GlobalMusic")
+
 func _ready():
     highlight = $Highlight
     highlight.global_position.x = -30
     highlight_anim = $Highlight/AnimationPlayer
     menu_options = $MenuOptions
     tooltip = $Tooltip
+
+    var menu_music: AudioStreamMP3 = load("res://Music/menu.mp3")
+    music.stream = menu_music
+    music.play()
 
     selected_option_index = 0
     update_highlight_position()
@@ -72,6 +78,7 @@ func activate_selected_option():
     match selected_option_index:
         0:
             LevelStats.rings = 0
+            music.stop()
             get_tree().change_scene_to_file("res://Scenes/test-level.tscn")
         1:
             get_tree().change_scene_to_file("res://Scenes/options_menu.tscn")

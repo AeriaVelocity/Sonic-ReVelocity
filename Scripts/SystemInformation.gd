@@ -3,6 +3,8 @@ extends Control
 @onready var sysinfo_label = $MarginContainer/VBoxContainer/SysInfo
 var sysinfo_text: String
 
+@onready var music: AudioStreamPlayer = get_node("/root/GlobalAudio/GlobalMusic")
+
 func handle_exit():
     if Input.is_action_just_pressed("Jump"):
         if GameOptions.button_prompts == GameOptions.Buttons.Switch:
@@ -77,6 +79,9 @@ Touchscreen detected: %s
 
 func _ready():
     update_info()
+    var music_stream: AudioStreamMP3 = load("res://Music/options.mp3")
+    music.stream = music_stream
+    music.play()
 
 func _process(_delta):
     handle_exit()

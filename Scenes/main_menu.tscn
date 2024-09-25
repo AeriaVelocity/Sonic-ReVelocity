@@ -1,7 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://bowtpoo3ojjh1"]
+[gd_scene load_steps=31 format=3 uid="uid://bowtpoo3ojjh1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_bkml6"]
-[ext_resource type="AudioStream" uid="uid://cqbk8xoqlu8vv" path="res://Music/menu.mp3" id="1_fegnr"]
 [ext_resource type="Texture2D" uid="uid://quwlsg31et1n" path="res://Graphics/sonic-revelocity-logo-white.png" id="1_tstpe"]
 [ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="2_7srnn"]
 [ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_8ee2s"]
@@ -240,11 +239,6 @@ bbcode_enabled = true
 text = "[right]{Jump} Confirm  {Spin} Back[/right]"
 fit_content = true
 script = ExtResource("8_u6aui")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_fegnr")
-volume_db = 1.0
-autoplay = true
 
 [node name="MoveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ieik7")
