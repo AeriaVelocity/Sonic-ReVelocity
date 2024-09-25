@@ -152,7 +152,6 @@ func do_quick_spin(base_speed, additional_speed) -> Vector2:
 
     if direction == 0:
         direction = current_direction
-        additional_speed *= 1.4
 
     $SonicSprite.play("spin")
     spin_sound.play()
