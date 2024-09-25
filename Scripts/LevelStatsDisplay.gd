@@ -14,17 +14,17 @@ func _ready():
 
 func determine_rank() -> Array:
     # Ideally this wouldn't be hardcoded, but there's only one level so I'll do that later :3
-    if level_time < 20 and LevelStats.rings >= 80:
+    if level_time < 13 and LevelStats.rings >= 90:
         return ["X", Color.DEEP_SKY_BLUE]
-    elif level_time < 20:
+    elif level_time < 13:
         return ["S", Color.GOLD]
-    elif level_time >= 20 and level_time < 30:
+    elif level_time >= 13 and level_time < 15:
         return ["A", Color.DODGER_BLUE]
-    elif level_time >= 30 and level_time < 45:
+    elif level_time >= 15 and level_time < 20:
         return ["B", Color.ORANGE_RED]
-    elif level_time >= 45 and level_time < 60:
+    elif level_time >= 20 and level_time < 30:
         return ["C", Color.YELLOW]
-    elif level_time >= 60:
+    elif level_time >= 30:
         return ["D", Color.SLATE_GRAY]
     return ["How did you even", Color.GRAY]
 
