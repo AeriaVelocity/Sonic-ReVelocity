@@ -268,7 +268,7 @@ func _physics_process(delta):
     set_camera_offset(delta)
     inc_velocity_gauge(abs(velocity.x))
 
-    if VelocitySystem.velocity_state and abs(velocity) > Vector2.ZERO:
+    if VelocitySystem.velocity_state and abs(velocity) > Vector2.ZERO and GameOptions.velocity_trails:
         create_boost_trail()
 
     if is_dead:

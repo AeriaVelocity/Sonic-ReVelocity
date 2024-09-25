@@ -14,6 +14,7 @@ enum Buttons {
 var full_screen: bool
 var camera_smoothing: bool
 var camera_smoothing_amount: int
+var velocity_trails: bool
 var fps_cap: int
 var button_prompts: int
 
@@ -28,6 +29,7 @@ func read_config():
     full_screen = config.get_value("settings", "full_screen", true)
     camera_smoothing = config.get_value("settings", "camera_smoothing", true)
     camera_smoothing_amount = config.get_value("settings", "camera_smoothing_amount", 18)
+    velocity_trails = config.get_value("settings", "velocity_trails", true)
     fps_cap = config.get_value("settings", "fps_cap", 60)
     button_prompts = config.get_value("settings", "button_prompts", 0)
 
@@ -35,6 +37,7 @@ func set_config():
     config.set_value("settings", "full_screen", full_screen)
     config.set_value("settings", "camera_smoothing", camera_smoothing)
     config.set_value("settings", "camera_smoothing_amount", camera_smoothing_amount)
+    config.set_value("settings", "velocity_trails", velocity_trails)
     config.set_value("settings", "fps_cap", fps_cap)
     config.set_value("settings", "button_prompts", button_prompts)
     read_config()
