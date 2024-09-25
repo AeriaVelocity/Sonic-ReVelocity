@@ -6,9 +6,10 @@ var highlight: Sprite2D
 var highlight_anim: AnimationPlayer
 var menu_options: VBoxContainer
 var tooltip: Label
-var unimplemented_popup: Control
+var exit_message: Control
 
 @onready var music: AudioStreamPlayer = get_node("/root/GlobalAudio/GlobalMusic")
+@onready var PopupType = preload("res://Scripts/Popup.gd").PopupType
 
 func _ready():
     highlight = $Highlight
@@ -38,7 +39,7 @@ func update_highlight_position():
             option.modulate = Color(1, 1, 1)
 
 func handle_input():
-    if unimplemented_popup and unimplemented_popup.visible:
+    if exit_message and exit_message.visible:
         return
     var sysinfo_prereq = Input.is_action_pressed("SysinfoPrereq1") and Input.is_action_pressed("SysinfoPrereq1")
     if Input.is_action_just_pressed("MenuUp"):
@@ -85,7 +86,16 @@ func activate_selected_option():
         1:
             get_tree().change_scene_to_file("res://Scenes/options_menu.tscn")
         2:
-            get_tree().quit()
+            show_exit_message()
+
+func show_exit_message():
+    exit_message = load("res://Scenes/popup.tscn").instantiate()
+    exit_message.set_title_text("Exit Sonic Re;Velocity?")
+    exit_message.set_message_text("Are you sure you want to quit?")
+    exit_message.set_popup_type(PopupType.ExitGame)
+    exit_message.connect("ok_pressed", func(): get_tree().quit())
+    exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
+    add_child(exit_message)
 
 func _process(_delta):
     handle_input()

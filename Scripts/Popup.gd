@@ -1,30 +1,84 @@
 extends Control
 
-@export var title_text = "Title"
-@export_multiline var message_text = "Body text body text body text."
+enum PopupType {
+    Ok,
+    OkCancel,
+    ExitGame,
+}
 
-@onready var title = $Background/TitleBar/Title
-@onready var message = $Background/MessageContainer/Label
+@export var title_text: String = "Title"
+@export_multiline var message_text: String = "Body text body text body text.\nThe body text keeps growing."
+@export var popup_type: PopupType = PopupType.Ok
 
-# Called when the node enters the scene tree for the first time.
+@onready var title = $Elements/TitleBar/Title
+@onready var message = $Elements/MessageContainer/Label
+@onready var controls = $Elements/Controls
+
+signal ok_pressed
+signal cancel_pressed
+
 func _ready():
-    pass # Replace with function body.
+    $AlertSound.play()
+    $AnimationPlayer.play("show")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
     title.text = title_text
     message.text = message_text
+    controls.text = get_controls_text()
     if visible:
         handle_close_input()
 
-func handle_close_input():
-    if Input.is_action_just_pressed("Jump"):
-        close_popup()
+func set_title_text(t: String):
+    title_text = t
 
-func _on_close_button_pressed():
+func set_message_text(m: String):
+    message_text = "[center]" + m + "[/center]"
+
+func set_popup_type(t: PopupType):
+    popup_type = t
+
+func get_controls_text() -> String:
+    var controls_text: String
+    match popup_type:
+        PopupType.Ok:
+            controls_text = "{Jump} OK"
+        PopupType.OkCancel:
+            controls_text = "{Jump} OK  {Spin} Cancel"
+        PopupType.ExitGame:
+            controls_text = "{Jump} Exit Game  {Spin} Return to Game"
+        _:
+            controls_text = "There's a bug in the popup system"
+    controls_text = PromptHelpers.format_string_tags(controls_text)
+    return "[center]" + controls_text + "[/center]"
+
+func handle_close_input():
+    match popup_type:
+        PopupType.Ok:
+            if Input.is_action_just_pressed("Jump") and GameOptions.button_prompts != GameOptions.Buttons.Switch:
+                ok_close()
+            elif Input.is_action_just_pressed("Spin") and GameOptions.button_prompts == GameOptions.Buttons.Switch:
+                ok_close()
+        PopupType.OkCancel, PopupType.ExitGame:
+            if Input.is_action_just_pressed("Jump"):
+                if GameOptions.button_prompts != GameOptions.Buttons.Switch:
+                    ok_close()
+                elif GameOptions.button_prompts == GameOptions.Buttons.Switch:
+                    cancel_close()
+            elif Input.is_action_just_pressed("Spin"):
+                if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+                    ok_close()
+                elif GameOptions.button_prompts != GameOptions.Buttons.Switch:
+                    cancel_close()
+
+func ok_close():
+    emit_signal("ok_pressed")
+    close_popup()
+
+func cancel_close():
+    emit_signal("cancel_pressed")
     close_popup()
 
 func close_popup():
-    $Background/AnimationPlayer.play("hide")
-    await($Background/AnimationPlayer.animation_finished)
+    $AnimationPlayer.play("hide")
+    await($AnimationPlayer.animation_finished)
     hide()
