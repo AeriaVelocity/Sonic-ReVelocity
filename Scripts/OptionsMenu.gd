@@ -54,8 +54,9 @@ func _on_option_toggled(t: bool):
 func _on_opt_value_changed(v: float):
     apply_options("Value: %f" % v)
 
-func _on_opt_item_selected(i: int):
-    apply_options("Index: %d" % i)
+func _on_opt_item_selected(x: int):
+    var i: int = fps_cap_control.get_item_id(x)
+    apply_options("Index: %d\nID: %d" % [x, i])
 
 func apply_options(message: String = ""):
     print(message)
