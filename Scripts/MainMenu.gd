@@ -51,6 +51,7 @@ func handle_input():
         update_highlight_position()
     elif Input.is_action_just_pressed("Jump"):
         if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+            music.stop()
             get_tree().change_scene_to_file("res://Scenes/intro.tscn")
         else:
             $SelectSound.play()
@@ -60,6 +61,7 @@ func handle_input():
             $SelectSound.play()
             activate_selected_option()
         else:
+            music.stop()
             get_tree().change_scene_to_file("res://Scenes/intro.tscn")
     elif sysinfo_prereq and Input.is_action_just_pressed("Sysinfo"):
         get_tree().change_scene_to_file("res://Scenes/system_information.tscn")
