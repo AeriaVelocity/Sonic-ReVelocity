@@ -245,6 +245,8 @@ func check_wall_jumpable() -> bool:
 func _process(_delta):
     $BoostSprite.visible = VelocitySystem.velocity_state
     $BoostSprite.rotation = velocity.angle()
+    if velocity.angle() == 0:
+        $BoostSprite.rotation_degrees = 180.0 if $SonicSprite.flip_h else 0.0
 
 func create_boost_trail():
     var trail = Sprite2D.new()
