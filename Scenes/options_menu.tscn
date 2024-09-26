@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cju4jjrx6o8qh"]
+[gd_scene load_steps=52 format=3 uid="uid://cju4jjrx6o8qh"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_4hi4i"]
 [ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_m1v31"]
@@ -48,12 +48,16 @@ font_size = 120
 [sub_resource type="Theme" id="Theme_jyiwg"]
 
 [sub_resource type="Theme" id="Theme_fspuh"]
-LineEdit/font_sizes/font_size = 30
+LineEdit/font_sizes/font_size = 48
 LineEdit/fonts/font = ExtResource("2_mitix")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lslx0"]
 font = ExtResource("2_mitix")
-font_size = 30
+font_size = 48
+
+[sub_resource type="Theme" id="Theme_4qyvh"]
+PopupMenu/font_sizes/font_size = 48
+PopupMenu/fonts/font = ExtResource("2_mitix")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tsosx"]
 animations = [{
@@ -312,22 +316,25 @@ offset_top = 31.0
 offset_right = 1332.0
 offset_bottom = -164.0
 grow_vertical = 2
+theme_override_constants/separation = 16
 
 [node name="FullScreen" type="CheckBox" parent="Options"]
 layout_mode = 2
 theme = SubResource("Theme_jyiwg")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 theme_override_icons/checked = ExtResource("4_ib3i3")
 theme_override_icons/unchecked = ExtResource("4_gtwfl")
 text = "Full Screen"
 
 [node name="CameraSmoothing" type="CheckBox" parent="Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 theme_override_icons/checked = ExtResource("4_ib3i3")
 theme_override_icons/unchecked = ExtResource("4_gtwfl")
 text = "Camera Smoothing"
@@ -351,8 +358,9 @@ theme_override_constants/separation = 10
 
 [node name="OptionButton" type="OptionButton" parent="Options/FPSCap"]
 layout_mode = 2
+theme = SubResource("Theme_4qyvh")
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 selected = 1
 item_count = 5
 popup/item_0/text = "30 FPS"
@@ -377,8 +385,9 @@ theme_override_constants/separation = 10
 
 [node name="OptionButton" type="OptionButton" parent="Options/ButtonPrompts"]
 layout_mode = 2
+theme = SubResource("Theme_4qyvh")
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 selected = 0
 item_count = 6
 popup/item_0/text = "Automatic"
@@ -399,44 +408,45 @@ text = "Button Prompts"
 label_settings = SubResource("LabelSettings_lslx0")
 
 [node name="Buttons" type="Node2D" parent="Options/ButtonPrompts"]
-position = Vector2(471, 24)
+position = Vector2(726, 36)
 
 [node name="A-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
 texture_filter = 6
-scale = Vector2(0.365, 0.365)
+scale = Vector2(0.605, 0.605)
 sprite_frames = SubResource("SpriteFrames_tsosx")
 animation = &"xbox"
 script = ExtResource("21_wq1fl")
 
 [node name="B-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
 texture_filter = 6
-position = Vector2(52, 0)
-scale = Vector2(0.365, 0.365)
+position = Vector2(84, 0)
+scale = Vector2(0.605, 0.605)
 sprite_frames = SubResource("SpriteFrames_6m7nk")
 animation = &"xbox"
 script = ExtResource("21_wq1fl")
 
 [node name="X-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
 texture_filter = 6
-position = Vector2(104, 0)
-scale = Vector2(0.365, 0.365)
+position = Vector2(168, 0)
+scale = Vector2(0.605, 0.605)
 sprite_frames = SubResource("SpriteFrames_61jmk")
 animation = &"xbox"
 script = ExtResource("21_wq1fl")
 
 [node name="Y-button" type="AnimatedSprite2D" parent="Options/ButtonPrompts/Buttons"]
 texture_filter = 6
-position = Vector2(156, 0)
-scale = Vector2(0.365, 0.365)
+position = Vector2(252, 0)
+scale = Vector2(0.605, 0.605)
 sprite_frames = SubResource("SpriteFrames_6cpxk")
 animation = &"xbox"
 script = ExtResource("21_wq1fl")
 
 [node name="VelocityTrails" type="CheckBox" parent="Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 theme_override_icons/checked = ExtResource("4_ib3i3")
 theme_override_icons/unchecked = ExtResource("4_gtwfl")
 text = "Show Velocity State Trails"
@@ -447,8 +457,9 @@ theme_override_constants/separation = 10
 
 [node name="OptionButton" type="OptionButton" parent="Options/TouchControls"]
 layout_mode = 2
+theme = SubResource("Theme_4qyvh")
 theme_override_fonts/font = ExtResource("2_mitix")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 selected = 1
 item_count = 3
 popup/item_0/text = "Never"
@@ -514,6 +525,7 @@ fit_content = true
 script = ExtResource("4_mov84")
 
 [node name="TouchControls" type="Node2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.823529)
 top_level = true
 position = Vector2(1, -82)
