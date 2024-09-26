@@ -25,6 +25,8 @@ func _ready():
 
     selected_option_index = 0
 
+    full_screen_control.grab_focus()
+
     full_screen_control.set_pressed_no_signal(GameOptions.full_screen)
     camera_smoothing_control.set_pressed_no_signal(GameOptions.camera_smoothing)
     camera_smoothing_amount_control.set_value_no_signal(GameOptions.camera_smoothing_amount)
@@ -44,12 +46,44 @@ func _ready():
     touch_controls_control.connect("item_selected", _on_opt_item_selected)
 
 func _input(_event):
+    if Input.is_action_just_pressed("MoveLeft"):
+        var option = get_viewport().gui_get_focus_owner()
+        if option is OptionButton and option.selected >= 1:
+            option.selected -= 1
+            apply_options()
+        elif option is SpinBox:
+            option.value -= 1
+            apply_options()
+    elif Input.is_action_just_pressed("MoveRight"):
+        var option = get_viewport().gui_get_focus_owner()
+        if option is OptionButton:
+            option.selected += 1
+            apply_options()
+        elif option is SpinBox:
+            option.value += 1
+            apply_options()
+
     if Input.is_action_just_pressed("Jump"):
         if GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+        else:
+            var option = get_viewport().gui_get_focus_owner()
+            if option is CheckBox:
+                option.button_pressed = not option.button_pressed
+            if option is OptionButton:
+                option.selected += 1
+                apply_options()
+
     elif Input.is_action_just_pressed("Spin"):
         if not GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+        else:
+            var option = get_viewport().gui_get_focus_owner()
+            if option is CheckBox:
+                option.button_pressed = not option.button_pressed
+            if option is OptionButton:
+                option.selected += 1
+                apply_options()
 
 func _on_option_toggled(t: bool):
     apply_options("Value: %s" % "on" if t else "off")

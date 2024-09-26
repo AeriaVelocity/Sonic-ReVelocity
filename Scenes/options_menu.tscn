@@ -231,6 +231,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_r6cor"]
+font = ExtResource("2_mitix")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw6yf"]
+radius = 58.81
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ics7b"]
+radius = 139.19
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wknq0"]
 bg_color = Color(0.837429, 0.63153, 1, 0.866667)
 skew = Vector2(1, 0)
@@ -243,17 +254,6 @@ expand_margin_bottom = 5.0
 font = ExtResource("2_mitix")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_r6cor"]
-font = ExtResource("2_mitix")
-font_size = 42
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nw6yf"]
-radius = 58.81
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ics7b"]
-radius = 139.19
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -483,22 +483,6 @@ layout_mode = 2
 text = "Show Touch Controls"
 label_settings = SubResource("LabelSettings_lslx0")
 
-[node name="NoControllerWarning" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 49.0
-offset_top = -257.0
-offset_right = 874.0
-offset_bottom = -174.0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_wknq0")
-text = "Game controllers will not work here.
-Please use a mouse or touch input to navigate this menu."
-label_settings = SubResource("LabelSettings_ns30r")
-autowrap_mode = 3
-
 [node name="Tooltip" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -506,12 +490,13 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
 offset_top = -99.0
-offset_right = 1176.0
+offset_right = 1166.0
 offset_bottom = -44.0
 grow_vertical = 0
 text = "Tooltip messages go here."
 label_settings = SubResource("LabelSettings_r6cor")
 vertical_alignment = 1
+text_overrun_behavior = 4
 
 [node name="Controls" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -520,7 +505,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -651.0
+offset_left = -752.0
 offset_top = -99.0
 offset_right = -60.0
 offset_bottom = -44.0
@@ -530,7 +515,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_mitix")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[right]{Spin} Main Menu[/right]"
+text = "[right]{Left} {Right} {A} Change  {B} Back[/right]"
 fit_content = true
 script = ExtResource("4_mov84")
 
@@ -587,6 +572,21 @@ texture_pressed = ExtResource("13_4ni77")
 shape = SubResource("CircleShape2D_ics7b")
 action = "Spin"
 visibility_mode = 1
+
+[node name="NoControllerWarning" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = -214.0
+offset_right = 968.0
+offset_bottom = -174.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wknq0")
+text = "A mouse or touchscreen is recommended to navigate this menu."
+label_settings = SubResource("LabelSettings_ns30r")
+autowrap_mode = 3
 
 [connection signal="focus_entered" from="Options/FullScreen" to="." method="_full_screen_tooltip"]
 [connection signal="mouse_entered" from="Options/FullScreen" to="." method="_full_screen_tooltip"]
