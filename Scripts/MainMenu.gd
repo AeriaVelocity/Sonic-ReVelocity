@@ -88,10 +88,30 @@ func activate_selected_option():
         2:
             show_exit_message()
 
+func funny_quit_message():
+    var messages: Array = [
+        "Where are you going? Come back!",
+        "Are you sure you want to quit this great game?",
+        PromptHelpers.format_string_tags("For speed and style, press {Spin}.\nFor work and worry, press {Jump}."),
+        "Come oooon just play the game. We promise it's fun.",
+        PromptHelpers.format_string_tags("Press {Jump} to let Dr. Eggman directly into your house."),
+        "I bet you didn't get the X Rank, and now you're salty.",
+        "Are you going back to Green Hill Zone Simulator?\nIs this really that bad?",
+        "You're trying to say Sonic Superstars is better than this, huh?",
+        "I've run out of ways to passively make fun of you. Help.",
+        "I wonder if you found that 'hidden menu' yet.",
+        "There's something awaiting you in the Test Level...\nIf you're skilled enough to get there, that is.",
+        "So, you ever heard of DOOM? Yeah? Me too. I like that game. :)",
+        "Okay, sure, there's not much content just yet, but don't leave so soon!",
+        "Remember SAGE 2024? Yeah, that was nice.\nI really didn't expect everyone to like this game so much.",
+        PromptHelpers.format_string_tags("Press {Up} {Up} {Down} {Down} {Left} {Right} {Left} {Right} {B} {A} to do nothing of importance.")
+    ]
+    return messages[randi_range(0, messages.size() - 1)]
+
 func show_exit_message():
     exit_message = load("res://Scenes/popup.tscn").instantiate()
     exit_message.set_title_text("Exit Sonic Re;Velocity?")
-    exit_message.set_message_text("Are you sure you want to quit?")
+    exit_message.set_message_text(funny_quit_message())
     exit_message.set_popup_type(PopupType.ExitGame)
     exit_message.connect("ok_pressed", func(): get_tree().quit())
     exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
