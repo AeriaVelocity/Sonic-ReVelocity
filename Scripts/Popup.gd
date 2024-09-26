@@ -11,7 +11,7 @@ enum PopupType {
 @export var popup_type: PopupType = PopupType.Ok
 
 @onready var title = $Elements/TitleBar/Title
-@onready var message = $Elements/MessageContainer/Label
+@onready var message = $Elements/MessageContainer/VBoxContainer/Label
 @onready var controls = $Elements/Controls
 
 signal ok_pressed
