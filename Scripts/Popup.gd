@@ -77,11 +77,11 @@ func handle_close_input():
                     cancel_close()
 
 func ok_close():
-    emit_signal("ok_pressed")
+    ok_pressed.emit()
     close_popup()
 
 func cancel_close():
-    emit_signal("cancel_pressed")
+    cancel_pressed.emit()
     close_popup()
 
 func close_popup():
