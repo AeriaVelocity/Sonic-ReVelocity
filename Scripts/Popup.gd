@@ -27,7 +27,8 @@ func _process(_delta):
     title.text = title_text
     message.text = message_text
     controls.text = get_controls_text()
-    if visible and $Elements.modulate == Color.WHITE:
+    var is_closing = $AnimationPlayer.current_animation == "hide" and $AnimationPlayer.is_playing()
+    if visible and not is_closing:
         handle_close_input()
 
 func set_title_text(t: String):
