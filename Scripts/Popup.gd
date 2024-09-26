@@ -61,20 +61,20 @@ func get_controls_text() -> String:
 func handle_close_input():
     match popup_type:
         PopupType.Ok:
-            if Input.is_action_just_pressed("Jump") and GameOptions.button_prompts != GameOptions.Buttons.Switch:
+            if Input.is_action_just_pressed("Jump") and not GameOptions.reverse_a_b:
                 ok_close()
-            elif Input.is_action_just_pressed("Spin") and GameOptions.button_prompts == GameOptions.Buttons.Switch:
+            elif Input.is_action_just_pressed("Spin") and GameOptions.reverse_a_b:
                 ok_close()
         PopupType.OkCancel:
             if Input.is_action_just_pressed("Jump"):
-                if GameOptions.button_prompts != GameOptions.Buttons.Switch:
+                if not GameOptions.reverse_a_b:
                     ok_close()
-                elif GameOptions.button_prompts == GameOptions.Buttons.Switch:
+                elif GameOptions.reverse_a_b:
                     cancel_close()
             elif Input.is_action_just_pressed("Spin"):
-                if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+                if GameOptions.reverse_a_b:
                     ok_close()
-                elif GameOptions.button_prompts != GameOptions.Buttons.Switch:
+                elif not GameOptions.reverse_a_b:
                     cancel_close()
 
 func ok_close():

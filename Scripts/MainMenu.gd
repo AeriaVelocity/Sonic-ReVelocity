@@ -51,13 +51,13 @@ func handle_input():
         $MoveSound.play()
         update_highlight_position()
     elif Input.is_action_just_pressed("Jump"):
-        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if GameOptions.reverse_a_b:
             show_back_to_intro_message()
         else:
             $SelectSound.play()
             activate_selected_option()
     elif Input.is_action_just_pressed("Spin"):
-        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if GameOptions.reverse_a_b:
             $SelectSound.play()
             activate_selected_option()
         else:

@@ -441,6 +441,16 @@ sprite_frames = SubResource("SpriteFrames_6cpxk")
 animation = &"xbox"
 script = ExtResource("21_wq1fl")
 
+[node name="ReverseAB" type="CheckBox" parent="Options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("2_mitix")
+theme_override_font_sizes/font_size = 48
+theme_override_icons/checked = ExtResource("4_ib3i3")
+theme_override_icons/unchecked = ExtResource("4_gtwfl")
+text = "Reverse A and B Buttons"
+
 [node name="VelocityTrails" type="CheckBox" parent="Options"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -591,6 +601,8 @@ visibility_mode = 1
 [connection signal="mouse_entered" from="Options/ButtonPrompts" to="." method="_button_prompts_tooltip"]
 [connection signal="focus_entered" from="Options/ButtonPrompts/OptionButton" to="." method="_button_prompts_tooltip"]
 [connection signal="mouse_entered" from="Options/ButtonPrompts/OptionButton" to="." method="_button_prompts_tooltip"]
+[connection signal="focus_entered" from="Options/ReverseAB" to="." method="_reverse_a_b_tooltip"]
+[connection signal="mouse_entered" from="Options/ReverseAB" to="." method="_reverse_a_b_tooltip"]
 [connection signal="focus_entered" from="Options/VelocityTrails" to="." method="_velocity_trails_tooltip"]
 [connection signal="mouse_entered" from="Options/VelocityTrails" to="." method="_velocity_trails_tooltip"]
 [connection signal="mouse_entered" from="Options/TouchControls" to="." method="_touch_controls_tooltip"]

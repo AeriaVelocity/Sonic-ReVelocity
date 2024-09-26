@@ -12,6 +12,7 @@ var tooltip: Label
 @onready var velocity_trails_control = $Options/VelocityTrails
 @onready var fps_cap_control = $Options/FPSCap/OptionButton
 @onready var button_prompts_control = $Options/ButtonPrompts/OptionButton
+@onready var reverse_a_b_control = $Options/ReverseAB
 @onready var touch_controls_control = $Options/TouchControls/OptionButton
 
 func _ready():
@@ -30,6 +31,7 @@ func _ready():
     velocity_trails_control.set_pressed_no_signal(GameOptions.velocity_trails)
     fps_cap_control.selected = fps_cap_control.get_item_index(GameOptions.fps_cap)
     button_prompts_control.selected = GameOptions.button_prompts
+    reverse_a_b_control.set_pressed_no_signal(GameOptions.reverse_a_b)
     touch_controls_control.selected = GameOptions.touch_controls
 
     full_screen_control.connect("toggled", _on_option_toggled)
@@ -38,14 +40,15 @@ func _ready():
     velocity_trails_control.connect("toggled", _on_option_toggled)
     fps_cap_control.connect("item_selected", _on_opt_item_selected)
     button_prompts_control.connect("item_selected", _on_opt_item_selected)
+    reverse_a_b_control.connect("toggled", _on_option_toggled)
     touch_controls_control.connect("item_selected", _on_opt_item_selected)
 
 func _input(_event):
     if Input.is_action_just_pressed("Jump"):
-        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
     elif Input.is_action_just_pressed("Spin"):
-        if GameOptions.button_prompts != GameOptions.Buttons.Switch:
+        if not GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_option_toggled(t: bool):
@@ -65,6 +68,7 @@ func apply_options(message: String = ""):
     GameOptions.velocity_trails = velocity_trails_control.button_pressed
     GameOptions.fps_cap = fps_cap_control.get_selected_id()
     GameOptions.button_prompts = button_prompts_control.get_selected_id()
+    GameOptions.reverse_a_b = reverse_a_b_control.button_pressed
     GameOptions.touch_controls = touch_controls_control.get_selected_id()
     GameOptions.set_config()
 
@@ -85,6 +89,9 @@ func _fps_cap_tooltip():
 
 func _button_prompts_tooltip():
     tooltip.text = "Change what button prompts you see in-game."
+
+func _reverse_a_b_tooltip():
+    tooltip.text = "Reverse the A and B buttons in menus (like Nintendo)."
 
 func _velocity_trails_tooltip():
     tooltip.text = "Toggle afterimage trails in Velocity State."

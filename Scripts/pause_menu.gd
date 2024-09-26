@@ -8,9 +8,9 @@ func _input(event):
             unpause_game()
 
     if visible:
-        if event.is_action_pressed("Spin") && GameOptions.button_prompts != GameOptions.Buttons.Switch:
+        if event.is_action_pressed("Spin") && not GameOptions.reverse_a_b:
             return_to_main_menu()
-        if event.is_action_pressed("Jump") && GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if event.is_action_pressed("Jump") && GameOptions.reverse_a_b:
             return_to_main_menu()
         if event.is_action_pressed("Unused1"):
             restart_level()

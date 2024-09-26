@@ -30,12 +30,12 @@ func determine_rank() -> Array:
 
 func _process(_delta):
     if Input.is_action_just_pressed("Jump"):
-        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
         else:
             get_tree().change_scene_to_file("res://Scenes/thanks.tscn")
     elif Input.is_action_just_pressed("Spin"):
-        if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+        if GameOptions.reverse_a_b:
             get_tree().change_scene_to_file("res://Scenes/thanks.tscn")
         else:
             get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

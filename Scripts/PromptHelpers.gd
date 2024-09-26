@@ -44,13 +44,13 @@ func right_button() -> String:
     return get_controller_specific_prompt("right")
 
 func jump_button() -> String:
-    if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+    if GameOptions.reverse_a_b:
         return get_controller_specific_prompt("spin")
     else:
         return get_controller_specific_prompt("jump")
 
 func spin_button() -> String:
-    if GameOptions.button_prompts == GameOptions.Buttons.Switch:
+    if GameOptions.reverse_a_b:
         return get_controller_specific_prompt("jump")
     else:
         return get_controller_specific_prompt("spin")
