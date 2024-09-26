@@ -52,8 +52,7 @@ func handle_input():
         update_highlight_position()
     elif Input.is_action_just_pressed("Jump"):
         if GameOptions.button_prompts == GameOptions.Buttons.Switch:
-            music.stop()
-            get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+            show_back_to_intro_message()
         else:
             $SelectSound.play()
             activate_selected_option()
@@ -62,8 +61,7 @@ func handle_input():
             $SelectSound.play()
             activate_selected_option()
         else:
-            music.stop()
-            get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+            show_back_to_intro_message()
     elif sysinfo_prereq and Input.is_action_just_pressed("Sysinfo"):
         get_tree().change_scene_to_file("res://Scenes/system_information.tscn")
 
@@ -112,10 +110,26 @@ func show_exit_message():
     exit_message = load("res://Scenes/popup.tscn").instantiate()
     exit_message.set_title_text("Exit Sonic Re;Velocity?")
     exit_message.set_message_text(funny_quit_message())
-    exit_message.set_popup_type(PopupType.ExitGame)
+    exit_message.set_popup_type(PopupType.OkCancel)
+    exit_message.set_ok_label("Exit Game")
     exit_message.connect("ok_pressed", func(): get_tree().quit())
     exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
     add_child(exit_message)
+
+func show_back_to_intro_message():
+    exit_message = load("res://Scenes/popup.tscn").instantiate()
+    exit_message.set_title_text("Back to intro?")
+    exit_message.set_message_text("You are about to return to the intro video.\nTo quit Sonic Re;Velocity, use the [b]Exit[/b] option.")
+    exit_message.set_popup_type(PopupType.OkCancel)
+    exit_message.set_ok_label("Confirm")
+    exit_message.set_cancel_label("Back to Menu")
+    exit_message.connect("ok_pressed", back_to_intro)
+    exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
+    add_child(exit_message)
+
+func back_to_intro():
+    music.stop()
+    get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 
 func _process(_delta):
     handle_input()
