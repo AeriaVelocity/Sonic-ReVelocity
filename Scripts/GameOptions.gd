@@ -9,6 +9,12 @@ enum Buttons {
     Keyboard
 }
 
+enum TouchControls {
+    Never,
+    TouchOnly,
+    Always
+}
+
 @onready var config = ConfigFile.new()
 
 var full_screen: bool
@@ -17,6 +23,7 @@ var camera_smoothing_amount: int
 var velocity_trails: bool
 var fps_cap: int
 var button_prompts: int
+var touch_controls: int
 
 const CONFIG_FILE = "user://game-config.cfg"
 
@@ -32,6 +39,7 @@ func read_config():
     velocity_trails = config.get_value("settings", "velocity_trails", true)
     fps_cap = config.get_value("settings", "fps_cap", 60)
     button_prompts = config.get_value("settings", "button_prompts", 0)
+    touch_controls = config.get_value("settings", "touch_controls", 1)
 
 func set_config():
     config.set_value("settings", "full_screen", full_screen)
@@ -40,6 +48,7 @@ func set_config():
     config.set_value("settings", "velocity_trails", velocity_trails)
     config.set_value("settings", "fps_cap", fps_cap)
     config.set_value("settings", "button_prompts", button_prompts)
+    config.set_value("settings", "touch_controls", touch_controls)
     read_config()
     apply_config()
     config.save(CONFIG_FILE)

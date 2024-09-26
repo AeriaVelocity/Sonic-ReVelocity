@@ -12,6 +12,7 @@ var tooltip: Label
 @onready var velocity_trails_control = $Options/VelocityTrails
 @onready var fps_cap_control = $Options/FPSCap/OptionButton
 @onready var button_prompts_control = $Options/ButtonPrompts/OptionButton
+@onready var touch_controls_control = $Options/TouchControls/OptionButton
 
 func _ready():
     tooltip = $Tooltip
@@ -29,6 +30,7 @@ func _ready():
     velocity_trails_control.set_pressed_no_signal(GameOptions.velocity_trails)
     fps_cap_control.selected = fps_cap_control.get_item_index(GameOptions.fps_cap)
     button_prompts_control.selected = GameOptions.button_prompts
+    touch_controls_control.selected = GameOptions.touch_controls
 
     full_screen_control.connect("toggled", _on_option_toggled)
     camera_smoothing_control.connect("toggled", _on_option_toggled)
@@ -36,6 +38,7 @@ func _ready():
     velocity_trails_control.connect("toggled", _on_option_toggled)
     fps_cap_control.connect("item_selected", _on_opt_item_selected)
     button_prompts_control.connect("item_selected", _on_opt_item_selected)
+    touch_controls_control.connect("item_selected", _on_opt_item_selected)
 
 func _input(_event):
     if Input.is_action_just_pressed("Jump"):
@@ -52,8 +55,7 @@ func _on_opt_value_changed(v: float):
     apply_options("Value: %f" % v)
 
 func _on_opt_item_selected(x: int):
-    var i: int = fps_cap_control.get_item_id(x - 1)
-    apply_options("Index: %d\nID: %d" % [x, i])
+    apply_options("Index: %d" % x)
 
 func apply_options(message: String = ""):
     print(message)
@@ -63,6 +65,7 @@ func apply_options(message: String = ""):
     GameOptions.velocity_trails = velocity_trails_control.button_pressed
     GameOptions.fps_cap = fps_cap_control.get_selected_id()
     GameOptions.button_prompts = button_prompts_control.get_selected_id()
+    GameOptions.touch_controls = touch_controls_control.get_selected_id()
     GameOptions.set_config()
 
 func _default_tooltip():
@@ -85,3 +88,6 @@ func _button_prompts_tooltip():
 
 func _velocity_trails_tooltip():
     tooltip.text = "Toggle afterimage trails in Velocity State."
+
+func _touch_controls_tooltip():
+    tooltip.text = "Set touch controls on, off, or touch screen only."
