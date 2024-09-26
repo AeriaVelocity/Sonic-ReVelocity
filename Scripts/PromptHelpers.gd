@@ -71,7 +71,11 @@ func format_string_tags(text: String) -> String:
             "Jump": jump_button(),
             "Spin": spin_button(),
             "Special1": special1_button(),
-            "Special2": special2_button()
+            "Special2": special2_button(),
+            "A": jump_button(),
+            "B": spin_button(),
+            "X": special1_button(),
+            "Y": special2_button()
         }
     )
     return formatted_text
