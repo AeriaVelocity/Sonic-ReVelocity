@@ -3,12 +3,14 @@ extends Control
 enum PopupType {
     Ok,
     OkCancel,
-    ExitGame,
 }
 
 @export var title_text: String = "Title"
 @export_multiline var message_text: String = "Body text body text body text.\nThe body text keeps growing."
 @export var popup_type: PopupType = PopupType.Ok
+
+@export var ok_label: String = "OK"
+@export var cancel_label: String = "Cancel"
 
 @onready var title = $Elements/TitleBar/Title
 @onready var message = $Elements/MessageContainer/VBoxContainer/Label
@@ -37,15 +39,19 @@ func set_message_text(m: String):
 func set_popup_type(t: PopupType):
     popup_type = t
 
+func set_ok_label(l: String):
+    ok_label = l
+
+func set_cancel_label(l: String):
+    cancel_label = l
+
 func get_controls_text() -> String:
     var controls_text: String
     match popup_type:
         PopupType.Ok:
-            controls_text = "{Jump} OK"
+            controls_text = "{Jump} %s" % ok_label
         PopupType.OkCancel:
-            controls_text = "{Jump} OK  {Spin} Cancel"
-        PopupType.ExitGame:
-            controls_text = "{Jump} Exit Game  {Spin} Return to Game"
+            controls_text = "{Jump} %s  {Spin} %s" % [ok_label, cancel_label]
         _:
             controls_text = "There's a bug in the popup system"
     controls_text = PromptHelpers.format_string_tags(controls_text)
@@ -58,7 +64,7 @@ func handle_close_input():
                 ok_close()
             elif Input.is_action_just_pressed("Spin") and GameOptions.button_prompts == GameOptions.Buttons.Switch:
                 ok_close()
-        PopupType.OkCancel, PopupType.ExitGame:
+        PopupType.OkCancel:
             if Input.is_action_just_pressed("Jump"):
                 if GameOptions.button_prompts != GameOptions.Buttons.Switch:
                     ok_close()
