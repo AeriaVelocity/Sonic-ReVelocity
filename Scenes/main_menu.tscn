@@ -271,6 +271,7 @@ autowrap_mode = 3
 
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
+top_level = true
 position = Vector2(1, -82)
 script = ExtResource("9_qrv5f")
 

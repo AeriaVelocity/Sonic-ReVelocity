@@ -288,6 +288,7 @@ script = ExtResource("5_qpbyf")
 
 [node name="TouchControls" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
+top_level = true
 position = Vector2(0, -69)
 script = ExtResource("6_q6gwg")
 

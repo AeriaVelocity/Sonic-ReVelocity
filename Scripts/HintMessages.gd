@@ -36,7 +36,7 @@ func get_image_path(type: String, controller: String) -> String:
 
 func display_label(body, message: String):
     if body.is_in_group("Player"):
-        var hint_message = get_node("/root/Test Level/HeadsUpDisplay/HintMessage")
+        var hint_message = get_node("/root/Test Level/HintMsgLayer/HintMessage")
         hint_message.set_label_text(message)
 
 func _hint_1(body):

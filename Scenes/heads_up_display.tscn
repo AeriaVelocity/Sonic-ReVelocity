@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c528liaieedpb"]
+[gd_scene load_steps=33 format=3 uid="uid://c528liaieedpb"]
 
 [ext_resource type="Script" path="res://Scripts/VelocityGauge.gd" id="1_hac6q"]
 [ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="1_mi55f"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dwqo28p80k4f8" path="res://Graphics/Touch Buttons/touch-arrow-empty.png" id="9_kofgh"]
 [ext_resource type="Texture2D" uid="uid://h3yknnqacbfk" path="res://Graphics/Touch Buttons/b-button.png" id="9_ygbhj"]
 [ext_resource type="Texture2D" uid="uid://bfhfhr32o4nur" path="res://Graphics/Touch Buttons/b-button-touched.png" id="10_1in3v"]
+[ext_resource type="PackedScene" uid="uid://dyebvobwucj8f" path="res://Scenes/pause_menu.tscn" id="10_d7h5a"]
 [ext_resource type="Texture2D" uid="uid://bdmholxgstyg4" path="res://Graphics/Touch Buttons/touch-arrow.png" id="10_irsd5"]
 [ext_resource type="Texture2D" uid="uid://c1lrhm7y4sm6w" path="res://Graphics/Touch Buttons/Sonic-ReVelocity-PauseButton.png" id="11_cjqag"]
 [ext_resource type="Script" path="res://Scripts/DynamicButtonPause.gd" id="16_iomea"]
@@ -188,9 +189,13 @@ anchor_bottom = 1.0
 grow_vertical = 0
 script = ExtResource("2_2tygg")
 
+[node name="Pause Menu" parent="." instance=ExtResource("10_d7h5a")]
+visible = false
+
 [node name="TouchControls" type="Node2D" parent="."]
 process_mode = 3
 modulate = Color(1, 1, 1, 0.823529)
+top_level = true
 position = Vector2(0, -69)
 script = ExtResource("3_j21jd")
 
