@@ -12,19 +12,32 @@ func _ready():
 
 func _process(_delta):
     var hint: String
-    match Input.get_joy_name(0):
-        "Xbox 360 Controller", "Xbox One Controller", "XInput Gamepad":
-            hint = "Press Menu to skip"
-        "PS4 Controller", "PS5 Controller":
-            hint = "Press Options to skip"
-        "Nintendo Switch Pro Controller":
-            hint = "Press + to skip"
-        "":
-            hint = "Press ENTER to skip"
-        _:
-            hint = "Press START to skip"
-    if DisplayServer.is_touchscreen_available():
-        hint = "Touch screen to skip"
+    if GameOptions.button_prompts == GameOptions.Buttons.Automatic:
+        match Input.get_joy_name(0):
+            "Xbox 360 Controller", "Xbox One Controller", "XInput Gamepad":
+                hint = "Press Menu to skip"
+            "PS4 Controller", "PS5 Controller":
+                hint = "Press Options to skip"
+            "Nintendo Switch Pro Controller":
+                hint = "Press + to skip"
+            "":
+                hint = "Press ENTER to skip"
+            _:
+                hint = "Press START to skip"
+        if DisplayServer.is_touchscreen_available():
+            hint = "Touch screen to skip"
+    else:
+        match GameOptions.button_prompts:
+            GameOptions.Buttons.Xbox:
+                hint = "Press Menu to skip"
+            GameOptions.Buttons.PlayStation:
+                hint = "Press Options to skip"
+            GameOptions.Buttons.Switch:
+                hint = "Press + to skip"
+            GameOptions.Buttons.Keyboard:
+                hint = "Press ENTER to skip"
+            _: # Positional or default
+                hint = "Press START to skip"
     skip_hint.set_text("[center][font_size=48]" + hint + "[/font_size][/center]")
     if Input.is_action_just_pressed("Start"):
         go_to_menu()
