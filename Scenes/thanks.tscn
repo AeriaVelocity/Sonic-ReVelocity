@@ -47,14 +47,14 @@ texture = SubResource("GradientTexture1D_ib7dl")
 
 [node name="Controls" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 448.0
-offset_bottom = 513.0
+anchor_bottom = 1.0
+offset_top = -103.0
+offset_bottom = -48.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("1_qjvdc")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
