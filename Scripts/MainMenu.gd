@@ -6,7 +6,7 @@ var highlight: Sprite2D
 var highlight_anim: AnimationPlayer
 var menu_options: VBoxContainer
 var tooltip: Label
-var exit_message: Control
+var alert_message: Control
 
 @onready var music: AudioStreamPlayer = get_node("/root/GlobalAudio/GlobalMusic")
 @onready var PopupType = preload("res://Scripts/Popup.gd").PopupType
@@ -25,6 +25,16 @@ func _ready():
     selected_option_index = 0
     update_highlight_position()
 
+    var controller_count = Input.get_connected_joypads().size()
+    var invalid_controllers = []
+    for i in controller_count:
+        var current_controller = Input.get_joy_name(i)
+        if !Input.is_joy_known(i) and not invalid_controllers.has(current_controller):
+            invalid_controllers.append(current_controller)
+
+    if invalid_controllers.size() > 0:
+        show_invalid_controller_message(invalid_controllers)
+
 func update_highlight_position():
     highlight_anim.stop()
     highlight_anim.play("infromleft")
@@ -39,7 +49,7 @@ func update_highlight_position():
             option.modulate = Color(1, 1, 1)
 
 func handle_input():
-    if exit_message and exit_message.visible:
+    if alert_message and alert_message.visible:
         return
     var sysinfo_prereq = Input.is_action_pressed("SysinfoPrereq1") and Input.is_action_pressed("SysinfoPrereq1")
     if Input.is_action_just_pressed("MenuUp"):
@@ -107,25 +117,43 @@ func funny_quit_message():
     return messages[randi_range(0, messages.size() - 1)]
 
 func show_exit_message():
-    exit_message = load("res://Scenes/popup.tscn").instantiate()
-    exit_message.set_title_text("Exit Sonic Re;Velocity?")
-    exit_message.set_message_text(funny_quit_message())
-    exit_message.set_popup_type(PopupType.OkCancel)
-    exit_message.set_ok_label("Exit Game")
-    exit_message.connect("ok_pressed", func(): get_tree().quit())
-    exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
-    add_child(exit_message)
+    alert_message = load("res://Scenes/popup.tscn").instantiate()
+    alert_message.set_title_text("Exit Sonic Re;Velocity?")
+    alert_message.set_message_text(funny_quit_message())
+    alert_message.set_popup_type(PopupType.OkCancel)
+    alert_message.set_ok_label("Exit Game")
+    alert_message.connect("ok_pressed", func(): get_tree().quit())
+    alert_message.connect("cancel_pressed", func(): alert_message.close_popup())
+    add_child(alert_message)
 
 func show_back_to_intro_message():
-    exit_message = load("res://Scenes/popup.tscn").instantiate()
-    exit_message.set_title_text("Back to intro?")
-    exit_message.set_message_text("You are about to return to the intro video.\nTo quit Sonic Re;Velocity, use the [b]Exit[/b] option.")
-    exit_message.set_popup_type(PopupType.OkCancel)
-    exit_message.set_ok_label("Confirm")
-    exit_message.set_cancel_label("Back to Menu")
-    exit_message.connect("ok_pressed", back_to_intro)
-    exit_message.connect("cancel_pressed", func(): exit_message.close_popup())
-    add_child(exit_message)
+    alert_message = load("res://Scenes/popup.tscn").instantiate()
+    alert_message.set_title_text("Back to intro?")
+    alert_message.set_message_text("You are about to return to the intro video.\nTo quit Sonic Re;Velocity, use the [b]Exit[/b] option.")
+    alert_message.set_popup_type(PopupType.OkCancel)
+    alert_message.set_ok_label("Confirm")
+    alert_message.set_cancel_label("Back to Menu")
+    alert_message.connect("ok_pressed", back_to_intro)
+    alert_message.connect("cancel_pressed", func(): alert_message.close_popup())
+    add_child(alert_message)
+
+func show_invalid_controller_message(controllers: Array):
+    alert_message = load("res://Scenes/popup.tscn").instantiate()
+    alert_message.set_title_text("Unknown Device Connected")
+    if controllers.size() > 1:
+        alert_message.set_message_text("""One or more invalid input devices (%s) have been detected.
+These devices may cause invalid or erratic inputs to be registered.
+Please disconnect these devices to ensure optimal play.
+""" % ", ".join(controllers))
+    else:
+        alert_message.set_message_text("""An invalid input device (%s) has been detected.
+This device may cause invalid or erratic inputs to be registered.
+Please disconnect this device to ensure optimal play.
+""" % ", ".join(controllers))
+    alert_message.set_popup_type(PopupType.Ok)
+    alert_message.set_ok_label("Close")
+    alert_message.connect("ok_pressed", func(): alert_message.close_popup())
+    add_child(alert_message)
 
 func back_to_intro():
     music.stop()
