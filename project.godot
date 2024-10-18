@@ -21,11 +21,11 @@ config/icon="res://Graphics/icon.png"
 
 HudScripting="*res://Scripts/HUDScripting.gd"
 FullScreen="*res://Scripts/FullScreen.gd"
-ControllerHandling="*res://Scripts/ControllerHandling.gd"
 VelocitySystem="*res://Scripts/VelocitySystem.gd"
 LevelStats="*res://Scripts/LevelStats.gd"
 GlobalAudio="*res://Scenes/global_audio.tscn"
 GameOptions="*res://Scripts/GameOptions.gd"
+PromptHelpers="*res://Scripts/PromptHelpers.gd"
 
 [display]
 
