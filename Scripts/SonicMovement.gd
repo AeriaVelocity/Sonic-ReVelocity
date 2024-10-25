@@ -265,6 +265,9 @@ func create_boost_trail():
     get_parent().add_child(timer)
     timer.start()
 
+func pressed_spin() -> bool:
+    return Input.is_action_just_pressed("Spin") || Input.is_action_just_pressed("Unused1")
+
 func _physics_process(delta):
     set_camera_offset(delta)
     inc_velocity_gauge(abs(velocity.x))
@@ -334,11 +337,11 @@ func _physics_process(delta):
 
     var down_direction = Input.is_action_pressed("Crouch")
 
-    if Input.is_action_just_pressed("Spin") and down_direction and not is_on_floor():
+    if pressed_spin() and down_direction and not is_on_floor():
         did_jump = true
         velocity = await(quick_spin_down(speed_level_mach))
 
-    if Input.is_action_just_pressed("Spin"):
+    if pressed_spin():
         did_jump = false
         if direction < 0:
             $SonicSprite.flip_h = true
