@@ -24,9 +24,19 @@ Sonic Re;Velocity's major versions are organised into "revolutions" - for
 example, versions v1.x.x are part of the "1st Revolution", versions v2.x.x are
 part of the "2nd Revolution", etc.
 
-* **0th Revolution (SAGE 2024 Demo)** - The initial version of Sonic Re;Velocity, created specifically for the Sonic Amateur Games Expo event in 2024. Includes the Quick Spin and Velocity State, but is limited to one short test level.
+* **0th Revolution (SAGE 2024 Demo)** - The initial version of Sonic Re;Velocity,
+  created specifically for the Sonic Amateur Games Expo event in 2024.
+  Includes the Quick Spin and Velocity State, but is limited to one short test
+  level.
   * **v0.1.0** - The initial version released to SAGE 2024.
-  * **v0.1.1** - Fixes an issue with high FPS counts by capping the FPS to 60 and properly tying the Velocity System to `_physics_process`. The actual game executable doesn't include the v0.1.1 version string, because I forgot.
+  * **v0.1.1** - Fixes an issue with high FPS counts by capping the FPS to 60
+    and properly tying the Velocity System to `_physics_process`. The actual
+    game executable doesn't include the v0.1.1 version string, because I forgot.
+  * **v0.2.0** - Adds an all-new options menu, adds prettier-looking, more
+    prominent and properly-displaying button prompts, tightens the rank
+    requirements for the Test Level, adds more button prompts, implements
+    more fancy dialog popups, adds afterimage trains to Velocity State, among
+    other cool additions.
 
 ## Techniques
 
@@ -155,7 +165,7 @@ Android 14.
 
 ## Credits, Licence and Legal Whatevers
 
-Sonic Re;Velocity is a project by Arsalan "Aeria" Kazmi (AeriaVelocity).
+Sonic Re;Velocity is a project by Arsalan "Aeri" Kazmi (AeriaVelocity).
 
 Sonic Re;Velocity is free software, under the GNU General Public License 3.0.
 
