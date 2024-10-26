@@ -69,7 +69,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {Spin} or the button to the right. Thank you for your probable cooperation!"
+text = "This page contains info specifically for Sonic Re;Velocity developers. If you're not a developer, please return to the main menu using {mB} or the button to the right. Thank you for your probable cooperation!"
 fit_content = true
 script = ExtResource("1_oterw")
 

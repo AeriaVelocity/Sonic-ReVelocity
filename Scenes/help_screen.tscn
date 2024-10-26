@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://j5d3ki8fekpn"]
+
+[ext_resource type="Script" path="res://Scripts/HelpScreen.gd" id="1_46qbb"]
+[ext_resource type="Texture2D" uid="uid://b68fi0h71721u" path="res://Graphics/sonic-revelocity-background.png" id="1_kab3e"]
+[ext_resource type="FontFile" uid="uid://ccnslr75308d7" path="res://Fonts/ChakraPetch-Bold.ttf" id="2_5khnq"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonPrompts.gd" id="3_br5lf"]
+[ext_resource type="FontFile" uid="uid://dnvf2ybp7jptv" path="res://Fonts/ChakraPetch-Regular.ttf" id="5_hbecb"]
+[ext_resource type="FontFile" uid="uid://cuqb4jrlvmpbb" path="res://Fonts/ChakraPetch-Italic.ttf" id="6_eyi8n"]
+[ext_resource type="AudioStream" uid="uid://bp6awh3qnwkqm" path="res://Music/move.wav" id="6_kcgf8"]
+[ext_resource type="FontFile" uid="uid://36k38rpucgyp" path="res://Fonts/ChakraPetch-BoldItalic.ttf" id="7_xd0pq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hfyq"]
+bg_color = Color(0.837429, 0.63153, 1, 0.866667)
+skew = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_to25r"]
+font = ExtResource("2_5khnq")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjx41"]
+font = ExtResource("2_5khnq")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x32wm"]
+bg_color = Color(0.359498, 0.0960749, 0.548212, 0.254902)
+border_width_left = 20
+border_width_top = 10
+border_width_right = 20
+border_width_bottom = 10
+border_color = Color(0.360784, 0.0941176, 0.54902, 0.254902)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[node name="HelpScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46qbb")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kab3e")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.337255)
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hfyq")
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -339.0
+offset_top = 53.0
+offset_right = -70.0
+offset_bottom = 210.0
+grow_horizontal = 0
+text = "Help"
+label_settings = SubResource("LabelSettings_to25r")
+horizontal_alignment = 2
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1191.0
+offset_top = -99.0
+offset_right = -60.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_5khnq")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[right]{Left} Previous Page  {Right} Next Page  {mB} Main Menu[/right]"
+fit_content = true
+script = ExtResource("3_br5lf")
+
+[node name="Tooltip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -99.0
+offset_right = 1176.0
+offset_bottom = -44.0
+grow_vertical = 0
+text = "Page ?"
+label_settings = SubResource("LabelSettings_wjx41")
+vertical_alignment = 1
+
+[node name="HelpText" type="RichTextLabel" parent="."]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 18.0
+offset_right = -392.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("5_hbecb")
+theme_override_fonts/italics_font = ExtResource("6_eyi8n")
+theme_override_fonts/bold_italics_font = ExtResource("7_xd0pq")
+theme_override_fonts/bold_font = ExtResource("2_5khnq")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_x32wm")
+bbcode_enabled = true
+text = "Testing? [b]Testing. [i]1, 2, 3.[/i][/b] We get signal. Lorem ipsum dolor sit amet I can't be bothered to type out the whole thing, but did you know the mitochondria is the powerhouse of the cell?
+
+Anyway if you see this text in-game then that means someone fricked up!!! Leave a GitHub issue with your name and postcode, and we'll send you a written apology. Okay not really. I'm just trying to find some ways to pad out this text so it suits the purpose of being displayed inside the editor. Have some buttons.
+
+[img=64x64]res://Graphics/Info Signs/generic-jump.png[/img] [img=64x64]res://Graphics/Info Signs/generic-spin.png[/img]
+[img=64x64]res://Graphics/Info Signs/xbox-jump.png[/img] [img=64x64]res://Graphics/Info Signs/xbox-spin.png[/img]
+[img=64x64]res://Graphics/Info Signs/ps-jump.png[/img] [img=64x64]res://Graphics/Info Signs/ps-spin.png[/img]
+[img=64x64]res://Graphics/Info Signs/nswitch-jump.png[/img] [img=64x64]res://Graphics/Info Signs/nswitch-spin.png[/img]
+[img=64x64]res://Graphics/Info Signs/kbd-jump.png[/img] [img=64x64]res://Graphics/Info Signs/kbd-spin.png[/img]"
+fit_content = true
+script = ExtResource("3_br5lf")
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kcgf8")
+volume_db = -6.0

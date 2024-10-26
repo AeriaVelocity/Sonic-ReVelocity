@@ -505,7 +505,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -752.0
+offset_left = -824.0
 offset_top = -99.0
 offset_right = -60.0
 offset_bottom = -44.0
@@ -515,7 +515,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_mitix")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[right]{Left} {Right} {A} Change  {B} Back[/right]"
+text = "[right]{Left} {Right} {mA} Change  {mB} Back[/right]"
 fit_content = true
 script = ExtResource("4_mov84")
 

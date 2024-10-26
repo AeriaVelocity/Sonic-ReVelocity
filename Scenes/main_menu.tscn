@@ -157,7 +157,7 @@ script = ExtResource("6_b1ddu")
 
 [node name="Highlight" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.866667)
-position = Vector2(916, 240)
+position = Vector2(916, 97)
 scale = Vector2(4.07422, 261.784)
 skew = 0.785398
 texture = SubResource("GradientTexture1D_6nbjp")
@@ -176,11 +176,11 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 49.0
-offset_top = -308.0
-offset_right = 733.0
-offset_bottom = 308.0
+offset_top = -439.0
+offset_right = 734.0
+offset_bottom = 322.0
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 35
 alignment = 1
 
 [node name="StartGame" type="Label" parent="MenuOptions"]
@@ -193,6 +193,12 @@ vertical_alignment = 1
 [node name="Options" type="Label" parent="MenuOptions"]
 layout_mode = 2
 text = "Options"
+label_settings = SubResource("LabelSettings_bd02j")
+vertical_alignment = 1
+
+[node name="Help" type="Label" parent="MenuOptions"]
+layout_mode = 2
+text = "Help"
 label_settings = SubResource("LabelSettings_bd02j")
 vertical_alignment = 1
 
@@ -233,7 +239,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_8ee2s")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[right]{Jump} Confirm  {Spin} Back[/right]"
+text = "[right]{mA} Confirm  {mB} Back[/right]"
 fit_content = true
 script = ExtResource("8_u6aui")
 

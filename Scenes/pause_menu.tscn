@@ -64,8 +64,8 @@ theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_yrlba")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-text = "[right]{Special1} Restart Level
-{Spin} Back to Main Menu[/right]"
+text = "[right]{X} Restart Level
+{mB} Back to Main Menu[/right]"
 fit_content = true
 script = ExtResource("2_7hl5o")
 

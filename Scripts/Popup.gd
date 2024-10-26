@@ -50,9 +50,9 @@ func get_controls_text() -> String:
     var controls_text: String
     match popup_type:
         PopupType.Ok:
-            controls_text = "{Jump} %s" % ok_label
+            controls_text = "{mA} %s" % ok_label
         PopupType.OkCancel:
-            controls_text = "{Jump} %s  {Spin} %s" % [ok_label, cancel_label]
+            controls_text = "{mA} %s  {mB} %s" % [ok_label, cancel_label]
         _:
             controls_text = "There's a bug in the popup system"
     controls_text = PromptHelpers.format_string_tags(controls_text)

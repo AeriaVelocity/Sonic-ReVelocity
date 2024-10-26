@@ -79,8 +79,10 @@ func handle_tooltip():
     if selected_option_index == 0:
         tooltip.text = "Jump right into Sonic Re;Velocity and play the test level."
     elif selected_option_index == 1:
-        tooltip.text = "Configure options and settings, including controller bindings."
+        tooltip.text = "Configure gameplay settings."
     elif selected_option_index == 2:
+        tooltip.text = "View gameplay tips and controls."
+    elif selected_option_index == 3:
         tooltip.text = "Quit Sonic Re;Velocity and return to %s." % OS.get_name().capitalize()
     else:
         tooltip.text = ""
@@ -94,15 +96,17 @@ func activate_selected_option():
         1:
             get_tree().change_scene_to_file("res://Scenes/options_menu.tscn")
         2:
+            get_tree().change_scene_to_file("res://Scenes/help_screen.tscn")
+        3:
             show_exit_message()
 
 func funny_quit_message():
     var messages: Array = [
         "Where are you going? Come back!",
         "Are you sure you want to quit this great game?",
-        PromptHelpers.format_string_tags("For speed and style, press {Spin}.\nFor work and worry, press {Jump}."),
+        PromptHelpers.format_string_tags("For speed and style, press {mB}.\nFor work and worry, press {mA}."),
         "Come oooon just play the game. We promise it's fun.",
-        PromptHelpers.format_string_tags("Press {Jump} to let Dr. Eggman directly into your house."),
+        PromptHelpers.format_string_tags("Press {mA} to let Dr. Eggman directly into your house."),
         "I bet you didn't get the X Rank, and now you're salty.",
         "Are you going back to Green Hill Zone Simulator?\nIs this really that bad?",
         "You're trying to say Sonic Superstars is better than this, huh?",
@@ -112,7 +116,7 @@ func funny_quit_message():
         "So, you ever heard of DOOM? Yeah? Me too. I like that game. :)",
         "Okay, sure, there's not much content just yet, but don't leave so soon!",
         "Remember SAGE 2024? Yeah, that was nice.\nI really didn't expect everyone to like this game so much.",
-        PromptHelpers.format_string_tags("Press {Up} {Up} {Down} {Down} {Left} {Right} {Left} {Right} {B} {A} to do nothing of importance.")
+        PromptHelpers.format_string_tags("Press {Up} {Up} {Down} {Down} {Left} {Right} {Left} {Right} {mB} {mA} to do nothing of importance.")
     ]
     return messages[randi_range(0, messages.size() - 1)]
 

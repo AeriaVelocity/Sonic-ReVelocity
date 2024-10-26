@@ -43,14 +43,20 @@ func left_button() -> String:
 func right_button() -> String:
     return get_controller_specific_prompt("right")
 
-func jump_button() -> String:
-    if GameOptions.reverse_a_b:
+func dleft_button() -> String:
+    return get_controller_specific_prompt("downleft")
+
+func dright_button() -> String:
+    return get_controller_specific_prompt("downright")
+
+func jump_button(allow_reverse: bool = false) -> String:
+    if GameOptions.reverse_a_b and allow_reverse:
         return get_controller_specific_prompt("spin")
     else:
         return get_controller_specific_prompt("jump")
 
-func spin_button() -> String:
-    if GameOptions.reverse_a_b:
+func spin_button(allow_reverse: bool = false) -> String:
+    if GameOptions.reverse_a_b and allow_reverse:
         return get_controller_specific_prompt("jump")
     else:
         return get_controller_specific_prompt("spin")
@@ -68,6 +74,8 @@ func format_string_tags(text: String) -> String:
             "Down": down_button(),
             "Left": left_button(),
             "Right": right_button(),
+            "DownLeft": dleft_button(),
+            "DownRight": dright_button(),
             "Jump": jump_button(),
             "Spin": spin_button(),
             "Special1": special1_button(),
@@ -75,7 +83,9 @@ func format_string_tags(text: String) -> String:
             "A": jump_button(),
             "B": spin_button(),
             "X": special1_button(),
-            "Y": special2_button()
+            "Y": special2_button(),
+            "mA": jump_button(true),
+            "mB": spin_button(true),
         }
     )
     return formatted_text
